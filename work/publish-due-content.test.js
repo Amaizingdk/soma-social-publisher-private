@@ -241,6 +241,7 @@ test('CLI writes only a sanitized summary and prints no secrets', async () => {
 test('GitHub publish mode injects the durable Git state store and repository ledger', async () => {
   let captured;
   const persist = async () => {};
+  const repoDir = path.join(os.tmpdir(), 'soma-private-runtime');
   await runCli({
     argv: ['--publish'],
     env: {
@@ -260,9 +261,9 @@ test('GitHub publish mode injects the durable Git state store and repository led
       },
       runDueContent: async (options) => { captured = options; return { results: [] }; },
       writeSummary: async () => {},
-      repoDir: 'C:\\release',
+      repoDir,
     },
   });
   assert.equal(captured.persistState, persist);
-  assert.equal(captured.ledgerPath, path.join('C:\\release', 'state', 'publish-ledger.json'));
+  assert.equal(captured.ledgerPath, path.join(repoDir, 'state', 'publish-ledger.json'));
 });
