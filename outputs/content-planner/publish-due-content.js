@@ -66,6 +66,14 @@ function dueItems(plan, now) {
   return plan.automatic.filter((item) => Date.parse(item.scheduledFor) <= now.getTime());
 }
 
+function hasOnlyEventNotFoundFailures(blocked) {
+  return Array.isArray(blocked)
+    && blocked.length > 0
+    && blocked.every((item) => Array.isArray(item.reasons)
+      && item.reasons.length > 0
+      && item.reasons.every((reason) => reason === 'EVENT_NOT_FOUND'));
+}
+
 function liveInputsForDraft(draft, liveEvents) {
   if (draft.kind === 'weekly_overview') {
     const keys = new Set((draft.events || []).map((event) => event.eventKey));
@@ -107,15 +115,21 @@ async function runDueContent({
   const activeDrafts = drafts || JSON.parse(await fs.readFile(DRAFTS_PATH, 'utf8'));
   const activeConfig = config || JSON.parse(await fs.readFile(CONFIG_PATH, 'utf8'));
   const activeAssets = assets || (publish ? JSON.parse(await fs.readFile(ASSETS_PATH, 'utf8')) : null);
-  const liveEvents = await liveEventReader(now, activeConfig.weeksAhead);
+  let liveEvents = await liveEventReader(now, activeConfig.weeksAhead);
   if (!Array.isArray(liveEvents) || liveEvents.length === 0) throw new Error('Livekalenderen returnerede ingen events');
 
-  const plan = await planBuilder(activeDrafts, {
+  const buildPlan = (events) => planBuilder(activeDrafts, {
     generatedAt: now,
     now,
-    liveEvents,
+    liveEvents: events,
     assetHosting: activeConfig.assetHosting,
   });
+  let plan = await buildPlan(liveEvents);
+  if (hasOnlyEventNotFoundFailures(plan.blocked)) {
+    liveEvents = await liveEventReader(now, activeConfig.weeksAhead);
+    if (!Array.isArray(liveEvents) || liveEvents.length === 0) throw new Error('Livekalenderen returnerede ingen events');
+    plan = await buildPlan(liveEvents);
+  }
   if (plan.blocked?.length) {
     throw new Error(`Frisk kalenderkontrol blokerede ${plan.blocked.length} godkendte kladder`);
   }

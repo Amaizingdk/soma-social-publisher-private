@@ -81,6 +81,61 @@ test('calendar or blocked-plan failures stop before rendering and publishing', a
   assert.equal(sideEffect, false);
 });
 
+test('retries one transient all-EVENT_NOT_FOUND calendar snapshot before selecting due content', async () => {
+  let calendarReads = 0;
+  let planBuilds = 0;
+  const result = await runDueContent({
+    now: new Date('2026-09-30T12:00:00Z'),
+    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => {
+      calendarReads += 1;
+      return [{ eventKey: 'event-1', booked: 6, capacity: 12 }];
+    },
+    planBuilder: async () => {
+      planBuilds += 1;
+      return planBuilds === 1
+        ? deliveryPlan([], [{ draftId: 'd1', revision: 1, reasons: ['EVENT_NOT_FOUND'] }])
+        : deliveryPlan([storyItem()]);
+    },
+  });
+  assert.equal(calendarReads, 2);
+  assert.equal(planBuilds, 2);
+  assert.deepEqual(result.due.map((item) => item.draftId), ['d1']);
+});
+
+test('persistent EVENT_NOT_FOUND failures stop after exactly one retry', async () => {
+  let calendarReads = 0;
+  await assert.rejects(runDueContent({
+    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => {
+      calendarReads += 1;
+      return [{ eventKey: 'event-2', booked: 4, capacity: 12 }];
+    },
+    planBuilder: async () => deliveryPlan([], [
+      { draftId: 'd1', revision: 1, reasons: ['EVENT_NOT_FOUND'] },
+    ]),
+  }), /blokerede 1 godkendte kladder/i);
+  assert.equal(calendarReads, 2);
+});
+
+test('calendar validation failures other than EVENT_NOT_FOUND are not retried', async () => {
+  let calendarReads = 0;
+  await assert.rejects(runDueContent({
+    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => {
+      calendarReads += 1;
+      return [{ eventKey: 'event-1', booked: 6, capacity: 12 }];
+    },
+    planBuilder: async () => deliveryPlan([], [
+      { draftId: 'd1', revision: 1, reasons: ['STALE_CALENDAR'] },
+    ]),
+  }), /blokerede 1 godkendte kladder/i);
+  assert.equal(calendarReads, 1);
+});
+
 test('a retry skips the published Story and blocks the ambiguous Facebook delivery', async () => {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-due-'));
   const ledgerPath = path.join(directory, 'ledger.json');
