@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "profileId": "neutral",
+      "displayName": null,
+      "aliases": [],
+      "creditLine": null,
+      "approvedThemes": ["varme", "dufte", "musik", "nærvær"],
+      "tone": ["varm", "rolig", "inviterende"],
+      "facts": [
+        "Et saunagus med varme, dufte, musik og nærvær."
+      ],
+      "hooks": [
+        "Giv dig selv et varmt pusterum.",
+        "Der er plads til ro, varme og nærvær."
+      ],
+      "invitations": [
+        "Du er velkommen præcis, som du er.",
+        "Kom med ind i varmen."
+      ],
+      "automaticUseAllowed": false
+    },
+    {
+      "profileId": "soren",
+      "displayName": "Søren",
+      "aliases": ["søren", "soren", "søren madsen", "soren madsen"],
+      "creditLine": "Saunagus med Søren",
+      "approvedThemes": ["meditativ landing", "nordisk kraft", "varme beats", "blid afslutning"],
+      "tone": ["sanselig", "rolig", "tryg", "nærværende"],
+      "facts": [
+        "Gusen bevæger sig fra en blid meditativ landing gennem nordiske toner og varme beats til en rolig afslutning."
+      ],
+      "hooks": [
+        "Land i varmen og mærk roen brede sig.",
+        "Fra dagens tempo til ro i kroppen."
+      ],
+      "invitations": [
+        "Giv dig selv plads til at lande gennem fire sanselige runder.",
+        "Kom med ind i varmen og gå derfra med mere ro."
+      ],
+      "weekdayProfiles": {
+        "2": {
+          "variants": [
+            {
+              "hook": "Land i varmen og lad kroppen falde til ro.",
+              "fact": "Musikken har lidt mere rytme og kraft, mens du stadig får plads til at lande.",
+              "invitation": "Fire runder, der begynder blidt og slutter med ro i kroppen."
+            },
+            {
+              "hook": "Giv slip på dagen og kom med ind i varmen.",
+              "fact": "Rytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.",
+              "invitation": "Kom som du er, og lad varmen gøre resten."
+            },
+            {
+              "hook": "Kom ind i varmen, land i kroppen og vær lige her.",
+              "fact": "Musikken får mere fylde og rytme uden at skubbe roen til side.",
+              "invitation": "En sanselig stund med plads til både styrke og velvære."
+            },
+            {
+              "hook": "Lad skuldrene sænke sig, mens varmen tager over.",
+              "fact": "Der er mere kraft i musikken, mens kroppen inviteres til at give slip og finde ro.",
+              "invitation": "Vi starter blidt, mærker rytmen og slutter roligt."
+            }
+          ]
+        },
+        "4": {
+          "variants": [
+            {
+              "hook": "Træk vejret dybt og lad kroppen falde til ro.",
+              "fact": "Vi begynder med en kort breathwork og fortsætter gennem blide, sanselige runder.",
+              "invitation": "Giv dig selv en rolig stund med varme, dufte og nærvær."
+            },
+            {
+              "hook": "Lad varmen omslutte dig og åndedrættet finde sin ro.",
+              "fact": "Åndedrættet åbner guset, før varme, musik og dufte får lov at fylde sanserne.",
+              "invitation": "Kom med ind i et blidt saunagus med plads til bare at være."
+            },
+            {
+              "hook": "Sænk skuldrene og mærk roen brede sig.",
+              "fact": "En kort breathwork hjælper dig med at lande, før de sanselige runder folder sig ud.",
+              "invitation": "Fire blide runder med ro, varme og nærvær."
+            },
+            {
+              "hook": "Giv dig selv en stille stund i varmen.",
+              "fact": "Vi starter med åndedrættet og lader derefter dufte, musik og varme føre dig længere ind i roen.",
+              "invitation": "Du skal ikke præstere noget – du skal bare være med."
+            }
+          ]
+        },
+        "0": {
+          "variants": [
+            {
+              "hook": "Rund ugen af med varme og ro i kroppen.",
+              "fact": "Søndagens musik og tema kan variere, men den rolige grundrejse er altid med.",
+              "invitation": "Kom med og giv dig selv en blid afslutning på ugen."
+            },
+            {
+              "hook": "Lad søndagen lande blødt i varmen.",
+              "fact": "Fire sanselige runder med musik, dufte og plads til at give slip.",
+              "invitation": "En rolig stund, før en ny uge begynder."
+            },
+            {
+              "hook": "Kom ind i varmen og mærk kroppen finde ro.",
+              "fact": "Søndagens udtryk får lov at skifte, mens nærvær og velvære er fundamentet.",
+              "invitation": "Giv dig selv tid til at lande og bare være til stede."
+            },
+            {
+              "hook": "Slut ugen med varme, dufte og nærvær.",
+              "fact": "Musikken kan overraske, men rejsen begynder blidt og slutter roligt.",
+              "invitation": "Kom som du er, og gå derfra med mere ro i kroppen."
+            }
+          ]
+        }
+      },
+      "automaticUseAllowed": true
+    },
+    {
+      "profileId": "millemaja",
+      "displayName": "MilleMaja",
+      "aliases": ["millemaja", "mille maja"],
+      "creditLine": "MilleMaja fra Betterlife by Yndigegn",
+      "approvedThemes": ["sanselig", "meditativ", "guidet", "roligt tempo"],
+      "tone": ["poetisk", "rummelig", "blid"],
+      "facts": [
+        "MilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være."
+      ],
+      "hooks": [
+        "Et roligt rum midt i alt det, der skal nås.",
+        "Sænk tempoet og kom hjem i kroppen."
+      ],
+      "invitations": [
+        "Du må komme præcis, som du er.",
+        "Giv dig selv plads til bare at være."
+      ],
+      "automaticUseAllowed": true
+    }
+  ]
+}

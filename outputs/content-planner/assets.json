@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "logoPath": "assets/soma-logo-white.png",
+  "assets": [
+    {
+      "assetId": "soma-sauna-01",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "ovn",
+        "varme",
+        "weekly",
+        "autumn",
+        "winter"
+      ],
+      "crop45": {
+        "x": 0.08,
+        "y": 0.08,
+        "width": 0.84,
+        "height": 0.84
+      },
+      "orientationVerified": true,
+      "approvalNote": "Billedet og den korrigerede orientering blev visuelt godkendt af Søren i POC-forløbet.",
+      "sourcePath": "assets/soma-sauna-01.jpg",
+      "normalizedPath": "assets/soma-sauna-01.jpg"
+    },
+    {
+      "assetId": "soma-power-steam",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "damp",
+        "mennesker",
+        "power",
+        "autumn",
+        "winter"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.03,
+        "width": 1,
+        "height": 0.94
+      },
+      "orientationVerified": true,
+      "approvalNote": "Normaliseret kopi; originalen er urørt. Valgt som Powergus-eksempel efter visuel kontrol.",
+      "sourcePath": "assets/soma-power-steam.jpg",
+      "normalizedPath": "assets/soma-power-steam.jpg"
+    },
+    {
+      "assetId": "soma-calm-sunlight",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "sollys",
+        "rolig",
+        "calm",
+        "breathwork",
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.03,
+        "width": 1,
+        "height": 0.94
+      },
+      "orientationVerified": true,
+      "approvalNote": "Normaliseret kopi; originalen er urørt. Valgt som roligt torsdagsmotiv efter visuel kontrol.",
+      "sourcePath": "assets/soma-calm-sunlight.jpg",
+      "normalizedPath": "assets/soma-calm-sunlight.jpg"
+    },
+    {
+      "assetId": "soma-outdoor-sunday",
+      "status": "approved",
+      "tags": [
+        "udendørs",
+        "stedet",
+        "sunday",
+        "weekly",
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "crop45": {
+        "x": 0.27,
+        "y": 0,
+        "width": 0.6,
+        "height": 1
+      },
+      "orientationVerified": true,
+      "approvalNote": "Normaliseret kopi; originalen er urørt. Valgt som søndags- og ugeoverbliksmotiv efter visuel kontrol.",
+      "sourcePath": "assets/soma-outdoor-sunday.jpg",
+      "normalizedPath": "assets/soma-outdoor-sunday.jpg"
+    },
+    {
+      "assetId": "soma-winter-night",
+      "status": "approved",
+      "tags": [
+        "aften",
+        "varme",
+        "hytte",
+        "winter",
+        "sunday",
+        "weekly",
+        "calm"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1
+      },
+      "orientationVerified": true,
+      "approvalNote": "Vintermotiv beskåret fra en separat normaliseret kopi; originalen er urørt. Visuelt kontrolleret uden rotation eller spejling.",
+      "sourcePath": "assets/soma-winter-night-crop.jpg",
+      "normalizedPath": "assets/soma-winter-night-crop.jpg"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "timezone": "Europe/Copenhagen",
+  "bookingUrl": "https://somasaunagus.dk/kalender/",
+  "weeksAhead": 4,
+  "fewSpotsThreshold": 3,
+  "weeklyOverview": {
+    "weekday": 0,
+    "time": "19:30"
+  },
+  "dayBeforeTime": "19:00",
+  "morningCutoff": "12:00",
+  "morningPostTime": "07:00",
+  "dayPostTime": "11:30",
+  "season": {
+    "mode": "auto",
+    "winterStarts": "11-01"
+  },
+  "render": {
+    "width": 1080,
+    "height": 1350,
+    "format": "jpeg",
+    "quality": 92
+  },
+  "storyRender": {
+    "width": 1080,
+    "height": 1920,
+    "format": "jpeg",
+    "quality": 92
+  },
+  "assetHosting": {
+    "provider": "github-pages",
+    "repository": "Amaizingdk/soma-social-assets",
+    "baseUrl": "https://raw.githubusercontent.com/Amaizingdk/soma-social-assets/main",
+    "uploadRequiredBeforeMetaPublish": true
+  }
+}

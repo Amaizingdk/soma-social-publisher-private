@@ -1,0 +1,10 @@
+.env
+.env.*
+*.token
+*token*
+browser-data/
+node_modules/
+outputs/content-planner/renders/
+state/run-summary.json
+*.tmp
+debug.log

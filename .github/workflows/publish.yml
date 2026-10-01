@@ -1,0 +1,102 @@
+name: SOMA publisher
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+      timezone: Europe/Copenhagen
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Safe dry-run or explicit live publish
+        type: choice
+        options: [dry_run, publish]
+        default: dry_run
+        required: true
+      delivery_type:
+        description: Automatic channel to test, or all due channels
+        type: choice
+        options: [all, instagram_story, facebook_page_feed]
+        default: all
+        required: true
+
+permissions: {}
+
+concurrency:
+  group: soma-social-publisher
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  dry_run:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'dry_run'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout verified runtime
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run live-calendar dry-run
+        shell: bash
+        run: |
+          if [ "${{ inputs.delivery_type }}" = "all" ]; then
+            npm run dry-run
+          else
+            node outputs/content-planner/publish-due-content.js --dry-run --delivery-type "${{ inputs.delivery_type }}"
+          fi
+      - name: Add sanitized summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f state/run-summary.json ]; then
+            cat state/run-summary.json >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  publish:
+    if: (github.event_name == 'schedule' && vars.PUBLISH_ENABLED == 'true') || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout verified runtime
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Publish due content
+        shell: bash
+        env:
+          PUBLISH_ENABLED: 'true'
+          SOMA_META_ACCESS_TOKEN: ${{ secrets.SOMA_META_ACCESS_TOKEN }}
+          SOMA_ASSET_REPO_TOKEN: ${{ secrets.SOMA_ASSET_REPO_TOKEN }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.delivery_type }}" != "all" ]; then
+            node outputs/content-planner/publish-due-content.js --publish --delivery-type "${{ inputs.delivery_type }}"
+          else
+            npm run publish
+          fi
+      - name: Add sanitized summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f state/run-summary.json ]; then
+            cat state/run-summary.json >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "overrideId": "2026-10-18-mellemrum-10-00",
+      "match": {
+        "date": "2026-10-18",
+        "start": "10:00",
+        "instructorAliases": ["millemaja", "mille maja"]
+      },
+      "expiresAfter": "2026-10-18",
+      "title": "MELLEMRUM GUS",
+      "creditLine": "MELLEMRUM GUS med MilleMaja fra Betterlife by Yndigegn",
+      "approvedFacts": [
+        "Fire sanselige og meditative guidede runder.",
+        "Et mellemrum fra hverdag, tanker og præstation.",
+        "Musik, dufte, varme og guidning understøtter nærvær.",
+        "Der er ikke noget bestemt, du skal opleve; du må komme præcis, som du er."
+      ],
+      "tone": ["poetisk", "rummelig", "blid"],
+      "hooks": [
+        "Et mellemrum fra hverdagen. Et rum, hvor du bare må være."
+      ],
+      "invitations": [
+        "Giv dig selv et mellemrum i varmen."
+      ],
+      "bookingUrl": "https://somasaunagus.dk/kalender/",
+      "automaticUseAllowed": true
+    }
+  ]
+}

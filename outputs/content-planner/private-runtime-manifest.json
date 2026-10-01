@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "copies": [
+    {
+      "source": "outputs/soma-reader.js",
+      "destination": "outputs/soma-reader.js"
+    },
+    {
+      "source": "outputs/content-planner/lib",
+      "destination": "outputs/content-planner/lib"
+    },
+    {
+      "source": "outputs/content-planner/publish-due-content.js",
+      "destination": "outputs/content-planner/publish-due-content.js"
+    },
+    {
+      "source": "outputs/content-planner/build-content-plan.js",
+      "destination": "outputs/content-planner/build-content-plan.js"
+    },
+    {
+      "source": "outputs/content-planner/build-private-runtime.js",
+      "destination": "outputs/content-planner/build-private-runtime.js"
+    },
+    {
+      "source": "outputs/content-planner/private-runtime-manifest.json",
+      "destination": "outputs/content-planner/private-runtime-manifest.json"
+    },
+    {
+      "source": "outputs/content-planner/publish-content.js",
+      "destination": "outputs/content-planner/publish-content.js"
+    },
+    {
+      "source": "outputs/content-planner/publish-meta-test.js",
+      "destination": "outputs/content-planner/publish-meta-test.js"
+    },
+    {
+      "source": "outputs/content-planner/upload-approved-assets.js",
+      "destination": "outputs/content-planner/upload-approved-assets.js"
+    },
+    {
+      "source": "outputs/content-planner/upload-asset.js",
+      "destination": "outputs/content-planner/upload-asset.js"
+    },
+    {
+      "source": "outputs/content-planner/config.json",
+      "destination": "outputs/content-planner/config.json"
+    },
+    {
+      "source": "outputs/content-planner/profiles.json",
+      "destination": "outputs/content-planner/profiles.json"
+    },
+    {
+      "source": "outputs/content-planner/event-overrides.json",
+      "destination": "outputs/content-planner/event-overrides.json"
+    },
+    {
+      "source": "outputs/content-planner/approval/app.js",
+      "destination": "outputs/content-planner/approval/app.js"
+    },
+    {
+      "source": "outputs/content-planner/approval/index.html",
+      "destination": "outputs/content-planner/approval/index.html"
+    },
+    {
+      "source": "outputs/content-planner/approval/styles.css",
+      "destination": "outputs/content-planner/approval/styles.css"
+    },
+    {
+      "source": "outputs/content-planner/runtime",
+      "destination": "."
+    },
+    {
+      "source": "package.json",
+      "destination": "package.json"
+    },
+    {
+      "source": "package-lock.json",
+      "destination": "package-lock.json"
+    },
+    {
+      "source": "work/fixtures",
+      "destination": "work/fixtures"
+    }
+  ],
+  "testGlob": "work/*.test.js",
+  "testDestination": "work"
+}
