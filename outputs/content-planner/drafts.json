@@ -68,7 +68,13 @@
       }
     },
     "approvedAt": "2026-09-29T13:03:51.207Z",
-    "warningsAcknowledged": true
+    "warningsAcknowledged": true,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "085c78cdfcda60daddae7f5d8c4c230cbae05c2c36a869cafded24213a17c6a9",
+      "path": "renders/2026-10-01_18-30_saunagus_day-before-4bd983c501-soren.jpg"
+    }
   },
   {
     "draftId": "2026-10-01_18-30_saunagus_event-day_r5",
@@ -139,7 +145,13 @@
       }
     },
     "approvedAt": "2026-09-29T13:03:59.779Z",
-    "warningsAcknowledged": true
+    "warningsAcknowledged": true,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "085c78cdfcda60daddae7f5d8c4c230cbae05c2c36a869cafded24213a17c6a9",
+      "path": "renders/2026-10-01_18-30_saunagus_event-day-4bd983c501-soren.jpg"
+    }
   },
   {
     "draftId": "2026-10-04_16-00_saunagus_day-before_r5",
@@ -210,7 +222,13 @@
       }
     },
     "approvedAt": "2026-09-29T13:05:03.173Z",
-    "warningsAcknowledged": true
+    "warningsAcknowledged": true,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "a16003d70573ef93a9aa562666654be95bd051afed4c50cd71e2a13cf91ffc8c",
+      "path": "renders/2026-10-04_16-00_saunagus_day-before-7d781a2cd4-soren.jpg"
+    }
   },
   {
     "draftId": "2026-10-04_16-00_saunagus_event-day_r5",
@@ -281,7 +299,13 @@
       }
     },
     "approvedAt": "2026-09-29T13:05:18.379Z",
-    "warningsAcknowledged": true
+    "warningsAcknowledged": true,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "a16003d70573ef93a9aa562666654be95bd051afed4c50cd71e2a13cf91ffc8c",
+      "path": "renders/2026-10-04_16-00_saunagus_event-day-7d781a2cd4-soren.jpg"
+    }
   },
   {
     "draftId": "2026-10-05_weekly-overview_r6",
@@ -343,7 +367,13 @@
     "assetId": "soma-outdoor-sunday",
     "manualInstructor": null,
     "approvedAt": "2026-09-30T07:41:25.333Z",
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "51b3cd9db18d7ff069c9122796e0181afd4d3861032a5e526aead7319a11e8a4",
+      "path": "renders/2026-10-05_weekly-overview-e17a7095d8.jpg"
+    }
   },
   {
     "draftId": "2026-10-06_18-30_saunagus_day-before_r5",
@@ -414,7 +444,13 @@
       }
     },
     "approvedAt": "2026-09-29T13:06:24.100Z",
-    "warningsAcknowledged": true
+    "warningsAcknowledged": true,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "028cb0ca0c9719076881cd1ee85ae0c3eb3e22d1cda610718c3695d880bc03cb",
+      "path": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-soren.jpg"
+    }
   },
   {
     "draftId": "2026-10-06_18-30_saunagus_event-day_r5",
@@ -485,7 +521,13 @@
       }
     },
     "approvedAt": "2026-09-29T13:06:38.790Z",
-    "warningsAcknowledged": true
+    "warningsAcknowledged": true,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "028cb0ca0c9719076881cd1ee85ae0c3eb3e22d1cda610718c3695d880bc03cb",
+      "path": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-soren.jpg"
+    }
   },
   {
     "draftId": "2026-10-08_18-30_saunagus_day-before_r6",
@@ -534,7 +576,13 @@
     "assetId": "soma-calm-sunlight",
     "manualInstructor": null,
     "approvedAt": "2026-09-30T07:41:53.205Z",
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "7b015f445e7170f96797d125aa0002be25b4d9eb72766b0eb1797b035a2e6e09",
+      "path": "renders/2026-10-08_18-30_saunagus_day-before-211575b445.jpg"
+    }
   },
   {
     "draftId": "2026-10-08_18-30_saunagus_event-day_r6",
@@ -583,7 +631,13 @@
     "assetId": "soma-calm-sunlight",
     "manualInstructor": null,
     "approvedAt": "2026-09-30T07:42:33.739Z",
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "7b015f445e7170f96797d125aa0002be25b4d9eb72766b0eb1797b035a2e6e09",
+      "path": "renders/2026-10-08_18-30_saunagus_event-day-211575b445.jpg"
+    }
   },
   {
     "draftId": "2026-10-12_weekly-overview_r7",
@@ -679,6 +733,12 @@
     "assetId": "soma-outdoor-sunday",
     "manualInstructor": null,
     "approvedAt": "2026-09-30T07:43:14.165Z",
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "51b3cd9db18d7ff069c9122796e0181afd4d3861032a5e526aead7319a11e8a4",
+      "path": "renders/2026-10-12_weekly-overview-df6ac12272.jpg"
+    }
   }
 ]

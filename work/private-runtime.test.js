@@ -26,8 +26,19 @@ async function createProjectFixture() {
   await write(projectRoot, 'work/runtime.test.js', "require('node:test')('fixture', () => {});\n");
   await write(projectRoot, 'work/normalized-assets/approved.jpg', Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
   await write(projectRoot, 'work/normalized-assets/logo.png', Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+  await write(projectRoot, 'work/renders/approved-render.jpg', Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
   await write(projectRoot, 'outputs/content-planner/drafts.json', JSON.stringify([
-    { draftId: 'approved-1', status: 'approved', history: [{ type: 'approve' }], render: { path: 'C:\\Users\\Fixture\\render.jpg' } },
+    {
+      draftId: 'approved-1',
+      status: 'approved',
+      history: [{ type: 'approve' }],
+      render: {
+        path: path.join(projectRoot, 'work/renders/approved-render.jpg'),
+        width: 1080,
+        height: 1350,
+        sha256: 'fixture-render-sha',
+      },
+    },
     { draftId: 'draft-1', status: 'draft', history: [] },
   ]));
   await write(projectRoot, 'outputs/content-planner/assets.json', JSON.stringify({
@@ -75,6 +86,7 @@ test('private runtime includes publisher code but excludes prototypes and notes'
   assert(result.files.includes('outputs/content-planner/publish-due-content.js'));
   assert(result.files.includes('package-lock.json'));
   assert(result.files.includes('assets/approved.jpg'));
+  assert(result.files.includes('renders/approved-render.jpg'));
   assert.equal(result.files.some((file) => /prototype|licensed-music|PROJECT_STATUS|debug\.log/i.test(file)), false);
 });
 
@@ -122,6 +134,13 @@ test('generated runtime data contains only approved drafts and portable asset pa
   assert.equal(drafts.every((draft) => draft.status === 'approved'), true);
   assert.equal(drafts.some((draft) => Object.hasOwn(draft, 'history')), false);
   assert.equal(JSON.stringify(drafts).includes('C:\\Users\\'), false);
+  assert.deepEqual(drafts[0].render, {
+    path: 'renders/approved-render.jpg',
+    width: 1080,
+    height: 1350,
+    sha256: 'fixture-render-sha',
+  });
+  await fs.access(path.join(fixture.destination, drafts[0].render.path));
   assert.equal(JSON.stringify(assets).includes('C:\\Users\\'), false);
   assert.equal(assets.logoPath, 'assets/soma-logo-white.png');
   assert.equal(assets.assets.every((asset) => asset.normalizedPath.startsWith('assets/')), true);

@@ -133,13 +133,33 @@ async function preparePortableData(projectRoot) {
   const assetsPath = path.join(projectRoot, 'outputs', 'content-planner', 'assets.json');
   const draftsSource = await readJson(draftsPath);
   if (!Array.isArray(draftsSource)) throw new Error('drafts.json skal være en liste');
-  const drafts = draftsSource.filter((draft) => draft && draft.status === 'approved').map(stripLocalData);
+  const copyFiles = [];
+  const usedRenderNames = new Map();
+  const drafts = [];
+  for (const draft of draftsSource.filter((item) => item && item.status === 'approved')) {
+    if (!draft.render?.path) throw new Error(`Godkendt kladde mangler render: ${draft.draftId || 'ukendt'}`);
+    const fileName = path.basename(draft.render.path);
+    const key = fileName.toLowerCase();
+    const existingSource = usedRenderNames.get(key);
+    if (existingSource && path.resolve(existingSource) !== path.resolve(draft.render.path)) {
+      throw new Error(`Render-filnavn er ikke entydigt: ${fileName}`);
+    }
+    const renderPath = validateReleasePath(path.join('renders', fileName));
+    if (!existingSource) {
+      usedRenderNames.set(key, draft.render.path);
+      copyFiles.push({ source: draft.render.path, destination: renderPath });
+    }
+    const { path: localRenderPath, ...renderMetadata } = draft.render;
+    drafts.push({
+      ...stripLocalData(draft),
+      render: { ...stripLocalData(renderMetadata), path: portable(renderPath) },
+    });
+  }
 
   const assetsSource = await readJson(assetsPath);
   if (!assetsSource || !Array.isArray(assetsSource.assets) || !assetsSource.logoPath) {
     throw new Error('assets.json mangler assets eller logoPath');
   }
-  const copyFiles = [];
   const usedNames = new Set();
   const assets = [];
   for (const asset of assetsSource.assets.filter((item) => item && item.status === 'approved')) {
