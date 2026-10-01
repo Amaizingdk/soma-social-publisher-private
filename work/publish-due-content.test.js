@@ -231,6 +231,31 @@ test('controlled live test selects one exact Instagram Story when two drafts are
   assert.deepEqual(called, ['d1:instagram_story']);
 });
 
+test('an exact draft selection validates only the selected draft', async () => {
+  let plannedDraftIds;
+  const result = await runDueContent({
+    draftId: 'd1',
+    now: new Date('2026-09-30T12:00:00Z'),
+    drafts: [
+      { draftId: 'd1', status: 'approved', eventKey: 'event-1' },
+      { draftId: 'd2', status: 'approved', eventKey: 'event-2' },
+    ],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => [{ eventKey: 'event-1', booked: 6, capacity: 12 }],
+    planBuilder: async (selectedDrafts) => {
+      plannedDraftIds = selectedDrafts.map((draft) => draft.draftId);
+      return deliveryPlan(
+        [storyItem()],
+        selectedDrafts.some((draft) => draft.draftId === 'd2')
+          ? [{ draftId: 'd2', revision: 1, reasons: ['EVENT_NOT_FOUND'] }]
+          : [],
+      );
+    },
+  });
+  assert.deepEqual(plannedDraftIds, ['d1']);
+  assert.deepEqual(result.due.map((item) => item.draftId), ['d1']);
+});
+
 test('an exact draft selection fails closed when the draft is not due', async () => {
   await assert.rejects(runDueContent({
     draftId: 'missing-draft',

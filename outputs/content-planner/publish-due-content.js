@@ -113,12 +113,15 @@ async function runDueContent({
   fetchImpl = globalThis.fetch,
 } = {}) {
   const activeDrafts = drafts || JSON.parse(await fs.readFile(DRAFTS_PATH, 'utf8'));
+  const selectedDrafts = draftId === null
+    ? activeDrafts
+    : activeDrafts.filter((draft) => draft.draftId === draftId);
   const activeConfig = config || JSON.parse(await fs.readFile(CONFIG_PATH, 'utf8'));
   const activeAssets = assets || (publish ? JSON.parse(await fs.readFile(ASSETS_PATH, 'utf8')) : null);
   let liveEvents = await liveEventReader(now, activeConfig.weeksAhead);
   if (!Array.isArray(liveEvents) || liveEvents.length === 0) throw new Error('Livekalenderen returnerede ingen events');
 
-  const buildPlan = (events) => planBuilder(activeDrafts, {
+  const buildPlan = (events) => planBuilder(selectedDrafts, {
     generatedAt: now,
     now,
     liveEvents: events,
