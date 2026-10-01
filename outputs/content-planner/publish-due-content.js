@@ -20,7 +20,7 @@ const LEDGER_PATH = path.join(__dirname, 'publish-ledger.json');
 
 function parseArgs(argv = []) {
   if (!Array.isArray(argv)) throw new Error('CLI-argumenter skal være en liste');
-  const result = { publish: false, deliveryTypes: null };
+  const result = { publish: false, deliveryTypes: null, draftId: null };
   let mode = null;
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
@@ -36,6 +36,14 @@ function parseArgs(argv = []) {
       }
       if (result.deliveryTypes !== null) throw new Error('--delivery-type må kun angives én gang');
       result.deliveryTypes = [deliveryType];
+      index += 1;
+    } else if (argument === '--draft-id') {
+      const draftId = argv[index + 1];
+      if (typeof draftId !== 'string' || draftId.trim() === '' || draftId.startsWith('--')) {
+        throw new Error('--draft-id kræver en værdi');
+      }
+      if (result.draftId !== null) throw new Error('--draft-id må kun angives én gang');
+      result.draftId = draftId;
       index += 1;
     } else {
       throw new Error(`Ukendt eller gentaget argument: ${argument}`);
@@ -81,6 +89,7 @@ async function defaultStoryRenderer({ draft, liveEvents, assets, outputPath }) {
 async function runDueContent({
   publish = false,
   deliveryTypes = null,
+  draftId = null,
   now = new Date(),
   env = process.env,
   drafts,
@@ -114,7 +123,12 @@ async function runDueContent({
   if (deliveryTypes !== null && (!Array.isArray(deliveryTypes) || deliveryTypes.some((value) => !allowedDeliveryTypes.has(value)))) {
     throw new Error('Ugyldigt kanalvalg til kontrolleret publicering');
   }
-  const due = dueItems(plan, now).filter((item) => deliveryTypes === null || deliveryTypes.includes(item.deliveryType));
+  const due = dueItems(plan, now)
+    .filter((item) => deliveryTypes === null || deliveryTypes.includes(item.deliveryType))
+    .filter((item) => draftId === null || item.draftId === draftId);
+  if (draftId !== null && due.length === 0) {
+    throw new Error(`Den valgte kladde er ikke forfalden til det valgte kanalfilter: ${draftId}`);
+  }
   if (!publish) return { mode: 'dry_run', plan, due };
 
   if (!assetUploader && !env.SOMA_ASSET_REPO_TOKEN) throw new Error('SOMA_ASSET_REPO_TOKEN mangler');
@@ -210,6 +224,7 @@ async function runCli({
   const result = await execute({
     publish: args.publish,
     deliveryTypes: args.deliveryTypes,
+    draftId: args.draftId,
     env,
     ...runOptions,
   });

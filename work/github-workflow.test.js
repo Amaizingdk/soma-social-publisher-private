@@ -58,6 +58,14 @@ test('publisher workflow keeps checkout credentials for ledger pushes and writes
   assert.match(yaml, /GITHUB_STEP_SUMMARY/);
 });
 
+test('manual workflow forwards an exact draft id through shell-safe arguments', async () => {
+  const yaml = await fs.readFile(publishPath, 'utf8');
+  assert.match(yaml, /draft_id:/);
+  assert.match(yaml, /SOMA_DRAFT_ID:\s*\$\{\{ inputs\.draft_id \}\}/);
+  assert.equal((yaml.match(/--draft-id "\$SOMA_DRAFT_ID"/g) || []).length, 2);
+  assert.doesNotMatch(yaml, /--draft-id[^\n]*\$\{\{ inputs\.draft_id \}\}/);
+});
+
 test('runtime ledger starts empty with schema version one', async () => {
   const ledger = JSON.parse(await fs.readFile(ledgerPath, 'utf8'));
   assert.deepEqual(ledger, { schemaVersion: 1, entries: [] });

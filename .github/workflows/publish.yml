@@ -18,6 +18,11 @@ on:
         options: [all, instagram_story, facebook_page_feed]
         default: all
         required: true
+      draft_id:
+        description: Optional exact approved draft ID for a controlled test
+        type: string
+        default: ''
+        required: false
 
 permissions: {}
 
@@ -48,12 +53,18 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run live-calendar dry-run
         shell: bash
+        env:
+          SOMA_DELIVERY_TYPE: ${{ inputs.delivery_type }}
+          SOMA_DRAFT_ID: ${{ inputs.draft_id }}
         run: |
-          if [ "${{ inputs.delivery_type }}" = "all" ]; then
-            npm run dry-run
-          else
-            node outputs/content-planner/publish-due-content.js --dry-run --delivery-type "${{ inputs.delivery_type }}"
+          args=(--dry-run)
+          if [ "$SOMA_DELIVERY_TYPE" != "all" ]; then
+            args+=(--delivery-type "$SOMA_DELIVERY_TYPE")
           fi
+          if [ -n "$SOMA_DRAFT_ID" ]; then
+            args+=(--draft-id "$SOMA_DRAFT_ID")
+          fi
+          node outputs/content-planner/publish-due-content.js "${args[@]}"
       - name: Add sanitized summary
         if: always()
         shell: bash
@@ -87,12 +98,18 @@ jobs:
           PUBLISH_ENABLED: 'true'
           SOMA_META_ACCESS_TOKEN: ${{ secrets.SOMA_META_ACCESS_TOKEN }}
           SOMA_ASSET_REPO_TOKEN: ${{ secrets.SOMA_ASSET_REPO_TOKEN }}
+          SOMA_EVENT_NAME: ${{ github.event_name }}
+          SOMA_DELIVERY_TYPE: ${{ inputs.delivery_type }}
+          SOMA_DRAFT_ID: ${{ inputs.draft_id }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.delivery_type }}" != "all" ]; then
-            node outputs/content-planner/publish-due-content.js --publish --delivery-type "${{ inputs.delivery_type }}"
-          else
-            npm run publish
+          args=(--publish)
+          if [ "$SOMA_EVENT_NAME" = "workflow_dispatch" ] && [ "$SOMA_DELIVERY_TYPE" != "all" ]; then
+            args+=(--delivery-type "$SOMA_DELIVERY_TYPE")
           fi
+          if [ "$SOMA_EVENT_NAME" = "workflow_dispatch" ] && [ -n "$SOMA_DRAFT_ID" ]; then
+            args+=(--draft-id "$SOMA_DRAFT_ID")
+          fi
+          node outputs/content-planner/publish-due-content.js "${args[@]}"
       - name: Add sanitized summary
         if: always()
         shell: bash

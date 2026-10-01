@@ -133,9 +133,16 @@ test('default mode is a dry run and performs no render, upload, or Meta write', 
   assert.deepEqual(effects, []);
 });
 
-test('controlled live test can select only Instagram Story without touching Facebook', async () => {
+test('controlled live test selects one exact Instagram Story when two drafts are due', async () => {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-due-'));
   const called = [];
+  const secondStory = {
+    ...storyItem(),
+    idempotencyKey: 'second-story-key',
+    draftId: 'd2',
+    eventKey: 'event-2',
+    assetPath: 'approved/d2-r1-story.jpg',
+  };
   const facebook = {
     ...storyItem(),
     deliveryType: 'facebook_page_feed',
@@ -146,20 +153,38 @@ test('controlled live test can select only Instagram Story without touching Face
   await runDueContent({
     publish: true,
     deliveryTypes: ['instagram_story'],
+    draftId: 'd1',
     now: new Date('2026-09-30T12:00:00Z'),
-    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    drafts: [
+      { draftId: 'd1', status: 'approved', eventKey: 'event-1' },
+      { draftId: 'd2', status: 'approved', eventKey: 'event-2' },
+    ],
     config: { weeksAhead: 4 },
     ledgerPath: path.join(directory, 'ledger.json'),
-    liveEventReader: async () => [{ eventKey: 'event-1', booked: 6, capacity: 12 }],
-    planBuilder: async () => deliveryPlan([storyItem(), facebook]),
+    liveEventReader: async () => [
+      { eventKey: 'event-1', booked: 6, capacity: 12 },
+      { eventKey: 'event-2', booked: 4, capacity: 12 },
+    ],
+    planBuilder: async () => deliveryPlan([storyItem(), secondStory, facebook]),
     storyRenderer: async () => ({ path: 'story.jpg' }),
     assetUploader: async ({ item }) => ({ publicUrl: `https://example.com/${item.deliveryType}.jpg` }),
     metaAdapter: {
       preflight: async () => ({ status: 'passed' }),
-      publish: async (item) => { called.push(item.deliveryType); return { providerId: 'story-1' }; },
+      publish: async (item) => { called.push(`${item.draftId}:${item.deliveryType}`); return { providerId: 'story-1' }; },
     },
   });
-  assert.deepEqual(called, ['instagram_story']);
+  assert.deepEqual(called, ['d1:instagram_story']);
+});
+
+test('an exact draft selection fails closed when the draft is not due', async () => {
+  await assert.rejects(runDueContent({
+    draftId: 'missing-draft',
+    now: new Date('2026-09-30T12:00:00Z'),
+    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => [{ eventKey: 'event-1', booked: 6, capacity: 12 }],
+    planBuilder: async () => deliveryPlan([storyItem()]),
+  }), /valgte kladde.*ikke forfalden/i);
 });
 
 test('publish refuses to run unless PUBLISH_ENABLED is exactly true', async () => {
@@ -194,14 +219,41 @@ test('publish requires separate Meta and asset secrets and rejects the retired t
 });
 
 test('CLI accepts only dry-run or publish and the two automatic delivery types', () => {
-  assert.deepEqual(parseArgs([]), { publish: false, deliveryTypes: null });
-  assert.deepEqual(parseArgs(['--dry-run']), { publish: false, deliveryTypes: null });
+  assert.deepEqual(parseArgs([]), { publish: false, deliveryTypes: null, draftId: null });
+  assert.deepEqual(parseArgs(['--dry-run']), { publish: false, deliveryTypes: null, draftId: null });
   assert.deepEqual(parseArgs(['--publish', '--delivery-type', 'instagram_story']), {
     publish: true,
     deliveryTypes: ['instagram_story'],
+    draftId: null,
   });
   assert.throws(() => parseArgs(['--dry-run', '--publish']), /gensidigt udelukkende/i);
   assert.throws(() => parseArgs(['--delivery-type', 'instagram_feed']), /leveringstype/i);
+});
+
+test('CLI accepts one exact draft id and forwards it to the runtime', async () => {
+  assert.deepEqual(parseArgs(['--dry-run', '--draft-id', 'd1']), {
+    publish: false,
+    deliveryTypes: null,
+    draftId: 'd1',
+  });
+  assert.throws(() => parseArgs(['--draft-id']), /draft-id.*værdi/i);
+  assert.throws(() => parseArgs(['--draft-id', 'd1', '--draft-id', 'd2']), /draft-id.*én gang/i);
+
+  let captured;
+  await runCli({
+    argv: ['--dry-run', '--draft-id', 'd1'],
+    env: {},
+    stdout: () => {},
+    stderr: () => {},
+    dependencies: {
+      runDueContent: async (options) => {
+        captured = options;
+        return { mode: 'dry_run', due: [], results: [] };
+      },
+      writeSummary: async () => {},
+    },
+  });
+  assert.equal(captured.draftId, 'd1');
 });
 
 test('CLI writes only a sanitized summary and prints no secrets', async () => {
