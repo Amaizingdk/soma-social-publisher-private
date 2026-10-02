@@ -25,13 +25,31 @@ function storyItem() {
   };
 }
 
+function runtimeDraft(draftId = 'd1', overrides = {}) {
+  return {
+    draftId,
+    revision: 1,
+    status: 'approved',
+    eventKey: overrides.eventKey || 'event-1',
+    scheduledFor: '2026-09-30T10:00:00Z',
+    event: {
+      eventKey: overrides.eventKey || 'event-1',
+      date: '2099-10-04',
+      start: '16:00',
+      end: '18:00',
+      name: 'Saunagus',
+    },
+    ...overrides,
+  };
+}
+
 test('reads live calendar before rendering, upload, or Meta write', async () => {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-due-'));
   const order = [];
   const result = await runDueContent({
     publish: true,
     now: new Date('2026-09-30T12:00:00Z'),
-    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    drafts: [runtimeDraft()],
     config: { weeksAhead: 4 },
     ledgerPath: path.join(directory, 'ledger.json'),
     liveEventReader: async () => { order.push('calendar'); return [{ eventKey: 'event-1', booked: 6, capacity: 12 }]; },
@@ -60,7 +78,7 @@ test('calendar or blocked-plan failures stop before rendering and publishing', a
   let sideEffect = false;
   const common = {
     publish: true,
-    drafts: [],
+    drafts: [runtimeDraft()],
     config: { weeksAhead: 4 },
     storyRenderer: async () => { sideEffect = true; },
     assetUploader: async () => { sideEffect = true; },
@@ -86,7 +104,7 @@ test('retries one transient all-EVENT_NOT_FOUND calendar snapshot before selecti
   let planBuilds = 0;
   const result = await runDueContent({
     now: new Date('2026-09-30T12:00:00Z'),
-    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    drafts: [runtimeDraft()],
     config: { weeksAhead: 4 },
     liveEventReader: async () => {
       calendarReads += 1;
@@ -107,7 +125,7 @@ test('retries one transient all-EVENT_NOT_FOUND calendar snapshot before selecti
 test('persistent EVENT_NOT_FOUND failures stop after exactly one retry', async () => {
   let calendarReads = 0;
   await assert.rejects(runDueContent({
-    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    drafts: [runtimeDraft()],
     config: { weeksAhead: 4 },
     liveEventReader: async () => {
       calendarReads += 1;
@@ -123,7 +141,7 @@ test('persistent EVENT_NOT_FOUND failures stop after exactly one retry', async (
 test('calendar validation failures other than EVENT_NOT_FOUND are not retried', async () => {
   let calendarReads = 0;
   await assert.rejects(runDueContent({
-    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    drafts: [runtimeDraft()],
     config: { weeksAhead: 4 },
     liveEventReader: async () => {
       calendarReads += 1;
@@ -150,7 +168,7 @@ test('a retry skips the published Story and blocks the ambiguous Facebook delive
   const options = {
     publish: true,
     now: new Date('2026-09-30T12:00:00Z'),
-    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    drafts: [runtimeDraft()],
     config: { weeksAhead: 4 },
     ledgerPath,
     liveEventReader: async () => [{ eventKey: 'event-1', booked: 6, capacity: 12 }],
@@ -211,8 +229,8 @@ test('controlled live test selects one exact Instagram Story when two drafts are
     draftId: 'd1',
     now: new Date('2026-09-30T12:00:00Z'),
     drafts: [
-      { draftId: 'd1', status: 'approved', eventKey: 'event-1' },
-      { draftId: 'd2', status: 'approved', eventKey: 'event-2' },
+      runtimeDraft('d1'),
+      runtimeDraft('d2', { eventKey: 'event-2' }),
     ],
     config: { weeksAhead: 4 },
     ledgerPath: path.join(directory, 'ledger.json'),
@@ -237,8 +255,8 @@ test('an exact draft selection validates only the selected draft', async () => {
     draftId: 'd1',
     now: new Date('2026-09-30T12:00:00Z'),
     drafts: [
-      { draftId: 'd1', status: 'approved', eventKey: 'event-1' },
-      { draftId: 'd2', status: 'approved', eventKey: 'event-2' },
+      runtimeDraft('d1'),
+      runtimeDraft('d2', { eventKey: 'event-2' }),
     ],
     config: { weeksAhead: 4 },
     liveEventReader: async () => [{ eventKey: 'event-1', booked: 6, capacity: 12 }],
@@ -256,15 +274,81 @@ test('an exact draft selection validates only the selected draft', async () => {
   assert.deepEqual(result.due.map((item) => item.draftId), ['d1']);
 });
 
-test('an exact draft selection fails closed when the draft is not due', async () => {
+test('an exact draft selection fails closed when the draft does not exist', async () => {
   await assert.rejects(runDueContent({
     draftId: 'missing-draft',
     now: new Date('2026-09-30T12:00:00Z'),
-    drafts: [{ draftId: 'd1', status: 'approved', eventKey: 'event-1' }],
+    drafts: [runtimeDraft()],
     config: { weeksAhead: 4 },
     liveEventReader: async () => [{ eventKey: 'event-1', booked: 6, capacity: 12 }],
     planBuilder: async () => deliveryPlan([storyItem()]),
-  }), /valgte kladde.*ikke forfalden/i);
+  }), /valgte kladde.*findes ikke/i);
+});
+
+test('expired approved drafts cannot block the next due draft', async () => {
+  const planned = [];
+  const due = runtimeDraft('due', {
+    eventKey: 'event-due',
+    scheduledFor: '2026-10-03T19:00:00+02:00',
+    event: { eventKey: 'event-due', date: '2026-10-04', start: '16:00', end: '18:00', name: 'Saunagus' },
+  });
+  const expired = runtimeDraft('expired', {
+    eventKey: 'event-expired',
+    scheduledFor: '2026-10-01T11:30:00+02:00',
+    event: { eventKey: 'event-expired', date: '2026-10-01', start: '18:30', end: '20:30', name: 'Saunagus' },
+  });
+  const result = await runDueContent({
+    now: new Date('2026-10-03T17:01:00Z'),
+    drafts: [expired, due],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => [{ eventKey: 'event-due' }],
+    planBuilder: async (selected) => {
+      planned.push(selected.map((item) => item.draftId));
+      return selected.some((item) => item.draftId === 'expired')
+        ? deliveryPlan([], [{ draftId: 'expired', reasons: ['EVENT_NOT_FOUND'] }])
+        : deliveryPlan([{ ...storyItem(), draftId: 'due' }]);
+    },
+  });
+  assert.deepEqual(planned, [['due']]);
+  assert.deepEqual(result.due.map((item) => item.draftId), ['due']);
+});
+
+test('future approved draft missing from calendar cannot block an unrelated due draft', async () => {
+  const due = runtimeDraft('due', {
+    eventKey: 'event-due',
+    scheduledFor: '2026-10-03T19:00:00+02:00',
+    event: { eventKey: 'event-due', date: '2026-10-04', start: '16:00', end: '18:00', name: 'Saunagus' },
+  });
+  const future = runtimeDraft('future', {
+    eventKey: 'event-future',
+    scheduledFor: '2026-10-05T19:00:00+02:00',
+    event: { eventKey: 'event-future', date: '2026-10-06', start: '18:30', end: '20:30', name: 'Saunagus' },
+  });
+  const result = await runDueContent({
+    now: new Date('2026-10-03T17:01:00Z'),
+    drafts: [due, future],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => [{ eventKey: 'event-due' }],
+    planBuilder: async (selected) => deliveryPlan(selected.map((item) => ({
+      ...storyItem(), draftId: item.draftId,
+    }))),
+  });
+  assert.deepEqual(result.due.map((item) => item.draftId), ['due']);
+});
+
+test('manual exact expired draft stops before calendar access', async () => {
+  let calendarCalls = 0;
+  const expired = runtimeDraft('expired', {
+    event: { eventKey: 'event-expired', date: '2026-10-01', start: '18:30', end: '20:30', name: 'Saunagus' },
+  });
+  await assert.rejects(runDueContent({
+    draftId: 'expired',
+    now: new Date('2026-10-02T10:00:00Z'),
+    drafts: [expired],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => { calendarCalls += 1; return []; },
+  }), /udløbet/i);
+  assert.equal(calendarCalls, 0);
 });
 
 test('publish refuses to run unless PUBLISH_ENABLED is exactly true', async () => {

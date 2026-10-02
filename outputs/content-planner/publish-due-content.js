@@ -12,6 +12,7 @@ const { executeAutomaticPlan } = require('./lib/publish-executor');
 const { readLedger, findEntry } = require('./lib/publish-ledger');
 const { safeRunSummary } = require('./lib/safe-summary');
 const { createGitStateStore } = require('./lib/git-state-store');
+const { runtimeCandidates } = require('./lib/draft-lifecycle');
 
 const DRAFTS_PATH = path.join(__dirname, 'drafts.json');
 const CONFIG_PATH = path.join(__dirname, 'config.json');
@@ -113,9 +114,19 @@ async function runDueContent({
   fetchImpl = globalThis.fetch,
 } = {}) {
   const activeDrafts = drafts || JSON.parse(await fs.readFile(DRAFTS_PATH, 'utf8'));
-  const selectedDrafts = draftId === null
-    ? activeDrafts
-    : activeDrafts.filter((draft) => draft.draftId === draftId);
+  const allowedDeliveryTypes = new Set(['instagram_story', 'facebook_page_feed']);
+  if (deliveryTypes !== null && (!Array.isArray(deliveryTypes) || deliveryTypes.some((value) => !allowedDeliveryTypes.has(value)))) {
+    throw new Error('Ugyldigt kanalvalg til kontrolleret publicering');
+  }
+  const selectedDrafts = runtimeCandidates(activeDrafts, { now, draftId });
+  if (selectedDrafts.length === 0) {
+    return {
+      mode: publish ? 'publish' : 'dry_run',
+      plan: { schemaVersion: 1, mode: 'dry_run', automatic: [], manual: [], blocked: [], summary: {} },
+      due: [],
+      results: [],
+    };
+  }
   const activeConfig = config || JSON.parse(await fs.readFile(CONFIG_PATH, 'utf8'));
   const activeAssets = assets || (publish ? JSON.parse(await fs.readFile(ASSETS_PATH, 'utf8')) : null);
   let liveEvents = await liveEventReader(now, activeConfig.weeksAhead);
@@ -135,10 +146,6 @@ async function runDueContent({
   }
   if (plan.blocked?.length) {
     throw new Error(`Frisk kalenderkontrol blokerede ${plan.blocked.length} godkendte kladder`);
-  }
-  const allowedDeliveryTypes = new Set(['instagram_story', 'facebook_page_feed']);
-  if (deliveryTypes !== null && (!Array.isArray(deliveryTypes) || deliveryTypes.some((value) => !allowedDeliveryTypes.has(value)))) {
-    throw new Error('Ugyldigt kanalvalg til kontrolleret publicering');
   }
   const due = dueItems(plan, now)
     .filter((item) => deliveryTypes === null || deliveryTypes.includes(item.deliveryType))

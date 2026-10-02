@@ -56,6 +56,9 @@ async function approvedDraftProblems(draft, fileExists) {
   if (!hasText(draft.draftId)) reasons.push('MISSING_DRAFT_ID');
   if (!Number.isInteger(draft.revision) || draft.revision < 1) reasons.push('INVALID_REVISION');
   if (!isValidDate(draft.approvedAt)) reasons.push('MISSING_APPROVED_AT');
+  if (!/^[a-f0-9]{64}$/.test(draft.contentRevision || '') || draft.approvedRevision !== draft.contentRevision) {
+    reasons.push('APPROVAL_REVISION_MISMATCH');
+  }
   if (!isValidDate(draft.scheduledFor)) reasons.push('INVALID_SCHEDULED_FOR');
   if (!hasText(draft.platformCopies?.facebookPage)) reasons.push('EMPTY_FACEBOOK_PAGE_COPY');
   if (!hasText(draft.platformCopies?.instagram)) reasons.push('EMPTY_INSTAGRAM_COPY');

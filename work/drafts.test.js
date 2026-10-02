@@ -10,6 +10,7 @@ const {
   reconcileDrafts,
   transitionDraft,
 } = require('../outputs/content-planner/lib/drafts');
+const { contentRevisionFor } = require('../outputs/content-planner/lib/draft-lifecycle');
 
 function generated(changes = {}) {
   return {
@@ -40,13 +41,24 @@ test('new drafts start draft or needs_review according to warnings', () => {
 });
 
 test('approve records timestamp and editing returns approved draft to draft', () => {
-  const approved = transitionDraft(generated(), { type: 'approve', at: '2026-09-29T10:00:00Z' });
+  const revision = contentRevisionFor(generated());
+  const approved = transitionDraft(generated({ contentRevision: revision }), {
+    type: 'approve',
+    at: '2026-09-29T10:00:00Z',
+    approvedBy: 'Amaizingai',
+    approvedRevision: revision,
+  });
   assert.equal(approved.status, 'approved');
   assert.equal(approved.approvedAt, '2026-09-29T10:00:00Z');
+  assert.equal(approved.approvedBy, 'Amaizingai');
+  assert.equal(approved.approvedRevision, revision);
   const edited = transitionDraft(approved, {
     type: 'edit', platform: 'instagram', text: 'Ny Instagramtekst', at: '2026-09-29T10:05:00Z',
   });
   assert.equal(edited.status, 'draft');
+  assert.equal(edited.approvedAt, null);
+  assert.equal(edited.approvedBy, null);
+  assert.equal(edited.approvedRevision, null);
   assert.equal(edited.platformCopies.instagram, 'Ny Instagramtekst');
   assert.equal(edited.platformCopies.facebookPage, 'Side original');
 });
@@ -69,21 +81,41 @@ test('changed event preserves old draft as obsolete and creates next revision', 
   assert.equal(next.status, 'draft');
 });
 
-test('changed generated copy does not replace an approved draft when event facts are unchanged', () => {
-  const old = generated({ status: 'approved' });
+test('availability-only generated copy keeps approval and refreshes volatile availability', () => {
+  const base = generated({ availability: { free: 8, soldOut: false } });
+  const revision = contentRevisionFor(base);
+  const old = generated({
+    status: 'approved', availability: { free: 8, soldOut: false },
+    contentRevision: revision, approvedRevision: revision, approvedBy: 'Amaizingai',
+  });
   const changed = generated({
+    availability: { free: 2, soldOut: false },
     contentFingerprint: 'content-2',
+    contentRevision: revision,
     platformCopies: {
-      instagram: 'Instagram med 8 ledige pladser',
-      facebookPage: 'Side med 8 ledige pladser',
-      facebookGroup: 'Gruppe med 8 ledige pladser',
+      instagram: 'Instagram med 2 ledige pladser',
+      facebookPage: 'Side med 2 ledige pladser',
+      facebookGroup: 'Gruppe med 2 ledige pladser',
     },
   });
   const result = reconcileDrafts([old], [changed], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
   assert.equal(result.length, 1);
   assert.equal(result[0].status, 'approved');
-  assert.equal(result[0].contentFingerprint, 'content-1');
+  assert.equal(result[0].availability.free, 2);
   assert.equal(result[0].platformCopies.instagram, 'Instagram original');
+  assert.equal(result[0].approvedRevision, revision);
+});
+
+test('fixed generated copy change resets approval through a new revision', () => {
+  const old = generated({
+    status: 'approved', contentRevision: 'a'.repeat(64), approvedRevision: 'a'.repeat(64),
+  });
+  const changed = generated({ contentFingerprint: 'content-2', contentRevision: 'b'.repeat(64) });
+  const result = reconcileDrafts([old], [changed], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
+  assert.equal(result.find((draft) => draft.draftId === old.draftId).status, 'obsolete');
+  const next = result.find((draft) => draft.contentRevision === 'b'.repeat(64));
+  assert.equal(next.revision, 2);
+  assert.equal(next.status, 'draft');
 });
 
 test('changed generated copy creates a new revision for an unapproved draft', () => {
@@ -106,6 +138,14 @@ test('reconciliation is safe when an earlier draft is already obsolete', () => {
   const result = reconcileDrafts([obsolete], [], []);
   assert.equal(result.length, 1);
   assert.equal(result[0].status, 'obsolete');
+});
+
+test('reconciliation preserves published and skipped history after events leave the calendar', () => {
+  const terminal = [
+    generated({ draftId: 'published-1', status: 'published' }),
+    generated({ draftId: 'skipped-1', status: 'skipped', skipReason: 'expired_event' }),
+  ];
+  assert.deepEqual(reconcileDrafts(terminal, [], []), terminal);
 });
 
 test('approval page edits one platform, approves all clean drafts, and exports JSON', async () => {

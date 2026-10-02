@@ -24,6 +24,8 @@ async function fixture() {
     revision: 1,
     status: 'approved',
     approvedAt: '2026-09-30T07:00:00Z',
+    contentRevision: 'a'.repeat(64),
+    approvedRevision: 'a'.repeat(64),
     scheduledFor: '2026-10-01T11:30:00+02:00',
     warnings: [],
     warningsAcknowledged: false,

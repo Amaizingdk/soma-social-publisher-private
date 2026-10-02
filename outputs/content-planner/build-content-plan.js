@@ -14,6 +14,7 @@ const { buildCopyPackage } = require('./lib/copy');
 const { validateAssetRegistry, selectAsset } = require('./lib/assets');
 const { renderDraftImage } = require('./lib/render');
 const { reconcileDrafts } = require('./lib/drafts');
+const { contentRevisionFor, isExpiredDraft } = require('./lib/draft-lifecycle');
 const { resolveSeason } = require('./lib/season');
 
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -110,7 +111,13 @@ async function diagnoseLiveFailure(page, error) {
   });
 }
 
-async function runPipeline({ fixturePath = null, live = false, outputDir = DEFAULT_OUTPUT, now = new Date() } = {}) {
+async function runPipeline({
+  fixturePath = null,
+  live = false,
+  outputDir = DEFAULT_OUTPUT,
+  now = new Date(),
+  runtimeRoot = null,
+} = {}) {
   if (Boolean(fixturePath) === Boolean(live)) throw new Error('Vælg præcis én datakilde: --fixture eller --live');
   const { config, profiles, overrides, assets } = await loadInputs();
   const browser = await chromium.launch({ headless: true });
@@ -139,19 +146,35 @@ async function runPipeline({ fixturePath = null, live = false, outputDir = DEFAU
       : event);
     const originalByKey = new Map(events.map((event) => [event.eventKey, event]));
     const slots = buildSchedule(effectiveEvents, config)
-      .filter((slot) => new Date(slot.scheduledFor).getTime() >= now.getTime());
+      .filter((slot) => {
+        const slotEvents = slot.eventKeys
+          .map((key) => effectiveEvents.find((event) => event.eventKey === key))
+          .filter(Boolean);
+        return !isExpiredDraft({
+          kind: slot.kind,
+          event: slot.kind === 'weekly_overview' ? null : slotEvents[0],
+          events: slot.kind === 'weekly_overview' ? slotEvents : undefined,
+        }, now);
+      });
     const generated = [];
-    const rendersDir = path.join(outputDir, 'renders');
+    const rendersDir = runtimeRoot ? path.join(path.resolve(runtimeRoot), 'renders') : path.join(outputDir, 'renders');
     let renderCount = 0;
     const renderFor = async (slot, eventList, copyPackage, season, suffix = '') => {
       const asset = selectAsset(slot, eventList, assets, season);
       const fingerprint = fingerprintForSlot(slot, eventList).slice(0, 10);
       const renderFile = `${safeFileName(slot.slotKey)}-${fingerprint}${suffix}.jpg`;
-      const render = await renderDraftImage(browser, {
+      const rendered = await renderDraftImage(browser, {
         asset, logoPath: assets.logoPath, copy: copyPackage, config, season,
       }, path.join(rendersDir, renderFile));
+      const portableRenderPath = runtimeRoot
+        ? path.relative(path.resolve(runtimeRoot), rendered.path).replace(/\\/gu, '/')
+        : null;
+      if (portableRenderPath && (portableRenderPath.startsWith('../') || path.isAbsolute(portableRenderPath))) {
+        throw new Error('Render-stien forlader runtime-repository');
+      }
+      const render = portableRenderPath ? { ...rendered, path: portableRenderPath } : rendered;
       renderCount += 1;
-      return { asset, render, renderPath: `../renders/${renderFile}` };
+      return { asset, render, renderPath: portableRenderPath || `../renders/${renderFile}` };
     };
     for (const slot of slots) {
       const event = slot.kind === 'weekly_overview'
@@ -194,7 +217,7 @@ async function runPipeline({ fixturePath = null, live = false, outputDir = DEFAU
         facebookPage: copyPackage.facebookPage,
         facebookGroup: copyPackage.facebookGroup,
       };
-      generated.push({
+      const candidate = {
         draftId: `${slot.slotKey}_r1`,
         slotKey: slot.slotKey,
         eventKey: event?.eventKey || null,
@@ -223,7 +246,9 @@ async function runPipeline({ fixturePath = null, live = false, outputDir = DEFAU
         manualInstructor: event ? manualInstructors.get(event.eventKey) || null : null,
         instructorOptions,
         history: [],
-      });
+      };
+      candidate.contentRevision = contentRevisionFor(candidate);
+      generated.push(candidate);
     }
 
     const drafts = reconcileDrafts(previousDrafts, generated, events);
@@ -315,7 +340,7 @@ async function main(argv = process.argv.slice(2)) {
   console.log('POC – intet er publiceret til Facebook eller Instagram.');
 }
 
-module.exports = { parseArgs, runPipeline, importReviewed, validateReviewed };
+module.exports = { parseArgs, runPipeline, importReviewed, validateReviewed, writeApprovalPayload };
 
 if (require.main === module) {
   main().catch((error) => {

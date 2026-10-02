@@ -1,5 +1,7 @@
 'use strict';
 
+const { copenhagenTimestamp } = require('./schedule');
+
 const DEFAULT_MAX_AGE_MS = 2 * 60 * 60 * 1000;
 
 function compareDraftToLiveEvent(draft, liveEvents, {
@@ -47,10 +49,27 @@ function compareDraftToLiveEvent(draft, liveEvents, {
   }
 
   if (draft?.kind === 'weekly_overview' || (Array.isArray(draft?.events) && !draft?.event)) {
-    const checks = (draft.events || []).map((plannedEvent) => ({
-      eventKey: plannedEvent.eventKey,
-      ...compareOne(plannedEvent),
-    }));
+    const checks = (draft.events || []).map((plannedEvent) => {
+      const end = plannedEvent?.date && plannedEvent?.end
+        ? Date.parse(copenhagenTimestamp(plannedEvent.date, plannedEvent.end))
+        : Number.NaN;
+      if (Number.isFinite(end) && end <= now.getTime()
+        && Number.isInteger(plannedEvent.booked) && Number.isInteger(plannedEvent.capacity)) {
+        const free = Math.max(0, plannedEvent.capacity - plannedEvent.booked);
+        return {
+          eventKey: plannedEvent.eventKey,
+          reasons: [],
+          availability: {
+            eventKey: plannedEvent.eventKey,
+            booked: plannedEvent.booked,
+            capacity: plannedEvent.capacity,
+            free,
+            soldOut: free === 0,
+          },
+        };
+      }
+      return { eventKey: plannedEvent.eventKey, ...compareOne(plannedEvent) };
+    });
     const reasons = checks.flatMap((check) => check.reasons.map((reason) => `${reason}:${check.eventKey}`));
     if (reasons.length) return { status: 'blocked', reasons };
     return { status: 'fresh', reasons: [], availabilities: checks.map((check) => check.availability) };

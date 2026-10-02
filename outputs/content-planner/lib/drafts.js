@@ -19,6 +19,13 @@ function withHistory(draft, type, from, to, at) {
   return draft;
 }
 
+function clearApproval(draft) {
+  draft.approvedAt = null;
+  draft.approvedBy = null;
+  draft.approvedRevision = null;
+  return draft;
+}
+
 function transitionDraft(input, action) {
   const draft = copy(input);
   const from = draft.status;
@@ -32,6 +39,8 @@ function transitionDraft(input, action) {
     }
     draft.status = 'approved';
     draft.approvedAt = at;
+    draft.approvedBy = action.approvedBy || draft.approvedBy || null;
+    draft.approvedRevision = action.approvedRevision || draft.contentRevision || null;
   } else if (action.type === 'acknowledge_warnings') {
     draft.warningsAcknowledged = true;
     draft.status = 'draft';
@@ -40,13 +49,13 @@ function transitionDraft(input, action) {
     if (typeof action.text !== 'string' || !action.text.trim()) throw new Error('Opslagsteksten må ikke være tom.');
     draft.platformCopies[action.platform] = action.text.trim();
     draft.status = 'draft';
-    draft.approvedAt = null;
+    clearApproval(draft);
   } else if (action.type === 'reject') {
     draft.status = 'rejected';
-    draft.approvedAt = null;
+    clearApproval(draft);
   } else if (action.type === 'obsolete') {
     draft.status = 'obsolete';
-    draft.approvedAt = null;
+    clearApproval(draft);
   } else {
     throw new Error(`Ukendt handling: ${action.type}`);
   }
@@ -75,6 +84,10 @@ function reconcileDrafts(previousDrafts, generatedDrafts, currentEvents) {
         status: same.status,
         platformCopies: same.platformCopies,
         approvedAt: same.approvedAt || null,
+        approvedBy: same.approvedBy || null,
+        approvedRevision: same.approvedRevision || null,
+        githubIssueNumber: same.githubIssueNumber || null,
+        reminderState: same.reminderState || null,
         warningsAcknowledged: same.warningsAcknowledged || false,
         manualInstructor: same.manualInstructor || candidate.manualInstructor || null,
         history: same.history || [],
@@ -86,10 +99,18 @@ function reconcileDrafts(previousDrafts, generatedDrafts, currentEvents) {
 
     const locked = previous.find((draft) =>
       draft.slotKey === candidate.slotKey
-      && draft.eventFingerprint === candidate.eventFingerprint
-      && draft.status === 'approved');
+      && draft.status === 'approved'
+      && draft.contentRevision
+      && draft.contentRevision === candidate.contentRevision);
     if (locked) {
-      result.push(locked);
+      result.push({
+        ...locked,
+        eventFingerprint: candidate.eventFingerprint,
+        contentFingerprint: candidate.contentFingerprint,
+        availability: candidate.availability,
+        event: candidate.event,
+        events: candidate.events,
+      });
       handledIds.add(locked.draftId);
       continue;
     }
@@ -113,7 +134,9 @@ function reconcileDrafts(previousDrafts, generatedDrafts, currentEvents) {
 
   for (const old of previous) {
     if (handledIds.has(old.draftId)) continue;
-    result.push(old.status === 'obsolete' ? old : transitionDraft(old, { type: 'obsolete' }));
+    result.push(['obsolete', 'published', 'skipped'].includes(old.status)
+      ? old
+      : transitionDraft(old, { type: 'obsolete' }));
   }
 
   return result;

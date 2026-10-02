@@ -36,6 +36,22 @@ test('fixture pipeline creates reviewable drafts without publishing', async () =
   assert.doesNotMatch(serialized, /access[_-]?token|meta[_-]?credential|publishaction|"publish"/);
 });
 
+test('planner retains an upcoming event when its preferred publish time has just passed', async () => {
+  const outputDir = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-late-content-'));
+  const now = new Date('2026-10-17T17:01:00Z');
+  await runPipeline({ fixturePath, outputDir, now, runtimeRoot: outputDir });
+  const drafts = JSON.parse(await fs.readFile(path.join(outputDir, 'drafts.json'), 'utf8'));
+  const late = drafts.find((draft) => (
+    draft.event?.date === '2026-10-18'
+    && Date.parse(draft.scheduledFor) < now.getTime()
+  ));
+  assert.ok(late);
+  assert.notEqual(late.status, 'obsolete');
+  assert.match(late.render.path, /^renders\//);
+  assert.equal(path.isAbsolute(late.render.path), false);
+  await fs.access(path.join(outputDir, late.render.path));
+});
+
 test('review import accepts current revisions and rejects stale fingerprints', async () => {
   const outputDir = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-review-'));
   await runPipeline({ fixturePath, outputDir, now: new Date('2026-09-29T10:00:00Z') });

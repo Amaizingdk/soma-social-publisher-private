@@ -1,0 +1,63 @@
+name: SOMA operations
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+      timezone: Europe/Copenhagen
+  workflow_dispatch:
+  issue_comment:
+    types: [created]
+
+permissions: {}
+
+concurrency:
+  group: soma-state-writer
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - name: Checkout verified runtime
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install Chromium
+        if: github.event_name != 'issue_comment'
+        run: npx playwright install --with-deps chromium
+      - name: Process approval comment
+        if: github.event_name == 'issue_comment'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SOMA_APPROVER_LOGIN: ${{ vars.SOMA_APPROVER_LOGIN }}
+        run: node outputs/content-planner/approve-issue.js
+      - name: Sync calendar, issues and reminders
+        if: github.event_name != 'issue_comment'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SOMA_APPROVER_LOGIN: ${{ vars.SOMA_APPROVER_LOGIN }}
+        run: node outputs/content-planner/sync-operations.js
+      - name: Persist operational state
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "soma-social-publisher[bot]"
+          git config user.email "soma-social-publisher[bot]@users.noreply.github.com"
+          git add -- outputs/content-planner/drafts.json outputs/content-planner/events.json outputs/content-planner/approval/drafts-data.js renders
+          git diff --cached --quiet || git commit -m "chore: sync SOMA operations"
+          git pull --rebase
+          git push

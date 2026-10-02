@@ -27,19 +27,35 @@ async function createProjectFixture() {
   await write(projectRoot, 'work/normalized-assets/approved.jpg', Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
   await write(projectRoot, 'work/normalized-assets/logo.png', Buffer.from([0x89, 0x50, 0x4e, 0x47]));
   await write(projectRoot, 'work/renders/approved-render.jpg', Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
+  const render = {
+    path: path.join(projectRoot, 'work/renders/approved-render.jpg'),
+    width: 1080,
+    height: 1350,
+    sha256: 'fixture-render-sha',
+  };
+  const draft = (draftId, status, extra = {}) => ({
+    draftId,
+    slotKey: draftId,
+    revision: 1,
+    kind: 'event_day',
+    status,
+    scheduledFor: '2026-10-04T11:30:00+02:00',
+    event: { eventKey: 'event-1', date: '2026-10-04', start: '16:00', end: '18:00', name: 'Saunagus' },
+    platformCopies: { instagram: 'Instagram', facebookPage: 'Facebook', facebookGroup: 'Gruppe' },
+    assetId: 'approved-image',
+    history: [{ type: status }],
+    render,
+    ...extra,
+  });
   await write(projectRoot, 'outputs/content-planner/drafts.json', JSON.stringify([
-    {
-      draftId: 'approved-1',
-      status: 'approved',
-      history: [{ type: 'approve' }],
-      render: {
-        path: path.join(projectRoot, 'work/renders/approved-render.jpg'),
-        width: 1080,
-        height: 1350,
-        sha256: 'fixture-render-sha',
-      },
-    },
-    { draftId: 'draft-1', status: 'draft', history: [] },
+    draft('approved-1', 'approved', {
+      approvedAt: '2026-10-02T09:00:00Z',
+      githubIssueNumber: 42,
+    }),
+    draft('draft-1', 'draft'),
+    draft('review-1', 'needs_review'),
+    draft('skipped-1', 'skipped', { skipReason: 'missing_approval_at_publish_time' }),
+    draft('obsolete-1', 'obsolete'),
   ]));
   await write(projectRoot, 'outputs/content-planner/assets.json', JSON.stringify({
     version: 1,
@@ -119,7 +135,7 @@ test('private runtime refuses a destination inside the source project', async (t
   );
 });
 
-test('generated runtime data contains only approved drafts and portable asset paths', async (t) => {
+test('generated runtime data keeps operational drafts and portable asset paths', async (t) => {
   const fixture = await createProjectFixture();
   t.after(() => fs.rm(fixture.base, { recursive: true, force: true }));
 
@@ -131,7 +147,7 @@ test('generated runtime data contains only approved drafts and portable asset pa
   const drafts = JSON.parse(await fs.readFile(path.join(fixture.destination, 'outputs/content-planner/drafts.json'), 'utf8'));
   const assets = JSON.parse(await fs.readFile(path.join(fixture.destination, 'outputs/content-planner/assets.json'), 'utf8'));
 
-  assert.equal(drafts.every((draft) => draft.status === 'approved'), true);
+  assert.deepEqual(drafts.map((draft) => draft.status), ['approved', 'draft', 'needs_review', 'skipped']);
   assert.equal(drafts.some((draft) => Object.hasOwn(draft, 'history')), false);
   assert.equal(JSON.stringify(drafts).includes('C:\\Users\\'), false);
   assert.deepEqual(drafts[0].render, {
@@ -146,4 +162,21 @@ test('generated runtime data contains only approved drafts and portable asset pa
   assert.equal(assets.assets.every((asset) => asset.normalizedPath.startsWith('assets/')), true);
   assert.equal(assets.assets.every((asset) => asset.sourcePath === asset.normalizedPath), true);
   assert.equal(assets.assets.some((asset) => /^[A-Za-z]:[\\/]/u.test(asset.sourcePath)), false);
+});
+
+test('legacy approved draft receives matching approval revision without losing operations metadata', async (t) => {
+  const fixture = await createProjectFixture();
+  t.after(() => fs.rm(fixture.base, { recursive: true, force: true }));
+
+  await buildPrivateRuntime({
+    projectRoot: fixture.projectRoot,
+    destination: fixture.destination,
+    secretValues: [],
+  });
+  const drafts = JSON.parse(await fs.readFile(path.join(fixture.destination, 'outputs/content-planner/drafts.json'), 'utf8'));
+  const approved = drafts.find((draft) => draft.draftId === 'approved-1');
+  assert.match(approved.contentRevision, /^[a-f0-9]{64}$/);
+  assert.equal(approved.approvedRevision, approved.contentRevision);
+  assert.equal(approved.approvedBy, 'legacy_local_review');
+  assert.equal(approved.githubIssueNumber, 42);
 });

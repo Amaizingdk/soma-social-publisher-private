@@ -24,6 +24,8 @@ async function approvedDraft(overrides = {}) {
     revision: 1,
     status: 'approved',
     approvedAt: '2026-09-30T07:00:00Z',
+    contentRevision: 'a'.repeat(64),
+    approvedRevision: 'a'.repeat(64),
     scheduledFor: '2026-10-01T11:30:00+02:00',
     warnings: [],
     warningsAcknowledged: false,
@@ -59,6 +61,13 @@ test('includes only active approved drafts with complete evidence and keeps grou
   assert.equal(plan.summary.skippedDrafts, 2);
   assert.equal(plan.summary.blockedDrafts, 0);
   assert.equal(plan.metaValidation.status, 'not_requested');
+});
+
+test('blocks an approved draft whose approval revision is stale', async () => {
+  const draft = await approvedDraft({ approvedRevision: 'b'.repeat(64) });
+  const plan = await buildDryRunPlan([draft], { generatedAt: GENERATED_AT });
+  assert.deepEqual(plan.blocked[0].reasons, ['APPROVAL_REVISION_MISMATCH']);
+  assert.equal(plan.automatic.length, 0);
 });
 
 test('routes approved calendar content to Instagram Story and Facebook Page Feed only', async () => {

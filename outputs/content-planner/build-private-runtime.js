@@ -1,9 +1,19 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const { contentRevisionFor } = require('./lib/draft-lifecycle');
 
 const FORBIDDEN_PATH = /(^|\/)(?:\.env(?:\.|$)|debug\.log$|PROJECT_STATUS[^/]*|licensed-music(?:\/|$)|screenshots?(?:\/|$)|[^/]*token[^/]*|[^/]*\.(?:mp4|webm))|prototype/i;
 const TOKEN_PATTERN = /EA[A-Za-z0-9]{20,}/;
 const TEXT_EXTENSIONS = new Set(['', '.cjs', '.gitignore', '.js', '.json', '.md', '.mjs', '.txt', '.yaml', '.yml']);
+const OPERATIONAL_STATUSES = new Set([
+  'draft',
+  'needs_review',
+  'approved',
+  'needs_correction',
+  'skipped',
+  'published',
+  'rejected',
+]);
 
 function portable(relativePath) {
   return relativePath.split(path.sep).join('/');
@@ -136,7 +146,7 @@ async function preparePortableData(projectRoot) {
   const copyFiles = [];
   const usedRenderNames = new Map();
   const drafts = [];
-  for (const draft of draftsSource.filter((item) => item && item.status === 'approved')) {
+  for (const draft of draftsSource.filter((item) => item && OPERATIONAL_STATUSES.has(item.status))) {
     if (!draft.render?.path) throw new Error(`Godkendt kladde mangler render: ${draft.draftId || 'ukendt'}`);
     const fileName = path.basename(draft.render.path);
     const key = fileName.toLowerCase();
@@ -150,10 +160,17 @@ async function preparePortableData(projectRoot) {
       copyFiles.push({ source: draft.render.path, destination: renderPath });
     }
     const { path: localRenderPath, ...renderMetadata } = draft.render;
-    drafts.push({
+    const contentRevision = contentRevisionFor(draft);
+    const portableDraft = {
       ...stripLocalData(draft),
+      contentRevision,
       render: { ...stripLocalData(renderMetadata), path: portable(renderPath) },
-    });
+    };
+    if (draft.status === 'approved' && draft.approvedAt && !draft.approvedRevision) {
+      portableDraft.approvedRevision = contentRevision;
+      portableDraft.approvedBy = 'legacy_local_review';
+    }
+    drafts.push(portableDraft);
   }
 
   const assetsSource = await readJson(assetsPath);

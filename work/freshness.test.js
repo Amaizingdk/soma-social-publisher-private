@@ -109,3 +109,24 @@ test('blocks a weekly overview when any individual event is missing', () => {
   ], { now: NOW });
   assert.deepEqual(result, { status: 'blocked', reasons: ['EVENT_NOT_FOUND:b'] });
 });
+
+test('weekly overview freezes an ended event and still validates future events', () => {
+  const weeklyDraft = {
+    kind: 'weekly_overview',
+    events: [
+      { eventKey: 'past', date: '2026-10-04', start: '16:00', end: '18:00', name: 'Saunagus', booked: 8, capacity: 12 },
+      { eventKey: 'future', date: '2026-10-06', start: '18:30', end: '20:30', name: 'Saunagus', booked: 0, capacity: 12 },
+    ],
+  };
+  const result = compareDraftToLiveEvent(weeklyDraft, [{
+    ...weeklyDraft.events[1], booked: 6, readAt: '2026-10-05T09:45:00Z',
+  }], { now: new Date('2026-10-05T10:00:00Z') });
+  assert.deepEqual(result, {
+    status: 'fresh',
+    reasons: [],
+    availabilities: [
+      { eventKey: 'past', booked: 8, capacity: 12, free: 4, soldOut: false },
+      { eventKey: 'future', booked: 6, capacity: 12, free: 6, soldOut: false },
+    ],
+  });
+});

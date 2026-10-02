@@ -10,6 +10,7 @@ const runtimeRoot = fsSync.existsSync(path.join(releaseRoot, '.github/workflows/
   ? releaseRoot
   : sourceRuntimeRoot;
 const publishPath = path.join(runtimeRoot, '.github/workflows/publish.yml');
+const operationsPath = path.join(runtimeRoot, '.github/workflows/operations.yml');
 const ciPath = path.join(runtimeRoot, '.github/workflows/ci.yml');
 const ledgerPath = path.join(runtimeRoot, 'state/publish-ledger.json');
 
@@ -19,7 +20,7 @@ test('publish workflow has timezone schedule, manual dispatch, queued concurrenc
   assert.match(yaml, /timezone:\s*Europe\/Copenhagen/);
   assert.match(yaml, /workflow_dispatch:/);
   assert.match(yaml, /concurrency:/);
-  assert.match(yaml, /group:\s*soma-social-publisher/);
+  assert.match(yaml, /group:\s*soma-state-writer/);
   assert.match(yaml, /cancel-in-progress:\s*false/);
   assert.match(yaml, /queue:\s*max/);
   assert.match(yaml, /permissions:\s*\{\}/);
@@ -30,7 +31,7 @@ test('publish workflow has timezone schedule, manual dispatch, queued concurrenc
 test('schedule is gated by PUBLISH_ENABLED and secrets exist only in the publish step', async () => {
   const yaml = await fs.readFile(publishPath, 'utf8');
   assert.match(yaml, /github\.event_name == 'schedule'.*vars\.PUBLISH_ENABLED == 'true'/);
-  const dryRunSegment = yaml.slice(yaml.indexOf('dry_run:'), yaml.indexOf('publish:'));
+  const dryRunSegment = yaml.slice(yaml.indexOf('dry_run:'), yaml.indexOf('validate_meta:'));
   const publishSegment = yaml.slice(yaml.indexOf('publish:'));
   assert.equal(/secrets\.SOMA_/.test(dryRunSegment), false);
   assert.match(publishSegment, /SOMA_META_ACCESS_TOKEN:\s*\$\{\{ secrets\.SOMA_META_ACCESS_TOKEN \}\}/);
@@ -66,7 +67,55 @@ test('manual workflow forwards an exact draft id through shell-safe arguments', 
   assert.doesNotMatch(yaml, /--draft-id[^\n]*\$\{\{ inputs\.draft_id \}\}/);
 });
 
+test('validate-meta job is read-only and receives no asset secret', async () => {
+  const yaml = await fs.readFile(publishPath, 'utf8');
+  assert.match(yaml, /options:\s*\[dry_run, validate_meta, publish\]/);
+  const start = yaml.indexOf('  validate_meta:');
+  const end = yaml.indexOf('  publish:', start);
+  assert.ok(start > -1 && end > start);
+  const segment = yaml.slice(start, end);
+  assert.match(segment, /contents:\s*read/);
+  assert.match(segment, /SOMA_META_ACCESS_TOKEN:\s*\$\{\{ secrets\.SOMA_META_ACCESS_TOKEN \}\}/);
+  assert.match(segment, /node outputs\/content-planner\/validate-meta\.js/);
+  assert.doesNotMatch(segment, /SOMA_ASSET_REPO_TOKEN/);
+  assert.doesNotMatch(segment, /contents:\s*write/);
+});
+
 test('runtime ledger starts empty with schema version one', async () => {
   const ledger = JSON.parse(await fs.readFile(ledgerPath, 'utf8'));
   assert.deepEqual(ledger, { schemaVersion: 1, entries: [] });
+});
+
+test('operations workflow has no publishing secrets and handles schedule plus issue comments', async () => {
+  const yaml = await fs.readFile(operationsPath, 'utf8');
+  assert.match(yaml, /cron:\s*['"]\*\/30 \* \* \* \*['"]/);
+  assert.match(yaml, /issue_comment:/);
+  assert.match(yaml, /issues:\s*write/);
+  assert.match(yaml, /contents:\s*write/);
+  assert.doesNotMatch(yaml, /SOMA_(META_ACCESS_TOKEN|ASSET_REPO_TOKEN)/);
+  assert.match(yaml, /SOMA_APPROVER_LOGIN:\s*\$\{\{ vars\.SOMA_APPROVER_LOGIN \}\}/);
+  const gitAdd = yaml.match(/git add[^\n]+/g) || [];
+  assert.equal(gitAdd.length, 1);
+  assert.match(gitAdd[0], /outputs\/content-planner\/drafts\.json/);
+  assert.match(gitAdd[0], /outputs\/content-planner\/events\.json/);
+  assert.match(gitAdd[0], /outputs\/content-planner\/approval\/drafts-data\.js/);
+  assert.match(gitAdd[0], /renders/);
+  assert.doesNotMatch(gitAdd[0], /\s\.|--all|-A/);
+});
+
+test('all state writers share concurrency and publish secrets remain step scoped', async () => {
+  const [operations, publish] = await Promise.all([
+    fs.readFile(operationsPath, 'utf8'),
+    fs.readFile(publishPath, 'utf8'),
+  ]);
+  assert.match(operations, /group:\s*soma-state-writer/);
+  assert.match(publish, /group:\s*soma-state-writer/);
+  assert.doesNotMatch(operations, /^env:/m);
+  assert.doesNotMatch(publish, /^env:/m);
+  const publishStep = publish.slice(publish.indexOf('- name: Publish due content'), publish.indexOf('- name: Reconcile publication state'));
+  const reconcileStep = publish.slice(publish.indexOf('- name: Reconcile publication state'));
+  assert.match(publishStep, /SOMA_META_ACCESS_TOKEN/);
+  assert.match(publishStep, /SOMA_ASSET_REPO_TOKEN/);
+  assert.doesNotMatch(reconcileStep, /SOMA_META_ACCESS_TOKEN|SOMA_ASSET_REPO_TOKEN/);
+  assert.match(reconcileStep, /sync-operations\.js --publication-only/);
 });

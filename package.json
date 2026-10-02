@@ -8,7 +8,11 @@
   "scripts": {
     "test": "node --test work/*.test.js",
     "dry-run": "node outputs/content-planner/publish-due-content.js --dry-run",
-    "publish": "node outputs/content-planner/publish-due-content.js --publish"
+    "publish": "node outputs/content-planner/publish-due-content.js --publish",
+    "validate-meta": "node outputs/content-planner/validate-meta.js",
+    "operations": "node outputs/content-planner/sync-operations.js",
+    "approve-issue": "node outputs/content-planner/approve-issue.js",
+    "reconcile-publication": "node outputs/content-planner/sync-operations.js --publication-only"
   },
   "dependencies": {
     "playwright": "1.63.0"
