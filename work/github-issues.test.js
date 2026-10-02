@@ -218,3 +218,30 @@ test('unknown draft status fails closed to needs-correction', async () => {
   });
   assert.deepEqual(client.state.created[0].labels, ['soma-managed', 'needs-correction']);
 });
+
+test('terminal history without an existing issue is not projected as new work', async () => {
+  const client = fakeIssueClient();
+  const result = await syncDraftIssue({
+    client,
+    draft: reviewDraft({ status: 'obsolete' }),
+    ledger: { entries: [] },
+    repository: REPOSITORY,
+    createIfMissing: false,
+  });
+  assert.equal(client.state.created.length, 0);
+  assert.equal(result.githubIssueNumber, undefined);
+});
+
+test('an existing obsolete issue is closed and labelled skipped', async () => {
+  const client = fakeIssueClient({ issues: [managedIssue('draft-1')] });
+  await syncDraftIssue({
+    client,
+    draft: reviewDraft({ status: 'obsolete', githubIssueNumber: 7 }),
+    ledger: { entries: [] },
+    repository: REPOSITORY,
+    createIfMissing: false,
+  });
+  assert.equal(client.state.updated.length, 1);
+  assert.equal(client.state.updated[0].state, 'closed');
+  assert.deepEqual(client.state.updated[0].labels, ['soma-managed', 'skipped']);
+});

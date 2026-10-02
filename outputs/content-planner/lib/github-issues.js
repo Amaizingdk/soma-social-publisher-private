@@ -8,6 +8,7 @@ const STATUS_LABEL = Object.freeze({
   skipped: 'skipped',
   needs_correction: 'needs-correction',
   rejected: 'skipped',
+  obsolete: 'skipped',
 });
 
 const LABEL_COLORS = Object.freeze({
@@ -20,6 +21,7 @@ const LABEL_COLORS = Object.freeze({
 });
 
 const SOMA_LABELS = new Set(Object.keys(LABEL_COLORS));
+const TERMINAL_ISSUE_STATUSES = new Set(['published', 'skipped', 'rejected', 'obsolete']);
 
 function issueTitle(draft) {
   const event = draft.event || draft.events?.[0] || {};
@@ -144,7 +146,13 @@ async function commentOnce({ client, issueNumber, marker, body }) {
   return { created: true };
 }
 
-async function syncDraftIssue({ client, draft, ledger = { entries: [] }, repository = client?.repository }) {
+async function syncDraftIssue({
+  client,
+  draft,
+  ledger = { entries: [] },
+  repository = client?.repository,
+  createIfMissing = true,
+}) {
   assertRepository(repository);
   if (client?.repository !== repository) throw new Error('GitHub-klient og repository matcher ikke');
   assertDraftIdentity(draft);
@@ -155,6 +163,7 @@ async function syncDraftIssue({ client, draft, ledger = { entries: [] }, reposit
     Number(issue.number) === Number(draft.githubIssueNumber)
     || String(issue.body || '').includes(marker)
   ));
+  if (!existing && !createIfMissing) return draft;
   const statusLabel = STATUS_LABEL[draft.status] || 'needs-correction';
   const preserved = (existing?.labels || [])
     .map((label) => typeof label === 'string' ? label : label.name)
@@ -163,6 +172,7 @@ async function syncDraftIssue({ client, draft, ledger = { entries: [] }, reposit
     title: issueTitle(draft),
     body: renderIssueBody(draft, repository, ledger),
     labels: [...new Set([...preserved, 'soma-managed', statusLabel])],
+    state: TERMINAL_ISSUE_STATUSES.has(draft.status) ? 'closed' : 'open',
   };
   if (existing) {
     await client.request('PATCH', '/issues/' + existing.number, payload);

@@ -10,6 +10,8 @@ const { writeJsonAtomic } = require('./io');
 const { markReminderSent, reminderDecision } = require('./reminders');
 
 const REQUIRED_DELIVERIES = ['instagram_story', 'facebook_page_feed'];
+const ACTIVE_ISSUE_STATUSES = new Set(['draft', 'needs_review', 'approved', 'needs_correction']);
+const TERMINAL_ISSUE_STATUSES = new Set(['published', 'skipped', 'rejected', 'obsolete']);
 
 function reminderBody(draft, decision, approverLogin) {
   const deadline = String(draft.scheduledFor || 'ukendt');
@@ -22,7 +24,14 @@ function reminderBody(draft, decision, approverLogin) {
     + 'Deadline: ' + deadline + '.';
 }
 
-async function syncIssuesAndReminders({ drafts, ledger, client, approverLogin, now = new Date() }) {
+async function syncIssuesAndReminders({
+  drafts,
+  ledger,
+  client,
+  approverLogin,
+  now = new Date(),
+  createTerminalIds = new Set(),
+}) {
   const updated = [];
   for (const input of drafts) {
     let draft = await syncDraftIssue({
@@ -30,9 +39,14 @@ async function syncIssuesAndReminders({ drafts, ledger, client, approverLogin, n
       draft: input,
       ledger,
       repository: client.repository,
+      createIfMissing: ACTIVE_ISSUE_STATUSES.has(input.status) || createTerminalIds.has(input.draftId),
     });
 
-    if (draft.status === 'skipped' && draft.skipReason === 'missing_approval_at_publish_time') {
+    if (
+      draft.githubIssueNumber
+      && draft.status === 'skipped'
+      && draft.skipReason === 'missing_approval_at_publish_time'
+    ) {
       await commentOnce({
         client,
         issueNumber: draft.githubIssueNumber,
@@ -99,6 +113,7 @@ async function syncPublicationIssues({ drafts, ledger, client, now = new Date() 
       draft,
       ledger,
       repository: client.repository,
+      createIfMissing: ACTIVE_ISSUE_STATUSES.has(draft.status) || draft.status === 'published',
     }));
   }
   return updated;
@@ -152,8 +167,22 @@ async function runOperationsSync({
 
   drafts = reconcilePublicationState(drafts, ledger, now);
   drafts = await recoverApprovalsFromIssues({ drafts, client, approverLogin, now });
+  const beforeLifecycle = new Map(drafts.map((draft) => [draft.draftId, draft.status]));
   drafts = reconcileLifecycle(drafts, { now });
-  drafts = await syncIssuesAndReminders({ drafts, ledger, client, approverLogin, now });
+  const createTerminalIds = new Set(drafts
+    .filter((draft) => (
+      TERMINAL_ISSUE_STATUSES.has(draft.status)
+      && !TERMINAL_ISSUE_STATUSES.has(beforeLifecycle.get(draft.draftId))
+    ))
+    .map((draft) => draft.draftId));
+  drafts = await syncIssuesAndReminders({
+    drafts,
+    ledger,
+    client,
+    approverLogin,
+    now,
+    createTerminalIds,
+  });
 
   if (draftsPath) await writeJsonAtomic(draftsPath, drafts);
   if (outputDir && writeApprovalPayloadImpl) await writeApprovalPayloadImpl(outputDir, drafts);

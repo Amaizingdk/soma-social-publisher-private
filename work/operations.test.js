@@ -214,3 +214,38 @@ test('next reconciliation repairs issue after a prior Issue API failure without 
   assert.ok(client.state.issues[0].labels.includes('published'));
   assert.equal(Object.hasOwn(client.state, 'metaCalls'), false);
 });
+
+test('operations creates no new issues for pre-existing terminal history', async () => {
+  const client = fakeClient();
+  const result = await runOperationsSync({
+    drafts: [
+      reviewDraft({ draftId: 'obsolete-1', status: 'obsolete' }),
+      reviewDraft({ draftId: 'skipped-1', status: 'skipped', skipReason: 'expired_event' }),
+    ],
+    ledger: { version: 1, entries: [] },
+    client,
+    approverLogin: 'Amaizingai',
+    now: new Date('2026-10-02T12:00:00Z'),
+  });
+  assert.equal(client.state.issues.length, 0);
+  assert.equal(result.drafts.every((draft) => !draft.githubIssueNumber), true);
+});
+
+test('operations retires an obsolete draft issue instead of showing needs-correction', async () => {
+  const client = fakeClient();
+  client.state.issues.push({
+    number: 7,
+    body: '<!-- soma-draft-id: obsolete-1 -->\n<!-- soma-content-revision: ' + REVISION + ' -->',
+    labels: ['soma-managed', 'needs-approval'],
+    state: 'open',
+  });
+  await runOperationsSync({
+    drafts: [reviewDraft({ draftId: 'obsolete-1', status: 'obsolete', githubIssueNumber: 7 })],
+    ledger: { version: 1, entries: [] },
+    client,
+    approverLogin: 'Amaizingai',
+    now: new Date('2026-10-02T12:00:00Z'),
+  });
+  assert.equal(client.state.issues[0].state, 'closed');
+  assert.deepEqual(client.state.issues[0].labels, ['soma-managed', 'skipped']);
+});
