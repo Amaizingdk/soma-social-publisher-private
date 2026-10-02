@@ -274,6 +274,47 @@ test('an exact draft selection validates only the selected draft', async () => {
   assert.deepEqual(result.due.map((item) => item.draftId), ['d1']);
 });
 
+test('an exact future draft can be inspected in dry-run without becoming publishable', async () => {
+  const futureItem = {
+    ...storyItem(),
+    scheduledFor: '2026-10-03T19:00:00+02:00',
+  };
+  const result = await runDueContent({
+    draftId: 'd1',
+    now: new Date('2026-10-02T17:10:00Z'),
+    drafts: [runtimeDraft('d1', { scheduledFor: futureItem.scheduledFor })],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => [{ eventKey: 'event-1', booked: 6, capacity: 12 }],
+    planBuilder: async () => deliveryPlan([futureItem]),
+  });
+  assert.equal(result.mode, 'dry_run');
+  assert.deepEqual(result.due.map((item) => item.draftId), ['d1']);
+});
+
+test('an exact future draft remains blocked in publish mode', async () => {
+  let sideEffect = false;
+  const futureItem = {
+    ...storyItem(),
+    scheduledFor: '2026-10-03T19:00:00+02:00',
+  };
+  await assert.rejects(runDueContent({
+    publish: true,
+    draftId: 'd1',
+    now: new Date('2026-10-02T17:10:00Z'),
+    drafts: [runtimeDraft('d1', { scheduledFor: futureItem.scheduledFor })],
+    config: { weeksAhead: 4 },
+    liveEventReader: async () => [{ eventKey: 'event-1', booked: 6, capacity: 12 }],
+    planBuilder: async () => deliveryPlan([futureItem]),
+    storyRenderer: async () => { sideEffect = true; },
+    assetUploader: async () => { sideEffect = true; },
+    metaAdapter: {
+      preflight: async () => { sideEffect = true; },
+      publish: async () => { sideEffect = true; },
+    },
+  }), /ikke forfalden/i);
+  assert.equal(sideEffect, false);
+});
+
 test('an exact draft selection fails closed when the draft does not exist', async () => {
   await assert.rejects(runDueContent({
     draftId: 'missing-draft',

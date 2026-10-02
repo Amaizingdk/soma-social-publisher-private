@@ -147,7 +147,9 @@ async function runDueContent({
   if (plan.blocked?.length) {
     throw new Error(`Frisk kalenderkontrol blokerede ${plan.blocked.length} godkendte kladder`);
   }
-  const due = dueItems(plan, now)
+  const exactDryRun = !publish && draftId !== null;
+  const selectableItems = exactDryRun ? plan.automatic : dueItems(plan, now);
+  const due = selectableItems
     .filter((item) => deliveryTypes === null || deliveryTypes.includes(item.deliveryType))
     .filter((item) => draftId === null || item.draftId === draftId);
   if (draftId !== null && due.length === 0) {
