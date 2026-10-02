@@ -1,0 +1,109 @@
+name: SOMA mobile live test
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions: {}
+
+concurrency:
+  group: soma-state-writer
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    outputs:
+      accepted: ${{ steps.gate.outputs.accepted }}
+      draft_id: ${{ steps.gate.outputs.draft_id }}
+      delivery_type: ${{ steps.gate.outputs.delivery_type }}
+      issue_number: ${{ steps.gate.outputs.issue_number }}
+      comment_id: ${{ steps.gate.outputs.comment_id }}
+    steps:
+      - name: Checkout verified runtime
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate mobile live command
+        id: gate
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SOMA_APPROVER_LOGIN: ${{ vars.SOMA_APPROVER_LOGIN }}
+          SOMA_AUTOMATION_ENABLED: ${{ vars.PUBLISH_ENABLED }}
+        run: node outputs/content-planner/mobile-live-test.js --gate
+
+  publish:
+    needs: gate
+    if: needs.gate.outputs.accepted == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - name: Checkout verified runtime
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Publish exact accepted delivery
+        id: publish_delivery
+        shell: bash
+        env:
+          PUBLISH_ENABLED: 'true'
+          SOMA_META_ACCESS_TOKEN: ${{ secrets.SOMA_META_ACCESS_TOKEN }}
+          SOMA_ASSET_REPO_TOKEN: ${{ secrets.SOMA_ASSET_REPO_TOKEN }}
+          SOMA_DELIVERY_TYPE: ${{ needs.gate.outputs.delivery_type }}
+          SOMA_DRAFT_ID: ${{ needs.gate.outputs.draft_id }}
+        run: node outputs/content-planner/publish-due-content.js --publish --delivery-type "$SOMA_DELIVERY_TYPE" --draft-id "$SOMA_DRAFT_ID"
+      - name: Reconcile publication state
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node outputs/content-planner/sync-operations.js --publication-only
+      - name: Persist reconciled drafts
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "soma-social-publisher[bot]"
+          git config user.email "soma-social-publisher[bot]@users.noreply.github.com"
+          git add -- outputs/content-planner/drafts.json outputs/content-planner/approval/drafts-data.js
+          git diff --cached --quiet || git commit -m "chore: reconcile SOMA mobile live test"
+          git pull --rebase
+          git push
+      - name: Report sanitized mobile result
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          SOMA_DRAFT_ID: ${{ needs.gate.outputs.draft_id }}
+          SOMA_DELIVERY_TYPE: ${{ needs.gate.outputs.delivery_type }}
+          SOMA_ISSUE_NUMBER: ${{ needs.gate.outputs.issue_number }}
+          SOMA_COMMENT_ID: ${{ needs.gate.outputs.comment_id }}
+          SOMA_PUBLISH_OUTCOME: ${{ steps.publish_delivery.outcome }}
+        run: node outputs/content-planner/mobile-live-test.js --report
+      - name: Add sanitized summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f state/run-summary.json ]; then
+            cat state/run-summary.json >> "$GITHUB_STEP_SUMMARY"
+          fi

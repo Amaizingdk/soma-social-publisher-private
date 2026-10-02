@@ -5,6 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 
 const { buildPrivateRuntime } = require('../outputs/content-planner/build-private-runtime');
+const sourceRoot = path.resolve(__dirname, '..');
 
 async function write(root, relativePath, content) {
   const target = path.join(root, relativePath);
@@ -179,4 +180,23 @@ test('legacy approved draft receives matching approval revision without losing o
   assert.equal(approved.approvedRevision, approved.contentRevision);
   assert.equal(approved.approvedBy, 'legacy_local_review');
   assert.equal(approved.githubIssueNumber, 42);
+});
+
+test('source runtime allowlist carries the mobile live CLI while recursive roots carry its module and workflow', async () => {
+  const manifest = JSON.parse(await fs.readFile(
+    path.join(sourceRoot, 'outputs/content-planner/private-runtime-manifest.json'),
+    'utf8',
+  ));
+  assert.equal(manifest.copies.some((entry) => (
+    entry.source === 'outputs/content-planner/mobile-live-test.js'
+    && entry.destination === 'outputs/content-planner/mobile-live-test.js'
+  )), true);
+  assert.equal(manifest.copies.some((entry) => (
+    entry.source === 'outputs/content-planner/lib'
+    && entry.destination === 'outputs/content-planner/lib'
+  )), true);
+  assert.equal(manifest.copies.some((entry) => (
+    entry.source === 'outputs/content-planner/runtime'
+    && entry.destination === '.'
+  )), true);
 });

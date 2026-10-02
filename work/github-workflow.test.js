@@ -11,6 +11,7 @@ const runtimeRoot = fsSync.existsSync(path.join(releaseRoot, '.github/workflows/
   : sourceRuntimeRoot;
 const publishPath = path.join(runtimeRoot, '.github/workflows/publish.yml');
 const operationsPath = path.join(runtimeRoot, '.github/workflows/operations.yml');
+const mobileLivePath = path.join(runtimeRoot, '.github/workflows/mobile-live-test.yml');
 const ciPath = path.join(runtimeRoot, '.github/workflows/ci.yml');
 const ledgerPath = path.join(runtimeRoot, 'state/publish-ledger.json');
 
@@ -94,6 +95,7 @@ test('operations workflow has no publishing secrets and handles schedule plus is
   assert.match(yaml, /contents:\s*write/);
   assert.doesNotMatch(yaml, /SOMA_(META_ACCESS_TOKEN|ASSET_REPO_TOKEN)/);
   assert.match(yaml, /SOMA_APPROVER_LOGIN:\s*\$\{\{ vars\.SOMA_APPROVER_LOGIN \}\}/);
+  assert.match(yaml, /PUBLISH_ENABLED:\s*\$\{\{ vars\.PUBLISH_ENABLED \}\}/);
   const gitAdd = yaml.match(/git add[^\n]+/g) || [];
   assert.equal(gitAdd.length, 1);
   assert.match(gitAdd[0], /outputs\/content-planner\/drafts\.json/);
@@ -118,4 +120,62 @@ test('all state writers share concurrency and publish secrets remain step scoped
   assert.match(publishStep, /SOMA_ASSET_REPO_TOKEN/);
   assert.doesNotMatch(reconcileStep, /SOMA_META_ACCESS_TOKEN|SOMA_ASSET_REPO_TOKEN/);
   assert.match(reconcileStep, /sync-operations\.js --publication-only/);
+});
+
+test('mobile live workflow gates issue comments before any secret-bearing step', async () => {
+  const yaml = await fs.readFile(mobileLivePath, 'utf8');
+  assert.match(yaml, /issue_comment:\s*\n\s+types:\s*\[created\]/);
+  assert.match(yaml, /permissions:\s*\{\}/);
+  assert.match(yaml, /group:\s*soma-state-writer/);
+  assert.match(yaml, /node outputs\/content-planner\/mobile-live-test\.js --gate/);
+  assert.match(yaml, /needs\.gate\.outputs\.accepted == 'true'/);
+  const gate = yaml.slice(yaml.indexOf('  gate:'), yaml.indexOf('  publish:'));
+  assert.doesNotMatch(gate, /secrets\./);
+  assert.match(gate, /persist-credentials:\s*false/);
+  assert.match(gate, /SOMA_AUTOMATION_ENABLED:\s*\$\{\{ vars\.PUBLISH_ENABLED \}\}/);
+});
+
+test('mobile live secrets exist only in the exact publish step', async () => {
+  const yaml = await fs.readFile(mobileLivePath, 'utf8');
+  const start = yaml.indexOf('- name: Publish exact accepted delivery');
+  const end = yaml.indexOf('- name: Reconcile publication state', start);
+  assert.ok(start > -1 && end > start);
+  const publishStep = yaml.slice(start, end);
+  const outside = yaml.slice(0, start) + yaml.slice(end);
+  assert.match(publishStep, /SOMA_META_ACCESS_TOKEN:\s*\$\{\{ secrets\.SOMA_META_ACCESS_TOKEN \}\}/);
+  assert.match(publishStep, /SOMA_ASSET_REPO_TOKEN:\s*\$\{\{ secrets\.SOMA_ASSET_REPO_TOKEN \}\}/);
+  assert.doesNotMatch(outside, /secrets\.SOMA_(META_ACCESS_TOKEN|ASSET_REPO_TOKEN)/);
+  assert.match(publishStep, /--delivery-type "\$SOMA_DELIVERY_TYPE"/);
+  assert.match(publishStep, /--draft-id "\$SOMA_DRAFT_ID"/);
+  assert.doesNotMatch(yaml, /--draft-id[^\n]*github\.event/);
+  assert.doesNotMatch(yaml, /^env:/m);
+  assert.doesNotMatch(yaml, /delivery_type:\s*all|options:\s*\[[^\]]*all/);
+});
+
+test('mobile reconciliation and report always run without publishing secrets', async () => {
+  const yaml = await fs.readFile(mobileLivePath, 'utf8');
+  const reconcile = yaml.slice(
+    yaml.indexOf('- name: Reconcile publication state'),
+    yaml.indexOf('- name: Persist reconciled drafts'),
+  );
+  const report = yaml.slice(
+    yaml.indexOf('- name: Report sanitized mobile result'),
+    yaml.indexOf('- name: Add sanitized summary'),
+  );
+  assert.match(reconcile, /if:\s*always\(\)/);
+  assert.match(report, /if:\s*always\(\)/);
+  assert.match(report, /mobile-live-test\.js --report/);
+  assert.doesNotMatch(reconcile + report, /SOMA_META_ACCESS_TOKEN|SOMA_ASSET_REPO_TOKEN/);
+});
+
+test('operations, publisher, and mobile live workflow serialize shared state writes', async () => {
+  const yamls = await Promise.all([
+    fs.readFile(operationsPath, 'utf8'),
+    fs.readFile(publishPath, 'utf8'),
+    fs.readFile(mobileLivePath, 'utf8'),
+  ]);
+  for (const yaml of yamls) {
+    assert.match(yaml, /group:\s*soma-state-writer/);
+    assert.match(yaml, /cancel-in-progress:\s*false/);
+  }
 });

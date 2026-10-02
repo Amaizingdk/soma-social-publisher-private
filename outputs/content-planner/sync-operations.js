@@ -28,6 +28,7 @@ async function main(argv = process.argv.slice(2), env = process.env) {
   const result = await runOperationsSync({
     client,
     approverLogin: env.SOMA_APPROVER_LOGIN,
+    automationEnabled: env.PUBLISH_ENABLED,
     planner: (options) => runPipeline({ ...options, runtimeRoot: process.cwd() }),
     writeApprovalPayloadImpl: writeApprovalPayload,
     paths: {

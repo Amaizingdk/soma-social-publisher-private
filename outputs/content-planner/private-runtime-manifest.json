@@ -42,6 +42,10 @@
       "destination": "outputs/content-planner/approve-issue.js"
     },
     {
+      "source": "outputs/content-planner/mobile-live-test.js",
+      "destination": "outputs/content-planner/mobile-live-test.js"
+    },
+    {
       "source": "outputs/content-planner/sync-operations.js",
       "destination": "outputs/content-planner/sync-operations.js"
     },

@@ -103,6 +103,58 @@ test('operations rerun creates no duplicate issue or reminder', async () => {
   assert.equal(second.drafts[0].reminderState.revision, REVISION);
 });
 
+test('operations creates one approved live-test reminder with exact mobile commands', async () => {
+  const client = fakeClient();
+  const first = await runOperationsSync({
+    drafts: [approvedDraft({ scheduledFor: '2026-10-03T17:00:00Z' })],
+    ledger: ledgerWith(),
+    client,
+    approverLogin: 'Amaizingai',
+    automationEnabled: 'false',
+    now: new Date('2026-10-03T16:30:00Z'),
+  });
+  await runOperationsSync({
+    drafts: first.drafts,
+    ledger: ledgerWith(),
+    client,
+    approverLogin: 'Amaizingai',
+    automationEnabled: 'false',
+    now: new Date('2026-10-03T16:45:00Z'),
+  });
+  const marker = 'soma-live-test-reminder:draft-1:' + REVISION + ':30m';
+  const comments = client.commentsWith(marker);
+  assert.equal(comments.length, 1);
+  assert.match(comments[0].body, /@Amaizingai/);
+  assert.match(comments[0].body, /`PUBLICER STORY`/);
+  assert.match(comments[0].body, /`PUBLICER FACEBOOK`/);
+  assert.match(comments[0].body, /ved eller efter/i);
+});
+
+test('operations reminder after Story publication asks only for visual check and Facebook', async () => {
+  const client = fakeClient();
+  const result = await runOperationsSync({
+    drafts: [approvedDraft({ scheduledFor: '2026-10-03T17:00:00Z' })],
+    ledger: ledgerWith({
+      draftId: 'draft-1',
+      revision: 1,
+      deliveryType: 'instagram_story',
+      status: 'published',
+    }),
+    client,
+    approverLogin: 'Amaizingai',
+    automationEnabled: 'false',
+    now: new Date('2026-10-03T16:30:00Z'),
+  });
+  const marker = 'soma-live-test-reminder:draft-1:' + REVISION + ':30m';
+  const comments = client.commentsWith(marker);
+  assert.equal(comments.length, 1);
+  assert.match(comments[0].body, /Story er allerede registreret som publiceret/i);
+  assert.match(comments[0].body, /kontrollér den visuelt/i);
+  assert.match(comments[0].body, /`PUBLICER FACEBOOK`/);
+  assert.doesNotMatch(comments[0].body, /`PUBLICER STORY`/);
+  assert.equal(result.drafts[0].liveTestReminderState.revision, REVISION);
+});
+
 test('missed approval deadline creates one durable skip alert', async () => {
   const client = fakeClient();
   const first = await runOperationsSync({

@@ -7,7 +7,12 @@ const { recoverApprovalsFromIssues } = require('./approvals');
 const { reconcileLifecycle } = require('./draft-lifecycle');
 const { commentOnce, syncDraftIssue } = require('./github-issues');
 const { writeJsonAtomic } = require('./io');
-const { markReminderSent, reminderDecision } = require('./reminders');
+const {
+  liveTestReminderDecision,
+  markLiveTestReminderSent,
+  markReminderSent,
+  reminderDecision,
+} = require('./reminders');
 
 const REQUIRED_DELIVERIES = ['instagram_story', 'facebook_page_feed'];
 const ACTIVE_ISSUE_STATUSES = new Set(['draft', 'needs_review', 'approved', 'needs_correction']);
@@ -24,11 +29,25 @@ function reminderBody(draft, decision, approverLogin) {
     + 'Deadline: ' + deadline + '.';
 }
 
+function liveTestReminderBody(draft, decision, approverLogin) {
+  const deadline = String(draft.scheduledFor || 'ukendt');
+  if (!decision.remainingDeliveries.includes('instagram_story')) {
+    return '@' + approverLogin + ' — Instagram Story er allerede registreret som publiceret. '
+      + 'Kontrollér den visuelt i Instagram-appen, og skriv derefter kun `PUBLICER FACEBOOK`, '
+      + 'hvis Storyen ser korrekt ud. Planlagt: ' + deadline + '.';
+  }
+  return '@' + approverLogin + ' — mobil-live-testen er klar omkring ' + deadline + '. '
+    + 'Åbn previewet ovenfor. Ved eller efter tidspunktet: skriv kun `PUBLICER STORY`, '
+    + 'kontrollér Storyen visuelt i Instagram, og skriv derefter kun `PUBLICER FACEBOOK`, '
+    + 'hvis Storyen ser korrekt ud.';
+}
+
 async function syncIssuesAndReminders({
   drafts,
   ledger,
   client,
   approverLogin,
+  automationEnabled,
   now = new Date(),
   createTerminalIds = new Set(),
 }) {
@@ -65,6 +84,17 @@ async function syncIssuesAndReminders({
         body: reminderBody(draft, decision, approverLogin),
       });
       draft = markReminderSent(draft, decision, now);
+    }
+    const liveTestDecision = liveTestReminderDecision(draft, ledger, { automationEnabled, now });
+    if (liveTestDecision) {
+      const marker = ['soma-live-test-reminder', draft.draftId, draft.contentRevision, '30m'].join(':');
+      await commentOnce({
+        client,
+        issueNumber: draft.githubIssueNumber,
+        marker,
+        body: liveTestReminderBody(draft, liveTestDecision, approverLogin),
+      });
+      draft = markLiveTestReminderSent(draft, liveTestDecision, now);
     }
     updated.push(draft);
   }
@@ -135,6 +165,7 @@ async function runOperationsSync({
   drafts: suppliedDrafts,
   ledger: suppliedLedger,
   approverLogin,
+  automationEnabled,
   writeApprovalPayloadImpl,
 } = {}) {
   if (!client?.repository) throw new Error('GitHub-klient mangler');
@@ -180,6 +211,7 @@ async function runOperationsSync({
     ledger,
     client,
     approverLogin,
+    automationEnabled,
     now,
     createTerminalIds,
   });
@@ -199,6 +231,7 @@ module.exports = {
   REQUIRED_DELIVERIES,
   reconcilePublicationState,
   reminderBody,
+  liveTestReminderBody,
   runOperationsSync,
   syncPublicationIssues,
   syncIssuesAndReminders,

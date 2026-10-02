@@ -50,6 +50,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           SOMA_APPROVER_LOGIN: ${{ vars.SOMA_APPROVER_LOGIN }}
+          PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
         run: node outputs/content-planner/sync-operations.js
       - name: Persist operational state
         if: always()
