@@ -1,4 +1,15 @@
 {
   "schemaVersion": 1,
-  "entries": []
+  "entries": [
+    {
+      "idempotencyKey": "6b8466bffe84da6871c6ce777a6d410a3cc51f6d2d0c1b836be06badf8e9d899",
+      "draftId": "2026-10-04_16-00_saunagus_day-before_r7",
+      "revision": 7,
+      "platform": "instagram",
+      "deliveryType": "instagram_story",
+      "scheduledFor": "2026-10-03T10:00:00+02:00",
+      "status": "reserved",
+      "reservedAt": "2026-10-03T08:21:37.412Z"
+    }
+  ]
 }
