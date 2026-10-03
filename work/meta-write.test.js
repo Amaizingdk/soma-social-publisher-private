@@ -13,6 +13,9 @@ function storyAdapter({ statuses = ['FINISHED'], calls = [], bioLinkValidator = 
   const fetchImpl = async (url, options) => {
     calls.push({ url, options });
     if (options.method === 'GET') {
+      if (url.includes('/628094223731455?fields=access_token')) {
+        return response({ id: '628094223731455', access_token: 'page-access-token' });
+      }
       const statusCode = statuses[Math.min(statusIndex, statuses.length - 1)];
       statusIndex += 1;
       return response({ status_code: statusCode });
@@ -80,7 +83,7 @@ test('times out without publishing when a Story container never finishes', async
   assert.equal(calls.some((call) => call.url.includes('/media_publish')), false);
 });
 
-test('Facebook Page feed uses only the Page photo endpoint with caption', async () => {
+test('Facebook Page feed resolves a Page token before using the Page photo endpoint', async () => {
   const calls = [];
   const adapter = storyAdapter({ calls });
   const result = await adapter.publish({
@@ -89,9 +92,13 @@ test('Facebook Page feed uses only the Page photo endpoint with caption', async 
     caption: 'Godkendt tekst · 6 ledige pladser',
   });
   assert.equal(result.providerId, 'fb-post-1');
-  assert.equal(calls.length, 1);
-  assert.equal(calls[0].url, 'https://graph.facebook.com/v26.0/628094223731455/photos');
-  assert.match(String(calls[0].options.body), /caption=Godkendt\+tekst/);
+  assert.equal(calls.length, 2);
+  assert.equal(calls[0].url, 'https://graph.facebook.com/v26.0/628094223731455?fields=access_token');
+  assert.equal(calls[0].options.headers.Authorization, 'Bearer secret-token');
+  assert.equal(calls[1].url, 'https://graph.facebook.com/v26.0/628094223731455/photos');
+  assert.match(String(calls[1].options.body), /caption=Godkendt\+tekst/);
+  assert.match(String(calls[1].options.body), /access_token=page-access-token/);
+  assert.doesNotMatch(String(calls[1].options.body), /secret-token/);
 });
 
 for (const deliveryType of ['instagram_feed', 'facebook_private_profile', 'facebook_private_story', 'facebook_group']) {

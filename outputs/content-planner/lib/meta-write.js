@@ -139,10 +139,18 @@ function createMetaWriteAdapter({
       if (item.deliveryType === 'facebook_page_feed') {
         if (pageId !== '628094223731455') throw new Error('Facebook Page-id matcher ikke SOMA');
         if (typeof item.caption !== 'string' || item.caption.trim() === '') throw new Error('Facebook Page-opslag mangler caption');
+        const page = await graphGet({
+          endpoint: `/${pageId}?fields=access_token`,
+          token,
+          fetchImpl,
+        });
+        if (typeof page.access_token !== 'string' || page.access_token.trim() === '') {
+          throw new Error('Meta returnerede intet Page access token');
+        }
         const published = await graphPost({
           endpoint: `/${pageId}/photos`,
           params: { url: item.imageUrl, caption: item.caption },
-          token,
+          token: page.access_token,
           fetchImpl,
         });
         return { providerId: published.id || published.post_id || null };
