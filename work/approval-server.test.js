@@ -57,7 +57,7 @@ function request(port, { method = 'GET', path: urlPath = '/', headers = {}, body
       let text = '';
       res.setEncoding('utf8');
       res.on('data', (chunk) => { text += chunk; });
-      res.on('end', () => resolve({ status: res.statusCode, text }));
+      res.on('end', () => resolve({ status: res.statusCode, text, contentType: res.headers['content-type'] || '' }));
     });
     req.on('error', reject);
     if (body !== undefined) req.write(body);
@@ -214,5 +214,46 @@ test('serializes concurrent approve requests so transactions never overlap', asy
     assert.equal(second.status, 200);
     assert.equal(maxActive, 1);
     assert.deepEqual(order.sort(), ['d1', 'd2']);
+  } finally { await server.stop(); }
+});
+
+test('serves the exact file content with the right content type', async () => {
+  const { server, info, repoRoot } = await startServer(stubTransaction([]));
+  try {
+    const dir = path.join(repoRoot, 'outputs', 'content-planner', 'approval');
+    const expected = {
+      '/app.js': await fs.readFile(path.join(dir, 'app.js'), 'utf8'),
+      '/styles.css': await fs.readFile(path.join(dir, 'styles.css'), 'utf8'),
+      '/drafts-data.js': await fs.readFile(path.join(dir, 'drafts-data.js'), 'utf8'),
+    };
+    const types = { '/app.js': 'javascript', '/styles.css': 'css', '/drafts-data.js': 'javascript' };
+    for (const [file, content] of Object.entries(expected)) {
+      const res = await request(info.port, { path: file });
+      assert.equal(res.text, content, file);
+      assert.match(res.contentType, new RegExp(types[file]), file);
+    }
+  } finally { await server.stop(); }
+});
+
+test('serves render images from renders/ and nothing else outside the whitelist', async () => {
+  const { server, info, repoRoot } = await startServer(stubTransaction([]));
+  try {
+    const bytes = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0x4a, 0x46, 0xff, 0xd9]);
+    await fs.mkdir(path.join(repoRoot, 'renders'), { recursive: true });
+    await fs.writeFile(path.join(repoRoot, 'renders', 'a-1.jpg'), bytes);
+    await fs.writeFile(path.join(repoRoot, 'renders', 'secret.txt'), 'nej');
+    const ok = await new Promise((resolve, reject) => {
+      http.get({ host: '127.0.0.1', port: info.port, path: '/renders/a-1.jpg' }, (res) => {
+        const chunks = [];
+        res.on('data', (chunk) => chunks.push(chunk));
+        res.on('end', () => resolve({ status: res.statusCode, type: res.headers['content-type'], body: Buffer.concat(chunks) }));
+      }).on('error', reject);
+    });
+    assert.equal(ok.status, 200);
+    assert.equal(ok.type, 'image/jpeg');
+    assert.deepEqual(ok.body, bytes);
+    for (const bad of ['/renders/secret.txt', '/renders/missing.jpg', '/renders/../drafts.json', '/renders/%2e%2e/drafts.json', '/renders/sub/a-1.jpg']) {
+      assert.equal((await request(info.port, { path: bad })).status, 404, bad);
+    }
   } finally { await server.stop(); }
 });

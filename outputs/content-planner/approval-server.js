@@ -11,6 +11,7 @@ const { runApprovalTransaction } = require('./lib/approval-transaction');
 const MAX_BODY_BYTES = 64 * 1024;
 const MAX_ITEMS = 100;
 const SESSION_PLACEHOLDER = '<script id="soma-session" type="application/json">null</script>';
+const RENDER_PATTERN = /^\/renders\/([A-Za-z0-9._-]+\.jpg)$/;
 const STATIC_FILES = new Map([
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
@@ -29,7 +30,7 @@ function send(res, status, body, contentType = 'application/json; charset=utf-8'
     'cache-control': 'no-store',
     'x-content-type-options': 'nosniff',
   });
-  res.end(typeof body === 'string' ? body : JSON.stringify(body));
+  res.end(typeof body === 'string' || Buffer.isBuffer(body) ? body : JSON.stringify(body));
 }
 
 function readBody(req) {
@@ -123,6 +124,14 @@ function createApprovalServer({
       const html = await fs.readFile(path.join(approvalDir, 'index.html'), 'utf8');
       return send(res, 200, html.replace(SESSION_PLACEHOLDER,
         () => SESSION_PLACEHOLDER.replace('null', JSON.stringify({ key: sessionKey }))), 'text/html; charset=utf-8');
+    }
+    const render = RENDER_PATTERN.exec(urlPath);
+    if (render) {
+      try {
+        return send(res, 200, await fs.readFile(path.join(repoRoot, 'renders', render[1])), 'image/jpeg');
+      } catch {
+        return send(res, 404, { error: 'not_found' });
+      }
     }
     const entry = STATIC_FILES.get(urlPath);
     if (!entry) return send(res, 404, { error: 'not_found' });
