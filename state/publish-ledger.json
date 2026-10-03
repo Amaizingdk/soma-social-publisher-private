@@ -20,8 +20,10 @@
       "platform": "facebookPage",
       "deliveryType": "facebook_page_feed",
       "scheduledFor": "2026-10-03T10:00:00+02:00",
-      "status": "reserved",
-      "reservedAt": "2026-10-03T08:46:48.753Z"
+      "status": "manual_review_required",
+      "reservedAt": "2026-10-03T08:46:48.753Z",
+      "reason": "Meta-kaldet gav et tvetydigt resultat; kontrollér kanalen manuelt",
+      "manualReviewRequiredAt": "2026-10-03T08:46:48.753Z"
     }
   ]
 }
