@@ -82,9 +82,14 @@ test('validate-meta job is read-only and receives no asset secret', async () => 
   assert.doesNotMatch(segment, /contents:\s*write/);
 });
 
-test('runtime ledger starts empty with schema version one', async () => {
+test('runtime ledger keeps schema version one and valid durable entries', async () => {
   const ledger = JSON.parse(await fs.readFile(ledgerPath, 'utf8'));
-  assert.deepEqual(ledger, { schemaVersion: 1, entries: [] });
+  assert.equal(ledger.schemaVersion, 1);
+  assert.ok(Array.isArray(ledger.entries));
+  for (const entry of ledger.entries) {
+    assert.match(entry.idempotencyKey, /^[a-f0-9]{64}$/);
+    assert.ok(['reserved', 'published', 'manual_review_required'].includes(entry.status));
+  }
 });
 
 test('operations workflow has no publishing secrets and handles schedule plus issue comments', async () => {
