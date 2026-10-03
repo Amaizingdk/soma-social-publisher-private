@@ -64,7 +64,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "406c59284a8acba48ce13287865bae1bd9f60ee5aa966f912ddcf99662c8fff1",
     "revision": 7,
     "kind": "day_before",
-    "status": "approved",
+    "status": "needs_correction",
     "scheduledFor": "2026-10-03T10:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -155,16 +155,17 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       }
     ],
     "contentRevision": "6c94bed1a122212869220c6b7b9077586d0df3b29695160510d691614405a0cf",
-    "approvedAt": "2026-10-03T05:51:56.302Z",
-    "approvedBy": "Amaizingai",
-    "approvedRevision": "6c94bed1a122212869220c6b7b9077586d0df3b29695160510d691614405a0cf",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 49,
     "reminderState": {
       "revision": "6c94bed1a122212869220c6b7b9077586d0df3b29695160510d691614405a0cf",
       "sent72At": "2026-10-03T05:42:19.050Z",
       "sent24At": "2026-10-03T05:42:19.050Z"
     },
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "correctionReason": "manual_review_required"
   },
   {
     "draftId": "2026-10-04_16-00_saunagus_event-day_r8",
