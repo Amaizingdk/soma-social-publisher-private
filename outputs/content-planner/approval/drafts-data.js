@@ -341,11 +341,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     },
     "renderPath": "renders/2026-10-05_weekly-overview-e17a7095d8.jpg",
     "manualInstructor": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-03T11:37:36.228Z",
+        "type": "approve",
+        "from": "approved",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "08293701628f048f5350f37b2d5134427a911979232a59beb12ae2d7001b2a4c",
-    "approvedAt": "2026-09-30T07:41:25.333Z",
-    "approvedBy": "legacy_local_review",
-    "approvedRevision": "bfa2e57ef9b1d81ca3597a566cb790bd01bcdb7a00805b4597705b9b48fb5310",
+    "approvedAt": "2026-10-03T11:37:36.228Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "08293701628f048f5350f37b2d5134427a911979232a59beb12ae2d7001b2a4c",
     "githubIssueNumber": 6,
     "reminderState": null,
     "warningsAcknowledged": false
