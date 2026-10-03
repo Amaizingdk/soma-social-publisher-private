@@ -203,6 +203,80 @@ test('approval page edits one platform, approves all clean drafts, and exports J
   }
 });
 
+test('approval page resolves a portable render path to a real preview image', async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const draft = generated({
+      renderPath: 'renders/2026-10-04_16-00_saunagus_event-day-7d781a2cd4-soren.jpg',
+      event: { date: '2099-10-04', start: '16:00', end: '18:00', name: 'Saunagus', instructor: 'Søren' },
+    });
+    const page = await browser.newPage({ viewport: { width: 900, height: 900 } });
+    await page.addInitScript((value) => { window.__SOMA_DRAFTS__ = value; }, [draft]);
+    const fileUrl = `file:///${path.join(__dirname, '..', 'outputs', 'content-planner', 'approval', 'index.html').replace(/\\/g, '/')}`;
+    await page.goto(fileUrl);
+    const image = page.locator('.preview img');
+    await image.waitFor({ state: 'attached' });
+    await page.waitForFunction((node) => node.complete, await image.elementHandle());
+    assert.ok(
+      await image.evaluate((node) => node.naturalWidth > 0),
+      `Billedet kunne ikke indlæses: ${await image.getAttribute('src')}`,
+    );
+  } finally {
+    await browser.close();
+  }
+});
+
+test('approval page shows only drafts with at least one event that has not ended', async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const drafts = [
+      generated({
+        draftId: 'ended-event',
+        event: { date: '2000-01-01', start: '10:00', end: '12:00', name: 'Afsluttet gus' },
+      }),
+      generated({
+        draftId: 'future-event',
+        event: { date: '2099-01-01', start: '10:00', end: '12:00', name: 'Fremtidigt gus' },
+      }),
+      generated({
+        draftId: 'ended-weekly', kind: 'weekly_overview', event: null,
+        events: [
+          { date: '2000-01-01', start: '10:00', end: '12:00', name: 'Afsluttet gus' },
+        ],
+      }),
+      generated({
+        draftId: 'mixed-weekly', kind: 'weekly_overview', event: null,
+        events: [
+          { date: '2000-01-01', start: '10:00', end: '12:00', name: 'Afsluttet gus' },
+          { date: '2099-01-01', start: '10:00', end: '12:00', name: 'Fremtidigt gus' },
+        ],
+      }),
+    ];
+    const page = await browser.newPage({ viewport: { width: 900, height: 900 } });
+    await page.addInitScript((value) => { window.__SOMA_DRAFTS__ = value; }, drafts);
+    const fileUrl = `file:///${path.join(__dirname, '..', 'outputs', 'content-planner', 'approval', 'index.html').replace(/\\/g, '/')}`;
+    await page.goto(fileUrl);
+
+    assert.deepEqual(
+      await page.locator('.draft').evaluateAll((cards) => cards.map((card) => card.dataset.draftId)),
+      ['future-event', 'mixed-weekly'],
+    );
+
+    await page.getByRole('button', { name: 'Godkend alle' }).click();
+    const downloadPromise = page.waitForEvent('download');
+    await page.getByRole('button', { name: 'Eksportér godkendelser' }).click();
+    const stream = await (await downloadPromise).createReadStream();
+    let raw = '';
+    for await (const chunk of stream) raw += chunk.toString('utf8');
+    const reviewed = JSON.parse(raw);
+    assert.equal(reviewed.find((draft) => draft.draftId === 'ended-event').status, 'draft');
+    assert.equal(reviewed.find((draft) => draft.draftId === 'future-event').status, 'approved');
+    assert.equal(reviewed.find((draft) => draft.draftId === 'mixed-weekly').status, 'approved');
+  } finally {
+    await browser.close();
+  }
+});
+
 test('instructor dropdown applies the choice to every draft for the same event', async () => {
   const browser = await chromium.launch({ headless: true });
   try {

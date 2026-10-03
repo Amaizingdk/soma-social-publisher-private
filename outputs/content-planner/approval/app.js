@@ -83,6 +83,33 @@
       .format(new Date(Date.UTC(year, month - 1, day)));
   }
 
+  function draftHasUpcomingEvent(draft, now = new Date()) {
+    const events = draft.kind === 'weekly_overview' ? draft.events : [draft.event];
+    if (!Array.isArray(events) || events.length === 0) return false;
+    return events.some((event) => {
+      if (!event?.date || !event?.end) return false;
+      const end = new Date(`${event.date}T${event.end}:00`);
+      return Number.isFinite(end.getTime()) && end.getTime() > now.getTime();
+    });
+  }
+
+  function visibleDrafts() {
+    return drafts.filter((draft) => draft.status !== 'obsolete' && draftHasUpcomingEvent(draft));
+  }
+
+  function setPreviewSource(image, renderPath) {
+    const normalized = String(renderPath).replace(/\\/g, '/');
+    const candidates = normalized.startsWith('renders/')
+      ? [`../${normalized}`, `../../../${normalized}`]
+      : [normalized];
+    let index = 0;
+    image.addEventListener('error', () => {
+      index += 1;
+      if (index < candidates.length) image.src = candidates[index];
+    });
+    image.src = candidates[0];
+  }
+
   function refreshWeeklyCopy(draft) {
     const list = (draft.events || []).map((event) =>
       `• ${formatDanishDate(event.date)} · ${event.start.replace(':', '.')}–${event.end.replace(':', '.')} · ${eventLabel(event)}`)
@@ -122,7 +149,7 @@
 
   function render() {
     root.textContent = '';
-    const visible = drafts.filter((draft) => draft.status !== 'obsolete');
+    const visible = visibleDrafts();
     if (!visible.length) {
       const empty = document.createElement('p');
       empty.className = 'empty';
@@ -139,7 +166,7 @@
       preview.className = 'preview';
       if (draft.renderPath) {
         const img = document.createElement('img');
-        img.src = draft.renderPath;
+        setPreviewSource(img, draft.renderPath);
         img.alt = `Opslagsbillede til ${draft.event?.name || 'SOMA gus'}`;
         preview.append(img);
       }
@@ -238,7 +265,7 @@
   }
 
   document.querySelector('#approve-all').addEventListener('click', () => {
-    drafts.filter((draft) => draft.status !== 'obsolete' && draft.status !== 'needs_review')
+    visibleDrafts().filter((draft) => draft.status !== 'needs_review')
       .forEach((draft) => setStatus(draft, 'approved', 'approve'));
     render();
   });
