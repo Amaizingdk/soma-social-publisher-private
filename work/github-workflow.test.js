@@ -135,6 +135,30 @@ test('mobile live workflow gates issue comments before any secret-bearing step',
   assert.match(gate, /SOMA_AUTOMATION_ENABLED:\s*\$\{\{ vars\.PUBLISH_ENABLED \}\}/);
 });
 
+test('publishing workflows configure git identity before persistent reservation', async () => {
+  const workflows = [
+    {
+      name: 'scheduled publisher',
+      yaml: await fs.readFile(publishPath, 'utf8'),
+      publishStep: '- name: Publish due content',
+    },
+    {
+      name: 'mobile live test',
+      yaml: await fs.readFile(mobileLivePath, 'utf8'),
+      publishStep: '- name: Publish exact accepted delivery',
+    },
+  ];
+
+  for (const workflow of workflows) {
+    const publishIndex = workflow.yaml.indexOf(workflow.publishStep);
+    const nameIndex = workflow.yaml.indexOf('git config user.name "soma-social-publisher[bot]"');
+    const emailIndex = workflow.yaml.indexOf('git config user.email "soma-social-publisher[bot]@users.noreply.github.com"');
+    assert.ok(publishIndex > -1, `${workflow.name} mangler publish-step`);
+    assert.ok(nameIndex > -1 && nameIndex < publishIndex, `${workflow.name} konfigurerer git-navn for sent`);
+    assert.ok(emailIndex > -1 && emailIndex < publishIndex, `${workflow.name} konfigurerer git-email for sent`);
+  }
+});
+
 test('mobile live secrets exist only in the exact publish step', async () => {
   const yaml = await fs.readFile(mobileLivePath, 'utf8');
   const start = yaml.indexOf('- name: Publish exact accepted delivery');
