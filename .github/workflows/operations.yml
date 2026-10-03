@@ -52,13 +52,12 @@ jobs:
           SOMA_APPROVER_LOGIN: ${{ vars.SOMA_APPROVER_LOGIN }}
           PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
         run: node outputs/content-planner/sync-operations.js
-      - name: Persist operational state
+      - name: Configure git identity
         if: always()
         shell: bash
         run: |
           git config user.name "soma-social-publisher[bot]"
           git config user.email "soma-social-publisher[bot]@users.noreply.github.com"
-          git add -- outputs/content-planner/drafts.json outputs/content-planner/events.json outputs/content-planner/approval/drafts-data.js renders
-          git diff --cached --quiet || git commit -m "chore: sync SOMA operations"
-          git pull --rebase
-          git push
+      - name: Persist operational state
+        if: always()
+        run: node outputs/content-planner/persist-state.js

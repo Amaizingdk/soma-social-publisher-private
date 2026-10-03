@@ -8,6 +8,17 @@
   ];
   const embedded = JSON.parse(document.querySelector('#drafts-data')?.textContent || '[]');
   const storageKey = 'soma-content-planner-review-v1';
+  const session = window.__SOMA_SESSION__
+    || JSON.parse(document.querySelector('#soma-session')?.textContent || 'null');
+  const canApprove = Boolean(session?.key);
+  const sendMessages = new Map();
+  let busy = false;
+  const OUTCOME_MESSAGES = {
+    stale_revision: 'Opslaget er ændret, siden siden blev åbnet. Genindlæs siden og kontrollér igen.',
+    terminal: 'Opslaget kan ikke godkendes, fordi det er afsluttet.',
+    warnings_not_acknowledged: 'Advarsler skal bekræftes, før opslaget kan godkendes.',
+    unknown_draft: 'Opslaget findes ikke længere. Genindlæs siden.',
+  };
 
   function restoreSavedDrafts(current) {
     try {
@@ -21,8 +32,10 @@
           || match.revision !== draft.revision
           || match.eventFingerprint !== draft.eventFingerprint
           || match.contentFingerprint !== draft.contentFingerprint) return draft;
+        if (!match.localEdit) return draft;
         return {
           ...draft,
+          localEdit: true,
           status: match.status,
           platformCopies: structuredClone(match.platformCopies),
           approvedAt: match.approvedAt || null,
@@ -64,6 +77,41 @@
     if (status === 'approved') draft.approvedAt = new Date().toISOString();
     else draft.approvedAt = null;
     persistDrafts();
+  }
+
+  async function sendApprovals(items) {
+    try {
+      const response = await fetch(session.endpoint || new URL('approve', location.href).href, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-soma-key': session.key },
+        body: JSON.stringify({ items }),
+      });
+      if (!response.ok) return { results: [], pushed: false, error: `http_${response.status}` };
+      return await response.json();
+    } catch {
+      return { results: [], pushed: false, error: 'network' };
+    }
+  }
+
+  async function approveDrafts(selected) {
+    if (!canApprove || !selected.length || busy) return;
+    busy = true;
+    render();
+    const response = await sendApprovals(selected.map((draft) => ({
+      draftId: draft.draftId, contentRevision: draft.contentRevision,
+    })));
+    busy = false;
+    for (const draft of selected) {
+      const outcome = (response.results || []).find((item) => item.draftId === draft.draftId)?.outcome || 'not_processed';
+      if (outcome === 'already_approved' || (outcome === 'approved' && response.pushed)) {
+        sendMessages.delete(draft.draftId);
+        setStatus(draft, 'approved', 'approve');
+      } else {
+        sendMessages.set(draft.draftId, OUTCOME_MESSAGES[outcome]
+          || `Ikke sendt til GitHub (${response.error || 'ukendt fejl'}). Prøv igen.`);
+      }
+    }
+    render();
   }
 
   function eventLabel(event) {
@@ -120,6 +168,7 @@
       facebookPage: `Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n${list}\n\nFind den oplevelse, der passer dig, og book din plads her: ${booking}`,
       facebookGroup: `Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n${list}\n\nJeg glæder mig til at se jer. Booking: ${booking}`,
     };
+    draft.localEdit = true;
     setStatus(draft, 'draft', 'select_instructor');
   }
 
@@ -135,6 +184,7 @@
         draft.render = structuredClone(choice.render);
         draft.warnings = [];
         draft.warningsAcknowledged = true;
+        draft.localEdit = true;
         setStatus(draft, 'draft', 'select_instructor');
       }
       const weeklyEvent = draft.events?.find((event) => event.eventKey === eventKey);
@@ -149,6 +199,8 @@
 
   function render() {
     root.textContent = '';
+    const approveAllButton = document.querySelector('#approve-all');
+    if (approveAllButton) approveAllButton.disabled = busy || !canApprove;
     const visible = visibleDrafts();
     if (!visible.length) {
       const empty = document.createElement('p');
@@ -223,6 +275,7 @@
           acknowledge.textContent = 'Jeg har kontrolleret advarslen';
           acknowledge.addEventListener('click', () => {
             draft.warningsAcknowledged = true;
+            draft.localEdit = true;
             setStatus(draft, 'draft', 'acknowledge_warnings');
             render();
           });
@@ -249,29 +302,47 @@
       save.textContent = 'Gem ændringer';
       save.addEventListener('click', () => {
         draft.platformCopies[platform] = textarea.value.trim();
+        draft.localEdit = true;
         setStatus(draft, 'draft', 'edit');
         render();
       });
       const approve = document.createElement('button');
       approve.type = 'button';
       approve.textContent = 'Godkend opslag';
-      approve.disabled = draft.status === 'needs_review';
-      approve.addEventListener('click', () => { setStatus(draft, 'approved', 'approve'); render(); });
+      approve.disabled = busy || !canApprove || draft.status === 'needs_review' || Boolean(draft.localEdit);
+      approve.addEventListener('click', () => { approveDrafts([draft]); });
       actions.append(save, approve);
       editor.append(tabs, textarea, actions);
+      const hint = !canApprove
+        ? 'Åbn siden via ÅBN SOMA GODKENDELSE for at godkende.'
+        : (draft.localEdit ? 'Rettelser skal eksporteres og importeres, før opslaget kan godkendes.' : '');
+      if (hint) {
+        const hintLine = document.createElement('p');
+        hintLine.className = 'hint';
+        hintLine.textContent = hint;
+        editor.append(hintLine);
+      }
+      if (sendMessages.has(draft.draftId)) {
+        const sendStatus = document.createElement('p');
+        sendStatus.className = 'send-status warning';
+        sendStatus.textContent = sendMessages.get(draft.draftId);
+        editor.append(sendStatus);
+      }
       card.append(preview, editor);
       root.append(card);
     }
   }
 
-  document.querySelector('#approve-all').addEventListener('click', () => {
-    visibleDrafts().filter((draft) => draft.status !== 'needs_review')
-      .forEach((draft) => setStatus(draft, 'approved', 'approve'));
-    render();
+  const approveAll = document.querySelector('#approve-all');
+  approveAll.disabled = !canApprove;
+  approveAll.addEventListener('click', () => {
+    approveDrafts(visibleDrafts().filter((draft) =>
+      draft.status !== 'needs_review' && draft.status !== 'approved' && !draft.localEdit));
   });
 
   document.querySelector('#export').addEventListener('click', () => {
-    const blob = new Blob([JSON.stringify(drafts, null, 2)], { type: 'application/json' });
+    const exported = drafts.map(({ localEdit, ...rest }) => rest);
+    const blob = new Blob([JSON.stringify(exported, null, 2)], { type: 'application/json' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = 'drafts-reviewed.json';

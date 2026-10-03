@@ -50,6 +50,14 @@
       "destination": "outputs/content-planner/sync-operations.js"
     },
     {
+      "source": "outputs/content-planner/approval-server.js",
+      "destination": "outputs/content-planner/approval-server.js"
+    },
+    {
+      "source": "outputs/content-planner/persist-state.js",
+      "destination": "outputs/content-planner/persist-state.js"
+    },
+    {
       "source": "outputs/content-planner/upload-approved-assets.js",
       "destination": "outputs/content-planner/upload-approved-assets.js"
     },

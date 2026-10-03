@@ -12,7 +12,8 @@
     "validate-meta": "node outputs/content-planner/validate-meta.js",
     "operations": "node outputs/content-planner/sync-operations.js",
     "approve-issue": "node outputs/content-planner/approve-issue.js",
-    "reconcile-publication": "node outputs/content-planner/sync-operations.js --publication-only"
+    "reconcile-publication": "node outputs/content-planner/sync-operations.js --publication-only",
+    "approval-server": "node outputs/content-planner/approval-server.js"
   },
   "dependencies": {
     "playwright": "1.63.0"

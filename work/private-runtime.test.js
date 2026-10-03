@@ -200,3 +200,18 @@ test('source runtime allowlist carries the mobile live CLI while recursive roots
     && entry.destination === '.'
   )), true);
 });
+
+test('source runtime allowlist carries the approval server and the state persister', async () => {
+  const manifest = JSON.parse(await fs.readFile(
+    path.join(sourceRoot, 'outputs/content-planner/private-runtime-manifest.json'),
+    'utf8',
+  ));
+  for (const file of ['approval-server.js', 'persist-state.js']) {
+    assert.equal(manifest.copies.some((entry) => (
+      entry.source === `outputs/content-planner/${file}`
+      && entry.destination === `outputs/content-planner/${file}`
+    )), true, file);
+  }
+  const pkg = JSON.parse(await fs.readFile(path.join(sourceRoot, 'package.json'), 'utf8'));
+  assert.equal(pkg.scripts['approval-server'], 'node outputs/content-planner/approval-server.js');
+});

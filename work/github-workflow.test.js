@@ -101,13 +101,8 @@ test('operations workflow has no publishing secrets and handles schedule plus is
   assert.doesNotMatch(yaml, /SOMA_(META_ACCESS_TOKEN|ASSET_REPO_TOKEN)/);
   assert.match(yaml, /SOMA_APPROVER_LOGIN:\s*\$\{\{ vars\.SOMA_APPROVER_LOGIN \}\}/);
   assert.match(yaml, /PUBLISH_ENABLED:\s*\$\{\{ vars\.PUBLISH_ENABLED \}\}/);
-  const gitAdd = yaml.match(/git add[^\n]+/g) || [];
-  assert.equal(gitAdd.length, 1);
-  assert.match(gitAdd[0], /outputs\/content-planner\/drafts\.json/);
-  assert.match(gitAdd[0], /outputs\/content-planner\/events\.json/);
-  assert.match(gitAdd[0], /outputs\/content-planner\/approval\/drafts-data\.js/);
-  assert.match(gitAdd[0], /renders/);
-  assert.doesNotMatch(gitAdd[0], /\s\.|--all|-A/);
+  assert.match(yaml, /run:\s*node outputs\/content-planner\/persist-state\.js/);
+  assert.doesNotMatch(yaml, /git add|git pull --rebase|git push/);
 });
 
 test('all state writers share concurrency and publish secrets remain step scoped', async () => {

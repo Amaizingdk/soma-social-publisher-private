@@ -171,7 +171,7 @@ test('reconciliation preserves published and skipped history after events leave 
   assert.deepEqual(reconcileDrafts(terminal, [], []), terminal);
 });
 
-test('approval page edits one platform, approves all clean drafts, and exports JSON', async () => {
+test('approval page edits one platform, blocks local approval, and exports JSON', async () => {
   const browser = await chromium.launch({ headless: true });
   try {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
@@ -187,7 +187,7 @@ test('approval page edits one platform, approves all clean drafts, and exports J
     const editor = page.locator('textarea[data-platform="facebookPage"]');
     await editor.fill('Redigeret side-tekst');
     await page.getByRole('button', { name: 'Gem ændringer' }).click();
-    await page.getByRole('button', { name: 'Godkend alle' }).click();
+    assert.equal(await page.getByRole('button', { name: 'Godkend alle' }).isDisabled(), true);
     const downloadPromise = page.waitForEvent('download');
     await page.getByRole('button', { name: 'Eksportér godkendelser' }).click();
     const download = await downloadPromise;
@@ -197,7 +197,8 @@ test('approval page edits one platform, approves all clean drafts, and exports J
     const [reviewed] = JSON.parse(raw);
     assert.equal(reviewed.platformCopies.facebookPage, 'Redigeret side-tekst');
     assert.equal(reviewed.platformCopies.instagram, 'Instagram original');
-    assert.equal(reviewed.status, 'approved');
+    assert.equal(reviewed.status, 'draft');
+    assert.equal('localEdit' in reviewed, false);
   } finally {
     await browser.close();
   }
@@ -253,7 +254,21 @@ test('approval page shows only drafts with at least one event that has not ended
       }),
     ];
     const page = await browser.newPage({ viewport: { width: 900, height: 900 } });
-    await page.addInitScript((value) => { window.__SOMA_DRAFTS__ = value; }, drafts);
+    const endpoint = 'http://127.0.0.1:47831/approve';
+    await page.route(endpoint, async (route) => {
+      const cors = { 'access-control-allow-origin': '*', 'access-control-allow-headers': '*' };
+      if (route.request().method() === 'OPTIONS') return route.fulfill({ status: 204, headers: cors });
+      const { items } = JSON.parse(route.request().postData());
+      return route.fulfill({
+        status: 200,
+        headers: { ...cors, 'content-type': 'application/json' },
+        body: JSON.stringify({ results: items.map((item) => ({ draftId: item.draftId, outcome: 'approved' })), pushed: true }),
+      });
+    });
+    await page.addInitScript((value) => {
+      window.__SOMA_DRAFTS__ = value.drafts;
+      window.__SOMA_SESSION__ = { key: 'k'.repeat(48), endpoint: value.endpoint };
+    }, { drafts: drafts.map((draft) => ({ ...draft, contentRevision: 'a'.repeat(64) })), endpoint });
     const fileUrl = `file:///${path.join(__dirname, '..', 'outputs', 'content-planner', 'approval', 'index.html').replace(/\\/g, '/')}`;
     await page.goto(fileUrl);
 
@@ -263,6 +278,7 @@ test('approval page shows only drafts with at least one event that has not ended
     );
 
     await page.getByRole('button', { name: 'Godkend alle' }).click();
+    await page.waitForFunction(() => document.querySelector('.draft[data-draft-id="mixed-weekly"] .status')?.textContent === 'approved');
     const downloadPromise = page.waitForEvent('download');
     await page.getByRole('button', { name: 'Eksportér godkendelser' }).click();
     const stream = await (await downloadPromise).createReadStream();
@@ -326,25 +342,6 @@ test('known instructor appears only under the Gusmester field in the review card
     await page.waitForSelector('.draft');
     assert.doesNotMatch(await page.locator('.meta').innerText(), /Søren/i);
     assert.match(await page.locator('.instructor-picker').innerText(), /Gusmester\s+Søren/i);
-  } finally {
-    await browser.close();
-  }
-});
-
-test('approval page restores an approved draft after reload', async () => {
-  const browser = await chromium.launch({ headless: true });
-  try {
-    const draft = generated({
-      event: { eventKey: 'event-1', date: '2026-10-06', start: '18:30', end: '20:30', name: 'Saunagus', instructor: 'Søren' },
-    });
-    const page = await browser.newPage({ viewport: { width: 900, height: 900 } });
-    await page.addInitScript((value) => { window.__SOMA_DRAFTS__ = value; }, [draft]);
-    const fileUrl = `file:///${path.join(__dirname, '..', 'outputs', 'content-planner', 'approval', 'index.html').replace(/\\/g, '/')}`;
-    await page.goto(fileUrl);
-    await page.getByRole('button', { name: 'Godkend opslag' }).click();
-    await page.reload();
-    await page.waitForSelector('.draft');
-    assert.equal((await page.locator('.status').innerText()).toLowerCase(), 'approved');
   } finally {
     await browser.close();
   }

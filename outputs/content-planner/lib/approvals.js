@@ -17,23 +17,12 @@ function parseDraftMarkers(issueBody) {
   return { draftId: draftId || null, contentRevision: contentRevision || null };
 }
 
-function approveIssueComment({ payload, drafts, approverLogin, now = new Date() }) {
+function approveDraft({ drafts, draftId, contentRevision, approvedBy, now = new Date() }) {
   if (!Array.isArray(drafts)) throw new Error('Kladder skal være en liste');
-  if (typeof approverLogin !== 'string' || !approverLogin.trim()) {
-    throw new Error('SOMA_APPROVER_LOGIN mangler');
-  }
-  if (payload?.repository?.full_name !== SOMA_REPOSITORY) {
-    return { drafts, outcome: 'wrong_repository' };
-  }
-  if (payload?.issue?.pull_request) return { drafts, outcome: 'pull_request' };
-  if (payload?.comment?.body?.trim() !== 'GODKEND') return { drafts, outcome: 'ignored_command' };
-  if (payload?.sender?.login !== approverLogin) return { drafts, outcome: 'unauthorized' };
-
-  const marker = parseDraftMarkers(payload?.issue?.body || '');
-  const index = drafts.findIndex((draft) => draft.draftId === marker.draftId);
+  const index = drafts.findIndex((draft) => draft.draftId === draftId);
   if (index < 0) return { drafts, outcome: 'unknown_draft' };
   const draft = drafts[index];
-  if (marker.contentRevision !== draft.contentRevision) return { drafts, outcome: 'stale_revision' };
+  if (contentRevision !== draft.contentRevision) return { drafts, outcome: 'stale_revision' };
   if (TERMINAL_STATUSES.has(draft.status)) return { drafts, outcome: 'terminal' };
   if (draft.status === 'approved' && draft.approvedRevision === draft.contentRevision) {
     return { drafts, outcome: 'already_approved' };
@@ -47,13 +36,35 @@ function approveIssueComment({ payload, drafts, approverLogin, now = new Date() 
   const updated = transitionDraft(draft, {
     type: 'approve',
     at: approvalTime.toISOString(),
-    approvedBy: payload.sender.login,
+    approvedBy,
     approvedRevision: draft.contentRevision,
   });
   return {
     drafts: drafts.map((item, position) => position === index ? updated : item),
     outcome: 'approved',
   };
+}
+
+function approveIssueComment({ payload, drafts, approverLogin, now = new Date() }) {
+  if (!Array.isArray(drafts)) throw new Error('Kladder skal være en liste');
+  if (typeof approverLogin !== 'string' || !approverLogin.trim()) {
+    throw new Error('SOMA_APPROVER_LOGIN mangler');
+  }
+  if (payload?.repository?.full_name !== SOMA_REPOSITORY) {
+    return { drafts, outcome: 'wrong_repository' };
+  }
+  if (payload?.issue?.pull_request) return { drafts, outcome: 'pull_request' };
+  if (payload?.comment?.body?.trim() !== 'GODKEND') return { drafts, outcome: 'ignored_command' };
+  if (payload?.sender?.login !== approverLogin) return { drafts, outcome: 'unauthorized' };
+
+  const marker = parseDraftMarkers(payload?.issue?.body || '');
+  return approveDraft({
+    drafts,
+    draftId: marker.draftId,
+    contentRevision: marker.contentRevision,
+    approvedBy: payload.sender.login,
+    now,
+  });
 }
 
 async function recoverApprovalsFromIssues({ drafts, client, approverLogin, now = new Date() }) {
@@ -81,6 +92,7 @@ async function recoverApprovalsFromIssues({ drafts, client, approverLogin, now =
 }
 
 module.exports = {
+  approveDraft,
   approveIssueComment,
   parseDraftMarkers,
   recoverApprovalsFromIssues,
