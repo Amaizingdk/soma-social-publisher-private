@@ -465,7 +465,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "b28636236a6a84912408d19b15f7ec863b526aef7664268bc4c059662bb54380",
     "revision": 7,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-06T12:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -547,11 +547,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "renderPath": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-millemaja.jpg"
       }
     },
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-03T10:49:10.989Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "0a70e8d1b9355b7a4cb7af14f535edeed35f57fac65be99152327e946513c99a",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-03T10:49:10.989Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "0a70e8d1b9355b7a4cb7af14f535edeed35f57fac65be99152327e946513c99a",
     "githubIssueNumber": 52,
     "reminderState": null,
     "warningsAcknowledged": false
