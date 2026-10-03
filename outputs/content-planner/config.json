@@ -11,6 +11,11 @@
   "morningCutoff": "12:00",
   "morningPostTime": "07:00",
   "dayPostTime": "11:30",
+  "fixedPostSchedule": {
+    "tuesday": { "eventStart": "18:30", "dayBeforeTime": "19:30", "eventDayTime": "12:00" },
+    "thursday": { "eventStart": "18:30", "dayBeforeTime": "19:30", "eventDayTime": "12:00" },
+    "sunday": { "eventStart": "16:00", "dayBeforeTime": "10:00", "eventDayTime": "09:30" }
+  },
   "season": {
     "mode": "auto",
     "winterStarts": "11-01"

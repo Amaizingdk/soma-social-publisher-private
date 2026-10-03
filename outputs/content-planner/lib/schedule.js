@@ -64,6 +64,11 @@ function mondayFor(dateText) {
   return addDays(dateText, weekday === 0 ? -6 : 1 - weekday);
 }
 
+function weekdayKey(dateText) {
+  const weekday = new Date(`${dateText}T12:00:00Z`).getUTCDay();
+  return ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][weekday];
+}
+
 function buildSchedule(events, config) {
   const uniqueEvents = [...new Map(events.map((event) => [event.eventKey, event])).values()]
     .sort((left, right) => `${left.date}T${left.start}`.localeCompare(`${right.date}T${right.start}`));
@@ -91,21 +96,23 @@ function buildSchedule(events, config) {
 
   for (const current of uniqueEvents) {
     const availability = availabilityFor(current, config);
+    const configuredTimes = config.fixedPostSchedule?.[weekdayKey(current.date)];
+    const fixedTimes = configuredTimes?.eventStart === current.start ? configuredTimes : {};
     const weekday = new Date(`${current.date}T12:00:00Z`).getUTCDay();
     if (weekday !== 1) {
       slots.push({
         slotKey: `${current.eventKey}_day-before`,
         kind: 'day_before',
-        scheduledFor: copenhagenTimestamp(addDays(current.date, -1), config.dayBeforeTime),
+        scheduledFor: copenhagenTimestamp(addDays(current.date, -1), fixedTimes.dayBeforeTime || config.dayBeforeTime),
         eventKeys: [current.eventKey],
         availability,
         reason: 'Påmindelse dagen før eventet.',
       });
     }
 
-    const postTime = current.start < config.morningCutoff
+    const postTime = fixedTimes.eventDayTime || (current.start < config.morningCutoff
       ? config.morningPostTime
-      : config.dayPostTime;
+      : config.dayPostTime);
     slots.push({
       slotKey: `${current.eventKey}_event-day`,
       kind: 'event_day',
@@ -114,7 +121,7 @@ function buildSchedule(events, config) {
       availability,
       reason: current.start < config.morningCutoff
         ? 'Formiddagsevent deles tidligt på eventdagen.'
-        : 'Event deles kl. 11.30 på eventdagen.',
+        : `Event deles kl. ${postTime} på eventdagen.`,
     });
   }
 

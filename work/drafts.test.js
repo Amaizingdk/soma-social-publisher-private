@@ -81,6 +81,29 @@ test('changed event preserves old draft as obsolete and creates next revision', 
   assert.equal(next.status, 'draft');
 });
 
+test('changed scheduled time invalidates prior approval and creates a review revision', () => {
+  const old = generated({ status: 'approved', approvedAt: '2026-10-02T12:00:00Z', approvedRevision: 'same-copy' });
+  const changed = generated({ scheduledFor: '2026-10-03T10:00:00+02:00' });
+  const result = reconcileDrafts([old], [changed], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
+  const next = result.find((draft) => draft.scheduledFor === changed.scheduledFor);
+
+  assert.equal(result.find((draft) => draft.draftId === old.draftId).status, 'obsolete');
+  assert.equal(next.revision, 2);
+  assert.equal(next.status, 'draft');
+  assert.equal(next.approvedRevision, undefined);
+});
+
+test('changed scheduled time never reopens an already published slot', () => {
+  const published = generated({ status: 'published' });
+  const changed = generated({ scheduledFor: '2026-10-03T10:00:00+02:00' });
+  const result = reconcileDrafts([published], [changed], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
+
+  assert.equal(result.length, 1);
+  assert.equal(result[0].draftId, published.draftId);
+  assert.equal(result[0].status, 'published');
+  assert.equal(result[0].scheduledFor, published.scheduledFor);
+});
+
 test('availability-only generated copy keeps approval and refreshes volatile availability', () => {
   const base = generated({ availability: { free: 8, soldOut: false } });
   const revision = contentRevisionFor(base);

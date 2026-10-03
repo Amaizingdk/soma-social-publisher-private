@@ -74,6 +74,7 @@ function reconcileDrafts(previousDrafts, generatedDrafts, currentEvents) {
       draft.slotKey === candidate.slotKey
       && draft.eventFingerprint === candidate.eventFingerprint
       && draft.contentFingerprint === candidate.contentFingerprint
+      && draft.scheduledFor === candidate.scheduledFor
       && draft.status !== 'obsolete');
 
     if (same) {
@@ -97,9 +98,19 @@ function reconcileDrafts(previousDrafts, generatedDrafts, currentEvents) {
       continue;
     }
 
+    const published = previous.find((draft) =>
+      draft.slotKey === candidate.slotKey
+      && draft.status === 'published');
+    if (published) {
+      result.push(published);
+      handledIds.add(published.draftId);
+      continue;
+    }
+
     const locked = previous.find((draft) =>
       draft.slotKey === candidate.slotKey
       && draft.status === 'approved'
+      && draft.scheduledFor === candidate.scheduledFor
       && draft.contentRevision
       && draft.contentRevision === candidate.contentRevision);
     if (locked) {

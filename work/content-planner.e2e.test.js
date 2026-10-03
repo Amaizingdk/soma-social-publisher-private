@@ -22,7 +22,7 @@ test('fixture pipeline creates reviewable drafts without publishing', async () =
   assert.ok(events.some((event) => event.date === '2026-10-18' && event.start === '10:00'));
   assert.ok(events.some((event) => event.date === '2026-10-18' && event.start === '16:00'));
   assert.ok(drafts.some((draft) => draft.scheduledFor === '2026-10-18T07:00:00+02:00'));
-  assert.ok(drafts.some((draft) => draft.scheduledFor === '2026-10-18T11:30:00+02:00'));
+  assert.ok(drafts.some((draft) => draft.scheduledFor === '2026-10-18T09:30:00+02:00'));
   const mellemrum = drafts.find((draft) => draft.event?.date === '2026-10-18' && draft.event?.start === '10:00');
   assert.match(mellemrum.platformCopies.instagram, /MELLEMRUM GUS med MilleMaja fra Betterlife by Yndigegn/);
   assert.deepEqual(Object.keys(mellemrum.platformCopies).sort(), ['facebookGroup', 'facebookPage', 'instagram']);
