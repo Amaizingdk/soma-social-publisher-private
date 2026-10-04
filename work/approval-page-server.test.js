@@ -254,13 +254,11 @@ test('image picker keeps the draft and shows a message when the change is not pu
   } finally { await browser.close(); }
 });
 
-test('image picker is disabled without a session and for locally edited drafts', async () => {
+test('image picker is disabled without a session', async () => {
   const browser = await chromium.launch({ headless: true });
   try {
     const noSession = await open(browser, [draft('one')], { session: false });
     assert.equal(await noSession.page.getByRole('button', { name: 'Skift billede' }).isDisabled(), true);
-    const edited = await open(browser, [draft('two', { localEdit: true })]);
-    assert.equal(await edited.page.getByRole('button', { name: 'Skift billede' }).isDisabled(), true);
   } finally { await browser.close(); }
 });
 
@@ -287,36 +285,35 @@ test('a draft changes image without a confirm dialog and the preview is reloaded
   } finally { await browser.close(); }
 });
 
-test('undo returns to the previous image and the gallery is fetched again after a change', async () => {
+test('changing the image after choosing an instructor keeps the instructor and uses the new variant image', async () => {
   const browser = await chromium.launch({ headless: true });
   try {
-    const { page } = await open(browser, [draft('one', { assetId: 'soma-a', renderPath: 'renders/x.jpg', render: { sha256: 's0' } })]);
-    let version = 0;
-    const changes = await routeImageApi(page, {
-      changeResponse: (body) => {
-        version += 1;
-        return {
-          results: [{ draftId: body.draftId, outcome: 'changed', draft: draft('one', {
-            status: 'draft', assetId: body.assetId, contentRevision: String(version).repeat(64).slice(0, 64).replace(/[^a-f0-9]/g, 'c'),
-            renderPath: 'renders/x.jpg', render: { sha256: `s${version}` },
-          }) }],
-          pushed: true,
-        };
-      },
+    const options = (asset) => ({
+      soren: { instructor: 'Søren', assetId: asset, renderPath: `renders/soren-${asset}.jpg`, render: { sha256: `soren-${asset}` }, platformCopies: { instagram: 'S', facebookPage: 'S', facebookGroup: 'S' } },
     });
-    let listings = 0;
-    page.on('request', (request) => { if (request.url().startsWith(ASSETS_URL)) listings += 1; });
-    assert.equal(await page.getByRole('button', { name: 'Fortryd billedskift' }).count(), 0);
+    const { page } = await open(browser, [draft('one', {
+      eventKey: 'ev', assetId: 'soma-a', renderPath: 'renders/x.jpg', render: { sha256: 'base' },
+      event: { date: '2099-01-01', start: '10:00', end: '12:00', name: 'Saunagus', instructor: null },
+      instructorOptions: options('soma-a'),
+    })]);
+    await routeImageApi(page, {
+      changeResponse: (body) => ({
+        results: [{ draftId: body.draftId, outcome: 'changed', draft: draft('one', {
+          eventKey: 'ev', status: 'draft', assetId: body.assetId, contentRevision: 'b'.repeat(64),
+          renderPath: 'renders/x.jpg', render: { sha256: 'base2' },
+          event: { date: '2099-01-01', start: '10:00', end: '12:00', name: 'Saunagus', instructor: null },
+          instructorOptions: options(body.assetId),
+        }) }],
+        pushed: true,
+      }),
+    });
+    await page.locator('.instructor-picker select').selectOption({ label: 'Søren' });
+    await page.waitForFunction(() => /soren-soma-a/.test(document.querySelector('.preview > img').getAttribute('src')));
+    assert.equal(await page.getByRole('button', { name: 'Skift billede' }).isDisabled(), false);
     await page.getByRole('button', { name: 'Skift billede' }).click();
     await page.waitForSelector('.asset-choice');
     await page.getByRole('button', { name: 'Vælg billedet soma-b' }).click();
-    await page.getByRole('button', { name: 'Fortryd billedskift' }).waitFor();
-    await page.getByRole('button', { name: 'Fortryd billedskift' }).click();
-    await page.waitForFunction(() => !document.querySelector('.undo-image') || document.querySelector('.undo-image').title.includes('soma-b'));
-    assert.deepEqual(changes.map((item) => item.body.assetId), ['soma-b', 'soma-a']);
-    // Galleriet blev hentet igen efter skiftet (ikke genbrugt fra før skiftet).
-    await page.getByRole('button', { name: 'Skift billede' }).click();
-    await page.waitForSelector('.asset-choice');
-    assert.ok(listings >= 2);
+    await page.waitForFunction(() => /soren-soma-b/.test(document.querySelector('.preview > img').getAttribute('src')));
+    assert.equal(await page.locator('.instructor-picker select').inputValue(), 'soren');
   } finally { await browser.close(); }
 });

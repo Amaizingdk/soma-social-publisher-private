@@ -27,7 +27,6 @@
     render_unavailable: 'Billedgenerering er ikke installeret på denne computer (kør npm ci i runtime-mappen).',
   };
   const pickers = new Map();
-  const previousAssets = new Map();
 
   function restoreSavedDrafts(current) {
     try {
@@ -123,6 +122,29 @@
     render();
   }
 
+  // Serverens nye version erstatter kladden, men lokale valg (gusmester, tekstrettelser) bevares,
+  // og gusmester-variantens billede følger det nye valg.
+  function mergeServerDraft(draft, serverDraft) {
+    const local = draft.localEdit ? structuredClone({
+      status: draft.status,
+      manualInstructor: draft.manualInstructor,
+      event: draft.event,
+      platformCopies: draft.platformCopies,
+      warnings: draft.warnings,
+      warningsAcknowledged: draft.warningsAcknowledged,
+      history: draft.history,
+    }) : null;
+    Object.assign(draft, serverDraft, { localEdit: false });
+    if (!local) return;
+    Object.assign(draft, local, { localEdit: true });
+    const key = Object.keys(draft.instructorOptions || {})
+      .find((name) => draft.instructorOptions[name].instructor === draft.manualInstructor);
+    if (key) {
+      draft.renderPath = draft.instructorOptions[key].renderPath;
+      draft.render = structuredClone(draft.instructorOptions[key].render);
+    }
+  }
+
   function pickerState(draft) {
     if (!pickers.has(draft.draftId)) pickers.set(draft.draftId, { open: false, assets: null, error: null });
     return pickers.get(draft.draftId);
@@ -165,8 +187,7 @@
     busy = false;
     const result = (response.results || []).find((item) => item.draftId === draft.draftId);
     if (result?.outcome === 'changed' && response.pushed && result.draft) {
-      previousAssets.set(draft.draftId, draft.assetId);
-      Object.assign(draft, result.draft, { localEdit: false });
+      mergeServerDraft(draft, result.draft);
       sendMessages.delete(draft.draftId);
       const state = pickerState(draft);
       state.open = false;
@@ -186,21 +207,9 @@
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.textContent = pickerState(draft).open ? 'Luk billeder' : 'Skift billede';
-    toggle.disabled = busy || !canApprove || Boolean(draft.localEdit);
-    toggle.title = draft.localEdit ? 'Gem eller fjern tekstrettelser først.' : '';
+    toggle.disabled = busy || !canApprove;
     toggle.addEventListener('click', () => { togglePicker(draft); });
     wrap.append(toggle);
-    const previous = previousAssets.get(draft.draftId);
-    if (previous && previous !== draft.assetId) {
-      const undo = document.createElement('button');
-      undo.type = 'button';
-      undo.className = 'undo-image';
-      undo.textContent = 'Fortryd billedskift';
-      undo.title = `Tilbage til ${previous}`;
-      undo.disabled = busy || !canApprove || Boolean(draft.localEdit);
-      undo.addEventListener('click', () => { changeImage(draft, previous); });
-      wrap.append(undo);
-    }
     const state = pickerState(draft);
     if (!state.open) return wrap;
     const grid = document.createElement('div');
