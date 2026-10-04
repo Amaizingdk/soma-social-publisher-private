@@ -45,7 +45,7 @@ async function approvedDraft(overrides = {}) {
   };
 }
 
-test('includes only active approved drafts with complete evidence and keeps groups manual', async () => {
+test('includes only active approved drafts with complete evidence and plans no group posts', async () => {
   // Mutations caught: loosening status checks or treating the Facebook Group as automatic.
   const valid = await approvedDraft();
   const unapproved = await approvedDraft({ draftId: 'draft_r1', status: 'draft', approvedAt: null });
@@ -54,9 +54,7 @@ test('includes only active approved drafts with complete evidence and keeps grou
   const plan = await buildDryRunPlan([valid, unapproved, obsolete], { generatedAt: GENERATED_AT });
 
   assert.deepEqual(plan.automatic.map((item) => item.platform), ['instagram', 'facebookPage']);
-  assert.equal(plan.manual.length, 1);
-  assert.equal(plan.manual[0].platform, 'facebookGroup');
-  assert.equal(plan.manual[0].delivery, 'manual_required');
+  assert.deepEqual(plan.manual, []);
   assert.equal(plan.summary.approvedDrafts, 1);
   assert.equal(plan.summary.skippedDrafts, 2);
   assert.equal(plan.summary.blockedDrafts, 0);
@@ -82,7 +80,7 @@ test('routes approved calendar content to Instagram Story and Facebook Page Feed
     { width: 1080, height: 1920 },
     { width: 1080, height: 1350 },
   ]);
-  assert.equal(plan.manual[0].deliveryType, 'facebook_group_manual');
+  assert.deepEqual(plan.manual, []);
 });
 
 test('blocks an approved draft without approval evidence', async () => {

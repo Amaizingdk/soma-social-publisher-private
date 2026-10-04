@@ -25,7 +25,7 @@ test('fixture pipeline creates reviewable drafts without publishing', async () =
   assert.ok(drafts.some((draft) => draft.scheduledFor === '2026-10-18T09:30:00+02:00'));
   const mellemrum = drafts.find((draft) => draft.event?.date === '2026-10-18' && draft.event?.start === '10:00');
   assert.match(mellemrum.platformCopies.instagram, /MELLEMRUM GUS med MilleMaja fra Betterlife by Yndigegn/);
-  assert.deepEqual(Object.keys(mellemrum.platformCopies).sort(), ['facebookGroup', 'facebookPage', 'instagram']);
+  assert.deepEqual(Object.keys(mellemrum.platformCopies).sort(), ['facebookPage', 'instagram']);
   for (const draft of drafts.filter((item) => item.status !== 'obsolete')) {
     assert.equal(draft.render.width, 1080);
     assert.equal(draft.render.height, 1350);
@@ -113,7 +113,6 @@ test('approved posts keep their image even when two siblings share it', async ()
       platformCopies: {
         instagram: draft.platformCopies.instagram,
         facebookPage: draft.platformCopies.facebookPage,
-        facebookGroup: draft.platformCopies.facebookGroup,
       },
       assetId: draft.assetId, season: draft.season, warnings: draft.warnings, instructorOptions: undefined,
     });
@@ -156,7 +155,6 @@ test('a new text template only reaches new posts: approved posts keep their copy
       platformCopies: {
         instagram: draft.platformCopies.instagram,
         facebookPage: draft.platformCopies.facebookPage,
-        facebookGroup: draft.platformCopies.facebookGroup,
       },
       assetId: draft.assetId, season: draft.season, warnings: draft.warnings, instructorOptions: undefined,
     });
@@ -176,4 +174,33 @@ test('a new text template only reaches new posts: approved posts keep their copy
   assert.notEqual(renewed.draftId, eventDay.draftId);
   assert.doesNotMatch(renewed.platformCopies.facebookPage, /GAMMEL OPBYGNING/);
   assert.match(renewed.platformCopies.facebookPage, /^Dato og tid: /);
+});
+
+test('an approved post with an old group text stays approved and keeps its text; new posts get no group text', async () => {
+  const { fingerprintForContent } = require('../outputs/content-planner/lib/content-fingerprint');
+  const { contentRevisionFor } = require('../outputs/content-planner/lib/draft-lifecycle');
+  const outputDir = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-legacy-group-'));
+  const now = new Date('2026-09-29T10:00:00Z');
+  await runPipeline({ fixturePath, outputDir, now });
+  const draftsPath = path.join(outputDir, 'drafts.json');
+  const drafts = JSON.parse(await fs.readFile(draftsPath, 'utf8'));
+  for (const draft of drafts.filter((item) => item.status !== 'obsolete')) {
+    assert.equal('facebookGroup' in draft.platformCopies, false, draft.draftId);
+  }
+  const target = drafts.find((draft) => draft.status !== 'obsolete' && !draft.instructorOptions && draft.kind !== 'weekly_overview');
+  target.platformCopies.facebookGroup = 'Kære alle ❤️ gammel gruppetekst';
+  target.contentFingerprint = fingerprintForContent({
+    platformCopies: { ...target.platformCopies },
+    assetId: target.assetId, season: target.season, warnings: target.warnings, instructorOptions: undefined,
+  });
+  target.contentRevision = contentRevisionFor(target);
+  Object.assign(target, { status: 'approved', approvedRevision: target.contentRevision, approvedAt: '2026-09-29T09:00:00Z' });
+  await fs.writeFile(draftsPath, JSON.stringify(drafts), 'utf8');
+
+  await runPipeline({ fixturePath, outputDir, now });
+  const kept = JSON.parse(await fs.readFile(draftsPath, 'utf8'))
+    .find((draft) => draft.slotKey === target.slotKey && draft.status !== 'obsolete');
+  assert.equal(kept.draftId, target.draftId);
+  assert.equal(kept.status, 'approved');
+  assert.equal(kept.platformCopies.facebookGroup, 'Kære alle ❤️ gammel gruppetekst');
 });

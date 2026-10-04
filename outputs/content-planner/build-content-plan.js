@@ -20,7 +20,8 @@ const { fingerprintForContent } = require('./lib/content-fingerprint');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const DEFAULT_OUTPUT = __dirname;
-const PLATFORM_KEYS = ['facebookGroup', 'facebookPage', 'instagram'];
+// Facebook-gruppen er ikke længere en kanal; ældre kladder kan stadig have en gruppetekst, som ignoreres.
+const PLATFORM_KEYS = ['facebookPage', 'instagram'];
 const APPROVAL_FILES = ['index.html', 'styles.css', 'app.js'];
 
 function validateConfig(config) {
@@ -222,7 +223,6 @@ async function runPipeline({
             platformCopies: {
               instagram: variantCopy.instagram,
               facebookPage: variantCopy.facebookPage,
-              facebookGroup: variantCopy.facebookGroup,
             },
             assetId: variantRender.asset.assetId,
             render: variantRender.render,
@@ -238,15 +238,10 @@ async function runPipeline({
         && draft.scheduledFor === slot.scheduledFor
         && draft.platformCopies);
       const platformCopies = frozenCopy
-        ? {
-          instagram: frozenCopy.platformCopies.instagram,
-          facebookPage: frozenCopy.platformCopies.facebookPage,
-          facebookGroup: frozenCopy.platformCopies.facebookGroup,
-        }
+        ? { ...frozenCopy.platformCopies }
         : {
           instagram: copyPackage.instagram,
           facebookPage: copyPackage.facebookPage,
-          facebookGroup: copyPackage.facebookGroup,
         };
       const candidate = {
         draftId: `${slot.slotKey}_r1`,
@@ -311,7 +306,7 @@ function validateReviewed(current, reviewed) {
     if (draft.revision !== original.revision || draft.eventFingerprint !== original.eventFingerprint) {
       throw new Error(`Forældet revision eller event-fingerprint: ${draft.draftId}`);
     }
-    if (!draft.platformCopies || Object.keys(draft.platformCopies).sort().join('|') !== PLATFORM_KEYS.join('|')) {
+    if (!draft.platformCopies || PLATFORM_KEYS.some((key) => !(key in draft.platformCopies))) {
       throw new Error(`Ugyldige platformfelter: ${draft.draftId}`);
     }
     if (PLATFORM_KEYS.some((key) => typeof draft.platformCopies[key] !== 'string' || !draft.platformCopies[key].trim())) {

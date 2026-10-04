@@ -60,7 +60,7 @@ function safeSummary(plan, outputPath) {
     `godkendte kladder: ${plan.summary.approvedDrafts}`,
     `blokerede kladder: ${plan.summary.blockedDrafts}`,
     `automatiske forhåndsvisninger: ${plan.summary.automaticPosts}`,
-    `manuelle gruppeopslag: ${plan.summary.manualPosts}`,
+    `manuelle opslag: ${plan.summary.manualPosts}`,
   ].join(' · ');
 }
 

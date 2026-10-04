@@ -127,7 +127,6 @@ async function rebuildDraft({
   const platformCopies = {
     instagram: copyPackage.instagram,
     facebookPage: copyPackage.facebookPage,
-    facebookGroup: copyPackage.facebookGroup,
   };
   const updated = transitionDraft(
     { ...draft, warnings, warningsAcknowledged: warnings.length ? draft.warningsAcknowledged : false },

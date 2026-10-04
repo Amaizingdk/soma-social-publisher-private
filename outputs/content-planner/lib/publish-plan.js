@@ -138,12 +138,6 @@ async function buildDryRunPlan(drafts, {
 
     approvedDrafts += 1;
     for (const delivery of AUTOMATIC_DELIVERIES) automatic.push(planItemWithHosting(draft, delivery, availability, assetHosting, availabilities));
-    manual.push({
-      ...planItemWithHosting(draft, {
-        platform: 'facebookGroup', deliveryType: 'facebook_group_manual', width: 1080, height: 1350, suffix: 'group',
-      }, availability, assetHosting, availabilities),
-      delivery: 'manual_required',
-    });
   }
 
   return {

@@ -4,7 +4,6 @@
   const platforms = [
     ['instagram', 'Instagram'],
     ['facebookPage', 'Facebook-side'],
-    ['facebookGroup', 'Facebook-gruppe'],
   ];
   const embedded = JSON.parse(document.querySelector('#drafts-data')?.textContent || '[]');
   const storageKey = 'soma-content-planner-review-v1';

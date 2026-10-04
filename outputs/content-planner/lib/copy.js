@@ -80,7 +80,6 @@ function buildWeeklyCopy(slot, events, config) {
     },
     instagram: `Næste uges gus 🔥\n\n${list}\n\nSe tider og book via kalenderen: ${config.bookingUrl}`,
     facebookPage: `Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n${list}\n\nFind den oplevelse, der passer dig, og book din plads her: ${config.bookingUrl}`,
-    facebookGroup: `Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n${list}\n\nJeg glæder mig til at se jer. Booking: ${config.bookingUrl}`,
     factsUsed: selected.flatMap((event) => [`event:${event.eventKey}.date`, `event:${event.eventKey}.time`]),
   };
 }
@@ -129,15 +128,6 @@ function buildSingleCopy(slot, event, source, config) {
     invitation,
   ].filter(Boolean).join('\n\n');
 
-  const facebookGroup = [
-    `Kære alle ❤️`,
-    opening,
-    hook,
-    `Tid: ${when}`,
-    availabilityLine,
-    callToAction(slot, config, 'Du kan booke her'),
-  ].filter(Boolean).join('\n\n');
-
   return {
     headline,
     imageLines: {
@@ -150,7 +140,6 @@ function buildSingleCopy(slot, event, source, config) {
     },
     instagram,
     facebookPage,
-    facebookGroup,
     factsUsed: [
       'event.date', 'event.start', 'event.end', 'event.name',
       source.sourceId || `profile:${source.profileId}`,

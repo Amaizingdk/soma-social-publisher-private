@@ -348,3 +348,15 @@ test('only text edits are local: an image change keeps unsaved text', async () =
     assert.equal(await page.locator('textarea').inputValue(), 'Min egen tekst');
   } finally { await browser.close(); }
 });
+
+test('the page shows only the Instagram and Facebook page tabs (no group tab)', async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const { page } = await open(browser, [draft('one', {
+      platformCopies: { instagram: 'IG', facebookPage: 'FB', facebookGroup: 'GRUPPE' },
+    })]);
+    const tabs = await page.locator('.tabs button').allInnerTexts();
+    assert.deepEqual(tabs, ['Instagram', 'Facebook-side']);
+    assert.equal(await page.getByRole('button', { name: 'Facebook-gruppe' }).count(), 0);
+  } finally { await browser.close(); }
+});

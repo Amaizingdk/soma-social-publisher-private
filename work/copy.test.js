@@ -30,7 +30,7 @@ function slotFor(input, kind = 'event_day') {
 test('all platform versions retain the same correct date and time', () => {
   const input = event();
   const copy = buildCopyPackage(slotFor(input), [input], resolveContentSource(input, profiles, overrides), config);
-  for (const text of [copy.instagram, copy.facebookPage, copy.facebookGroup]) {
+  for (const text of [copy.instagram, copy.facebookPage]) {
     assert.match(text, /15\. oktober 2026/i);
     assert.match(text, /18[.:]30[–-]20[.:]30/);
     assert.doesNotMatch(text, /10[.:]00/);
@@ -56,7 +56,9 @@ test('unknown guest copy never inherits Sørens special vocabulary', () => {
   const copy = buildCopyPackage(slotFor(input), [input], source, config);
   const all = JSON.stringify(copy).toLocaleLowerCase('da-DK');
   assert.doesNotMatch(all, /viking|powergus|breathwork|fire runder/);
-  assert.match(copy.facebookGroup, /Anna/);
+  assert.match(copy.facebookPage, /Anna/);
+  // Facebook-gruppen er ikke længere en kanal (Meta har fjernet Groups API), så der laves ingen gruppetekst.
+  assert.equal('facebookGroup' in copy, false);
 });
 
 test('blank instructor remains neutral and unnamed', () => {
@@ -70,7 +72,7 @@ test('Søren stays in review metadata and is not repeated in public copy or artw
   const input = event();
   const source = resolveContentSource(input, profiles, overrides);
   const copy = buildCopyPackage(slotFor(input), [input], source, config);
-  for (const text of [copy.instagram, copy.facebookPage, copy.facebookGroup]) {
+  for (const text of [copy.instagram, copy.facebookPage]) {
     assert.doesNotMatch(text, /Søren|med Søren|holder Søren/i);
   }
   assert.equal(copy.imageLines.instructorLabel, 'GUSMESTER');
@@ -84,7 +86,7 @@ test('Søren stays in review metadata and is not repeated in public copy or artw
 test('public copy avoids redundant SOMA mentions and uses et saunagus', () => {
   const input = event();
   const copy = buildCopyPackage(slotFor(input), [input], resolveContentSource(input, profiles, overrides), config);
-  for (const text of [copy.instagram, copy.facebookPage, copy.facebookGroup]) {
+  for (const text of [copy.instagram, copy.facebookPage]) {
     const withoutUrl = text.replaceAll(config.bookingUrl, '');
     assert.doesNotMatch(withoutUrl, /\bSOMA\b/i);
     assert.doesNotMatch(withoutUrl, /\ben saunagus\b/i);
@@ -93,7 +95,7 @@ test('public copy avoids redundant SOMA mentions and uses et saunagus', () => {
 
   const weekly = buildSchedule([input], config).find((candidate) => candidate.kind === 'weekly_overview');
   const weeklyCopy = buildCopyPackage(weekly, [input], null, config);
-  for (const text of [weeklyCopy.instagram, weeklyCopy.facebookPage, weeklyCopy.facebookGroup]) {
+  for (const text of [weeklyCopy.instagram, weeklyCopy.facebookPage]) {
     assert.doesNotMatch(text.replaceAll(config.bookingUrl, ''), /\bSOMA\b/i);
   }
 });
@@ -109,12 +111,12 @@ test('Søren copy is grounded in calm rather than growing energy', () => {
     const source = resolveContentSource(input, profiles, overrides);
     for (const kind of ['day_before', 'event_day']) {
       const copy = buildCopyPackage(slotFor(input, kind), [input], source, config);
-      platformTexts.push(copy.instagram, copy.facebookPage, copy.facebookGroup);
+      platformTexts.push(copy.instagram, copy.facebookPage);
     }
   }
   const weekly = buildSchedule(inputs, config).find((candidate) => candidate.kind === 'weekly_overview');
   const weeklyCopy = buildCopyPackage(weekly, inputs, null, config);
-  platformTexts.push(weeklyCopy.instagram, weeklyCopy.facebookPage, weeklyCopy.facebookGroup);
+  platformTexts.push(weeklyCopy.instagram, weeklyCopy.facebookPage);
 
   const all = platformTexts.join('\n').toLocaleLowerCase('da-DK');
   assert.match(all, /ro|rolig|lande/);
@@ -185,7 +187,7 @@ test('weekly overview lists both events on a double-event date', () => {
   });
   const slot = buildSchedule([morning, afternoon], config).find((candidate) => candidate.kind === 'weekly_overview');
   const copy = buildCopyPackage(slot, [morning, afternoon], null, config);
-  for (const text of [copy.instagram, copy.facebookPage, copy.facebookGroup]) {
+  for (const text of [copy.instagram, copy.facebookPage]) {
     assert.match(text, /10[.:]00[–-]12[.:]00/);
     assert.match(text, /16[.:]00[–-]18[.:]00/);
   }
