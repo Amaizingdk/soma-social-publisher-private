@@ -286,3 +286,37 @@ test('a draft changes image without a confirm dialog and the preview is reloaded
     assert.equal(dialogs, 0);
   } finally { await browser.close(); }
 });
+
+test('undo returns to the previous image and the gallery is fetched again after a change', async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const { page } = await open(browser, [draft('one', { assetId: 'soma-a', renderPath: 'renders/x.jpg', render: { sha256: 's0' } })]);
+    let version = 0;
+    const changes = await routeImageApi(page, {
+      changeResponse: (body) => {
+        version += 1;
+        return {
+          results: [{ draftId: body.draftId, outcome: 'changed', draft: draft('one', {
+            status: 'draft', assetId: body.assetId, contentRevision: String(version).repeat(64).slice(0, 64).replace(/[^a-f0-9]/g, 'c'),
+            renderPath: 'renders/x.jpg', render: { sha256: `s${version}` },
+          }) }],
+          pushed: true,
+        };
+      },
+    });
+    let listings = 0;
+    page.on('request', (request) => { if (request.url().startsWith(ASSETS_URL)) listings += 1; });
+    assert.equal(await page.getByRole('button', { name: 'Fortryd billedskift' }).count(), 0);
+    await page.getByRole('button', { name: 'Skift billede' }).click();
+    await page.waitForSelector('.asset-choice');
+    await page.getByRole('button', { name: 'Vælg billedet soma-b' }).click();
+    await page.getByRole('button', { name: 'Fortryd billedskift' }).waitFor();
+    await page.getByRole('button', { name: 'Fortryd billedskift' }).click();
+    await page.waitForFunction(() => !document.querySelector('.undo-image') || document.querySelector('.undo-image').title.includes('soma-b'));
+    assert.deepEqual(changes.map((item) => item.body.assetId), ['soma-b', 'soma-a']);
+    // Galleriet blev hentet igen efter skiftet (ikke genbrugt fra før skiftet).
+    await page.getByRole('button', { name: 'Skift billede' }).click();
+    await page.waitForSelector('.asset-choice');
+    assert.ok(listings >= 2);
+  } finally { await browser.close(); }
+});

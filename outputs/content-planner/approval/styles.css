@@ -8,7 +8,8 @@ h1 { margin: 8px 0; font-family: Georgia, serif; font-size: clamp(2rem, 6vw, 4re
 .safety { display: inline-block; border: 1px solid #d0a768; border-radius: 999px; padding: 8px 12px; color: #f6d39e; }
 .draft { display: grid; grid-template-columns: minmax(230px, 390px) 1fr; gap: 24px; margin: 20px 0; padding: 20px; border: 1px solid #6b5140; border-radius: 20px; background: rgba(27, 22, 19, .88); box-shadow: 0 20px 60px #0007; }
 .preview img { width: 100%; border-radius: 12px; background: #2c231d; }
-.image-picker { margin-top: 12px; }
+.image-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.image-picker .asset-grid { flex-basis: 100%; }
 .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; margin-top: 10px; }
 .asset-choice { display: grid; gap: 6px; padding: 6px; border-radius: 12px; font-size: .68rem; font-weight: 600; word-break: break-word; }
 .asset-choice img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; }

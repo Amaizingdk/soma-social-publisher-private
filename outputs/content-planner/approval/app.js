@@ -27,6 +27,7 @@
     render_unavailable: 'Billedgenerering er ikke installeret på denne computer (kør npm ci i runtime-mappen).',
   };
   const pickers = new Map();
+  const previousAssets = new Map();
 
   function restoreSavedDrafts(current) {
     try {
@@ -164,9 +165,13 @@
     busy = false;
     const result = (response.results || []).find((item) => item.draftId === draft.draftId);
     if (result?.outcome === 'changed' && response.pushed && result.draft) {
+      previousAssets.set(draft.draftId, draft.assetId);
       Object.assign(draft, result.draft, { localEdit: false });
       sendMessages.delete(draft.draftId);
-      pickerState(draft).open = false;
+      const state = pickerState(draft);
+      state.open = false;
+      // Galleriet hentes igen næste gang, så skjulte søskendebilleder altid er opdaterede.
+      state.assets = null;
       persistDrafts();
     } else {
       sendMessages.set(draft.draftId, OUTCOME_MESSAGES[result?.outcome]
@@ -185,6 +190,17 @@
     toggle.title = draft.localEdit ? 'Gem eller fjern tekstrettelser først.' : '';
     toggle.addEventListener('click', () => { togglePicker(draft); });
     wrap.append(toggle);
+    const previous = previousAssets.get(draft.draftId);
+    if (previous && previous !== draft.assetId) {
+      const undo = document.createElement('button');
+      undo.type = 'button';
+      undo.className = 'undo-image';
+      undo.textContent = 'Fortryd billedskift';
+      undo.title = `Tilbage til ${previous}`;
+      undo.disabled = busy || !canApprove || Boolean(draft.localEdit);
+      undo.addEventListener('click', () => { changeImage(draft, previous); });
+      wrap.append(undo);
+    }
     const state = pickerState(draft);
     if (!state.open) return wrap;
     const grid = document.createElement('div');
