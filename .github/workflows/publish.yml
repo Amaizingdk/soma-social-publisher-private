@@ -121,6 +121,8 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Publish due content
+        # Planlagte kørsler sender ikke fejlmail; forsinkelser fanges af alarmen for forfaldne opslag.
+        continue-on-error: ${{ github.event_name == 'schedule' }}
         shell: bash
         env:
           PUBLISH_ENABLED: 'true'

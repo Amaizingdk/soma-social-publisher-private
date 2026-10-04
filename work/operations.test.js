@@ -81,26 +81,51 @@ function fakeClient() {
   return client;
 }
 
-test('operations rerun creates no duplicate issue or reminder', async () => {
+test('operations creates no issue until an alert is needed, then one reminder with one mention', async () => {
   const client = fakeClient();
-  const first = await runOperationsSync({
-    drafts: [reviewDraft()],
-    ledger: { version: 1, entries: [] },
-    client,
-    approverLogin: 'Amaizingai',
-    now: new Date('2026-10-02T12:00:00Z'),
+  const run = (drafts, now, ledger = { version: 1, entries: [] }) => runOperationsSync({
+    drafts, ledger, client, approverLogin: 'Amaizingai', now: new Date(now),
   });
-  const second = await runOperationsSync({
-    drafts: first.drafts,
-    ledger: { version: 1, entries: [] },
-    client,
-    approverLogin: 'Amaizingai',
-    now: new Date('2026-10-02T12:05:00Z'),
-  });
-
+  // langt ude i fremtiden: ingen issue og ingen mail
+  const early = await run([reviewDraft()], '2026-10-02T12:00:00Z');
+  assert.equal(client.state.issues.length, 0);
+  // godkendte opslag får aldrig issue, før de er forsinkede
+  await run([approvedDraft()], '2026-10-05T11:00:00Z');
+  assert.equal(client.state.issues.length, 0);
+  // under 3 timer før: ét issue og én påmindelse
+  const first = await run(early.drafts, '2026-10-05T09:30:00Z');
+  const second = await run(first.drafts, '2026-10-05T09:35:00Z');
   assert.equal(client.state.issues.length, 1);
-  assert.equal(client.commentsWith('soma-reminder:draft-1:' + REVISION + ':72h').length, 1);
-  assert.equal(second.drafts[0].reminderState.revision, REVISION);
+  assert.equal(client.commentsWith('soma-reminder:draft-1:' + REVISION + ':final').length, 1);
+  assert.match(client.commentsWith('soma-reminder:draft-1:' + REVISION + ':final')[0].body, /@Amaizingai/);
+  assert.equal(second.drafts[0].reminderState.sentFinalAt !== undefined, true);
+});
+
+test('operations sends one overdue alert for an approved draft that is not published, and none once published', async () => {
+  const client = fakeClient();
+  const run = (ledger, now) => runOperationsSync({
+    drafts: [approvedDraft()], ledger, client, approverLogin: 'Amaizingai', now: new Date(now),
+  });
+  const empty = { version: 1, entries: [] };
+  await run(empty, '2026-10-05T12:10:00Z');
+  assert.equal(client.state.issues.length, 0);
+  const late = await run(empty, '2026-10-05T12:40:00Z');
+  await run(empty, '2026-10-05T12:50:00Z');
+  assert.equal(client.state.issues.length, 1);
+  assert.equal(client.commentsWith('soma-overdue:draft-1:' + REVISION).length, 1);
+  assert.match(client.commentsWith('soma-overdue:draft-1:' + REVISION)[0].body, /@Amaizingai/);
+  assert.equal(late.drafts[0].overdueReminderState.revision, REVISION);
+
+  const doneClient = fakeClient();
+  await runOperationsSync({
+    drafts: [approvedDraft()],
+    ledger: ledgerWith(
+      { draftId: 'draft-1', revision: 1, deliveryType: 'instagram_story', status: 'published' },
+      { draftId: 'draft-1', revision: 1, deliveryType: 'facebook_page_feed', status: 'published' },
+    ),
+    client: doneClient, approverLogin: 'Amaizingai', now: new Date('2026-10-05T12:40:00Z'),
+  });
+  assert.equal(doneClient.state.issues.length, 0);
 });
 
 test('operations creates one approved live-test reminder with exact mobile commands', async () => {
@@ -244,7 +269,7 @@ test('next reconciliation repairs issue after a prior Issue API failure without 
     ledger: { version: 1, entries: [] },
     client,
     approverLogin: 'Amaizingai',
-    now: new Date('2026-10-05T12:00:00Z'),
+    now: new Date('2026-10-05T12:45:00Z'),
   });
   let failures = 1;
   const originalRequest = client.request.bind(client);

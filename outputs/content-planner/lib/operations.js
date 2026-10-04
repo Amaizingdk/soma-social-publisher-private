@@ -11,6 +11,8 @@ const {
   liveTestReminderDecision,
   markLiveTestReminderSent,
   markReminderSent,
+  markOverdueSent,
+  overdueDecision,
   reminderDecision,
 } = require('./reminders');
 
@@ -20,13 +22,14 @@ const TERMINAL_ISSUE_STATUSES = new Set(['published', 'skipped', 'rejected', 'ob
 
 function reminderBody(draft, decision, approverLogin) {
   const deadline = String(draft.scheduledFor || 'ukendt');
-  if (decision.kind === 'urgent') {
-    return '@' + approverLogin + ' — kladden blev opdaget mindre end 24 timer før publicering. '
-      + 'Gennemgå den straks og skriv kun `GODKEND`, hvis den er klar. Deadline: ' + deadline + '.';
-  }
-  return '@' + approverLogin + ' — der er cirka ' + decision.kind.replace('h', '')
-    + ' timer til planlagt publicering. Gennemgå kladden og skriv kun `GODKEND`, hvis den er klar. '
-    + 'Deadline: ' + deadline + '.';
+  return '@' + approverLogin + ' — opslaget er ikke godkendt, og der er under 3 timer til planlagt publicering. '
+    + 'Godkend det på godkendelsessiden, eller skriv `GODKEND` her, hvis det er klar. Planlagt: ' + deadline + '.';
+}
+
+function overdueBody(draft, decision, approverLogin) {
+  return '@' + approverLogin + ' — opslaget er godkendt, men endnu ikke udgivet ' + decision.minutesLate
+    + ' minutter efter det planlagte tidspunkt (' + String(draft.scheduledFor || 'ukendt') + '). '
+    + 'Tjek kørslen SOMA publisher i GitHub Actions.';
 }
 
 function liveTestReminderBody(draft, decision, approverLogin) {
@@ -58,7 +61,11 @@ async function syncIssuesAndReminders({
       draft: input,
       ledger,
       repository: client.repository,
-      createIfMissing: ACTIVE_ISSUE_STATUSES.has(input.status) || createTerminalIds.has(input.draftId),
+      // Issues oprettes kun, når de skal bruges til en alarm; det holder antallet af GitHub-mails nede.
+      createIfMissing: createTerminalIds.has(input.draftId)
+        || (ACTIVE_ISSUE_STATUSES.has(input.status)
+          && Boolean(reminderDecision(input, now) || overdueDecision(input, ledger, now)
+            || liveTestReminderDecision(input, ledger, { automationEnabled, now }))),
     });
 
     if (
@@ -70,7 +77,7 @@ async function syncIssuesAndReminders({
         client,
         issueNumber: draft.githubIssueNumber,
         marker: 'soma-skip:' + draft.draftId + ':missing_approval_at_publish_time',
-        body: '@' + approverLogin + ' — godkendelsesfristen blev overskredet. Kladde er sprunget over og bliver ikke bagud-publiceret.',
+        body: 'Godkendelsesfristen blev overskredet. Kladden er sprunget over og bliver ikke bagud-publiceret.',
       });
     }
 
@@ -84,6 +91,17 @@ async function syncIssuesAndReminders({
         body: reminderBody(draft, decision, approverLogin),
       });
       draft = markReminderSent(draft, decision, now);
+    }
+    const overdue = overdueDecision(draft, ledger, now);
+    if (overdue && draft.githubIssueNumber) {
+      const marker = ['soma-overdue', draft.draftId, draft.contentRevision].join(':');
+      await commentOnce({
+        client,
+        issueNumber: draft.githubIssueNumber,
+        marker,
+        body: overdueBody(draft, overdue, approverLogin),
+      });
+      draft = markOverdueSent(draft, overdue, now);
     }
     const liveTestDecision = liveTestReminderDecision(draft, ledger, { automationEnabled, now });
     if (liveTestDecision) {

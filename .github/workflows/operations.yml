@@ -45,6 +45,8 @@ jobs:
           SOMA_APPROVER_LOGIN: ${{ vars.SOMA_APPROVER_LOGIN }}
         run: node outputs/content-planner/approve-issue.js
       - name: Sync calendar, issues and reminders
+        # Forbigående kalenderfejl i planlagte kørsler gentages ved næste kørsel og sender ikke fejlmail.
+        continue-on-error: ${{ github.event_name == 'schedule' }}
         if: github.event_name != 'issue_comment'
         env:
           GITHUB_TOKEN: ${{ github.token }}

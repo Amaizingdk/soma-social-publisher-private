@@ -4,6 +4,8 @@ const assert = require('node:assert/strict');
 const {
   liveTestReminderDecision,
   markLiveTestReminderSent,
+  markOverdueSent,
+  overdueDecision,
   reminderDecision,
   markReminderSent,
 } = require('../outputs/content-planner/lib/reminders');
@@ -19,38 +21,65 @@ function reviewDraft(overrides = {}) {
   };
 }
 
-test('sends 72h and later 24h once per content revision', () => {
+test('sends exactly one reminder, inside the last 3 hours, once per content revision', () => {
   let draft = reviewDraft();
-  const first = reminderDecision(draft, new Date('2026-10-02T12:00:00Z'));
-  assert.equal(first.kind, '72h');
-  draft = markReminderSent(draft, first, new Date('2026-10-02T12:00:00Z'));
-  const second = reminderDecision(draft, new Date('2026-10-04T12:00:00Z'));
-  assert.equal(second.kind, '24h');
-  draft = markReminderSent(draft, second, new Date('2026-10-04T12:00:00Z'));
-  assert.equal(reminderDecision(draft, new Date('2026-10-04T13:00:00Z')), null);
+  assert.equal(reminderDecision(draft, new Date('2026-10-02T12:00:00Z')), null);
+  assert.equal(reminderDecision(draft, new Date('2026-10-04T12:00:00Z')), null);
+  assert.equal(reminderDecision(draft, new Date('2026-10-05T08:59:00Z')), null);
+  const decision = reminderDecision(draft, new Date('2026-10-05T09:01:00Z'));
+  assert.equal(decision.kind, 'final');
+  assert.deepEqual(decision.mark, ['final']);
+  draft = markReminderSent(draft, decision, new Date('2026-10-05T09:01:00Z'));
+  assert.equal(draft.reminderState.sentFinalAt, '2026-10-05T09:01:00.000Z');
+  assert.equal(reminderDecision(draft, new Date('2026-10-05T11:00:00Z')), null);
 });
 
-test('late discovery under 24h sends one urgent reminder and marks both thresholds', () => {
-  const decision = reminderDecision(reviewDraft({
-    scheduledFor: '2026-10-03T12:00:00Z',
-  }), new Date('2026-10-03T06:00:00Z'));
-  assert.equal(decision.kind, 'urgent');
-  assert.deepEqual(decision.mark, ['72h', '24h']);
-  const marked = markReminderSent(reviewDraft(), decision, new Date('2026-10-03T06:00:00Z'));
-  assert.equal(marked.reminderState.sent72At, '2026-10-03T06:00:00.000Z');
-  assert.equal(marked.reminderState.sent24At, '2026-10-03T06:00:00.000Z');
+test('late discovery sends the same single reminder', () => {
+  const decision = reminderDecision(reviewDraft({ scheduledFor: '2026-10-03T12:00:00Z' }), new Date('2026-10-03T11:00:00Z'));
+  assert.equal(decision.kind, 'final');
 });
 
-test('new content revision resets prior reminder markers', () => {
+test('new content revision resets the reminder marker, and older 72h/24h markers do not suppress it', () => {
   const draft = reviewDraft({
     contentRevision: 'b'.repeat(64),
-    reminderState: {
-      revision: 'a'.repeat(64),
-      sent72At: '2026-10-01T00:00:00Z',
-      sent24At: '2026-10-02T00:00:00Z',
-    },
+    reminderState: { revision: 'a'.repeat(64), sentFinalAt: '2026-10-05T09:30:00Z', sent72At: '2026-10-01T00:00:00Z' },
   });
-  assert.equal(reminderDecision(draft, new Date('2026-10-02T12:00:00Z')).kind, '72h');
+  assert.equal(reminderDecision(draft, new Date('2026-10-05T10:00:00Z')).kind, 'final');
+  const legacy = reviewDraft({ reminderState: { revision: 'a'.repeat(64), sent72At: 'x', sent24At: 'y' } });
+  assert.equal(reminderDecision(legacy, new Date('2026-10-05T10:00:00Z')).kind, 'final');
+});
+
+function approvedDraft(overrides = {}) {
+  return reviewDraft({
+    status: 'approved', revision: 2, approvedRevision: 'a'.repeat(64),
+    kind: 'event_day', event: { date: '2026-10-05', start: '16:00', end: '18:00' }, ...overrides,
+  });
+}
+
+const published = (deliveryType, revision = 2) => ({ draftId: 'draft-1', revision, deliveryType, status: 'published' });
+
+test('overdue alert fires once, 30 minutes after the planned time, until both deliveries are published', () => {
+  const draft = approvedDraft();
+  const ledger = { entries: [] };
+  assert.equal(overdueDecision(draft, ledger, new Date('2026-10-05T12:29:00Z')), null);
+  const decision = overdueDecision(draft, ledger, new Date('2026-10-05T12:31:00Z'));
+  assert.equal(decision.kind, 'overdue');
+  assert.equal(decision.minutesLate, 31);
+  const half = { entries: [published('instagram_story')] };
+  assert.equal(overdueDecision(draft, half, new Date('2026-10-05T12:31:00Z')).kind, 'overdue');
+  const complete = { entries: [published('instagram_story'), published('facebook_page_feed')] };
+  assert.equal(overdueDecision(draft, complete, new Date('2026-10-05T12:31:00Z')), null);
+  const marked = markOverdueSent(draft, decision, new Date('2026-10-05T12:31:00Z'));
+  assert.equal(overdueDecision(marked, ledger, new Date('2026-10-05T13:00:00Z')), null);
+});
+
+test('overdue alert ignores unapproved, mismatched, expired and other-revision drafts', () => {
+  const late = new Date('2026-10-05T12:45:00Z');
+  const ledger = { entries: [] };
+  assert.equal(overdueDecision(reviewDraft(), ledger, late), null);
+  assert.equal(overdueDecision(approvedDraft({ approvedRevision: 'f'.repeat(64) }), ledger, late), null);
+  assert.equal(overdueDecision(approvedDraft(), ledger, new Date('2026-10-05T17:00:00Z')), null);
+  assert.equal(overdueDecision(approvedDraft(), { entries: [published('instagram_story', 1), published('facebook_page_feed', 1)] }, late).kind, 'overdue');
 });
 
 test('approved, terminal, due, and invalid-time drafts do not create reminders', () => {
