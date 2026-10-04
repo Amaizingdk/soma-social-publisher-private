@@ -118,14 +118,15 @@ function buildSingleCopy(slot, event, source, config) {
     cta,
   ].filter(Boolean).join('\n\n');
 
+  // Dato, tid, antal pladser og booking står øverst, så de ses, før Facebook folder teksten sammen («Se mere»).
   const facebookPage = [
+    `Dato og tid: ${when}`,
+    availabilityLine,
+    cta,
     opening,
     hook,
     fact,
     invitation,
-    `Dato og tid: ${when}`,
-    availabilityLine,
-    cta,
   ].filter(Boolean).join('\n\n');
 
   const facebookGroup = [

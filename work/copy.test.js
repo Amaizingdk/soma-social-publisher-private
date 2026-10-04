@@ -207,3 +207,19 @@ test('image headlines describe the gus instead of repeating Saunagus', () => {
     assert.ok(copy.imageLines.instructorName);
   }
 });
+
+test('facebook page copy puts date, availability and booking before the long text', () => {
+  const event = {
+    eventKey: 'e1', date: '2026-10-18', start: '16:00', end: '18:00', name: 'Saunagus', instructor: 'Søren',
+    booked: 4, capacity: 12,
+  };
+  const slot = { slotKey: 'e1_day-before', kind: 'day_before', eventKeys: ['e1'], availability: { free: 8, label: '8 ledige pladser', soldOut: false } };
+  const source = resolveContentSource(event, profiles, overrides);
+  const text = buildCopyPackage(slot, [event], source, config).facebookPage;
+  const lines = text.split('\n\n');
+  assert.match(lines[0], /^Dato og tid: 18\. oktober 2026 · 16\.00–18\.00$/);
+  assert.equal(lines[1], '8 ledige pladser.');
+  assert.match(lines[2], /^Book din plads: https:\/\/somasaunagus\.dk\/kalender\/$/);
+  assert.ok(text.indexOf('8 ledige pladser.') < text.indexOf(lines[3]));
+  assert.ok(lines.length >= 5);
+});

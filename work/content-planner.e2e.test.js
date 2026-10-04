@@ -133,3 +133,47 @@ test('approved posts keep their image even when two siblings share it', async ()
     assert.equal(kept.assetId, dayBefore.assetId);
   }
 });
+
+test('a new text template only reaches new posts: approved posts keep their copy, unapproved get the new one', async () => {
+  const { fingerprintForContent } = require('../outputs/content-planner/lib/content-fingerprint');
+  const { contentRevisionFor } = require('../outputs/content-planner/lib/draft-lifecycle');
+  const outputDir = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-frozen-copy-'));
+  const now = new Date('2026-09-29T10:00:00Z');
+  await runPipeline({ fixturePath, outputDir, now });
+  const draftsPath = path.join(outputDir, 'drafts.json');
+  const drafts = JSON.parse(await fs.readFile(draftsPath, 'utf8'));
+  const active = drafts.filter((draft) => draft.status !== 'obsolete');
+  const dayBefore = active.find((draft) => draft.slotKey.endsWith('_day-before') && !draft.instructorOptions
+    && active.some((other) => other.slotKey === draft.slotKey.replace('_day-before', '_event-day') && !other.instructorOptions));
+  assert.ok(dayBefore, 'fixture mangler et par uden gusmester-varianter');
+  const eventDay = active.find((draft) => draft.slotKey === dayBefore.slotKey.replace('_day-before', '_event-day'));
+
+  // dagen-før er godkendt med den ældre tekstopbygning; samme-dag er en ikke-godkendt kladde med den ældre tekst
+  for (const draft of [dayBefore, eventDay]) {
+    const old = draft.platformCopies.facebookPage.split('\n\n');
+    draft.platformCopies.facebookPage = [...old.slice(3, -3), ...old.slice(0, 3)].join('\n\n') + '\n\nGAMMEL OPBYGNING';
+    draft.contentFingerprint = fingerprintForContent({
+      platformCopies: {
+        instagram: draft.platformCopies.instagram,
+        facebookPage: draft.platformCopies.facebookPage,
+        facebookGroup: draft.platformCopies.facebookGroup,
+      },
+      assetId: draft.assetId, season: draft.season, warnings: draft.warnings, instructorOptions: undefined,
+    });
+    draft.contentRevision = contentRevisionFor(draft);
+  }
+  Object.assign(dayBefore, { status: 'approved', approvedRevision: dayBefore.contentRevision, approvedAt: '2026-09-29T09:00:00Z' });
+  const oldApprovedCopy = dayBefore.platformCopies.facebookPage;
+  await fs.writeFile(draftsPath, JSON.stringify(drafts), 'utf8');
+
+  await runPipeline({ fixturePath, outputDir, now });
+  const after = JSON.parse(await fs.readFile(draftsPath, 'utf8')).filter((draft) => draft.status !== 'obsolete');
+  const keptApproved = after.find((draft) => draft.slotKey === dayBefore.slotKey);
+  assert.equal(keptApproved.draftId, dayBefore.draftId);
+  assert.equal(keptApproved.status, 'approved');
+  assert.equal(keptApproved.platformCopies.facebookPage, oldApprovedCopy);
+  const renewed = after.find((draft) => draft.slotKey === eventDay.slotKey);
+  assert.notEqual(renewed.draftId, eventDay.draftId);
+  assert.doesNotMatch(renewed.platformCopies.facebookPage, /GAMMEL OPBYGNING/);
+  assert.match(renewed.platformCopies.facebookPage, /^Dato og tid: /);
+});

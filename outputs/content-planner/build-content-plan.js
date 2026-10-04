@@ -230,16 +230,29 @@ async function runPipeline({
           };
         }
       }
-      const platformCopies = {
-        instagram: copyPackage.instagram,
-        facebookPage: copyPackage.facebookPage,
-        facebookGroup: copyPackage.facebookGroup,
-      };
+      // Godkendte og publicerede opslag beholder deres tekst, så en ny tekstskabelon kun gælder nye opslag.
+      const slotEventFingerprint = fingerprintForSlot(slot, events);
+      const frozenCopy = activePrevious.find((draft) => draft.slotKey === slot.slotKey
+        && ['approved', 'published'].includes(draft.status)
+        && draft.eventFingerprint === slotEventFingerprint
+        && draft.scheduledFor === slot.scheduledFor
+        && draft.platformCopies);
+      const platformCopies = frozenCopy
+        ? {
+          instagram: frozenCopy.platformCopies.instagram,
+          facebookPage: frozenCopy.platformCopies.facebookPage,
+          facebookGroup: frozenCopy.platformCopies.facebookGroup,
+        }
+        : {
+          instagram: copyPackage.instagram,
+          facebookPage: copyPackage.facebookPage,
+          facebookGroup: copyPackage.facebookGroup,
+        };
       const candidate = {
         draftId: `${slot.slotKey}_r1`,
         slotKey: slot.slotKey,
         eventKey: event?.eventKey || null,
-        eventFingerprint: fingerprintForSlot(slot, events),
+        eventFingerprint: slotEventFingerprint,
         revision: 1,
         kind: slot.kind,
         status: warnings.length ? 'needs_review' : 'draft',

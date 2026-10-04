@@ -69,25 +69,25 @@ test('skifter billedet, nulstiller godkendelsen og renderer alle varianter', asy
     drafts.filter((draft) => draft.draftId !== WITH_VARIANTS));
 });
 
-test('retur til det oprindelige billede giver samme fingerprint og revision som pipelinen', async () => {
+test('samme billedvalg giver samme fingerprint og revision uanset vejen dertil', async () => {
   const { root, drafts: all } = await sandbox();
   const plain = '2026-10-08_18-30_saunagus_event-day_r7';
-  // Søskendeopslaget fjernes, så testen kan skifte tilbage til det oprindelige (dublerede) billede.
+  // Søskendeopslaget fjernes, så testen kan skifte frit mellem billeder.
   const drafts = all.filter((draft) => draft.draftId !== '2026-10-08_18-30_saunagus_day-before_r7');
-  const original = drafts.find((draft) => draft.draftId === plain);
-  const away = await changeDraftImage({
-    repoRoot: root, drafts, draftId: plain, contentRevision: original.contentRevision,
-    assetId: 'soma-sauna-01', now: NOW,
-  });
-  const awayDraft = away.drafts.find((draft) => draft.draftId === plain);
-  const back = await changeDraftImage({
-    repoRoot: root, drafts: away.drafts, draftId: plain, contentRevision: awayDraft.contentRevision,
-    assetId: original.assetId, now: NOW,
-  });
-  const restored = back.drafts.find((draft) => draft.draftId === plain);
+  const change = async (current, assetId) => {
+    const draft = current.find((item) => item.draftId === plain);
+    const result = await changeDraftImage({
+      repoRoot: root, drafts: current, draftId: plain, contentRevision: draft.contentRevision, assetId, now: NOW,
+    });
+    assert.equal(result.outcome, 'changed');
+    return result.drafts;
+  };
+  const get = (current) => current.find((item) => item.draftId === plain);
+  const first = get(await change(drafts, 'soma-sauna-01'));
+  const detour = await change(await change(drafts, 'soma-img-5591'), 'soma-sauna-01');
   // Pixels afhænger af styresystemets skrifttyper (CI renderer på Linux), så sha sammenlignes ikke.
-  assert.equal(restored.contentFingerprint, original.contentFingerprint);
-  assert.equal(restored.contentRevision, original.contentRevision);
+  assert.equal(get(detour).contentFingerprint, first.contentFingerprint);
+  assert.equal(get(detour).contentRevision, first.contentRevision);
 });
 
 test('ugeoverblik og enkeltopslag uden varianter kan også skifte billede', async () => {
