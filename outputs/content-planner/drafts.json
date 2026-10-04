@@ -1031,7 +1031,7 @@
       "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nDer er plads til ro, varme og nærvær.\n\nEt saunagus med varme, dufte, musik og nærvær.\n\nKom med ind i varmen.\n\nDato og tid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nDer er plads til ro, varme og nærvær.\n\nTid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "6ab1f96dcec0bfb2f221bef41f4169e4334f8053b3828d6263f3eff9f21677ad",
+    "contentFingerprint": "00ff561dcae40ef7b518200b71699e81b90f4304090e67ad33f6004a3c3d7480",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1039,12 +1039,12 @@
       "event.name",
       "profile:neutral"
     ],
-    "assetId": "soma-power-steam",
+    "assetId": "soma-sauna-01",
     "render": {
       "path": "renders/2026-10-13_18-30_saunagus_event-day-dcb792ffaa.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "47f31dfb8d87ac044b99359c91cc5dbcec43317b391f9affdaef981f292cdd83"
+      "sha256": "b0bc9fa78b35258288b148b304649c4c4c4dba3b8cc0fb2cd22116534a04155e"
     },
     "renderPath": "renders/2026-10-13_18-30_saunagus_event-day-dcb792ffaa.jpg",
     "manualInstructor": null,
@@ -1057,12 +1057,12 @@
           "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nLad skuldrene sænke sig, mens varmen tager over.\n\nDer er mere kraft i musikken, mens kroppen inviteres til at give slip og finde ro.\n\nVi starter blidt, mærker rytmen og slutter roligt.\n\nDato og tid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLad skuldrene sænke sig, mens varmen tager over.\n\nTid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
         },
-        "assetId": "soma-power-steam",
+        "assetId": "soma-sauna-01",
         "render": {
           "path": "renders/2026-10-13_18-30_saunagus_event-day-dcb792ffaa-soren.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "49d3f40b95c5743d8d61abfc8533aa6846be76fe93ea767206478d9ba26f0d0d"
+          "sha256": "bbdbd7a8e923a3b8cb39b726633b6c8b185fb5e0810a7b3ef3bda4fee4bc82ca"
         },
         "renderPath": "renders/2026-10-13_18-30_saunagus_event-day-dcb792ffaa-soren.jpg"
       },
@@ -1074,24 +1074,32 @@
           "facebookPage": "I dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nGiv dig selv plads til bare at være.\n\nDato og tid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nTid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
         },
-        "assetId": "soma-calm-sunlight",
+        "assetId": "soma-sauna-01",
         "render": {
           "path": "renders/2026-10-13_18-30_saunagus_event-day-dcb792ffaa-millemaja.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "de7ad247fdda7e5764b2d20c18dbd084e6547ad5dfce91945aa36f705574b14c"
+          "sha256": "456d7ca5c188b5eab707a0f3433d01f62b10a08ad1a45c9d5ad0828c40aa2b9c"
         },
         "renderPath": "renders/2026-10-13_18-30_saunagus_event-day-dcb792ffaa-millemaja.jpg"
       }
     },
-    "history": [],
-    "contentRevision": "9fbd5362d5ba1ca22bb0184bb512446b4d7a019f64776ddf184e6255637fdb9c",
+    "history": [
+      {
+        "at": "2026-10-04T07:35:54.105Z",
+        "type": "change_image",
+        "from": "needs_review",
+        "to": "needs_review"
+      }
+    ],
+    "contentRevision": "0b0397611128bb73fff66b8dd377a82da3f5561011550a99b86ecb591fdb5e6f",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 70,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "manualAssetId": "soma-sauna-01"
   },
   {
     "draftId": "2026-10-15_18-30_saunagus_day-before_r10",
