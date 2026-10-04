@@ -788,7 +788,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nJeg glæder mig til at se jer. Booking: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "1c7914fa4a97c4d963401470d859014b0edd82e0637e206953426c768ce11651",
+    "contentFingerprint": "8c3b6db5a7228cae9888ff65fd506fd1ac63ff686ed3864dcffe14e4af9668de",
     "factsUsed": [
       "event:2026-10-13_18-30_saunagus.date",
       "event:2026-10-13_18-30_saunagus.time",
@@ -799,12 +799,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event:2026-10-18_16-00_saunagus.date",
       "event:2026-10-18_16-00_saunagus.time"
     ],
-    "assetId": "soma-outdoor-sunday",
+    "assetId": "soma-sauna-01",
     "render": {
       "path": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "51b3cd9db18d7ff069c9122796e0181afd4d3861032a5e526aead7319a11e8a4"
+      "sha256": "e70b8b6af32db441055cdb8c731c6e488125d57f95a1927c03975e62ce7f337c"
     },
     "renderPath": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
     "manualInstructor": null,
@@ -838,16 +838,22 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:15:20.973Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
       }
     ],
-    "contentRevision": "f12c03980e98e1520ab1f8fd987704e377d97d7075d85f66a11bca7531fcd6b6",
+    "contentRevision": "774783d0797f879de5d2c5701ef7000009e2db68939e45557362ee53cbc6eb22",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 68,
     "reminderState": null,
     "warningsAcknowledged": false,
-    "manualAssetId": "soma-outdoor-sunday"
+    "manualAssetId": "soma-sauna-01"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r10",
