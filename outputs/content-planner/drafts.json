@@ -788,7 +788,7 @@
       "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nJeg glæder mig til at se jer. Booking: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "9bbe852c43a962e527f67ebed52869093c76dfa1122ff28bccc1e39a6b9d1c3f",
+    "contentFingerprint": "8c3b6db5a7228cae9888ff65fd506fd1ac63ff686ed3864dcffe14e4af9668de",
     "factsUsed": [
       "event:2026-10-13_18-30_saunagus.date",
       "event:2026-10-13_18-30_saunagus.time",
@@ -799,12 +799,12 @@
       "event:2026-10-18_16-00_saunagus.date",
       "event:2026-10-18_16-00_saunagus.time"
     ],
-    "assetId": "soma-calm-sunlight",
+    "assetId": "soma-sauna-01",
     "render": {
       "path": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "2eb00f5db69f2d5c9cb3d4c8e82c4239da0f8210df934a1a392c5831ab2d3dee"
+      "sha256": "e70b8b6af32db441055cdb8c731c6e488125d57f95a1927c03975e62ce7f337c"
     },
     "renderPath": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
     "manualInstructor": null,
@@ -820,16 +820,22 @@
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:05:32.560Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
       }
     ],
-    "contentRevision": "ba39b8a43dbe9e31d8077110ea4f8866ee91a39e1495e72266ea4bfa0d0defff",
+    "contentRevision": "774783d0797f879de5d2c5701ef7000009e2db68939e45557362ee53cbc6eb22",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 68,
     "reminderState": null,
     "warningsAcknowledged": false,
-    "manualAssetId": "soma-calm-sunlight"
+    "manualAssetId": "soma-sauna-01"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r10",
