@@ -788,7 +788,7 @@
       "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nJeg glæder mig til at se jer. Booking: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "8547eaee74f780f7749057e935d0fe6ffc57109b9a3485ee109cfc131d095bf8",
+    "contentFingerprint": "1c7914fa4a97c4d963401470d859014b0edd82e0637e206953426c768ce11651",
     "factsUsed": [
       "event:2026-10-13_18-30_saunagus.date",
       "event:2026-10-13_18-30_saunagus.time",
@@ -799,12 +799,12 @@
       "event:2026-10-18_16-00_saunagus.date",
       "event:2026-10-18_16-00_saunagus.time"
     ],
-    "assetId": "soma-winter-night",
+    "assetId": "soma-outdoor-sunday",
     "render": {
       "path": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "c8f861ddb169dd864de168b72f7c577ca0e1e355554360843c5de4859e250c60"
+      "sha256": "51b3cd9db18d7ff069c9122796e0181afd4d3861032a5e526aead7319a11e8a4"
     },
     "renderPath": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
     "manualInstructor": null,
@@ -832,16 +832,22 @@
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:12:02.608Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
       }
     ],
-    "contentRevision": "906913742461eb5fe7f35020123c0b91ac55a60604e3329e1ad216fe01c3d59f",
+    "contentRevision": "f12c03980e98e1520ab1f8fd987704e377d97d7075d85f66a11bca7531fcd6b6",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 68,
     "reminderState": null,
     "warningsAcknowledged": false,
-    "manualAssetId": "soma-winter-night"
+    "manualAssetId": "soma-outdoor-sunday"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r10",
