@@ -78,7 +78,13 @@ async function executeAutomaticPlan({
       const response = await adapter.publish(item);
       const publishedEntry = markPublished(ledger, item.idempotencyKey, response?.providerId || null, now);
       await persistPhase({ ledgerPath, ledger, entry: publishedEntry, phase: 'published', persistState });
-      results.push(safeResult(item, 'published', '', { providerId: response?.providerId || null }));
+      const facebookStory = response?.facebookStory;
+      results.push(safeResult(
+        item,
+        'published',
+        facebookStory?.status === 'failed' ? `Facebook Page Story mislykkedes: ${facebookStory.reason || 'ukendt fejl'}` : '',
+        { providerId: response?.providerId || null, ...(facebookStory ? { facebookStory: facebookStory.status } : {}) },
+      ));
     } catch (error) {
       const manualEntry = markManualReviewRequired(
         ledger,

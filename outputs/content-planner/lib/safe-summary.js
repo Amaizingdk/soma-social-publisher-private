@@ -19,6 +19,7 @@ function safeRunSummary({ runId, results = [] } = {}, secrets = []) {
       idempotencyKey: item.idempotencyKey,
       deliveryType: item.deliveryType,
       status: item.status,
+      ...(typeof item.facebookStory === 'string' ? { facebookStory: item.facebookStory } : {}),
       reason: redact(item.reason || '', secrets).slice(0, 300),
     })),
   };

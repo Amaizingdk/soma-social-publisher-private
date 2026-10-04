@@ -126,3 +126,24 @@ test('manual group items are not executed because only automatic plan items are 
   assert.deepEqual(result.results, []);
   assert.deepEqual(calls, []);
 });
+
+test('a failed Facebook Story keeps the delivery published and is reported with a safe reason', async () => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-executor-story-'));
+  const ledgerPath = path.join(directory, 'publish-ledger.json');
+  const adapter = {
+    publish: async (item) => (item.deliveryType === 'instagram_story'
+      ? { providerId: 'ig-1', facebookStory: { status: 'failed', reason: 'Meta POST fejlede (HTTP 403, code 200)' } }
+      : { providerId: 'fb-1' }),
+  };
+  const run = () => executeAutomaticPlan({ plan: plan(), ledgerPath, adapter, allowPublish: true, now: new Date('2026-09-30T10:00:00Z') });
+  const first = await run();
+  assert.deepEqual(first.results.map((result) => result.status), ['published', 'published']);
+  assert.equal(first.results[0].facebookStory, 'failed');
+  assert.match(first.results[0].reason, /Facebook Page Story mislykkedes: Meta POST fejlede \(HTTP 403/);
+  assert.equal(first.results[1].facebookStory, undefined);
+  const ledger = await readLedger(ledgerPath);
+  assert.equal(ledger.entries.every((entry) => entry.status === 'published'), true);
+  // en anden kørsel prøver aldrig igen (ingen dobbelt-story)
+  const second = await run();
+  assert.deepEqual(second.results.map((result) => result.status), ['already_published', 'already_published']);
+});

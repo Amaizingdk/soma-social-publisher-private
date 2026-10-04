@@ -165,6 +165,7 @@ async function runDueContent({
     instagramUserId: '17841475009702608',
     pageId: '628094223731455',
     bookingUrl: activeConfig.bookingUrl,
+    facebookStoryEnabled: activeConfig.facebookPageStory === true,
     fetchImpl,
   });
   const uploader = assetUploader || (async ({ item, rendered }) => {

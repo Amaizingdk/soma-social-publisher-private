@@ -215,3 +215,74 @@ test('write boundary exposes only HTTP status and Meta error code', async () => 
     },
   );
 });
+
+function storyAdapterWithFacebookStory({ calls = [], failAt = null, enabled = true } = {}) {
+  const fetchImpl = async (url, options) => {
+    calls.push({ url, options });
+    if (options.method === 'GET') {
+      if (url.includes('/628094223731455?fields=access_token')) {
+        return response({ id: '628094223731455', access_token: 'page-access-token' });
+      }
+      return response({ status_code: 'FINISHED' });
+    }
+    if (failAt && url.endsWith(failAt)) return response({ error: { code: 200, message: 'secret-token leaked?' } }, { ok: false, status: 403 });
+    if (url.endsWith('/media')) return response({ id: 'container-1' });
+    if (url.includes('/media_publish')) return response({ id: 'ig-story-1' });
+    if (url.endsWith('/628094223731455/photos')) return response({ id: 'fb-photo-1' });
+    if (url.endsWith('/photo_stories')) return response({ success: true, post_id: 'fb-story-1' });
+    throw new Error(`Unexpected URL: ${url}`);
+  };
+  return createMetaWriteAdapter({
+    token: 'secret-token',
+    instagramUserId: '17841475009702608',
+    pageId: '628094223731455',
+    bookingUrl: 'https://somasaunagus.dk/kalender/',
+    fetchImpl,
+    facebookStoryEnabled: enabled,
+    waitImpl: async () => {},
+  });
+}
+
+const STORY_ITEM = { deliveryType: 'instagram_story', imageUrl: 'https://example.com/story.jpg' };
+
+test('Instagram Story is also placed on the Facebook Page as a Story, using the Page token', async () => {
+  const calls = [];
+  const result = await storyAdapterWithFacebookStory({ calls }).publish(STORY_ITEM);
+  assert.equal(result.providerId, 'ig-story-1');
+  assert.deepEqual(result.facebookStory, { status: 'published', id: 'fb-story-1' });
+  const after = calls.slice(calls.findIndex((call) => call.url.includes('/media_publish')) + 1);
+  assert.deepEqual(after.map((call) => call.url.replace('https://graph.facebook.com/v26.0', '')), [
+    '/628094223731455?fields=access_token',
+    '/628094223731455/photos',
+    '/628094223731455/photo_stories',
+  ]);
+  const photoBody = String(after[1].options.body);
+  assert.match(photoBody, /published=false/);
+  assert.match(photoBody, /url=https%3A%2F%2Fexample.com%2Fstory.jpg/);
+  assert.match(photoBody, /access_token=page-access-token/);
+  assert.match(String(after[2].options.body), /photo_id=fb-photo-1/);
+  assert.doesNotMatch(String(after[2].options.body), /secret-token/);
+});
+
+test('a failing Facebook Story never fails the Instagram Story and leaks no token', async () => {
+  for (const failAt of ['/photos', '/photo_stories']) {
+    const result = await storyAdapterWithFacebookStory({ failAt }).publish(STORY_ITEM);
+    assert.equal(result.providerId, 'ig-story-1');
+    assert.equal(result.facebookStory.status, 'failed');
+    assert.match(result.facebookStory.reason, /HTTP 403/);
+    assert.doesNotMatch(JSON.stringify(result), /secret-token|page-access-token/);
+  }
+});
+
+test('the Facebook Story is off unless it is enabled, and never touches other deliveries', async () => {
+  const calls = [];
+  const result = await storyAdapterWithFacebookStory({ calls, enabled: false }).publish(STORY_ITEM);
+  assert.equal(result.facebookStory, undefined);
+  assert.equal(calls.some((call) => call.url.includes('photo_stories')), false);
+  const feedCalls = [];
+  const feed = await storyAdapterWithFacebookStory({ calls: feedCalls }).publish({
+    deliveryType: 'facebook_page_feed', imageUrl: 'https://example.com/f.jpg', caption: 'Tekst',
+  });
+  assert.equal(feed.facebookStory, undefined);
+  assert.equal(feedCalls.some((call) => call.url.includes('photo_stories')), false);
+});

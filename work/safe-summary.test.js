@@ -38,3 +38,14 @@ test('summary handles missing results without leaking token-shaped values', () =
   assert.equal(summary.runId, 'local');
   assert.equal(JSON.stringify(summary).includes(tokenShape), false);
 });
+
+test('summary carries the Facebook Story status but never raw data', () => {
+  const summary = safeRunSummary({
+    runId: 'r',
+    results: [{ draftId: 'd', deliveryType: 'instagram_story', status: 'published', facebookStory: 'published', reason: '', providerId: 'x' }],
+  });
+  assert.equal(summary.items[0].facebookStory, 'published');
+  assert.equal('providerId' in summary.items[0], false);
+  const without = safeRunSummary({ runId: 'r', results: [{ draftId: 'd', status: 'published' }] });
+  assert.equal('facebookStory' in without.items[0], false);
+});

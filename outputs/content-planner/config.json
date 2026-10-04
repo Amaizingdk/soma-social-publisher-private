@@ -1,6 +1,7 @@
 {
   "timezone": "Europe/Copenhagen",
   "bookingUrl": "https://somasaunagus.dk/kalender/",
+  "facebookPageStory": true,
   "weeksAhead": 4,
   "fewSpotsThreshold": 3,
   "weeklyOverview": {

@@ -72,6 +72,7 @@ function createMetaWriteAdapter({
   pageId,
   bookingUrl,
   fetchImpl = globalThis.fetch,
+  facebookStoryEnabled = false,
   preflightValidator = validateMetaPreflight,
   waitImpl = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
   maxStatusChecks = 10,
@@ -94,6 +95,34 @@ function createMetaWriteAdapter({
       if (attempt < maxStatusChecks - 1) await waitImpl(statusPollMs);
     }
     throw new Error('Instagram Story-container timeout');
+  }
+
+  // Instagram deler ikke API-oprettede stories til Facebook, så den samme Story lægges også på Facebook-siden.
+  // Det er en ekstra, valgfri handling: fejler den, er Instagram Story stadig udgivet, og den prøves ikke igen.
+  async function publishFacebookPageStory(imageUrl) {
+    try {
+      if (pageId !== '628094223731455') throw new Error('Facebook Page-id matcher ikke SOMA');
+      const page = await graphGet({ endpoint: `/${pageId}?fields=access_token`, token, fetchImpl });
+      if (typeof page.access_token !== 'string' || page.access_token.trim() === '') {
+        throw new Error('Meta returnerede intet Page access token');
+      }
+      const photo = await graphPost({
+        endpoint: `/${pageId}/photos`,
+        params: { url: imageUrl, published: 'false' },
+        token: page.access_token,
+        fetchImpl,
+      });
+      if (!photo.id) throw new Error('Meta returnerede intet foto-id til Facebook Story');
+      const story = await graphPost({
+        endpoint: `/${pageId}/photo_stories`,
+        params: { photo_id: photo.id },
+        token: page.access_token,
+        fetchImpl,
+      });
+      return { status: 'published', id: story.post_id || story.id || null };
+    } catch (error) {
+      return { status: 'failed', reason: sanitizeMetaError(error, [token]).message.slice(0, 200) };
+    }
   }
 
   return {
@@ -134,7 +163,8 @@ function createMetaWriteAdapter({
           token,
           fetchImpl,
         });
-        return { providerId: published.id || container.id };
+        const facebookStory = facebookStoryEnabled ? await publishFacebookPageStory(item.imageUrl) : null;
+        return { providerId: published.id || container.id, ...(facebookStory ? { facebookStory } : {}) };
       }
       if (item.deliveryType === 'facebook_page_feed') {
         if (pageId !== '628094223731455') throw new Error('Facebook Page-id matcher ikke SOMA');
