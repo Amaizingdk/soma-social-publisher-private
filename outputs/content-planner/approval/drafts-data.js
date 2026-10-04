@@ -788,7 +788,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nJeg glæder mig til at se jer. Booking: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "3712d90886fe466e04bc2797e3c4d33f5ce4df2d01468144cbcc2a8d1cc729c7",
+    "contentFingerprint": "9bbe852c43a962e527f67ebed52869093c76dfa1122ff28bccc1e39a6b9d1c3f",
     "factsUsed": [
       "event:2026-10-13_18-30_saunagus.date",
       "event:2026-10-13_18-30_saunagus.time",
@@ -799,12 +799,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event:2026-10-18_16-00_saunagus.date",
       "event:2026-10-18_16-00_saunagus.time"
     ],
-    "assetId": "soma-img-6688",
+    "assetId": "soma-calm-sunlight",
     "render": {
       "path": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "7d8fbc880e29b4a5bc41c1035c5060e439301cb3c3cbd26c9eb50f64ee17dd7c"
+      "sha256": "2eb00f5db69f2d5c9cb3d4c8e82c4239da0f8210df934a1a392c5831ab2d3dee"
     },
     "renderPath": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
     "manualInstructor": null,
@@ -814,16 +814,22 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:05:09.482Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
       }
     ],
-    "contentRevision": "444d426956f5efd4e09776b30f72c0196c5ea4bb1334835d9774a8f2979f7ffc",
+    "contentRevision": "ba39b8a43dbe9e31d8077110ea4f8866ee91a39e1495e72266ea4bfa0d0defff",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 68,
     "reminderState": null,
     "warningsAcknowledged": false,
-    "manualAssetId": "soma-img-6688"
+    "manualAssetId": "soma-calm-sunlight"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r10",
