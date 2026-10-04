@@ -210,11 +210,11 @@ async function routeImageApi(page, { changeResponse }) {
 test('image picker lists library images, confirms, sends the revision and shows the new state', async () => {
   const browser = await chromium.launch({ headless: true });
   try {
-    const { page } = await open(browser, [draft('one', { status: 'approved', assetId: 'soma-a', renderPath: 'renders/x.jpg' })]);
+    const { page } = await open(browser, [draft('one', { status: 'approved', assetId: 'soma-a', renderPath: 'renders/x.jpg', render: { sha256: 'old' } })]);
     const changes = await routeImageApi(page, {
       changeResponse: (body) => ({
         results: [{ draftId: body.draftId, outcome: 'changed', draft: draft('one', {
-          status: 'draft', assetId: body.assetId, contentRevision: 'b'.repeat(64), renderPath: 'renders/x.jpg',
+          status: 'draft', assetId: body.assetId, contentRevision: 'b'.repeat(64), renderPath: 'renders/x.jpg', render: { sha256: 'new' },
         }) }],
         pushed: true,
       }),
@@ -261,5 +261,28 @@ test('image picker is disabled without a session and for locally edited drafts',
     assert.equal(await noSession.page.getByRole('button', { name: 'Skift billede' }).isDisabled(), true);
     const edited = await open(browser, [draft('two', { localEdit: true })]);
     assert.equal(await edited.page.getByRole('button', { name: 'Skift billede' }).isDisabled(), true);
+  } finally { await browser.close(); }
+});
+
+test('a draft changes image without a confirm dialog and the preview is reloaded with a new version', async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const { page } = await open(browser, [draft('one', { assetId: 'soma-a', renderPath: 'renders/x.jpg', render: { sha256: 'old' } })]);
+    await routeImageApi(page, {
+      changeResponse: (body) => ({
+        results: [{ draftId: body.draftId, outcome: 'changed', draft: draft('one', {
+          status: 'draft', assetId: body.assetId, contentRevision: 'b'.repeat(64), renderPath: 'renders/x.jpg', render: { sha256: 'new' },
+        }) }],
+        pushed: true,
+      }),
+    });
+    let dialogs = 0;
+    page.on('dialog', (item) => { dialogs += 1; item.accept(); });
+    assert.match(await page.locator('.preview > img').getAttribute('src'), /\?v=old$/);
+    await page.getByRole('button', { name: 'Skift billede' }).click();
+    await page.waitForSelector('.asset-choice');
+    await page.getByRole('button', { name: 'Vælg billedet soma-b' }).click();
+    await page.waitForFunction(() => /\?v=new$/.test(document.querySelector('.preview > img')?.getAttribute('src') || ''));
+    assert.equal(dialogs, 0);
   } finally { await browser.close(); }
 });

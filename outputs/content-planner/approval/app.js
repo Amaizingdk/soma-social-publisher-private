@@ -145,11 +145,9 @@
 
   async function changeImage(draft, assetId) {
     if (!canApprove || busy) return;
-    const wasApproved = draft.status === 'approved';
-    const question = wasApproved
-      ? 'Opslaget er godkendt. Et nyt billede fjerner godkendelsen, og opslaget skal godkendes igen. Skift billede?'
-      : 'Skift billede? Opslaget skal godkendes igen bagefter.';
-    if (!window.confirm(question)) return;
+    // Kun et allerede godkendt opslag mister sin godkendelse; kladder skifter uden ekstra klik.
+    if (draft.status === 'approved'
+      && !window.confirm('Opslaget er godkendt. Et nyt billede fjerner godkendelsen, og opslaget skal godkendes igen. Skift billede?')) return;
     busy = true;
     render();
     let response;
@@ -251,11 +249,13 @@
     return drafts.filter((draft) => draft.status !== 'obsolete' && draftHasUpcomingEvent(draft));
   }
 
-  function setPreviewSource(image, renderPath) {
+  function setPreviewSource(image, renderPath, version = '') {
     const normalized = String(renderPath).replace(/\\/g, '/');
-    const candidates = normalized.startsWith('renders/')
+    const candidates = (normalized.startsWith('renders/')
       ? [`../${normalized}`, `../../../${normalized}`]
-      : [normalized];
+      : [normalized])
+      // Samme filnavn bruges ved billedskift; versionen tvinger browseren til at hente det nye billede.
+      .map((candidate) => (version ? `${candidate}?v=${encodeURIComponent(version)}` : candidate));
     let index = 0;
     image.addEventListener('error', () => {
       index += 1;
@@ -324,7 +324,7 @@
       preview.className = 'preview';
       if (draft.renderPath) {
         const img = document.createElement('img');
-        setPreviewSource(img, draft.renderPath);
+        setPreviewSource(img, draft.renderPath, draft.render?.sha256 || draft.contentRevision);
         img.alt = `Opslagsbillede til ${draft.event?.name || 'SOMA gus'}`;
         preview.append(img);
       }
