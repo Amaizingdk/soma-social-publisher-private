@@ -174,7 +174,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "407d80bccbf02385cb91588c5c245e2327c1ffb277702505b68ff405d2143c7c",
     "revision": 8,
     "kind": "event_day",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-04T09:30:00+02:00",
     "season": "autumn",
     "event": {
@@ -273,7 +273,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "revision": "be66e5a77c118d5b8e71147d481f48683cedc3995dfa8271ef50871b2a3f63e2",
       "sent72At": "2026-10-03T05:42:19.050Z"
     },
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-04T08:18:52.799Z"
   },
   {
     "draftId": "2026-10-05_weekly-overview_r6",
