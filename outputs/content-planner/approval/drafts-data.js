@@ -1199,7 +1199,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nTræk vejret dybt og lad kroppen falde til ro.\n\nVi begynder med en kort breathwork og fortsætter gennem blide, sanselige runder.\n\nGiv dig selv en rolig stund med varme, dufte og nærvær.\n\nDato og tid: 15. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nTræk vejret dybt og lad kroppen falde til ro.\n\nTid: 15. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "68a0ee330fb0a3f087ac8043491403fde22ce5a11ff811a295acad94c5318e89",
+    "contentFingerprint": "bfb8b5199643a6e68b39c0b9005d174cfc0dd5fb5cfc982f41ee3c7a8dd5a8e8",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1207,23 +1207,31 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-calm-sunlight",
+    "assetId": "soma-img-5592",
     "render": {
       "path": "renders/2026-10-15_18-30_saunagus_event-day-7ce102d100.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "168b950c8669d79d66b859e8b831ce2d0fc86e34d7748f85be49ca84f7106d01"
+      "sha256": "47055b16b5ad376e1ff9720791a205eb10ec3a4ae1724c6a834963542692130c"
     },
     "renderPath": "renders/2026-10-15_18-30_saunagus_event-day-7ce102d100.jpg",
     "manualInstructor": null,
-    "history": [],
-    "contentRevision": "03a151d031b339fd4c84629d147d01e2801d11d9b832086a9b6e336145bb5f5a",
+    "history": [
+      {
+        "at": "2026-10-04T07:36:14.464Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "92998cab5265213ebb7ef1d026653323095b1f3aeecd7fa2b8bd59e8df0cd30e",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 72,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "manualAssetId": "soma-img-5592"
   },
   {
     "draftId": "2026-10-18_16-00_saunagus_day-before_r11",
