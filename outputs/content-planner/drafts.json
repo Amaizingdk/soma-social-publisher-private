@@ -788,7 +788,7 @@
       "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nJeg glæder mig til at se jer. Booking: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "1c7914fa4a97c4d963401470d859014b0edd82e0637e206953426c768ce11651",
+    "contentFingerprint": "3712d90886fe466e04bc2797e3c4d33f5ce4df2d01468144cbcc2a8d1cc729c7",
     "factsUsed": [
       "event:2026-10-13_18-30_saunagus.date",
       "event:2026-10-13_18-30_saunagus.time",
@@ -799,23 +799,31 @@
       "event:2026-10-18_16-00_saunagus.date",
       "event:2026-10-18_16-00_saunagus.time"
     ],
-    "assetId": "soma-outdoor-sunday",
+    "assetId": "soma-img-6688",
     "render": {
       "path": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "bccfb53d16785dfc51d4265099cf79b75941559b7a48ef9c456047ca478625ae"
+      "sha256": "7d8fbc880e29b4a5bc41c1035c5060e439301cb3c3cbd26c9eb50f64ee17dd7c"
     },
     "renderPath": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
     "manualInstructor": null,
-    "history": [],
-    "contentRevision": "f12c03980e98e1520ab1f8fd987704e377d97d7075d85f66a11bca7531fcd6b6",
+    "history": [
+      {
+        "at": "2026-10-04T07:04:43.509Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "444d426956f5efd4e09776b30f72c0196c5ea4bb1334835d9774a8f2979f7ffc",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 68,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "manualAssetId": "soma-img-6688"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r10",
