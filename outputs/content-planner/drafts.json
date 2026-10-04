@@ -1887,7 +1887,7 @@
       "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nLad varmen omslutte dig og åndedrættet finde sin ro.\n\nÅndedrættet åbner guset, før varme, musik og dufte får lov at fylde sanserne.\n\nKom med ind i et blidt saunagus med plads til bare at være.\n\nDato og tid: 22. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLad varmen omslutte dig og åndedrættet finde sin ro.\n\nTid: 22. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "b19da658a7cf4ccd8923d9bc7e4444ae085a3aa10016407d0a3880ed068ee7d5",
+    "contentFingerprint": "2fd0cdc1b0bf501ee5602b807fb95776f74a929b83adf8871d0af8564c4cda47",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1895,23 +1895,31 @@
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-calm-sunlight",
+    "assetId": "soma-sauna-01",
     "render": {
       "path": "renders/2026-10-22_18-30_saunagus_event-day-3757785719.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "371f60dcdebda5677451e656bc2dc2e4df552fe367a39b1c0924042fabb173e8"
+      "sha256": "259052cc44201ecb11c2eff9a074f85c5d88df82d663303208d674796df426d6"
     },
     "renderPath": "renders/2026-10-22_18-30_saunagus_event-day-3757785719.jpg",
     "manualInstructor": null,
-    "history": [],
-    "contentRevision": "9418f44ccd2d4f6eea8b66964f6097b523e85f1209ad9fc55823fa57f2ef8995",
+    "history": [
+      {
+        "at": "2026-10-04T07:37:37.833Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "9c7862e36d74fa018cd5896ebd266a01f92cf5c1e73841668049a21b5676c1ad",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 64,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "manualAssetId": "soma-sauna-01"
   },
   {
     "draftId": "2026-10-25_16-00_saunagus_day-before_r7",
