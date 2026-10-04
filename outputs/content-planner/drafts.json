@@ -628,7 +628,8 @@
     "history": [],
     "contentRevision": "bfa2e57ef9b1d81ca3597a566cb790bd01bcdb7a00805b4597705b9b48fb5310",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 78
   },
   {
     "draftId": "2026-10-06_18-30_saunagus_day-before_r7",
@@ -1499,7 +1500,8 @@
     "history": [],
     "contentRevision": "a176eb1090f8ab010bf5eff21f2a3d867115b63d92d370b318d56d1e196e5748",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 79
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r10",
@@ -2020,7 +2022,8 @@
     "history": [],
     "contentRevision": "dfd16188bd1e104bcfbc3d66f461e8c0bc246472247900a280ff887db6cd7587",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 80
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_event-day_r10",
@@ -2535,7 +2538,8 @@
     "history": [],
     "contentRevision": "7797289dfe8db77b5a74855b7cbd6d31dffefcd80f0887ff5399caa60246495c",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 81
   },
   {
     "draftId": "2026-10-15_18-30_saunagus_day-before_r10",
@@ -2867,7 +2871,8 @@
     "history": [],
     "contentRevision": "c913ec4d05ee3fa503200ba2239b15aa443f7824260dd1aa31d967b5bc8a8033",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 82
   },
   {
     "draftId": "2026-10-15_18-30_saunagus_event-day_r10",
@@ -3206,7 +3211,8 @@
     "history": [],
     "contentRevision": "5b8354879599ebc898d018c4c082d85ecbb336b46dd0301dbb8e72673378746a",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 83
   },
   {
     "draftId": "2026-10-18_16-00_saunagus_day-before_r11",
@@ -3538,7 +3544,8 @@
     "history": [],
     "contentRevision": "fb2a5f89823c41486595783c2e90cedec9c5889ae4ce93bfba8ed2877039e29f",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 84
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_day-before_r6",
@@ -3808,7 +3815,8 @@
     "history": [],
     "contentRevision": "091592866ee212cc04869a4d9dfd5312266c7ec06347e06f4bcb10fd0e18e552",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 85
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_event-day_r6",
@@ -4071,7 +4079,8 @@
     "history": [],
     "contentRevision": "ab524146b771c96e39dbf41e1b626c75b04e5b5c2c9068ca08865a766f4c5560",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 86
   },
   {
     "draftId": "2026-10-18_16-00_saunagus_event-day_r11",
@@ -4403,7 +4412,8 @@
     "history": [],
     "contentRevision": "dabe89b2b56a9b79a773fbe44c4b2eddc84ab19b407a5cb1cab52bb4fdb585d0",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 87
   },
   {
     "draftId": "2026-10-19_weekly-overview_r6",
