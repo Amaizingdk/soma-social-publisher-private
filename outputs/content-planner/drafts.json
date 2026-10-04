@@ -1331,7 +1331,7 @@
       "facebookPage": "I morgen inviteres du til MELLEMRUM GUS med MilleMaja fra Betterlife by Yndigegn.\n\nEt mellemrum fra hverdagen. Et rum, hvor du bare må være.\n\nMusik, dufte, varme og guidning understøtter nærvær.\n\nGiv dig selv et mellemrum i varmen.\n\nDato og tid: 18. oktober 2026 · 10.00–12.00\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nI morgen inviteres du til MELLEMRUM GUS med MilleMaja fra Betterlife by Yndigegn.\n\nEt mellemrum fra hverdagen. Et rum, hvor du bare må være.\n\nTid: 18. oktober 2026 · 10.00–12.00\n\n11 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "1be43229817d6b07826311a0bcf294ce54c11b003202841ddd7116762249e337",
+    "contentFingerprint": "3f18b0b01c5267c5734761c9a1a0e5b18e7399a4f61aad68bf312aea682ae4d1",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1339,23 +1339,31 @@
       "event.name",
       "override:2026-10-18-mellemrum-10-00"
     ],
-    "assetId": "soma-calm-sunlight",
+    "assetId": "soma-img-5595",
     "render": {
       "path": "renders/2026-10-18_10-00_saunagus_day-before-8837b2d127.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "41fe93191267e8e61b09318d540ed340d872e0e97020168484a88524c2db6d9f"
+      "sha256": "9985cd2a885981f336560d6f2ec97acd2bbd453ac616f2f341a81fb7230beb67"
     },
     "renderPath": "renders/2026-10-18_10-00_saunagus_day-before-8837b2d127.jpg",
     "manualInstructor": null,
-    "history": [],
-    "contentRevision": "bf38df7c7019016729819720bf7078bfb593066f5d4e13a32149a3e3f084f639",
+    "history": [
+      {
+        "at": "2026-10-04T07:36:49.420Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "209206802f922eb71cd4dbb6851c82ce93e49463a3efcfb82ffac7a2848db345",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 74,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "manualAssetId": "soma-img-5595"
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_event-day_r6",
