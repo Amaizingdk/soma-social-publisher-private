@@ -2019,7 +2019,7 @@
       "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nFire sanselige runder med musik, dufte og plads til at give slip.\n\nEn rolig stund, før en ny uge begynder.\n\nDato og tid: 25. oktober 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nTid: 25. oktober 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "cf950877e60bddc2676692b37a8e6b02791e106ebd89890500e07bd5b2c1c73d",
+    "contentFingerprint": "de51038682b171c9e0003594c2e94bac6a3e6eadeea6efc86602602c87ee83a7",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -2027,23 +2027,31 @@
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-outdoor-sunday",
+    "assetId": "soma-img-6689",
     "render": {
       "path": "renders/2026-10-25_16-00_saunagus_event-day-a2b6065c13.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "71f0b12ddce101fac1e878991737fe0bec6351e5dc472f2cdbf4dfd84842ad30"
+      "sha256": "1d61d676fb494c78cf9927f25d7f9c14cfe602c25a448926987e412d308b44c9"
     },
     "renderPath": "renders/2026-10-25_16-00_saunagus_event-day-a2b6065c13.jpg",
     "manualInstructor": null,
-    "history": [],
-    "contentRevision": "7827cf71c98a6d6fa44ec3bf85640f722bd46de4e8018d95255d2d5029d44be3",
+    "history": [
+      {
+        "at": "2026-10-04T07:37:58.907Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "49b57b514ed75b538ab2e90980d505b1f7a8fc573d5f4a36578dea79294ebb90",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 66,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "manualAssetId": "soma-img-6689"
   },
   {
     "draftId": "2026-09-28_weekly-overview_r2",
