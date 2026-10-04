@@ -917,7 +917,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nGiv dig selv et varmt pusterum.\n\nEt saunagus med varme, dufte, musik og nærvær.\n\nDu er velkommen præcis, som du er.\n\nDato og tid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nGiv dig selv et varmt pusterum.\n\nTid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "92cc3c728c20df4e34607a73bdb747a5397d417a50e32897e9a7f2b906a693d3",
+    "contentFingerprint": "cabd93b50de2e490d502ae608b4903679e576616c9d2df853ff3d2e1823739af",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -925,12 +925,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:neutral"
     ],
-    "assetId": "soma-outdoor-sunday",
+    "assetId": "soma-img-6688",
     "render": {
       "path": "renders/2026-10-13_18-30_saunagus_day-before-dcb792ffaa.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "ef86432811063756633d24bbe73eaf511e85cda530513d05dbb964a2e42f7628"
+      "sha256": "2f0e8b47861d146b674fa1c5370deb4c0cc17859669df0f9a8f85b0245fa668c"
     },
     "renderPath": "renders/2026-10-13_18-30_saunagus_day-before-dcb792ffaa.jpg",
     "manualInstructor": null,
@@ -943,12 +943,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære.\n\nDato og tid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nTid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
         },
-        "assetId": "soma-outdoor-sunday",
+        "assetId": "soma-img-6688",
         "render": {
           "path": "renders/2026-10-13_18-30_saunagus_day-before-dcb792ffaa-soren.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "102630f432d0c21af453b5a5d8d2d2359e574b7d06f691b6b58c7de5ccc19867"
+          "sha256": "18762105d2423343469649a853993bb5f1485f87b3fc73cd745bea02042f1408"
         },
         "renderPath": "renders/2026-10-13_18-30_saunagus_day-before-dcb792ffaa-soren.jpg"
       },
@@ -960,12 +960,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "facebookPage": "I morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nTid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
         },
-        "assetId": "soma-outdoor-sunday",
+        "assetId": "soma-img-6688",
         "render": {
           "path": "renders/2026-10-13_18-30_saunagus_day-before-dcb792ffaa-millemaja.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "aac37a374fa7302e36751f9401f4679afcc6b2d043a7d59d186dbdefc79a435c"
+          "sha256": "0d16aecbe746a087ac21fc87646fd51ce3a7e8e7709ab75a201a1b35a259c521"
         },
         "renderPath": "renders/2026-10-13_18-30_saunagus_day-before-dcb792ffaa-millemaja.jpg"
       }
@@ -976,16 +976,22 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "needs_review",
         "to": "needs_review"
+      },
+      {
+        "at": "2026-10-04T07:35:34.912Z",
+        "type": "change_image",
+        "from": "needs_review",
+        "to": "needs_review"
       }
     ],
-    "contentRevision": "f9b9efba35094d7c2b32e85520879f0eb6140ceac2535b0e699e61c213c87606",
+    "contentRevision": "3e67317774a94d4ca4b46a992544d8a75eb1a2a335a0dc1f969b1b9c8a883b33",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 69,
     "reminderState": null,
     "warningsAcknowledged": false,
-    "manualAssetId": "soma-outdoor-sunday"
+    "manualAssetId": "soma-img-6688"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_event-day_r10",
