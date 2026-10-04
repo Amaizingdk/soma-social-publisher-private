@@ -788,7 +788,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/",
       "facebookGroup": "Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n• 13. oktober 2026 · 18.30–20.30 · Tirsdagsgus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nJeg glæder mig til at se jer. Booking: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "8c3b6db5a7228cae9888ff65fd506fd1ac63ff686ed3864dcffe14e4af9668de",
+    "contentFingerprint": "8547eaee74f780f7749057e935d0fe6ffc57109b9a3485ee109cfc131d095bf8",
     "factsUsed": [
       "event:2026-10-13_18-30_saunagus.date",
       "event:2026-10-13_18-30_saunagus.time",
@@ -799,12 +799,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event:2026-10-18_16-00_saunagus.date",
       "event:2026-10-18_16-00_saunagus.time"
     ],
-    "assetId": "soma-sauna-01",
+    "assetId": "soma-winter-night",
     "render": {
       "path": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "e70b8b6af32db441055cdb8c731c6e488125d57f95a1927c03975e62ce7f337c"
+      "sha256": "c8f861ddb169dd864de168b72f7c577ca0e1e355554360843c5de4859e250c60"
     },
     "renderPath": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
     "manualInstructor": null,
@@ -826,16 +826,22 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:11:25.240Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
       }
     ],
-    "contentRevision": "774783d0797f879de5d2c5701ef7000009e2db68939e45557362ee53cbc6eb22",
+    "contentRevision": "906913742461eb5fe7f35020123c0b91ac55a60604e3329e1ad216fe01c3d59f",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 68,
     "reminderState": null,
     "warningsAcknowledged": false,
-    "manualAssetId": "soma-sauna-01"
+    "manualAssetId": "soma-winter-night"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r10",
