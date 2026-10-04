@@ -192,3 +192,33 @@ test('restores the allowed files and reports write_failed when writing the paylo
   assert.equal(retry.pushed, true);
   assert.equal(JSON.parse(git(origin, 'show', `main:${DRAFTS}`))[0].status, 'approved');
 });
+
+test('commits extra files returned by an async apply in the same commit', async () => {
+  const { clone, origin } = await createRepos();
+  const apply = async (drafts) => {
+    await write(clone, 'renders/new.jpg', 'jpeg-bytes');
+    return {
+      drafts: drafts.map((draft) => (draft.draftId === 'a' ? { ...draft, assetId: 'x' } : draft)),
+      results: { draftId: 'a' },
+      files: ['renders/new.jpg'],
+    };
+  };
+  const result = await tx({ repoRoot: clone, apply, message: 'change-image: a' });
+  assert.equal(result.pushed, true);
+  const files = git(origin, 'show', '--name-only', '--format=', 'main').split('\n').sort();
+  assert.deepEqual(files, [DRAFTS, PAYLOAD, 'renders/new.jpg'].sort());
+  assert.equal(git(clone, 'status', '--porcelain'), '');
+});
+
+test('removes rendered files again when apply changes nothing, so the tree stays clean', async () => {
+  const { clone, origin } = await createRepos();
+  const before = git(origin, 'rev-parse', 'main');
+  const apply = async (drafts) => {
+    await write(clone, 'renders/orphan.jpg', 'jpeg-bytes');
+    return { drafts, results: 'noop', files: ['renders/orphan.jpg'] };
+  };
+  const result = await tx({ repoRoot: clone, apply, message: 'x' });
+  assert.deepEqual([result.pushed, result.changed], [false, false]);
+  assert.equal(git(origin, 'rev-parse', 'main'), before);
+  assert.equal(git(clone, 'status', '--porcelain'), '');
+});

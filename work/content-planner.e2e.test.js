@@ -72,3 +72,64 @@ test('review import accepts current revisions and rejects stale fingerprints', a
   await assert.rejects(() => importReviewed({ reviewedPath, outputDir }), /forældet|fremmed/i);
   assert.equal(JSON.parse(await fs.readFile(draftsPath, 'utf8'))[0].eventFingerprint, imported[0].eventFingerprint);
 });
+
+test('two posts about the same event never get the same image, in base or instructor variants', async () => {
+  const outputDir = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-unique-'));
+  await runPipeline({ fixturePath, outputDir, now: new Date('2026-09-29T10:00:00Z') });
+  const drafts = JSON.parse(await fs.readFile(path.join(outputDir, 'drafts.json'), 'utf8'))
+    .filter((draft) => draft.status !== 'obsolete' && draft.eventKey);
+  const byEvent = new Map();
+  for (const draft of drafts) byEvent.set(draft.eventKey, [...(byEvent.get(draft.eventKey) || []), draft]);
+  let pairs = 0;
+  for (const [, posts] of byEvent) {
+    if (posts.length < 2) continue;
+    pairs += 1;
+    assert.equal(new Set(posts.map((post) => post.assetId)).size, posts.length);
+    for (const key of ['soren', 'millemaja']) {
+      const variants = posts.map((post) => post.instructorOptions?.[key]?.assetId).filter(Boolean);
+      assert.equal(new Set(variants).size, variants.length);
+    }
+  }
+  assert.ok(pairs > 0);
+});
+
+test('approved posts keep their image even when two siblings share it', async () => {
+  const { fingerprintForContent } = require('../outputs/content-planner/lib/content-fingerprint');
+  const { contentRevisionFor } = require('../outputs/content-planner/lib/draft-lifecycle');
+  const outputDir = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-pinned-'));
+  const now = new Date('2026-09-29T10:00:00Z');
+  await runPipeline({ fixturePath, outputDir, now });
+  const draftsPath = path.join(outputDir, 'drafts.json');
+  const drafts = JSON.parse(await fs.readFile(draftsPath, 'utf8'));
+  const active = drafts.filter((draft) => draft.status !== 'obsolete');
+  const dayBefore = active.find((draft) => draft.slotKey.endsWith('_day-before') && !draft.instructorOptions
+    && active.some((other) => other.slotKey === draft.slotKey.replace('_day-before', '_event-day') && !other.instructorOptions));
+  assert.ok(dayBefore, 'fixture mangler et par uden gusmester-varianter');
+  const eventDay = active.find((draft) => draft.slotKey === dayBefore.slotKey.replace('_day-before', '_event-day'));
+  // Ældre, allerede godkendte opslag, der deler billede (før reglen fandtes).
+  for (const draft of [dayBefore, eventDay]) {
+    draft.assetId = dayBefore.assetId;
+    draft.contentFingerprint = fingerprintForContent({
+      platformCopies: {
+        instagram: draft.platformCopies.instagram,
+        facebookPage: draft.platformCopies.facebookPage,
+        facebookGroup: draft.platformCopies.facebookGroup,
+      },
+      assetId: draft.assetId, season: draft.season, warnings: draft.warnings, instructorOptions: undefined,
+    });
+    draft.contentRevision = contentRevisionFor(draft);
+    draft.status = 'approved';
+    draft.approvedRevision = draft.contentRevision;
+    draft.approvedAt = '2026-09-29T09:00:00Z';
+  }
+  await fs.writeFile(draftsPath, JSON.stringify(drafts), 'utf8');
+
+  await runPipeline({ fixturePath, outputDir, now });
+  const after = JSON.parse(await fs.readFile(draftsPath, 'utf8')).filter((draft) => draft.status !== 'obsolete');
+  for (const before of [dayBefore, eventDay]) {
+    const kept = after.find((draft) => draft.slotKey === before.slotKey);
+    assert.equal(kept.draftId, before.draftId);
+    assert.equal(kept.status, 'approved');
+    assert.equal(kept.assetId, dayBefore.assetId);
+  }
+});

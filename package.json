@@ -13,7 +13,8 @@
     "operations": "node outputs/content-planner/sync-operations.js",
     "approve-issue": "node outputs/content-planner/approve-issue.js",
     "reconcile-publication": "node outputs/content-planner/sync-operations.js --publication-only",
-    "approval-server": "node outputs/content-planner/approval-server.js"
+    "approval-server": "node outputs/content-planner/approval-server.js",
+    "prepare-image": "node outputs/content-planner/prepare-post-image.js"
   },
   "dependencies": {
     "playwright": "1.63.0"

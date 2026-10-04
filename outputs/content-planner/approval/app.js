@@ -11,6 +11,7 @@
   const session = window.__SOMA_SESSION__
     || JSON.parse(document.querySelector('#soma-session')?.textContent || 'null');
   const canApprove = Boolean(session?.key);
+  const apiBase = session?.endpoint ? session.endpoint.replace(/approve$/, '') : new URL('.', location.href).href;
   const sendMessages = new Map();
   let busy = false;
   const OUTCOME_MESSAGES = {
@@ -18,7 +19,14 @@
     terminal: 'Opslaget kan ikke godkendes, fordi det er afsluttet.',
     warnings_not_acknowledged: 'Advarsler skal bekræftes, før opslaget kan godkendes.',
     unknown_draft: 'Opslaget findes ikke længere. Genindlæs siden.',
+    unknown_asset: 'Billedet er ikke længere godkendt til opslag. Genindlæs siden.',
+    unchanged: 'Opslaget bruger allerede det billede.',
+    duplicate_asset: 'Det andet opslag om samme event bruger allerede det billede. Vælg et andet.',
+    render_rejected: 'Billedet kunne ikke bruges: teksten passer ikke på det. Vælg et andet.',
+    render_failed: 'Billedet kunne ikke genereres. Prøv igen.',
+    render_unavailable: 'Billedgenerering er ikke installeret på denne computer (kør npm ci i runtime-mappen).',
   };
+  const pickers = new Map();
 
   function restoreSavedDrafts(current) {
     try {
@@ -112,6 +120,104 @@
       }
     }
     render();
+  }
+
+  function pickerState(draft) {
+    if (!pickers.has(draft.draftId)) pickers.set(draft.draftId, { open: false, assets: null, error: null });
+    return pickers.get(draft.draftId);
+  }
+
+  async function togglePicker(draft) {
+    const state = pickerState(draft);
+    state.open = !state.open;
+    if (state.open && !state.assets) {
+      state.error = null;
+      try {
+        const response = await fetch(new URL(`assets?draftId=${encodeURIComponent(draft.draftId)}`, apiBase).href);
+        if (!response.ok) throw new Error(`http_${response.status}`);
+        state.assets = (await response.json()).assets || [];
+      } catch {
+        state.error = 'Billederne kunne ikke hentes. Genindlæs siden.';
+      }
+    }
+    render();
+  }
+
+  async function changeImage(draft, assetId) {
+    if (!canApprove || busy) return;
+    const wasApproved = draft.status === 'approved';
+    const question = wasApproved
+      ? 'Opslaget er godkendt. Et nyt billede fjerner godkendelsen, og opslaget skal godkendes igen. Skift billede?'
+      : 'Skift billede? Opslaget skal godkendes igen bagefter.';
+    if (!window.confirm(question)) return;
+    busy = true;
+    render();
+    let response;
+    try {
+      const reply = await fetch(new URL('change-image', apiBase).href, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-soma-key': session.key },
+        body: JSON.stringify({ draftId: draft.draftId, contentRevision: draft.contentRevision, assetId }),
+      });
+      response = reply.ok ? await reply.json() : { error: `http_${reply.status}` };
+    } catch {
+      response = { error: 'network' };
+    }
+    busy = false;
+    const result = (response.results || []).find((item) => item.draftId === draft.draftId);
+    if (result?.outcome === 'changed' && response.pushed && result.draft) {
+      Object.assign(draft, result.draft, { localEdit: false });
+      sendMessages.delete(draft.draftId);
+      pickerState(draft).open = false;
+      persistDrafts();
+    } else {
+      sendMessages.set(draft.draftId, OUTCOME_MESSAGES[result?.outcome]
+        || `Billedet blev ikke skiftet (${response.error || 'ukendt fejl'}). Prøv igen.`);
+    }
+    render();
+  }
+
+  function buildImagePicker(draft) {
+    const wrap = document.createElement('div');
+    wrap.className = 'image-picker';
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.textContent = pickerState(draft).open ? 'Luk billeder' : 'Skift billede';
+    toggle.disabled = busy || !canApprove || Boolean(draft.localEdit);
+    toggle.title = draft.localEdit ? 'Gem eller fjern tekstrettelser først.' : '';
+    toggle.addEventListener('click', () => { togglePicker(draft); });
+    wrap.append(toggle);
+    const state = pickerState(draft);
+    if (!state.open) return wrap;
+    const grid = document.createElement('div');
+    grid.className = 'asset-grid';
+    if (state.error) {
+      const error = document.createElement('p');
+      error.className = 'warning';
+      error.textContent = state.error;
+      grid.append(error);
+    } else if (!state.assets) {
+      grid.textContent = 'Henter billeder…';
+    } else {
+      for (const asset of state.assets) {
+        const choice = document.createElement('button');
+        choice.type = 'button';
+        choice.className = `asset-choice${asset.assetId === draft.assetId ? ' current' : ''}`;
+        choice.disabled = busy || asset.assetId === draft.assetId;
+        choice.setAttribute('aria-label', `Vælg billedet ${asset.assetId}`);
+        const thumb = document.createElement('img');
+        thumb.loading = 'lazy';
+        thumb.alt = '';
+        thumb.src = new URL(`asset-image/${encodeURIComponent(asset.assetId)}`, apiBase).href;
+        const caption = document.createElement('span');
+        caption.textContent = asset.assetId === draft.assetId ? 'Nuværende' : asset.assetId;
+        choice.append(thumb, caption);
+        choice.addEventListener('click', () => { changeImage(draft, asset.assetId); });
+        grid.append(choice);
+      }
+    }
+    wrap.append(grid);
+    return wrap;
   }
 
   function eventLabel(event) {
@@ -222,6 +328,7 @@
         img.alt = `Opslagsbillede til ${draft.event?.name || 'SOMA gus'}`;
         preview.append(img);
       }
+      preview.append(buildImagePicker(draft));
       const editor = document.createElement('section');
       const status = document.createElement('p');
       status.className = 'status';

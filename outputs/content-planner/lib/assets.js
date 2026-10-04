@@ -27,10 +27,26 @@ function validateAssetRegistry(registry) {
   }
 }
 
-function selectAsset(slot, events, registry, season = null) {
+// Billeder, som andre aktive opslag om samme event bruger (basis og gusmester-varianter).
+function siblingAssetIds(draft, drafts) {
+  if (!draft?.eventKey || !Array.isArray(drafts)) return new Set();
+  const ids = new Set();
+  for (const other of drafts) {
+    if (other.draftId === draft.draftId || other.slotKey === draft.slotKey) continue;
+    if (other.eventKey !== draft.eventKey || other.status === 'obsolete') continue;
+    if (other.assetId) ids.add(other.assetId);
+    for (const option of Object.values(other.instructorOptions || {})) {
+      if (option?.assetId) ids.add(option.assetId);
+    }
+  }
+  return ids;
+}
+
+function selectAsset(slot, events, registry, season = null, excludeAssetIds = []) {
   validateAssetRegistry(registry);
-  const approved = registry.assets.filter((asset) => asset.status === 'approved');
-  if (approved.length === 0) throw new Error('Der findes intet godkendt billede til opslaget');
+  const excluded = new Set(excludeAssetIds);
+  const approved = registry.assets.filter((asset) => asset.status === 'approved' && !excluded.has(asset.assetId));
+  if (approved.length === 0) throw new Error('Der findes intet godkendt billede til opslaget, som ikke allerede bruges af et andet opslag om samme event');
   const event = events.find((candidate) => candidate.eventKey === slot.eventKeys?.[0]);
   let desiredTag = null;
   if (slot.kind === 'weekly_overview') desiredTag = 'weekly';
@@ -57,4 +73,4 @@ function selectAsset(slot, events, registry, season = null) {
   return candidates[digest.readUInt32BE(0) % candidates.length];
 }
 
-module.exports = { validateAssetRegistry, selectAsset };
+module.exports = { validateAssetRegistry, selectAsset, siblingAssetIds };

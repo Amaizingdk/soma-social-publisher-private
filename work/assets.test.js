@@ -90,3 +90,28 @@ test('winter selection prefers an asset matching both event mood and season', ()
   const slot = { slotKey: 'november-0', kind: 'event_day', eventKeys: ['november'] };
   assert.equal(selectAsset(slot, [event], registry, 'winter').assetId, 'winter-calm');
 });
+
+test('selection never returns an excluded asset and fails clearly when nothing else is left', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'soma-assets-'));
+  const registry = registryWith(dir);
+  registry.assets.push({ ...registry.assets[0], assetId: 'sauna-02' });
+  const slot = { slotKey: '2026-10-18_event-day' };
+  for (const excluded of ['sauna-01', 'sauna-02']) {
+    const other = excluded === 'sauna-01' ? 'sauna-02' : 'sauna-01';
+    assert.equal(selectAsset(slot, [], registry, null, [excluded]).assetId, other);
+  }
+  assert.throws(() => selectAsset(slot, [], registry, null, ['sauna-01', 'sauna-02']), /allerede bruges/i);
+});
+
+test('siblingAssetIds returns assets of other active slots of the same event, including variants', () => {
+  const { siblingAssetIds } = require('../outputs/content-planner/lib/assets');
+  const drafts = [
+    { draftId: 'a', slotKey: 'e_day-before', eventKey: 'e', status: 'draft', assetId: 'x' },
+    { draftId: 'b', slotKey: 'e_event-day', eventKey: 'e', status: 'draft', assetId: 'y', instructorOptions: { soren: { assetId: 'z' } } },
+    { draftId: 'c', slotKey: 'e_event-day', eventKey: 'e', status: 'obsolete', assetId: 'old' },
+    { draftId: 'd', slotKey: 'f_event-day', eventKey: 'f', status: 'draft', assetId: 'other-event' },
+  ];
+  assert.deepEqual([...siblingAssetIds(drafts[0], drafts)].sort(), ['y', 'z']);
+  assert.deepEqual([...siblingAssetIds(drafts[1], drafts)], ['x']);
+  assert.equal(siblingAssetIds({ draftId: 'w', slotKey: 'w', eventKey: null }, drafts).size, 0);
+});

@@ -115,6 +115,189 @@
       "approvalNote": "Vintermotiv beskåret fra en separat normaliseret kopi; originalen er urørt. Visuelt kontrolleret uden rotation eller spejling.",
       "sourcePath": "assets/soma-winter-night-crop.jpg",
       "normalizedPath": "assets/soma-winter-night-crop.jpg"
+    },
+    {
+      "assetId": "soma-img-5591",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "varme",
+        "sollys",
+        "calm",
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.0313,
+        "width": 1,
+        "height": 0.9375
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren bad om tilpasning 2026-10-04; visuelt ja ved push-preview. Original i billedbiblioteket: IMG_5591 - Kopi.jpg.",
+      "libraryFile": "IMG_5591 - Kopi.jpg",
+      "sourcePath": "assets/soma-img-5591.jpg",
+      "normalizedPath": "assets/soma-img-5591.jpg"
+    },
+    {
+      "assetId": "soma-img-5592",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "solnedgang",
+        "aften",
+        "calm",
+        "all-season"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.0313,
+        "width": 1,
+        "height": 0.9375
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren bad om tilpasning 2026-10-04; visuelt ja ved push-preview. Original i billedbiblioteket: IMG_5592 - Kopi.jpg.",
+      "libraryFile": "IMG_5592 - Kopi.jpg",
+      "sourcePath": "assets/soma-img-5592.jpg",
+      "normalizedPath": "assets/soma-img-5592.jpg"
+    },
+    {
+      "assetId": "soma-img-5595",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "ovn",
+        "varme",
+        "sunday",
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "crop45": {
+        "x": 0.2,
+        "y": 0,
+        "width": 0.6,
+        "height": 1
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren bad om tilpasning 2026-10-04; visuelt ja ved push-preview. Original i billedbiblioteket: IMG_5595.jpg.",
+      "libraryFile": "IMG_5595.jpg",
+      "sourcePath": "assets/soma-img-5595.jpg",
+      "normalizedPath": "assets/soma-img-5595.jpg"
+    },
+    {
+      "assetId": "soma-img-5597",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "duft",
+        "rolig",
+        "calm",
+        "all-season"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.0313,
+        "width": 1,
+        "height": 0.9375
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren bad om tilpasning 2026-10-04; visuelt ja ved push-preview. Original i billedbiblioteket: IMG_5597.jpg.",
+      "libraryFile": "IMG_5597.jpg",
+      "sourcePath": "assets/soma-img-5597.jpg",
+      "normalizedPath": "assets/soma-img-5597.jpg"
+    },
+    {
+      "assetId": "soma-img-6688",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "damp",
+        "mennesker",
+        "power",
+        "autumn",
+        "winter"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.0313,
+        "width": 1,
+        "height": 0.9375
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren bad om tilpasning 2026-10-04; visuelt ja ved push-preview. Original i billedbiblioteket: IMG_6688.jpg.",
+      "libraryFile": "IMG_6688.jpg",
+      "sourcePath": "assets/soma-img-6688.jpg",
+      "normalizedPath": "assets/soma-img-6688.jpg"
+    },
+    {
+      "assetId": "soma-img-6689",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "damp",
+        "mennesker",
+        "calm",
+        "autumn",
+        "winter"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.0313,
+        "width": 1,
+        "height": 0.9375
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren bad om tilpasning 2026-10-04; visuelt ja ved push-preview. Original i billedbiblioteket: IMG_6689.jpg.",
+      "libraryFile": "IMG_6689.jpg",
+      "sourcePath": "assets/soma-img-6689.jpg",
+      "normalizedPath": "assets/soma-img-6689.jpg"
+    },
+    {
+      "assetId": "soma-img-6706",
+      "status": "approved",
+      "tags": [
+        "udendørs",
+        "stedet",
+        "sunday",
+        "weekly",
+        "winter",
+        "spring"
+      ],
+      "crop45": {
+        "x": 0.2,
+        "y": 0,
+        "width": 0.6,
+        "height": 1
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren bad om tilpasning 2026-10-04; visuelt ja ved push-preview. Original i billedbiblioteket: IMG_6706.jpg.",
+      "libraryFile": "IMG_6706.jpg",
+      "sourcePath": "assets/soma-img-6706.jpg",
+      "normalizedPath": "assets/soma-img-6706.jpg"
+    },
+    {
+      "assetId": "soma-img-5422",
+      "status": "approved",
+      "tags": [
+        "udendørs",
+        "isvand",
+        "aften",
+        "calm",
+        "winter"
+      ],
+      "crop45": {
+        "x": 0.2,
+        "y": 0,
+        "width": 0.6,
+        "height": 1
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren bad om push 2026-10-04. Original i billedbiblioteket: IMG_5422.jpeg.",
+      "libraryFile": "IMG_5422.jpeg",
+      "sourcePath": "assets/soma-img-5422.jpg",
+      "normalizedPath": "assets/soma-img-5422.jpg"
     }
   ]
 }

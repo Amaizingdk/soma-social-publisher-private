@@ -50,6 +50,10 @@
       "destination": "outputs/content-planner/sync-operations.js"
     },
     {
+      "source": "outputs/content-planner/prepare-post-image.js",
+      "destination": "outputs/content-planner/prepare-post-image.js"
+    },
+    {
       "source": "outputs/content-planner/approval-server.js",
       "destination": "outputs/content-planner/approval-server.js"
     },

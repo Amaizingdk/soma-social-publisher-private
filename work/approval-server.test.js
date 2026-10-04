@@ -36,7 +36,7 @@ function stubTransaction(calls, overrides = {}) {
   return async ({ apply, message }) => {
     calls.push({ message });
     if (overrides.result) return overrides.result;
-    const applied = apply(drafts());
+    const applied = await apply(drafts());
     return { pushed: true, changed: true, results: applied.results, attempts: 1 };
   };
 }
@@ -254,6 +254,71 @@ test('serves render images from renders/ and nothing else outside the whitelist'
     assert.deepEqual(ok.body, bytes);
     for (const bad of ['/renders/secret.txt', '/renders/missing.jpg', '/renders/../drafts.json', '/renders/%2e%2e/drafts.json', '/renders/sub/a-1.jpg']) {
       assert.equal((await request(info.port, { path: bad })).status, 404, bad);
+    }
+  } finally { await server.stop(); }
+});
+
+function changeRequest(info, body, { key = KEY, origin = `http://127.0.0.1:${info.port}`, raw } = {}) {
+  const headers = { 'content-type': 'application/json' };
+  if (key) headers['x-soma-key'] = key;
+  if (origin) headers.origin = origin;
+  return request(info.port, {
+    method: 'POST', path: '/change-image', headers, body: raw !== undefined ? raw : JSON.stringify(body),
+  });
+}
+
+test('change-image rejects missing key, foreign origin and malformed bodies without touching anything', async () => {
+  const calls = [];
+  const { server, info } = await startServer(stubTransaction(calls));
+  try {
+    const ok = { draftId: 'd1', contentRevision: REV_A, assetId: 'soma-sauna-01' };
+    assert.equal((await changeRequest(info, ok, { key: '' })).status, 403);
+    assert.equal((await changeRequest(info, ok, { origin: 'http://evil.example.com' })).status, 403);
+    assert.equal((await changeRequest(info, null, { raw: '{nope' })).status, 400);
+    assert.equal((await changeRequest(info, { ...ok, assetId: '../x' })).status, 400);
+    assert.equal((await changeRequest(info, { ...ok, assetId: '' })).status, 400);
+    assert.equal((await changeRequest(info, { ...ok, contentRevision: 'kort' })).status, 400);
+    assert.equal((await request(info.port, { path: '/change-image' })).status, 405);
+    assert.equal(calls.length, 0);
+  } finally { await server.stop(); }
+});
+
+test('change-image returns the updated draft only when the change was pushed', async () => {
+  const seen = [];
+  const changeImage = async (input) => {
+    seen.push(input.assetId);
+    return {
+      drafts: [{ draftId: 'd1', assetId: input.assetId, status: 'draft', contentRevision: REV_B }],
+      outcome: 'changed', files: ['renders/a.jpg'],
+    };
+  };
+  const repoRoot = await createRoot();
+  const make = (pushed) => createApprovalServer({
+    repoRoot, sessionKey: KEY, port: 0, changeImage,
+    transaction: async ({ apply }) => {
+      const applied = await apply(drafts());
+      return { pushed, changed: true, results: applied.results, attempts: 1 };
+    },
+  });
+  for (const pushed of [true, false]) {
+    const server = make(pushed);
+    const info = await server.start();
+    try {
+      const response = await changeRequest(info, { draftId: 'd1', contentRevision: REV_A, assetId: 'soma-sauna-01' });
+      const body = JSON.parse(response.text);
+      assert.equal(body.pushed, pushed);
+      assert.equal(body.results[0].outcome, 'changed');
+      assert.equal(Boolean(body.results[0].draft), pushed);
+    } finally { await server.stop(); }
+  }
+  assert.deepEqual(seen, ['soma-sauna-01', 'soma-sauna-01']);
+});
+
+test('asset routes only serve registered images and never paths', async () => {
+  const { server, info } = await startServer(stubTransaction([]));
+  try {
+    for (const route of ['/asset-image/unknown', '/asset-image/..%2Fdrafts.json', '/asset-image/', '/assets', '/assets?draftId=findes-ikke']) {
+      assert.equal((await request(info.port, { path: route })).status, 404, route);
     }
   } finally { await server.stop(); }
 });

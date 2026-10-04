@@ -16,6 +16,7 @@ const { renderDraftImage } = require('./lib/render');
 const { reconcileDrafts } = require('./lib/drafts');
 const { contentRevisionFor, isExpiredDraft } = require('./lib/draft-lifecycle');
 const { resolveSeason } = require('./lib/season');
+const { fingerprintForContent } = require('./lib/content-fingerprint');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const DEFAULT_OUTPUT = __dirname;
@@ -32,18 +33,6 @@ function validateConfig(config) {
 function fingerprintForSlot(slot, events) {
   const fingerprints = slot.eventKeys.map((key) => events.find((event) => event.eventKey === key)?.fingerprint || key);
   return createHash('sha256').update(JSON.stringify(fingerprints)).digest('hex');
-}
-
-function fingerprintForContent({ platformCopies, assetId, season, warnings, instructorOptions }) {
-  const options = instructorOptions && Object.fromEntries(Object.entries(instructorOptions).map(([key, option]) => [key, {
-    instructor: option.instructor,
-    warnings: option.warnings,
-    platformCopies: option.platformCopies,
-    assetId: option.assetId,
-  }]));
-  return createHash('sha256').update(JSON.stringify({
-    platformCopies, assetId, season, warnings, instructorOptions: options,
-  })).digest('hex');
 }
 
 function safeFileName(value) {
@@ -141,6 +130,19 @@ async function runPipeline({
     const manualInstructors = new Map(previousDrafts
       .filter((draft) => draft.status !== 'obsolete' && draft.eventKey && draft.manualInstructor)
       .map((draft) => [draft.eventKey, draft.manualInstructor]));
+    // Fastlåste billeder: manuelt valgte billeder gælder alle varianter; godkendte og publicerede
+    // opslag beholder desuden deres basisbillede, så en godkendelse aldrig nulstilles af reglen.
+    const approvedAsset = (assetId) => assets.assets.find((asset) =>
+      asset.assetId === assetId && asset.status === 'approved');
+    const activePrevious = previousDrafts.filter((draft) => draft.slotKey && draft.status !== 'obsolete');
+    const manualAssets = new Map(activePrevious
+      .filter((draft) => draft.manualAssetId && approvedAsset(draft.manualAssetId))
+      .map((draft) => [draft.slotKey, approvedAsset(draft.manualAssetId)]));
+    const pinnedAssets = new Map(manualAssets);
+    for (const draft of activePrevious) {
+      if (['approved', 'published'].includes(draft.status) && !pinnedAssets.has(draft.slotKey)
+        && approvedAsset(draft.assetId)) pinnedAssets.set(draft.slotKey, approvedAsset(draft.assetId));
+    }
     const effectiveEvents = events.map((event) => manualInstructors.has(event.eventKey)
       ? { ...event, instructor: manualInstructors.get(event.eventKey) }
       : event);
@@ -159,8 +161,24 @@ async function runPipeline({
     const generated = [];
     const rendersDir = runtimeRoot ? path.join(path.resolve(runtimeRoot), 'renders') : path.join(outputDir, 'renders');
     let renderCount = 0;
-    const renderFor = async (slot, eventList, copyPackage, season, suffix = '') => {
-      const asset = selectAsset(slot, eventList, assets, season);
+    const usedByEvent = new Map();
+    const renderFor = async (slot, eventList, copyPackage, season, suffix = '', variantKey = '') => {
+      const eventKey = slot.eventKeys.length === 1 && slot.kind !== 'weekly_overview' ? slot.eventKeys[0] : null;
+      const siblingKey = `${eventKey}|${variantKey}`;
+      const siblings = eventKey ? (usedByEvent.get(siblingKey) || new Map()) : new Map();
+      // To opslag om samme event må aldrig få samme billede.
+      const excluded = eventKey
+        ? [...siblings].filter(([otherSlot]) => otherSlot !== slot.slotKey).map(([, assetId]) => assetId)
+        : [];
+      for (const other of slots) {
+        if (other.slotKey !== slot.slotKey && eventKey && other.eventKeys[0] === eventKey
+          && pinnedAssets.has(other.slotKey)) excluded.push(pinnedAssets.get(other.slotKey).assetId);
+      }
+      const manual = variantKey ? manualAssets.get(slot.slotKey) : pinnedAssets.get(slot.slotKey);
+      const asset = manual || selectAsset(slot, eventList, assets, season, excluded);
+      if (eventKey) {
+        usedByEvent.set(siblingKey, new Map([...siblings, [slot.slotKey, asset.assetId]]));
+      }
       const fingerprint = fingerprintForSlot(slot, eventList).slice(0, 10);
       const renderFile = `${safeFileName(slot.slotKey)}-${fingerprint}${suffix}.jpg`;
       const rendered = await renderDraftImage(browser, {
@@ -197,7 +215,7 @@ async function runPipeline({
             candidate.eventKey === event.eventKey ? variantEvent : candidate);
           const variantSource = resolveContentSource(variantEvent, profiles, overrides);
           const variantCopy = buildCopyPackage(slot, variantEvents, variantSource, config);
-          const variantRender = await renderFor(slot, variantEvents, variantCopy, season, `-${key}`);
+          const variantRender = await renderFor(slot, variantEvents, variantCopy, season, `-${key}`, key);
           instructorOptions[key] = {
             instructor,
             warnings: variantSource.warnings,
@@ -244,6 +262,7 @@ async function runPipeline({
         render: primary.render,
         renderPath: primary.renderPath,
         manualInstructor: event ? manualInstructors.get(event.eventKey) || null : null,
+        manualAssetId: manualAssets.get(slot.slotKey)?.assetId || null,
         instructorOptions,
         history: [],
       };

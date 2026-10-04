@@ -7,11 +7,14 @@ const path = require('node:path');
 
 const { approveDraft } = require('./lib/approvals');
 const { runApprovalTransaction } = require('./lib/approval-transaction');
+const { changeDraftImage, listSelectableAssets, assetFileFor } = require('./lib/change-image');
 
 const MAX_BODY_BYTES = 64 * 1024;
 const MAX_ITEMS = 100;
 const SESSION_PLACEHOLDER = '<script id="soma-session" type="application/json">null</script>';
 const RENDER_PATTERN = /^\/renders\/([A-Za-z0-9._-]+\.jpg)$/;
+const ASSET_IMAGE_PATTERN = /^\/asset-image\/([A-Za-z0-9._-]+)$/;
+const IMAGE_TYPES = new Map([['.jpg', 'image/jpeg'], ['.jpeg', 'image/jpeg'], ['.png', 'image/png'], ['.webp', 'image/webp']]);
 const STATIC_FILES = new Map([
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
@@ -58,12 +61,22 @@ function parseItems(raw) {
   return valid ? items.map(({ draftId, contentRevision }) => ({ draftId, contentRevision })) : null;
 }
 
+function parseImageChange(raw) {
+  let value;
+  try { value = JSON.parse(raw); } catch { return null; }
+  const valid = typeof value?.draftId === 'string' && value.draftId
+    && typeof value?.contentRevision === 'string' && /^[a-f0-9]{64}$/.test(value.contentRevision)
+    && typeof value?.assetId === 'string' && /^[A-Za-z0-9._-]{1,80}$/.test(value.assetId);
+  return valid ? { draftId: value.draftId, contentRevision: value.contentRevision, assetId: value.assetId } : null;
+}
+
 function createApprovalServer({
   repoRoot,
   sessionKey = crypto.randomBytes(24).toString('hex'),
   port = Number(process.env.SOMA_APPROVAL_PORT) || 47831,
   approvedBy = process.env.SOMA_APPROVER_LOGIN || 'soma-local-approval',
   transaction = runApprovalTransaction,
+  changeImage = changeDraftImage,
   now = () => new Date(),
 }) {
   const approvalDir = path.join(repoRoot, 'outputs', 'content-planner', 'approval');
@@ -77,12 +90,53 @@ function createApprovalServer({
     return result;
   };
 
+  function authorized(req) {
+    return sameKey(req.headers['x-soma-key'], sessionKey)
+      && req.headers.origin === `http://127.0.0.1:${boundPort}`;
+  }
+
+  async function handleChangeImage(req, res) {
+    if (req.method !== 'POST') return send(res, 405, { error: 'method_not_allowed' });
+    if (!authorized(req)) return send(res, 403, { error: 'forbidden' });
+    let raw;
+    try { raw = await readBody(req); } catch { return send(res, 400, { error: 'bad_request' }); }
+    const change = parseImageChange(raw);
+    if (!change) return send(res, 400, { error: 'bad_request' });
+
+    const outcome = await runQueued(() => transaction({
+      repoRoot,
+      message: `change-image: ${change.draftId} til ${change.assetId} via lokal godkendelsesside`,
+      apply: async (drafts) => {
+        const result = await changeImage({ repoRoot, drafts, ...change, now: now() });
+        const updated = result.outcome === 'changed'
+          ? result.drafts.find((draft) => draft.draftId === change.draftId) : undefined;
+        return {
+          drafts: result.drafts,
+          files: result.files,
+          results: [{ draftId: change.draftId, outcome: result.outcome, ...(updated ? { draft: updated } : {}) }],
+        };
+      },
+    }));
+    const results = outcome.results || [{ draftId: change.draftId, outcome: 'not_processed' }];
+    const body = { results, pushed: Boolean(outcome.pushed) };
+    if (!body.pushed) for (const item of body.results) delete item.draft;
+    if (outcome.error) body.error = outcome.error;
+    return send(res, 200, body);
+  }
+
+  async function handleAssetList(res, urlObject) {
+    const draftId = urlObject.searchParams.get('draftId') || '';
+    let drafts;
+    try { drafts = JSON.parse(await fs.readFile(path.join(repoRoot, 'outputs', 'content-planner', 'drafts.json'), 'utf8')); }
+    catch { return send(res, 404, { error: 'not_found' }); }
+    const draft = Array.isArray(drafts) ? drafts.find((item) => item.draftId === draftId) : null;
+    if (!draft) return send(res, 404, { error: 'not_found' });
+    return send(res, 200, { assets: await listSelectableAssets({ repoRoot, draft, drafts }), current: draft.assetId || null });
+  }
+
   async function handleApprove(req, res) {
     if (req.method !== 'POST') return send(res, 405, { error: 'method_not_allowed' });
-    if (!sameKey(req.headers['x-soma-key'], sessionKey)
-      || req.headers.origin !== `http://127.0.0.1:${boundPort}`) {
-      return send(res, 403, { error: 'forbidden' });
-    }
+    if (!authorized(req)) return send(res, 403, { error: 'forbidden' });
     let raw;
     try { raw = await readBody(req); } catch { return send(res, 400, { error: 'bad_request' }); }
     const items = parseItems(raw);
@@ -118,12 +172,21 @@ function createApprovalServer({
     const urlPath = new URL(req.url, 'http://127.0.0.1').pathname;
 
     if (urlPath === '/approve') return handleApprove(req, res);
+    if (urlPath === '/change-image') return handleChangeImage(req, res);
     if (req.method !== 'GET') return send(res, 405, { error: 'method_not_allowed' });
     if (urlPath === '/health') return send(res, 200, { ok: true, app: 'soma-approval' });
     if (urlPath === '/' || urlPath === '/index.html') {
       const html = await fs.readFile(path.join(approvalDir, 'index.html'), 'utf8');
       return send(res, 200, html.replace(SESSION_PLACEHOLDER,
         () => SESSION_PLACEHOLDER.replace('null', JSON.stringify({ key: sessionKey }))), 'text/html; charset=utf-8');
+    }
+    if (urlPath === '/assets') return handleAssetList(res, new URL(req.url, 'http://127.0.0.1'));
+    const assetImage = ASSET_IMAGE_PATTERN.exec(urlPath);
+    if (assetImage) {
+      const file = await assetFileFor({ repoRoot, assetId: assetImage[1] }).catch(() => null);
+      if (!file) return send(res, 404, { error: 'not_found' });
+      const type = IMAGE_TYPES.get(path.extname(file).toLowerCase());
+      return type ? send(res, 200, await fs.readFile(file), type) : send(res, 404, { error: 'not_found' });
     }
     const render = RENDER_PATTERN.exec(urlPath);
     if (render) {

@@ -70,8 +70,18 @@ async function runApprovalTransaction({
     const drafts = await readDrafts(draftsPath);
     if (!drafts) return fail(attempt, 'invalid_drafts');
 
-    const applied = apply(drafts);
+    const applied = await apply(drafts);
+    const extraFiles = applied.files || [];
+    const restoreExtra = async () => {
+      // Genrenderede billeder rulles tilbage, så træet er rent til næste forsøg.
+      if (!extraFiles.length) return;
+      for (const file of extraFiles) {
+        await run('checkout', '--', file);
+        await run('clean', '-f', '--', file);
+      }
+    };
     if (JSON.stringify(applied.drafts) === JSON.stringify(drafts)) {
+      await restoreExtra();
       return { pushed: false, changed: false, results: applied.results, attempts: attempt };
     }
 
@@ -80,12 +90,14 @@ async function runApprovalTransaction({
       await writePayload(outputDir, applied.drafts);
     } catch {
       await run('checkout', '--', DRAFTS_FILE, PAYLOAD_FILE);
+      await restoreExtra();
       return fail(attempt, 'write_failed', { changed: true, results: applied.results });
     }
-    const staged = await run('add', '--', DRAFTS_FILE, PAYLOAD_FILE);
+    const staged = await run('add', '--', DRAFTS_FILE, PAYLOAD_FILE, ...extraFiles);
     const committed = staged.code === 0 && (await run('commit', '-m', message)).code === 0;
     if (!committed) {
       await run('reset', '--hard', 'origin/main');
+      await restoreExtra();
       return fail(attempt, 'commit_failed', { changed: true, results: applied.results });
     }
 
@@ -98,6 +110,7 @@ async function runApprovalTransaction({
     // Vores egen commit er den eneste lokale; kassér den og prøv igen på friskt origin/main.
     await run('fetch', 'origin', 'main');
     await run('reset', '--hard', 'origin/main');
+    await restoreExtra();
     if (attempt === maxAttempts) {
       return { pushed: false, changed: true, results: applied.results, attempts: attempt, error: 'push_failed' };
     }
