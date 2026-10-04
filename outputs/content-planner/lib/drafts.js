@@ -50,7 +50,7 @@ function transitionDraft(input, action) {
     draft.platformCopies[action.platform] = action.text.trim();
     draft.status = 'draft';
     clearApproval(draft);
-  } else if (action.type === 'change_image') {
+  } else if (action.type === 'change_image' || action.type === 'change_instructor') {
     draft.status = baseStatus(draft) === 'needs_review' && !draft.warningsAcknowledged ? 'needs_review' : 'draft';
     clearApproval(draft);
   } else if (action.type === 'reject') {

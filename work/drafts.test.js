@@ -293,41 +293,6 @@ test('approval page shows only drafts with at least one event that has not ended
   }
 });
 
-test('instructor dropdown applies the choice to every draft for the same event', async () => {
-  const browser = await chromium.launch({ headless: true });
-  try {
-    const option = {
-      instructor: 'Søren',
-      warnings: [],
-      platformCopies: { instagram: 'Søren IG', facebookPage: 'Søren side', facebookGroup: 'Søren gruppe' },
-      renderPath: '../renders/sample-soren.jpg',
-    };
-    const drafts = ['day-before', 'event-day'].map((kind, index) => generated({
-      draftId: `event-1_${kind}_r1`, slotKey: `event-1_${kind}`, kind,
-      status: 'needs_review', warnings: ['instructor_missing'],
-      event: { eventKey: 'event-1', date: '2026-10-20', start: '18:30', end: '20:30', name: 'Saunagus', instructor: null },
-      instructorOptions: { soren: option }, renderPath: '../renders/sample-mellemrum-check.jpg',
-      scheduledFor: `2026-10-${19 + index}T11:30:00+02:00`,
-    }));
-    const page = await browser.newPage({ viewport: { width: 900, height: 900 } });
-    await page.addInitScript((value) => { window.__SOMA_DRAFTS__ = value; }, drafts);
-    const fileUrl = `file:///${path.join(__dirname, '..', 'outputs', 'content-planner', 'approval', 'index.html').replace(/\\/g, '/')}`;
-    await page.goto(fileUrl);
-    await page.getByLabel('Vælg gusmester').first().selectOption('soren');
-    const downloadPromise = page.waitForEvent('download');
-    await page.getByRole('button', { name: 'Eksportér godkendelser' }).click();
-    const stream = await (await downloadPromise).createReadStream();
-    let raw = '';
-    for await (const chunk of stream) raw += chunk.toString('utf8');
-    const reviewed = JSON.parse(raw);
-    assert.ok(reviewed.every((draft) => draft.manualInstructor === 'Søren'));
-    assert.ok(reviewed.every((draft) => draft.status === 'draft'));
-    assert.ok(reviewed.every((draft) => draft.platformCopies.instagram === 'Søren IG'));
-  } finally {
-    await browser.close();
-  }
-});
-
 test('known instructor appears only under the Gusmester field in the review card', async () => {
   const browser = await chromium.launch({ headless: true });
   try {
@@ -368,40 +333,3 @@ test('approval page never revives an obsolete revision from browser storage', as
   }
 });
 
-test('weekly copy refreshed after instructor choice keeps the calm wording', async () => {
-  const browser = await chromium.launch({ headless: true });
-  try {
-    const option = {
-      instructor: 'Søren',
-      warnings: [],
-      platformCopies: { instagram: 'Rolig IG', facebookPage: 'Rolig side', facebookGroup: 'Rolig gruppe' },
-      renderPath: '../renders/sample-soren.jpg',
-    };
-    const eventDraft = generated({
-      status: 'needs_review', warnings: ['instructor_missing'],
-      event: { eventKey: 'event-1', date: '2026-10-08', start: '18:30', end: '20:30', name: 'Saunagus', instructor: null },
-      instructorOptions: { soren: option }, renderPath: '../renders/sample-mellemrum-check.jpg',
-    });
-    const weekly = generated({
-      draftId: 'weekly_r1', slotKey: 'weekly', eventKey: null, kind: 'weekly_overview',
-      events: [{ eventKey: 'event-1', date: '2026-10-08', start: '18:30', end: '20:30', name: 'Saunagus', instructor: null }],
-      platformCopies: { instagram: 'Uge IG', facebookPage: 'Uge side', facebookGroup: 'Uge gruppe' },
-    });
-    const page = await browser.newPage({ viewport: { width: 900, height: 900 } });
-    await page.addInitScript((value) => { window.__SOMA_DRAFTS__ = value; }, [eventDraft, weekly]);
-    const fileUrl = `file:///${path.join(__dirname, '..', 'outputs', 'content-planner', 'approval', 'index.html').replace(/\\/g, '/')}`;
-    await page.goto(fileUrl);
-    await page.getByLabel('Vælg gusmester').selectOption('soren');
-    const downloadPromise = page.waitForEvent('download');
-    await page.getByRole('button', { name: 'Eksportér godkendelser' }).click();
-    const stream = await (await downloadPromise).createReadStream();
-    let raw = '';
-    for await (const chunk of stream) raw += chunk.toString('utf8');
-    const reviewed = JSON.parse(raw);
-    const refreshed = reviewed.find((draft) => draft.kind === 'weekly_overview').platformCopies;
-    assert.match(refreshed.facebookPage, /plads til ro/i);
-    assert.doesNotMatch(JSON.stringify(refreshed), /egen energi|energien vokse/i);
-  } finally {
-    await browser.close();
-  }
-});

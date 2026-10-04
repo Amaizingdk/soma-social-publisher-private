@@ -4,7 +4,10 @@ const fs = require('node:fs/promises');
 const os = require('node:os');
 const path = require('node:path');
 
-const { changeDraftImage, listSelectableAssets, assetFileFor } = require('../outputs/content-planner/lib/change-image');
+const {
+  changeDraftImage, chooseInstructor, listSelectableAssets, assetFileFor,
+} = require('../outputs/content-planner/lib/change-image');
+const { runPipeline } = require('../outputs/content-planner/build-content-plan');
 
 const projectRoot = path.join(__dirname, '..');
 const plannerFiles = ['config.json', 'profiles.json', 'event-overrides.json', 'assets.json'];
@@ -152,4 +155,81 @@ test('afviser et billede, som søskendeopslaget om samme event allerede bruger, 
   const list = await listSelectableAssets({ repoRoot: root, draft: target, drafts });
   assert.ok(!list.some((item) => ['soma-power-steam', 'soma-calm-sunlight'].includes(item.assetId)));
   await assert.rejects(fs.access(path.join(root, 'renders')));
+});
+
+test('gusmester-valg gemmes for hele eventet (begge opslag og ugeoverblik) og nulstiller godkendelsen', async () => {
+  const { root, drafts } = await sandbox();
+  const target = drafts.find((draft) => draft.draftId === WITH_VARIANTS);
+  const result = await chooseInstructor({
+    repoRoot: root, drafts, draftId: target.draftId, contentRevision: target.contentRevision, optionKey: 'millemaja', now: NOW,
+  });
+  assert.equal(result.outcome, 'changed');
+  const byId = (id) => result.drafts.find((draft) => draft.draftId === id);
+  for (const id of [WITH_VARIANTS, '2026-10-06_18-30_saunagus_day-before_r7']) {
+    const draft = byId(id);
+    assert.equal(draft.manualInstructor, 'MilleMaja');
+    assert.equal(draft.event.instructor, 'MilleMaja');
+    assert.equal(draft.status, 'draft');
+    assert.equal(draft.approvedRevision, null);
+    assert.match(draft.platformCopies.instagram, /MilleMaja/);
+    assert.notEqual(draft.contentRevision, drafts.find((item) => item.draftId === id).contentRevision);
+    assert.equal(draft.manualAssetId, draft.assetId);
+  }
+  // de to opslag om samme event får aldrig samme billede, selv når ældre data havde ens billeder
+  assert.notEqual(byId(WITH_VARIANTS).assetId, byId('2026-10-06_18-30_saunagus_day-before_r7').assetId);
+  const weekly = byId('2026-10-05_weekly-overview_r6');
+  assert.ok(weekly.events.some((event) => event.eventKey === target.eventKey && event.instructor === 'MilleMaja'));
+  assert.match(weekly.platformCopies.instagram, /MilleMaja/);
+  // ugeoverblikkets rolige formulering bevares efter et gusmester-valg
+  assert.match(weekly.platformCopies.facebookPage, /plads til ro/i);
+  assert.doesNotMatch(JSON.stringify(weekly.platformCopies), /egen energi|energien vokse/i);
+  assert.deepEqual(result.changedIds.sort(), [WITH_VARIANTS, '2026-10-05_weekly-overview_r6', '2026-10-06_18-30_saunagus_day-before_r7'].sort());
+  // andre events er urørte
+  assert.deepEqual(byId('2026-10-08_18-30_saunagus_event-day_r7'), drafts.find((item) => item.draftId === '2026-10-08_18-30_saunagus_event-day_r7'));
+  for (const file of result.files) await fs.access(path.join(root, file));
+});
+
+test('gusmester-valg afvises ved ukendt valg, forældet revision og samme gusmester', async () => {
+  const { root, drafts } = await sandbox();
+  const target = drafts.find((draft) => draft.draftId === WITH_VARIANTS);
+  const call = (extra) => chooseInstructor({
+    repoRoot: root, drafts, draftId: target.draftId, contentRevision: target.contentRevision, optionKey: 'soren', now: NOW, ...extra,
+  });
+  assert.equal((await call({ optionKey: 'ukendt' })).outcome, 'unknown_option');
+  assert.equal((await call({ contentRevision: 'f'.repeat(64) })).outcome, 'stale_revision');
+  assert.equal((await call({})).outcome, 'unchanged');
+  assert.equal((await call({ draftId: 'findes-ikke' })).outcome, 'unknown_draft');
+  assert.equal((await call({ launchBrowser: async () => { throw new Error('x'); }, optionKey: 'millemaja' })).outcome, 'render_unavailable');
+  await assert.rejects(fs.access(path.join(root, 'renders')));
+});
+
+test('efter et gusmester-valg giver næste planlægningskørsel samme opslag, revision og billede', async () => {
+  const { root } = await sandbox();
+  const outputDir = await fs.mkdtemp(path.join(os.tmpdir(), 'soma-instr-'));
+  const fixturePath = path.join(__dirname, 'fixtures', 'calendar-week-42-details.html');
+  const pipelineNow = new Date('2026-09-29T10:00:00Z');
+  await runPipeline({ fixturePath, outputDir, now: pipelineNow });
+  const draftsPath = path.join(outputDir, 'drafts.json');
+  const drafts = JSON.parse(await fs.readFile(draftsPath, 'utf8'));
+  const target = drafts.find((draft) => draft.status !== 'obsolete' && draft.instructorOptions && draft.slotKey.endsWith('_day-before'));
+  assert.ok(target, 'fixture mangler et opslag uden gusmester');
+  const result = await chooseInstructor({
+    repoRoot: root, drafts, draftId: target.draftId, contentRevision: target.contentRevision,
+    optionKey: 'soren', now: pipelineNow,
+  });
+  assert.equal(result.outcome, 'changed');
+  await fs.writeFile(draftsPath, JSON.stringify(result.drafts), 'utf8');
+
+  await runPipeline({ fixturePath, outputDir, now: pipelineNow });
+  const after = JSON.parse(await fs.readFile(draftsPath, 'utf8')).filter((draft) => draft.status !== 'obsolete');
+  for (const id of result.changedIds) {
+    const expected = result.drafts.find((draft) => draft.draftId === id);
+    const actual = after.find((draft) => draft.slotKey === expected.slotKey);
+    assert.equal(actual.draftId, expected.draftId, `ny revision af ${id}`);
+    assert.equal(actual.contentRevision, expected.contentRevision, id);
+    assert.equal(actual.contentFingerprint, expected.contentFingerprint, id);
+    assert.equal(actual.assetId, expected.assetId, id);
+    assert.equal(actual.manualInstructor, expected.manualInstructor, id);
+    assert.equal(actual.status, expected.status, id);
+  }
 });

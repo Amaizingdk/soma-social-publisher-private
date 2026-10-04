@@ -322,3 +322,58 @@ test('asset routes only serve registered images and never paths', async () => {
     }
   } finally { await server.stop(); }
 });
+
+function chooseRequest(info, body, { key = KEY, origin = `http://127.0.0.1:${info.port}`, raw } = {}) {
+  const headers = { 'content-type': 'application/json' };
+  if (key) headers['x-soma-key'] = key;
+  if (origin) headers.origin = origin;
+  return request(info.port, {
+    method: 'POST', path: '/choose-instructor', headers, body: raw !== undefined ? raw : JSON.stringify(body),
+  });
+}
+
+test('choose-instructor rejects missing key, foreign origin and malformed bodies without touching anything', async () => {
+  const calls = [];
+  const { server, info } = await startServer(stubTransaction(calls));
+  try {
+    const ok = { draftId: 'd1', contentRevision: REV_A, option: 'soren' };
+    assert.equal((await chooseRequest(info, ok, { key: '' })).status, 403);
+    assert.equal((await chooseRequest(info, ok, { origin: 'http://evil.example.com' })).status, 403);
+    assert.equal((await chooseRequest(info, null, { raw: '{nope' })).status, 400);
+    assert.equal((await chooseRequest(info, { ...ok, option: '../x' })).status, 400);
+    assert.equal((await chooseRequest(info, { ...ok, option: '' })).status, 400);
+    assert.equal((await chooseRequest(info, { ...ok, contentRevision: 'kort' })).status, 400);
+    assert.equal((await request(info.port, { path: '/choose-instructor' })).status, 405);
+    assert.equal(calls.length, 0);
+  } finally { await server.stop(); }
+});
+
+test('choose-instructor returns all changed drafts only when the change was pushed', async () => {
+  const seen = [];
+  const changeInstructor = async (input) => {
+    seen.push(input.optionKey);
+    return {
+      drafts: [{ draftId: 'd1', status: 'draft' }, { draftId: 'd2', status: 'draft' }, { draftId: 'd3', status: 'draft' }],
+      outcome: 'changed', changedIds: ['d1', 'd2'], files: ['renders/a.jpg'],
+    };
+  };
+  const repoRoot = await createRoot();
+  for (const pushed of [true, false]) {
+    const server = createApprovalServer({
+      repoRoot, sessionKey: KEY, port: 0, changeInstructor,
+      transaction: async ({ apply }) => {
+        const applied = await apply(drafts());
+        return { pushed, changed: true, results: applied.results, attempts: 1 };
+      },
+    });
+    const info = await server.start();
+    try {
+      const body = JSON.parse((await chooseRequest(info, { draftId: 'd1', contentRevision: REV_A, option: 'soren' })).text);
+      assert.equal(body.pushed, pushed);
+      assert.equal(body.results[0].outcome, 'changed');
+      if (pushed) assert.deepEqual(body.results[0].drafts.map((draft) => draft.draftId), ['d1', 'd2']);
+      else assert.equal(body.results[0].drafts, undefined);
+    } finally { await server.stop(); }
+  }
+  assert.deepEqual(seen, ['soren', 'soren']);
+});

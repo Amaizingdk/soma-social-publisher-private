@@ -7,7 +7,9 @@ const path = require('node:path');
 
 const { approveDraft } = require('./lib/approvals');
 const { runApprovalTransaction } = require('./lib/approval-transaction');
-const { changeDraftImage, listSelectableAssets, assetFileFor } = require('./lib/change-image');
+const {
+  changeDraftImage, chooseInstructor, listSelectableAssets, assetFileFor,
+} = require('./lib/change-image');
 
 const MAX_BODY_BYTES = 64 * 1024;
 const MAX_ITEMS = 100;
@@ -70,6 +72,15 @@ function parseImageChange(raw) {
   return valid ? { draftId: value.draftId, contentRevision: value.contentRevision, assetId: value.assetId } : null;
 }
 
+function parseInstructorChoice(raw) {
+  let value;
+  try { value = JSON.parse(raw); } catch { return null; }
+  const valid = typeof value?.draftId === 'string' && value.draftId
+    && typeof value?.contentRevision === 'string' && /^[a-f0-9]{64}$/.test(value.contentRevision)
+    && typeof value?.option === 'string' && /^[a-z]{1,20}$/.test(value.option);
+  return valid ? { draftId: value.draftId, contentRevision: value.contentRevision, optionKey: value.option } : null;
+}
+
 function createApprovalServer({
   repoRoot,
   sessionKey = crypto.randomBytes(24).toString('hex'),
@@ -77,6 +88,7 @@ function createApprovalServer({
   approvedBy = process.env.SOMA_APPROVER_LOGIN || 'soma-local-approval',
   transaction = runApprovalTransaction,
   changeImage = changeDraftImage,
+  changeInstructor = chooseInstructor,
   now = () => new Date(),
 }) {
   const approvalDir = path.join(repoRoot, 'outputs', 'content-planner', 'approval');
@@ -120,6 +132,35 @@ function createApprovalServer({
     const results = outcome.results || [{ draftId: change.draftId, outcome: 'not_processed' }];
     const body = { results, pushed: Boolean(outcome.pushed) };
     if (!body.pushed) for (const item of body.results) delete item.draft;
+    if (outcome.error) body.error = outcome.error;
+    return send(res, 200, body);
+  }
+
+  async function handleChooseInstructor(req, res) {
+    if (req.method !== 'POST') return send(res, 405, { error: 'method_not_allowed' });
+    if (!authorized(req)) return send(res, 403, { error: 'forbidden' });
+    let raw;
+    try { raw = await readBody(req); } catch { return send(res, 400, { error: 'bad_request' }); }
+    const choice = parseInstructorChoice(raw);
+    if (!choice) return send(res, 400, { error: 'bad_request' });
+
+    const outcome = await runQueued(() => transaction({
+      repoRoot,
+      message: `choose-instructor: ${choice.draftId} (${choice.optionKey}) via lokal godkendelsesside`,
+      apply: async (drafts) => {
+        const result = await changeInstructor({ repoRoot, drafts, ...choice, now: now() });
+        const changed = result.outcome === 'changed'
+          ? result.drafts.filter((draft) => (result.changedIds || []).includes(draft.draftId)) : [];
+        return {
+          drafts: result.drafts,
+          files: result.files,
+          results: [{ draftId: choice.draftId, outcome: result.outcome, ...(changed.length ? { drafts: changed } : {}) }],
+        };
+      },
+    }));
+    const results = outcome.results || [{ draftId: choice.draftId, outcome: 'not_processed' }];
+    const body = { results, pushed: Boolean(outcome.pushed) };
+    if (!body.pushed) for (const item of body.results) delete item.drafts;
     if (outcome.error) body.error = outcome.error;
     return send(res, 200, body);
   }
@@ -173,6 +214,7 @@ function createApprovalServer({
 
     if (urlPath === '/approve') return handleApprove(req, res);
     if (urlPath === '/change-image') return handleChangeImage(req, res);
+    if (urlPath === '/choose-instructor') return handleChooseInstructor(req, res);
     if (req.method !== 'GET') return send(res, 405, { error: 'method_not_allowed' });
     if (urlPath === '/health') return send(res, 200, { ok: true, app: 'soma-approval' });
     if (urlPath === '/' || urlPath === '/index.html') {

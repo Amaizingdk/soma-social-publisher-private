@@ -184,7 +184,7 @@ const CHANGE_URL = 'http://127.0.0.1:47831/change-image';
 
 async function routeImageApi(page, { changeResponse }) {
   const changes = [];
-  await page.route(/127\.0\.0\.1:47831\/(assets|change-image|asset-image)/, async (route) => {
+  await page.route(/127\.0\.0\.1:47831\/(assets|change-image|choose-instructor|asset-image)/, async (route) => {
     const request = route.request();
     const url = request.url();
     const cors = { 'access-control-allow-origin': '*', 'access-control-allow-headers': '*', 'access-control-allow-methods': 'POST' };
@@ -285,35 +285,66 @@ test('a draft changes image without a confirm dialog and the preview is reloaded
   } finally { await browser.close(); }
 });
 
-test('changing the image after choosing an instructor keeps the instructor and uses the new variant image', async () => {
+const CHOOSE_URL = 'http://127.0.0.1:47831/choose-instructor';
+
+test('choosing an instructor is saved on the server, needs no export and leaves approval enabled', async () => {
   const browser = await chromium.launch({ headless: true });
   try {
-    const options = (asset) => ({
-      soren: { instructor: 'Søren', assetId: asset, renderPath: `renders/soren-${asset}.jpg`, render: { sha256: `soren-${asset}` }, platformCopies: { instagram: 'S', facebookPage: 'S', facebookGroup: 'S' } },
+    const noInstructor = { date: '2099-01-01', start: '10:00', end: '12:00', name: 'Saunagus', instructor: null };
+    const options = { soren: { instructor: 'Søren', assetId: 'soma-a', renderPath: 'renders/x.jpg', render: { sha256: 'o' }, platformCopies: {} } };
+    const { page, requests } = await open(browser, [
+      draft('one', { eventKey: 'ev', status: 'needs_review', warnings: ['instructor_missing'], event: noInstructor, instructorOptions: options, renderPath: 'renders/x.jpg' }),
+      draft('two', { eventKey: 'ev', status: 'needs_review', warnings: ['instructor_missing'], event: noInstructor, instructorOptions: options, renderPath: 'renders/y.jpg' }),
+    ]);
+    const calls = [];
+    await page.route(CHOOSE_URL, async (route) => {
+      const request = route.request();
+      const cors = { 'access-control-allow-origin': '*', 'access-control-allow-headers': '*', 'access-control-allow-methods': 'POST' };
+      if (request.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: cors });
+      calls.push({ headers: request.headers(), body: JSON.parse(request.postData()) });
+      const solved = (id) => draft(id, {
+        eventKey: 'ev', status: 'draft', warnings: [], manualInstructor: 'Søren', contentRevision: 'c'.repeat(64),
+        event: { ...noInstructor, instructor: 'Søren' }, instructorOptions: options, renderPath: 'renders/x.jpg',
+        platformCopies: { instagram: 'Med Søren', facebookPage: 'Med Søren', facebookGroup: 'Med Søren' },
+      });
+      return route.fulfill({
+        status: 200, headers: { 'content-type': 'application/json', ...cors },
+        body: JSON.stringify({ results: [{ draftId: calls.at(-1).body.draftId, outcome: 'changed', drafts: [solved('one'), solved('two')] }], pushed: true }),
+      });
     });
-    const { page } = await open(browser, [draft('one', {
-      eventKey: 'ev', assetId: 'soma-a', renderPath: 'renders/x.jpg', render: { sha256: 'base' },
-      event: { date: '2099-01-01', start: '10:00', end: '12:00', name: 'Saunagus', instructor: null },
-      instructorOptions: options('soma-a'),
-    })]);
+    await page.locator('.draft').first().locator('.instructor-picker select').selectOption({ label: 'Søren' });
+    await page.waitForFunction(() => [...document.querySelectorAll('.draft textarea')].every((area) => area.value === 'Med Søren'));
+    assert.equal(calls.length, 1);
+    assert.equal(calls[0].headers['x-soma-key'], KEY);
+    assert.equal(calls[0].body.option, 'soren');
+    assert.equal(calls[0].body.draftId, 'one');
+    for (const approve of await page.getByRole('button', { name: 'Godkend opslag' }).all()) {
+      assert.equal(await approve.isDisabled(), false);
+    }
+    assert.equal(await page.locator('.hint').count(), 0);
+    assert.equal(requests().length, 0);
+  } finally { await browser.close(); }
+});
+
+test('only text edits are local: an image change keeps unsaved text', async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const { page } = await open(browser, [draft('one', { assetId: 'soma-a', renderPath: 'renders/x.jpg', render: { sha256: 'a' } })]);
     await routeImageApi(page, {
       changeResponse: (body) => ({
         results: [{ draftId: body.draftId, outcome: 'changed', draft: draft('one', {
-          eventKey: 'ev', status: 'draft', assetId: body.assetId, contentRevision: 'b'.repeat(64),
-          renderPath: 'renders/x.jpg', render: { sha256: 'base2' },
-          event: { date: '2099-01-01', start: '10:00', end: '12:00', name: 'Saunagus', instructor: null },
-          instructorOptions: options(body.assetId),
+          assetId: body.assetId, contentRevision: 'b'.repeat(64), renderPath: 'renders/x.jpg', render: { sha256: 'b' },
+          platformCopies: { instagram: 'SERVER', facebookPage: 'SERVER', facebookGroup: 'SERVER' },
         }) }],
         pushed: true,
       }),
     });
-    await page.locator('.instructor-picker select').selectOption({ label: 'Søren' });
-    await page.waitForFunction(() => /soren-soma-a/.test(document.querySelector('.preview > img').getAttribute('src')));
-    assert.equal(await page.getByRole('button', { name: 'Skift billede' }).isDisabled(), false);
+    await page.locator('textarea').fill('Min egen tekst');
+    await page.getByRole('button', { name: 'Gem ændringer' }).click();
     await page.getByRole('button', { name: 'Skift billede' }).click();
     await page.waitForSelector('.asset-choice');
     await page.getByRole('button', { name: 'Vælg billedet soma-b' }).click();
-    await page.waitForFunction(() => /soren-soma-b/.test(document.querySelector('.preview > img').getAttribute('src')));
-    assert.equal(await page.locator('.instructor-picker select').inputValue(), 'soren');
+    await page.waitForFunction(() => /\?v=b$/.test(document.querySelector('.preview > img').getAttribute('src')));
+    assert.equal(await page.locator('textarea').inputValue(), 'Min egen tekst');
   } finally { await browser.close(); }
 });

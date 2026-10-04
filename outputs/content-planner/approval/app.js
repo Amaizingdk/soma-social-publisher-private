@@ -20,7 +20,8 @@
     warnings_not_acknowledged: 'Advarsler skal bekræftes, før opslaget kan godkendes.',
     unknown_draft: 'Opslaget findes ikke længere. Genindlæs siden.',
     unknown_asset: 'Billedet er ikke længere godkendt til opslag. Genindlæs siden.',
-    unchanged: 'Opslaget bruger allerede det billede.',
+    unchanged: 'Der er ingen ændring at gemme.',
+    unknown_option: 'Gusmesteren kan ikke vælges for dette opslag. Genindlæs siden.',
     duplicate_asset: 'Det andet opslag om samme event bruger allerede det billede. Vælg et andet.',
     render_rejected: 'Billedet kunne ikke bruges: teksten passer ikke på det. Vælg et andet.',
     render_failed: 'Billedet kunne ikke genereres. Prøv igen.',
@@ -289,41 +290,40 @@
     image.src = candidates[0];
   }
 
-  function refreshWeeklyCopy(draft) {
-    const list = (draft.events || []).map((event) =>
-      `• ${formatDanishDate(event.date)} · ${event.start.replace(':', '.')}–${event.end.replace(':', '.')} · ${eventLabel(event)}`)
-      .join('\n');
-    const booking = 'https://somasaunagus.dk/kalender/';
-    draft.platformCopies = {
-      instagram: `Næste uges gus 🔥\n\n${list}\n\nSe tider og book via kalenderen: ${booking}`,
-      facebookPage: `Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n${list}\n\nFind den oplevelse, der passer dig, og book din plads her: ${booking}`,
-      facebookGroup: `Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n${list}\n\nJeg glæder mig til at se jer. Booking: ${booking}`,
-    };
-    draft.localEdit = true;
-    setStatus(draft, 'draft', 'select_instructor');
-  }
-
-  function applyInstructor(eventKey, optionKey) {
-    for (const draft of drafts) {
-      if (draft.status === 'obsolete') continue;
-      if (draft.eventKey === eventKey && draft.instructorOptions?.[optionKey]) {
-        const choice = draft.instructorOptions[optionKey];
-        draft.manualInstructor = choice.instructor;
-        if (draft.event) draft.event.instructor = choice.instructor;
-        draft.platformCopies = structuredClone(choice.platformCopies);
-        draft.renderPath = choice.renderPath;
-        draft.render = structuredClone(choice.render);
-        draft.warnings = [];
-        draft.warningsAcknowledged = true;
-        draft.localEdit = true;
-        setStatus(draft, 'draft', 'select_instructor');
+  // Gusmester-valget gemmes på serveren for hele eventet (begge opslag og ugeoverblik) og kræver ingen eksport.
+  async function chooseInstructorOnServer(draft, optionKey) {
+    if (!canApprove || busy) { render(); return; }
+    const warnings = [];
+    if (draft.localEdit) warnings.push('Dine ikke-gemte tekstrettelser på opslaget fjernes, og teksten laves igen med gusmesteren.');
+    if (draft.status === 'approved') warnings.push('Opslaget er godkendt og mister godkendelsen.');
+    if (warnings.length && !window.confirm(`${warnings.join(' ')} Vælg gusmester?`)) { render(); return; }
+    busy = true;
+    render();
+    let response;
+    try {
+      const reply = await fetch(new URL('choose-instructor', apiBase).href, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-soma-key': session.key },
+        body: JSON.stringify({ draftId: draft.draftId, contentRevision: draft.contentRevision, option: optionKey }),
+      });
+      response = reply.ok ? await reply.json() : { error: `http_${reply.status}` };
+    } catch {
+      response = { error: 'network' };
+    }
+    busy = false;
+    const result = (response.results || []).find((item) => item.draftId === draft.draftId);
+    if (result?.outcome === 'changed' && response.pushed && Array.isArray(result.drafts)) {
+      for (const serverDraft of result.drafts) {
+        const local = drafts.find((item) => item.draftId === serverDraft.draftId);
+        if (!local) continue;
+        Object.assign(local, serverDraft, { localEdit: false });
+        sendMessages.delete(local.draftId);
+        pickerState(local).assets = null;
       }
-      const weeklyEvent = draft.events?.find((event) => event.eventKey === eventKey);
-      if (weeklyEvent) {
-        const sample = drafts.find((item) => item.eventKey === eventKey && item.instructorOptions?.[optionKey]);
-        weeklyEvent.instructor = sample.instructorOptions[optionKey].instructor;
-        refreshWeeklyCopy(draft);
-      }
+      persistDrafts();
+    } else {
+      sendMessages.set(draft.draftId, OUTCOME_MESSAGES[result?.outcome]
+        || `Gusmesteren blev ikke gemt (${response.error || 'ukendt fejl'}). Prøv igen.`);
     }
     render();
   }
@@ -381,8 +381,9 @@
           option.selected = draft.manualInstructor === choice.instructor;
           select.append(option);
         }
+        select.disabled = busy || !canApprove;
         select.addEventListener('change', () => {
-          if (select.value) applyInstructor(draft.eventKey, select.value);
+          if (select.value) chooseInstructorOnServer(draft, select.value);
         });
         label.append(select);
         editor.append(label);
