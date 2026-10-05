@@ -4927,7 +4927,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "abc370f0662e3c4822e708b36920fa420f0bf3e0b729b762950c51e94d43c580",
     "revision": 10,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-20T12:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -5019,12 +5019,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:25:40.856Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "620b11fe9677e97bf08b7b78e1675cc9f8477073c68ed762d89f1bc119781851",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:25:40.856Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "620b11fe9677e97bf08b7b78e1675cc9f8477073c68ed762d89f1bc119781851",
     "githubIssueNumber": null,
     "reminderState": null,
     "warningsAcknowledged": false
