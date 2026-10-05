@@ -23,7 +23,7 @@ async function sandbox() {
     await fs.copyFile(path.join(projectRoot, 'outputs', 'content-planner', file), path.join(planner, file));
   }
   await fs.cp(path.join(projectRoot, 'assets'), path.join(root, 'assets'), { recursive: true });
-  const drafts = JSON.parse(await fs.readFile(path.join(projectRoot, 'outputs', 'content-planner', 'drafts.json'), 'utf8'));
+  const drafts = JSON.parse(await fs.readFile(path.join(__dirname, 'fixtures', 'drafts-week-42.json'), 'utf8'));
   return { root, drafts };
 }
 

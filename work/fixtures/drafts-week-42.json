@@ -1,0 +1,1360 @@
+[
+  {
+    "draftId": "2026-10-04_16-00_saunagus_day-before_r7",
+    "slotKey": "2026-10-04_16-00_saunagus_day-before",
+    "eventKey": "2026-10-04_16-00_saunagus",
+    "eventFingerprint": "406c59284a8acba48ce13287865bae1bd9f60ee5aa966f912ddcf99662c8fff1",
+    "revision": 7,
+    "kind": "day_before",
+    "status": "published",
+    "scheduledFor": "2026-10-03T10:00:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-04",
+      "start": "16:00",
+      "end": "18:00",
+      "name": "Saunagus",
+      "booked": 4,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "16:00 - 18:00 SAUNAGUS 4/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T13:38:58.545Z",
+      "eventKey": "2026-10-04_16-00_saunagus",
+      "fingerprint": "72a951b922f30520eac25c4d23078540d984706c58ffc069b69c67a445056a72"
+    },
+    "availability": {
+      "free": 8,
+      "label": "8 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Lad søndagen lande blødt i varmen.\n\n4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nFire sanselige runder med musik, dufte og plads til at give slip.\n\nEn rolig stund, før en ny uge begynder.\n\nDato og tid: 4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nTid: 4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "8a88d22019caa1e1708f5b51042181154a9dd054b06bdcd7cc29407ceb2c2538",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-outdoor-sunday",
+    "render": {
+      "path": "renders/2026-10-04_16-00_saunagus_day-before-406c59284a.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "1528205eac7f61e3e61f66d70e8114531c727488cc653a88259f7fceff3c6554"
+    },
+    "renderPath": "renders/2026-10-04_16-00_saunagus_day-before-406c59284a.jpg",
+    "manualInstructor": "Søren",
+    "instructorOptions": {
+      "soren": {
+        "instructor": "Søren",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I morgen: Lad søndagen lande blødt i varmen.\n\n4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nFire sanselige runder med musik, dufte og plads til at give slip.\n\nEn rolig stund, før en ny uge begynder.\n\nDato og tid: 4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nTid: 4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-outdoor-sunday",
+        "render": {
+          "path": "renders/2026-10-04_16-00_saunagus_day-before-406c59284a-soren.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "1528205eac7f61e3e61f66d70e8114531c727488cc653a88259f7fceff3c6554"
+        },
+        "renderPath": "renders/2026-10-04_16-00_saunagus_day-before-406c59284a-soren.jpg"
+      },
+      "millemaja": {
+        "instructor": "MilleMaja",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I morgen: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nTid: 4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-calm-sunlight",
+        "render": {
+          "path": "renders/2026-10-04_16-00_saunagus_day-before-406c59284a-millemaja.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "d6a96515759a56b229219c947e4f8bf13f667206ca5c15b0efd29b9cb3c3ec6d"
+        },
+        "renderPath": "renders/2026-10-04_16-00_saunagus_day-before-406c59284a-millemaja.jpg"
+      }
+    },
+    "history": [
+      {
+        "at": "2026-10-03T05:51:56.302Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
+    "contentRevision": "6c94bed1a122212869220c6b7b9077586d0df3b29695160510d691614405a0cf",
+    "approvedAt": "2026-10-03T05:51:56.302Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "6c94bed1a122212869220c6b7b9077586d0df3b29695160510d691614405a0cf",
+    "githubIssueNumber": 49,
+    "reminderState": {
+      "revision": "6c94bed1a122212869220c6b7b9077586d0df3b29695160510d691614405a0cf",
+      "sent72At": "2026-10-03T05:42:19.050Z",
+      "sent24At": "2026-10-03T05:42:19.050Z"
+    },
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-03T08:57:37.574Z"
+  },
+  {
+    "draftId": "2026-10-04_16-00_saunagus_event-day_r8",
+    "slotKey": "2026-10-04_16-00_saunagus_event-day",
+    "eventKey": "2026-10-04_16-00_saunagus",
+    "eventFingerprint": "407d80bccbf02385cb91588c5c245e2327c1ffb277702505b68ff405d2143c7c",
+    "revision": 8,
+    "kind": "event_day",
+    "status": "published",
+    "scheduledFor": "2026-10-04T09:30:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-04",
+      "start": "16:00",
+      "end": "18:00",
+      "name": "Saunagus",
+      "booked": 5,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "16:00 - 18:00 SAUNAGUS 5/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T23:35:38.496Z",
+      "eventKey": "2026-10-04_16-00_saunagus",
+      "fingerprint": "70beacb5e1fe984fb9b8c1d873f4805163b39b67e9dd17a9c8bd0c7a333f6c2e"
+    },
+    "availability": {
+      "free": 7,
+      "label": "7 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I dag: Kom ind i varmen og mærk kroppen finde ro.\n\n4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen og mærk kroppen finde ro.\n\nSøndagens udtryk får lov at skifte, mens nærvær og velvære er fundamentet.\n\nGiv dig selv tid til at lande og bare være til stede.\n\nDato og tid: 4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen og mærk kroppen finde ro.\n\nTid: 4. oktober 2026 · 16.00–18.00\n\n8 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "a4bd716020b9522d6df7c4dd06f4437124e9cf1365ea72c2785ceddf1d3e861a",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-outdoor-sunday",
+    "render": {
+      "path": "renders/2026-10-04_16-00_saunagus_event-day-407d80bccb.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "1528205eac7f61e3e61f66d70e8114531c727488cc653a88259f7fceff3c6554"
+    },
+    "renderPath": "renders/2026-10-04_16-00_saunagus_event-day-407d80bccb.jpg",
+    "manualInstructor": "Søren",
+    "instructorOptions": {
+      "soren": {
+        "instructor": "Søren",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I dag: Kom ind i varmen og mærk kroppen finde ro.\n\n4. oktober 2026 · 16.00–18.00\n\n7 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen og mærk kroppen finde ro.\n\nSøndagens udtryk får lov at skifte, mens nærvær og velvære er fundamentet.\n\nGiv dig selv tid til at lande og bare være til stede.\n\nDato og tid: 4. oktober 2026 · 16.00–18.00\n\n7 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen og mærk kroppen finde ro.\n\nTid: 4. oktober 2026 · 16.00–18.00\n\n7 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-outdoor-sunday",
+        "render": {
+          "path": "renders/2026-10-04_16-00_saunagus_event-day-407d80bccb-soren.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "1528205eac7f61e3e61f66d70e8114531c727488cc653a88259f7fceff3c6554"
+        },
+        "renderPath": "renders/2026-10-04_16-00_saunagus_event-day-407d80bccb-soren.jpg"
+      },
+      "millemaja": {
+        "instructor": "MilleMaja",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I dag: Et roligt rum midt i alt det, der skal nås.\n\nMilleMaja fra Betterlife by Yndigegn\n\n4. oktober 2026 · 16.00–18.00\n\n7 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 4. oktober 2026 · 16.00–18.00\n\n7 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nTid: 4. oktober 2026 · 16.00–18.00\n\n7 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-calm-sunlight",
+        "render": {
+          "path": "renders/2026-10-04_16-00_saunagus_event-day-407d80bccb-millemaja.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "d6a96515759a56b229219c947e4f8bf13f667206ca5c15b0efd29b9cb3c3ec6d"
+        },
+        "renderPath": "renders/2026-10-04_16-00_saunagus_event-day-407d80bccb-millemaja.jpg"
+      }
+    },
+    "history": [
+      {
+        "at": "2026-10-03T05:52:33.966Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
+    "contentRevision": "be66e5a77c118d5b8e71147d481f48683cedc3995dfa8271ef50871b2a3f63e2",
+    "approvedAt": "2026-10-03T05:52:33.966Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "be66e5a77c118d5b8e71147d481f48683cedc3995dfa8271ef50871b2a3f63e2",
+    "githubIssueNumber": 50,
+    "reminderState": {
+      "revision": "be66e5a77c118d5b8e71147d481f48683cedc3995dfa8271ef50871b2a3f63e2",
+      "sent72At": "2026-10-03T05:42:19.050Z"
+    },
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-04T08:18:52.799Z"
+  },
+  {
+    "draftId": "2026-10-05_weekly-overview_r6",
+    "slotKey": "2026-10-05_weekly-overview",
+    "eventKey": null,
+    "eventFingerprint": "72921459313986abc10755405ffdcfcec72209d29e9890e83ad5f331bfdaea31",
+    "revision": 6,
+    "kind": "weekly_overview",
+    "status": "approved",
+    "scheduledFor": "2026-10-04T19:30:00+02:00",
+    "season": "autumn",
+    "event": null,
+    "events": [
+      {
+        "date": "2026-10-06",
+        "start": "18:30",
+        "end": "20:30",
+        "name": "Saunagus",
+        "booked": 1,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "18:30 - 20:30 SAUNAGUS 1/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-10-03T23:35:38.496Z",
+        "eventKey": "2026-10-06_18-30_saunagus",
+        "fingerprint": "07f1f129d1471150d646185ba31792911d3a1372317e6e64ee2b65b5adb261c9"
+      },
+      {
+        "date": "2026-10-08",
+        "start": "18:30",
+        "end": "20:30",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-10-03T23:35:38.496Z",
+        "eventKey": "2026-10-08_18-30_saunagus",
+        "fingerprint": "e1b66965d6a214ff29d665fe86b189d5e98150d5279a068c18e41a2f071808ba"
+      }
+    ],
+    "availability": null,
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "Næste uges gus 🔥\n\n• 6. oktober 2026 · 18.30–20.30 · Powergus\n• 8. oktober 2026 · 18.30–20.30 · Torsdagsgus\n\nDu kan finde mig på Glød festivallen i weekenden\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 6. oktober 2026 · 18.30–20.30 · Powergus\n• 8. oktober 2026 · 18.30–20.30 · Torsdagsgus\n\nDu kan finde mig på Glød festivallen i weekenden\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n• 6. oktober 2026 · 18.30–20.30 · Powergus\n• 8. oktober 2026 · 18.30–20.30 · Torsdagsgus\n\nDu kan finde mig på Glød festivallen i weekenden\n\nJeg glæder mig til at se jer. Booking: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "3b4bf6a6d821100ea8737e3c7798c3576a9adf6f5c332e720b77056041aff04c",
+    "factsUsed": [
+      "event:2026-10-06_18-30_saunagus.date",
+      "event:2026-10-06_18-30_saunagus.time",
+      "event:2026-10-08_18-30_saunagus.date",
+      "event:2026-10-08_18-30_saunagus.time"
+    ],
+    "assetId": "soma-outdoor-sunday",
+    "render": {
+      "path": "renders/2026-10-05_weekly-overview-e17a7095d8.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "bccfb53d16785dfc51d4265099cf79b75941559b7a48ef9c456047ca478625ae"
+    },
+    "renderPath": "renders/2026-10-05_weekly-overview-e17a7095d8.jpg",
+    "manualInstructor": null,
+    "history": [
+      {
+        "at": "2026-10-03T11:37:36.228Z",
+        "type": "approve",
+        "from": "approved",
+        "to": "approved"
+      }
+    ],
+    "contentRevision": "08293701628f048f5350f37b2d5134427a911979232a59beb12ae2d7001b2a4c",
+    "approvedAt": "2026-10-03T11:37:36.228Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "08293701628f048f5350f37b2d5134427a911979232a59beb12ae2d7001b2a4c",
+    "githubIssueNumber": 6,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-10-06_18-30_saunagus_day-before_r7",
+    "slotKey": "2026-10-06_18-30_saunagus_day-before",
+    "eventKey": "2026-10-06_18-30_saunagus",
+    "eventFingerprint": "7b1f775b4131503098fbe67f0f45dea6deb7c1c5ccdfa094c6d18b5eb568d3f7",
+    "revision": 7,
+    "kind": "day_before",
+    "status": "approved",
+    "scheduledFor": "2026-10-05T19:30:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-06",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 1,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS 1/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T23:35:38.496Z",
+      "eventKey": "2026-10-06_18-30_saunagus",
+      "fingerprint": "07f1f129d1471150d646185ba31792911d3a1372317e6e64ee2b65b5adb261c9"
+    },
+    "availability": {
+      "free": 11,
+      "label": "11 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Giv slip på dagen og kom med ind i varmen.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "afc0c0410c2b012b97ba717f50d5d4e4a62ef0b7f5b9f0470d85b768d4751b2d",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-power-steam",
+    "render": {
+      "path": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "293e7575df4454443bcbb6e1b9d463e110ea33fec11da72ce2f4b17d9b521618"
+    },
+    "renderPath": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a.jpg",
+    "manualInstructor": "Søren",
+    "instructorOptions": {
+      "soren": {
+        "instructor": "Søren",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I morgen: Giv slip på dagen og kom med ind i varmen.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-power-steam",
+        "render": {
+          "path": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-soren.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "293e7575df4454443bcbb6e1b9d463e110ea33fec11da72ce2f4b17d9b521618"
+        },
+        "renderPath": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-soren.jpg"
+      },
+      "millemaja": {
+        "instructor": "MilleMaja",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I morgen: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-calm-sunlight",
+        "render": {
+          "path": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-millemaja.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "a6e53f694f7a8abb902239e2beaaa819219a00497f4b4e78f2eafae138925c21"
+        },
+        "renderPath": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-millemaja.jpg"
+      }
+    },
+    "history": [
+      {
+        "at": "2026-10-03T10:48:42.862Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
+    "contentRevision": "8102f111b3b632b304a472b4c8c2c285504c1f0c65bf8e0936b872d2af56d2a2",
+    "approvedAt": "2026-10-03T10:48:42.862Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "8102f111b3b632b304a472b4c8c2c285504c1f0c65bf8e0936b872d2af56d2a2",
+    "githubIssueNumber": 51,
+    "reminderState": {
+      "revision": "8102f111b3b632b304a472b4c8c2c285504c1f0c65bf8e0936b872d2af56d2a2",
+      "sent72At": "2026-10-03T05:42:19.050Z"
+    },
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-10-06_18-30_saunagus_event-day_r7",
+    "slotKey": "2026-10-06_18-30_saunagus_event-day",
+    "eventKey": "2026-10-06_18-30_saunagus",
+    "eventFingerprint": "7b1f775b4131503098fbe67f0f45dea6deb7c1c5ccdfa094c6d18b5eb568d3f7",
+    "revision": 7,
+    "kind": "event_day",
+    "status": "approved",
+    "scheduledFor": "2026-10-06T12:00:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-06",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 1,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS 1/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T23:35:38.496Z",
+      "eventKey": "2026-10-06_18-30_saunagus",
+      "fingerprint": "07f1f129d1471150d646185ba31792911d3a1372317e6e64ee2b65b5adb261c9"
+    },
+    "availability": {
+      "free": 11,
+      "label": "11 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I dag: Kom ind i varmen, land i kroppen og vær lige her.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "70945cf882397596c2e5872e1102197b2e143ac15ef6e1629aebdb6772d43a83",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-power-steam",
+    "render": {
+      "path": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "293e7575df4454443bcbb6e1b9d463e110ea33fec11da72ce2f4b17d9b521618"
+    },
+    "renderPath": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a.jpg",
+    "manualInstructor": "Søren",
+    "instructorOptions": {
+      "soren": {
+        "instructor": "Søren",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I dag: Kom ind i varmen, land i kroppen og vær lige her.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-power-steam",
+        "render": {
+          "path": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-soren.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "293e7575df4454443bcbb6e1b9d463e110ea33fec11da72ce2f4b17d9b521618"
+        },
+        "renderPath": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-soren.jpg"
+      },
+      "millemaja": {
+        "instructor": "MilleMaja",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I dag: Et roligt rum midt i alt det, der skal nås.\n\nMilleMaja fra Betterlife by Yndigegn\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-calm-sunlight",
+        "render": {
+          "path": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-millemaja.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "a6e53f694f7a8abb902239e2beaaa819219a00497f4b4e78f2eafae138925c21"
+        },
+        "renderPath": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-millemaja.jpg"
+      }
+    },
+    "history": [
+      {
+        "at": "2026-10-03T10:49:10.989Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
+    "contentRevision": "0a70e8d1b9355b7a4cb7af14f535edeed35f57fac65be99152327e946513c99a",
+    "approvedAt": "2026-10-03T10:49:10.989Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "0a70e8d1b9355b7a4cb7af14f535edeed35f57fac65be99152327e946513c99a",
+    "githubIssueNumber": 52,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-10-08_18-30_saunagus_day-before_r7",
+    "slotKey": "2026-10-08_18-30_saunagus_day-before",
+    "eventKey": "2026-10-08_18-30_saunagus",
+    "eventFingerprint": "211575b445c2d6c0789124295f61eb5776172445f4ed2db0e3bb4ce0791d3559",
+    "revision": 7,
+    "kind": "day_before",
+    "status": "approved",
+    "scheduledFor": "2026-10-07T19:30:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-08",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T23:35:38.496Z",
+      "eventKey": "2026-10-08_18-30_saunagus",
+      "fingerprint": "e1b66965d6a214ff29d665fe86b189d5e98150d5279a068c18e41a2f071808ba"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Sænk skuldrene og mærk roen brede sig.\n\n8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nSænk skuldrene og mærk roen brede sig.\n\nEn kort breathwork hjælper dig med at lande, før de sanselige runder folder sig ud.\n\nFire blide runder med ro, varme og nærvær.\n\nDato og tid: 8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nSænk skuldrene og mærk roen brede sig.\n\nTid: 8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "e288ff45b4e24f5791156bcb312e64426c2f6dabdca1573732dc2301458ffae0",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-calm-sunlight",
+    "render": {
+      "path": "renders/2026-10-08_18-30_saunagus_day-before-211575b445.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "cb320bebed5dc5e63f4050ee3eeaeb3abf4f32b2d9fb2512e093b1e1451f4f59"
+    },
+    "renderPath": "renders/2026-10-08_18-30_saunagus_day-before-211575b445.jpg",
+    "manualInstructor": null,
+    "history": [
+      {
+        "at": "2026-10-03T10:49:35.199Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
+    "contentRevision": "cc2aa08a33a6f414e8716194fd338b666dd32a09d4d4354cd82936c9808c9aa3",
+    "approvedAt": "2026-10-03T10:49:35.199Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "cc2aa08a33a6f414e8716194fd338b666dd32a09d4d4354cd82936c9808c9aa3",
+    "githubIssueNumber": 53,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-10-08_18-30_saunagus_event-day_r7",
+    "slotKey": "2026-10-08_18-30_saunagus_event-day",
+    "eventKey": "2026-10-08_18-30_saunagus",
+    "eventFingerprint": "211575b445c2d6c0789124295f61eb5776172445f4ed2db0e3bb4ce0791d3559",
+    "revision": 7,
+    "kind": "event_day",
+    "status": "approved",
+    "scheduledFor": "2026-10-08T12:00:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-08",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T23:35:38.496Z",
+      "eventKey": "2026-10-08_18-30_saunagus",
+      "fingerprint": "e1b66965d6a214ff29d665fe86b189d5e98150d5279a068c18e41a2f071808ba"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I dag: Giv dig selv en stille stund i varmen.\n\n8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nGiv dig selv en stille stund i varmen.\n\nVi starter med åndedrættet og lader derefter dufte, musik og varme føre dig længere ind i roen.\n\nDu skal ikke præstere noget – du skal bare være med.\n\nDato og tid: 8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nGiv dig selv en stille stund i varmen.\n\nTid: 8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "3e5e7d790ee75f17a17029626710c2ba42aa9d410c9a1f39d8d96cfa4ea907f6",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-calm-sunlight",
+    "render": {
+      "path": "renders/2026-10-08_18-30_saunagus_event-day-211575b445.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "cb320bebed5dc5e63f4050ee3eeaeb3abf4f32b2d9fb2512e093b1e1451f4f59"
+    },
+    "renderPath": "renders/2026-10-08_18-30_saunagus_event-day-211575b445.jpg",
+    "manualInstructor": null,
+    "history": [
+      {
+        "at": "2026-10-03T10:50:04.479Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
+    "contentRevision": "e70776bc983e2f843bb95c59d3089f181ff89ca42599253afbcc6fedcf40a39a",
+    "approvedAt": "2026-10-03T10:50:04.479Z",
+    "approvedBy": "Amaizingai",
+    "approvedRevision": "e70776bc983e2f843bb95c59d3089f181ff89ca42599253afbcc6fedcf40a39a",
+    "githubIssueNumber": 54,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-10-12_weekly-overview_r9",
+    "slotKey": "2026-10-12_weekly-overview",
+    "eventKey": null,
+    "eventFingerprint": "df6ac122726bab0bb65ed21e357d8bbccd8f668bc1cf460e12bd5b5006576a4e",
+    "revision": 9,
+    "kind": "weekly_overview",
+    "status": "draft",
+    "scheduledFor": "2026-10-11T19:30:00+02:00",
+    "season": "autumn",
+    "event": null,
+    "events": [
+      {
+        "date": "2026-10-13",
+        "start": "18:30",
+        "end": "20:30",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-10-03T23:35:38.496Z",
+        "eventKey": "2026-10-13_18-30_saunagus",
+        "fingerprint": "5210f1425687ead160bf93c77f68f40295d9718c001c95115a6a2a994ce2fceb"
+      },
+      {
+        "date": "2026-10-15",
+        "start": "18:30",
+        "end": "20:30",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-10-03T23:35:38.496Z",
+        "eventKey": "2026-10-15_18-30_saunagus",
+        "fingerprint": "4f37246704f92306f578dc22cd7342b7e2e583b98439a383d8a50f87e1217657"
+      },
+      {
+        "date": "2026-10-18",
+        "start": "10:00",
+        "end": "12:00",
+        "name": "Saunagus",
+        "booked": 1,
+        "capacity": 12,
+        "instructor": "Millemaja",
+        "description": null,
+        "sourceText": "10:00 - 12:00 SAUNAGUS Millemaja 1/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-10-03T23:35:38.496Z",
+        "eventKey": "2026-10-18_10-00_saunagus",
+        "fingerprint": "343a766951c1fa79f6c5788635b2acfcf30e35d108626b5e1d0a00dd981dc4af"
+      },
+      {
+        "date": "2026-10-18",
+        "start": "16:00",
+        "end": "18:00",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-10-03T23:35:38.496Z",
+        "eventKey": "2026-10-18_16-00_saunagus",
+        "fingerprint": "aae1fdce1e83c12fadd4901107bc5dbf1f0e1ad41406f5259ab09a6c3a59847f"
+      }
+    ],
+    "availability": null,
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "Næste uges gus 🔥\n\n• 13. oktober 2026 · 18.30–20.30 · Powergus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 13. oktober 2026 · 18.30–20.30 · Powergus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nHer er næste uges muligheder for at finde ro i varmen:\n\n• 13. oktober 2026 · 18.30–20.30 · Powergus\n• 15. oktober 2026 · 18.30–20.30 · Torsdagsgus\n• 18. oktober 2026 · 10.00–12.00 · Gus med MilleMaja\n• 18. oktober 2026 · 16.00–18.00 · Søndagsgus\n\nJeg glæder mig til at se jer. Booking: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "4f1ee752fc14ffc2cf00a730216415567366d6dd8c186b2311e5b3ed3707f8b5",
+    "factsUsed": [
+      "event:2026-10-13_18-30_saunagus.date",
+      "event:2026-10-13_18-30_saunagus.time",
+      "event:2026-10-15_18-30_saunagus.date",
+      "event:2026-10-15_18-30_saunagus.time",
+      "event:2026-10-18_10-00_saunagus.date",
+      "event:2026-10-18_10-00_saunagus.time",
+      "event:2026-10-18_16-00_saunagus.date",
+      "event:2026-10-18_16-00_saunagus.time"
+    ],
+    "assetId": "soma-img-5591",
+    "render": {
+      "path": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "497598c8c80199a8f6141a968767abadaf00e828b508ddf5ace98101f4ec549a"
+    },
+    "renderPath": "renders/2026-10-12_weekly-overview-df6ac12272.jpg",
+    "manualInstructor": "Søren",
+    "history": [
+      {
+        "at": "2026-10-04T07:04:43.509Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:05:09.482Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:05:32.560Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:11:25.240Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:12:02.608Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:15:20.973Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:15:41.214Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:25:33.417Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:26:35.101Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T07:35:10.360Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-10-04T08:48:13.980Z",
+        "type": "change_instructor",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "a176eb1090f8ab010bf5eff21f2a3d867115b63d92d370b318d56d1e196e5748",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 68,
+    "reminderState": null,
+    "warningsAcknowledged": false,
+    "manualAssetId": "soma-img-5591"
+  },
+  {
+    "draftId": "2026-10-06_18-30_saunagus_day-before_r6",
+    "slotKey": "2026-10-06_18-30_saunagus_day-before",
+    "eventKey": "2026-10-06_18-30_saunagus",
+    "eventFingerprint": "b28636236a6a84912408d19b15f7ec863b526aef7664268bc4c059662bb54380",
+    "revision": 6,
+    "kind": "day_before",
+    "status": "obsolete",
+    "scheduledFor": "2026-10-05T19:00:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-06",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T02:15:05.465Z",
+      "eventKey": "2026-10-06_18-30_saunagus",
+      "fingerprint": "243ff22eb1028b6bad4981dc8a3f3b6f97fce1e8737544b28209f08fdcfc46d3"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Giv slip på dagen og kom med ind i varmen.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "51efd08b74b42907d30472393cec2ab2e580149a691ef40153554471984ddc1a",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-power-steam",
+    "render": {
+      "path": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "293e7575df4454443bcbb6e1b9d463e110ea33fec11da72ce2f4b17d9b521618"
+    },
+    "renderPath": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a.jpg",
+    "manualInstructor": "Søren",
+    "instructorOptions": {
+      "soren": {
+        "instructor": "Søren",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I morgen: Giv slip på dagen og kom med ind i varmen.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-power-steam",
+        "render": {
+          "path": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-soren.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "293e7575df4454443bcbb6e1b9d463e110ea33fec11da72ce2f4b17d9b521618"
+        },
+        "renderPath": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-soren.jpg"
+      },
+      "millemaja": {
+        "instructor": "MilleMaja",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I morgen: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-calm-sunlight",
+        "render": {
+          "path": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-millemaja.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "a6e53f694f7a8abb902239e2beaaa819219a00497f4b4e78f2eafae138925c21"
+        },
+        "renderPath": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-millemaja.jpg"
+      }
+    },
+    "history": [
+      {
+        "at": "2026-10-03T05:43:23.827Z",
+        "type": "obsolete",
+        "from": "draft",
+        "to": "obsolete"
+      }
+    ],
+    "contentRevision": "cab5db63b0a1c50221151884d80d5a2be05ce0ac0a3e9d594401721bf4044e4e",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 8,
+    "reminderState": {
+      "revision": "cab5db63b0a1c50221151884d80d5a2be05ce0ac0a3e9d594401721bf4044e4e",
+      "sent72At": "2026-10-02T19:27:49.185Z"
+    },
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-10-06_18-30_saunagus_day-before_r5",
+    "slotKey": "2026-10-06_18-30_saunagus_day-before",
+    "eventKey": "2026-10-06_18-30_saunagus",
+    "eventFingerprint": "b28636236a6a84912408d19b15f7ec863b526aef7664268bc4c059662bb54380",
+    "revision": 5,
+    "kind": "day_before",
+    "status": "obsolete",
+    "scheduledFor": "2026-10-05T19:00:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-06",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-09-29T12:36:38.001Z",
+      "eventKey": "2026-10-06_18-30_saunagus",
+      "fingerprint": "243ff22eb1028b6bad4981dc8a3f3b6f97fce1e8737544b28209f08fdcfc46d3"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Fra dagens tempo til ro i kroppen.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nFra dagens tempo til ro i kroppen.\n\nGusen bevæger sig fra en blid meditativ landing gennem nordiske toner og varme beats til en rolig afslutning.\n\nGiv dig selv plads til at lande gennem fire sanselige runder.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nFra dagens tempo til ro i kroppen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "9fde9e495f92bbe944304c8d533af14ad046c39a1ed120ab15215f15db2012b0",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:neutral"
+    ],
+    "assetId": "soma-power-steam",
+    "manualInstructor": "Søren",
+    "instructorOptions": {
+      "soren": {
+        "instructor": "Søren",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I morgen: Fra dagens tempo til ro i kroppen.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nFra dagens tempo til ro i kroppen.\n\nGusen bevæger sig fra en blid meditativ landing gennem nordiske toner og varme beats til en rolig afslutning.\n\nGiv dig selv plads til at lande gennem fire sanselige runder.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nFra dagens tempo til ro i kroppen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-power-steam"
+      },
+      "millemaja": {
+        "instructor": "MilleMaja",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I morgen: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-calm-sunlight"
+      }
+    },
+    "approvedAt": null,
+    "warningsAcknowledged": true,
+    "contentRevision": "c072556fe72f229f4b72304042a81dd99b1f3060873d2f91bebe0a81c50260d2",
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "028cb0ca0c9719076881cd1ee85ae0c3eb3e22d1cda610718c3695d880bc03cb",
+      "path": "renders/2026-10-06_18-30_saunagus_day-before-b28636236a-soren.jpg"
+    },
+    "approvedRevision": null,
+    "approvedBy": null,
+    "history": [
+      {
+        "at": "2026-10-02T14:34:06.254Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
+      }
+    ],
+    "githubIssueNumber": 7
+  },
+  {
+    "draftId": "2026-10-06_18-30_saunagus_event-day_r6",
+    "slotKey": "2026-10-06_18-30_saunagus_event-day",
+    "eventKey": "2026-10-06_18-30_saunagus",
+    "eventFingerprint": "b28636236a6a84912408d19b15f7ec863b526aef7664268bc4c059662bb54380",
+    "revision": 6,
+    "kind": "event_day",
+    "status": "obsolete",
+    "scheduledFor": "2026-10-06T11:30:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-06",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T02:15:05.465Z",
+      "eventKey": "2026-10-06_18-30_saunagus",
+      "fingerprint": "243ff22eb1028b6bad4981dc8a3f3b6f97fce1e8737544b28209f08fdcfc46d3"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I dag: Kom ind i varmen, land i kroppen og vær lige her.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "1bf2277714d1111f9961ee12c1993f0dc667c576a64c66aabdcc845c4c9c3673",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-power-steam",
+    "render": {
+      "path": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "293e7575df4454443bcbb6e1b9d463e110ea33fec11da72ce2f4b17d9b521618"
+    },
+    "renderPath": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a.jpg",
+    "manualInstructor": "Søren",
+    "instructorOptions": {
+      "soren": {
+        "instructor": "Søren",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I dag: Kom ind i varmen, land i kroppen og vær lige her.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-power-steam",
+        "render": {
+          "path": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-soren.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "293e7575df4454443bcbb6e1b9d463e110ea33fec11da72ce2f4b17d9b521618"
+        },
+        "renderPath": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-soren.jpg"
+      },
+      "millemaja": {
+        "instructor": "MilleMaja",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I dag: Et roligt rum midt i alt det, der skal nås.\n\nMilleMaja fra Betterlife by Yndigegn\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-calm-sunlight",
+        "render": {
+          "path": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-millemaja.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "a6e53f694f7a8abb902239e2beaaa819219a00497f4b4e78f2eafae138925c21"
+        },
+        "renderPath": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-millemaja.jpg"
+      }
+    },
+    "history": [
+      {
+        "at": "2026-10-03T05:43:23.827Z",
+        "type": "obsolete",
+        "from": "draft",
+        "to": "obsolete"
+      }
+    ],
+    "contentRevision": "987ed49f3c2304629b3965be5404516af32514caa08625736fe4a0e2fbec168d",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 10,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-10-06_18-30_saunagus_event-day_r5",
+    "slotKey": "2026-10-06_18-30_saunagus_event-day",
+    "eventKey": "2026-10-06_18-30_saunagus",
+    "eventFingerprint": "b28636236a6a84912408d19b15f7ec863b526aef7664268bc4c059662bb54380",
+    "revision": 5,
+    "kind": "event_day",
+    "status": "obsolete",
+    "scheduledFor": "2026-10-06T11:30:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-06",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-09-29T12:36:38.001Z",
+      "eventKey": "2026-10-06_18-30_saunagus",
+      "fingerprint": "243ff22eb1028b6bad4981dc8a3f3b6f97fce1e8737544b28209f08fdcfc46d3"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I dag: Land i varmen og mærk roen brede sig.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nLand i varmen og mærk roen brede sig.\n\nGusen bevæger sig fra en blid meditativ landing gennem nordiske toner og varme beats til en rolig afslutning.\n\nGiv dig selv plads til at lande gennem fire sanselige runder.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLand i varmen og mærk roen brede sig.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "da9fcd540ed4f5c0b5b263c39c0f9d3dd632f87435d75cc3b641886dbd9e8c8f",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:neutral"
+    ],
+    "assetId": "soma-power-steam",
+    "manualInstructor": "Søren",
+    "instructorOptions": {
+      "soren": {
+        "instructor": "Søren",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I dag: Land i varmen og mærk roen brede sig.\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nLand i varmen og mærk roen brede sig.\n\nGusen bevæger sig fra en blid meditativ landing gennem nordiske toner og varme beats til en rolig afslutning.\n\nGiv dig selv plads til at lande gennem fire sanselige runder.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLand i varmen og mærk roen brede sig.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-power-steam"
+      },
+      "millemaja": {
+        "instructor": "MilleMaja",
+        "warnings": [],
+        "platformCopies": {
+          "instagram": "I dag: Et roligt rum midt i alt det, der skal nås.\n\nMilleMaja fra Betterlife by Yndigegn\n\n6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookPage": "I dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er.\n\nDato og tid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+          "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nTid: 6. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+        },
+        "assetId": "soma-calm-sunlight"
+      }
+    },
+    "approvedAt": null,
+    "warningsAcknowledged": true,
+    "contentRevision": "09c255454cad1d80179a60b5a11bdcf5e6bd4b7db07b4eda7be15db9400a74f8",
+    "render": {
+      "width": 1080,
+      "height": 1350,
+      "sha256": "028cb0ca0c9719076881cd1ee85ae0c3eb3e22d1cda610718c3695d880bc03cb",
+      "path": "renders/2026-10-06_18-30_saunagus_event-day-b28636236a-soren.jpg"
+    },
+    "approvedRevision": null,
+    "approvedBy": null,
+    "history": [
+      {
+        "at": "2026-10-02T14:34:06.254Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
+      }
+    ],
+    "githubIssueNumber": 9
+  },
+  {
+    "draftId": "2026-10-08_18-30_saunagus_day-before_r6",
+    "slotKey": "2026-10-08_18-30_saunagus_day-before",
+    "eventKey": "2026-10-08_18-30_saunagus",
+    "eventFingerprint": "211575b445c2d6c0789124295f61eb5776172445f4ed2db0e3bb4ce0791d3559",
+    "revision": 6,
+    "kind": "day_before",
+    "status": "obsolete",
+    "scheduledFor": "2026-10-07T19:00:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-08",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T02:15:05.465Z",
+      "eventKey": "2026-10-08_18-30_saunagus",
+      "fingerprint": "e1b66965d6a214ff29d665fe86b189d5e98150d5279a068c18e41a2f071808ba"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Sænk skuldrene og mærk roen brede sig.\n\n8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I morgen kan du træde ind i varmen til et saunagus.\n\nSænk skuldrene og mærk roen brede sig.\n\nEn kort breathwork hjælper dig med at lande, før de sanselige runder folder sig ud.\n\nFire blide runder med ro, varme og nærvær.\n\nDato og tid: 8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nSænk skuldrene og mærk roen brede sig.\n\nTid: 8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "e288ff45b4e24f5791156bcb312e64426c2f6dabdca1573732dc2301458ffae0",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-calm-sunlight",
+    "render": {
+      "path": "renders/2026-10-08_18-30_saunagus_day-before-211575b445.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "cb320bebed5dc5e63f4050ee3eeaeb3abf4f32b2d9fb2512e093b1e1451f4f59"
+    },
+    "renderPath": "renders/2026-10-08_18-30_saunagus_day-before-211575b445.jpg",
+    "manualInstructor": null,
+    "history": [
+      {
+        "at": "2026-10-03T05:43:23.827Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
+      }
+    ],
+    "contentRevision": "b10dbd0610614ff14eab276169d36e9fca4dd1bd881ff9f4c48c8df222a7076d",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 11,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-10-08_18-30_saunagus_event-day_r6",
+    "slotKey": "2026-10-08_18-30_saunagus_event-day",
+    "eventKey": "2026-10-08_18-30_saunagus",
+    "eventFingerprint": "211575b445c2d6c0789124295f61eb5776172445f4ed2db0e3bb4ce0791d3559",
+    "revision": 6,
+    "kind": "event_day",
+    "status": "obsolete",
+    "scheduledFor": "2026-10-08T11:30:00+02:00",
+    "season": "autumn",
+    "event": {
+      "date": "2026-10-08",
+      "start": "18:30",
+      "end": "20:30",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-03T02:15:05.465Z",
+      "eventKey": "2026-10-08_18-30_saunagus",
+      "fingerprint": "e1b66965d6a214ff29d665fe86b189d5e98150d5279a068c18e41a2f071808ba"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I dag: Giv dig selv en stille stund i varmen.\n\n8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "I dag kan du træde ind i varmen til et saunagus.\n\nGiv dig selv en stille stund i varmen.\n\nVi starter med åndedrættet og lader derefter dufte, musik og varme føre dig længere ind i roen.\n\nDu skal ikke præstere noget – du skal bare være med.\n\nDato og tid: 8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookGroup": "Kære alle ❤️\n\nI dag kan du træde ind i varmen til et saunagus.\n\nGiv dig selv en stille stund i varmen.\n\nTid: 8. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nDu kan booke her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "3e5e7d790ee75f17a17029626710c2ba42aa9d410c9a1f39d8d96cfa4ea907f6",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-calm-sunlight",
+    "render": {
+      "path": "renders/2026-10-08_18-30_saunagus_event-day-211575b445.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "cb320bebed5dc5e63f4050ee3eeaeb3abf4f32b2d9fb2512e093b1e1451f4f59"
+    },
+    "renderPath": "renders/2026-10-08_18-30_saunagus_event-day-211575b445.jpg",
+    "manualInstructor": null,
+    "history": [
+      {
+        "at": "2026-10-03T05:43:23.827Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
+      }
+    ],
+    "contentRevision": "91df11ecad9e0dc1ebb4cceb743d113672e6bfa1adb8f1800b1a81d8b6f46960",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 12,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  }
+]
