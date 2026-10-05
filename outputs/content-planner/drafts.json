@@ -1619,7 +1619,7 @@
     "eventFingerprint": "dcb792ffaa163e09d5c0ed902dd08693095cb9f2986647869d1a8948004a866a",
     "revision": 12,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-12T19:30:00+02:00",
     "season": "autumn",
     "event": {
@@ -1705,13 +1705,19 @@
         "type": "change_instructor",
         "from": "needs_review",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:20:23.181Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "658edb703d3da2918f44e1c4e0b4183989a099a9bbb49b792a31461dd2407c22",
-    "approvedAt": null,
+    "approvedAt": "2026-10-05T08:20:23.181Z",
     "warningsAcknowledged": false,
-    "approvedBy": null,
-    "approvedRevision": null
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "658edb703d3da2918f44e1c4e0b4183989a099a9bbb49b792a31461dd2407c22"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_event-day_r11",
