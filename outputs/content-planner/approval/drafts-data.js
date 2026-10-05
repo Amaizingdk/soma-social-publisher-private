@@ -4955,7 +4955,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I dag: Land i varmen og lad kroppen falde til ro.\n\n20. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 20. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLand i varmen og lad kroppen falde til ro.\n\nMusikken har lidt mere rytme og kraft, mens du stadig får plads til at lande.\n\nFire runder, der begynder blidt og slutter med ro i kroppen."
     },
-    "contentFingerprint": "63a72cf87a1fb7b804d86171f1b8bd54484819a8bb72bfbbfa01ea2503f757d6",
+    "contentFingerprint": "6c119bf89cef097aa74733bfa3b2c7f14b939a384a2760b48a4c5314a27cabb1",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -4963,16 +4963,16 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:neutral"
     ],
-    "assetId": "soma-img-6688",
+    "assetId": "soma-winter-night",
     "render": {
       "path": "renders/2026-10-20_18-30_saunagus_event-day-abc370f066.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "d9fb9ebaf825e58efe292263e0a739f9dcde1c85ecee97aff2a336cf3e6f17e0"
+      "sha256": "1fd8c7ca40b9b94e0b6d1462c0ed7db3ae507d909e8cd766353cbf9cb8664082"
     },
     "renderPath": "renders/2026-10-20_18-30_saunagus_event-day-abc370f066.jpg",
     "manualInstructor": "Søren",
-    "manualAssetId": "soma-img-6688",
+    "manualAssetId": "soma-winter-night",
     "instructorOptions": {
       "soren": {
         "instructor": "Søren",
@@ -4981,12 +4981,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "instagram": "I dag: Land i varmen og lad kroppen falde til ro.\n\n20. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 20. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLand i varmen og lad kroppen falde til ro.\n\nMusikken har lidt mere rytme og kraft, mens du stadig får plads til at lande.\n\nFire runder, der begynder blidt og slutter med ro i kroppen."
         },
-        "assetId": "soma-img-6688",
+        "assetId": "soma-winter-night",
         "render": {
           "path": "renders/2026-10-20_18-30_saunagus_event-day-abc370f066-soren.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "d9fb9ebaf825e58efe292263e0a739f9dcde1c85ecee97aff2a336cf3e6f17e0"
+          "sha256": "1fd8c7ca40b9b94e0b6d1462c0ed7db3ae507d909e8cd766353cbf9cb8664082"
         },
         "renderPath": "renders/2026-10-20_18-30_saunagus_event-day-abc370f066-soren.jpg"
       },
@@ -4997,12 +4997,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "instagram": "I dag: Et roligt rum midt i alt det, der skal nås.\n\nMilleMaja fra Betterlife by Yndigegn\n\n20. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 20. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er."
         },
-        "assetId": "soma-img-6688",
+        "assetId": "soma-winter-night",
         "render": {
           "path": "renders/2026-10-20_18-30_saunagus_event-day-abc370f066-millemaja.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "b7e2fac196972aa45977619c16656ca1ecc0697c6fe53af1d50c0612c34a46ca"
+          "sha256": "fe2dfce74ecfdb76b07269e362a3a7b7016a39ede026b6fd3e8f4e874b294d52"
         },
         "renderPath": "renders/2026-10-20_18-30_saunagus_event-day-abc370f066-millemaja.jpg"
       }
@@ -5013,9 +5013,15 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_instructor",
         "from": "needs_review",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:25:29.846Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
       }
     ],
-    "contentRevision": "6e9552b60f1108768330f2ceb9501e491f32030a4e3fb6ff978ad7845cb236f2",
+    "contentRevision": "620b11fe9677e97bf08b7b78e1675cc9f8477073c68ed762d89f1bc119781851",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
