@@ -3889,7 +3889,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "8837b2d127fffb8a0525c553f91ae0b3e2bdffc60c2acab2b7b8f3c57731b309",
     "revision": 8,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-17T19:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -3941,13 +3941,19 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:23:48.147Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "37d699d1d6f08ba08ed665d05ae95187ec92bf17370dd0dd0cf0d72cc75f9be8",
-    "approvedAt": null,
+    "approvedAt": "2026-10-05T08:23:48.147Z",
     "warningsAcknowledged": false,
-    "approvedBy": null,
-    "approvedRevision": null
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "37d699d1d6f08ba08ed665d05ae95187ec92bf17370dd0dd0cf0d72cc75f9be8"
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_event-day_r7",
