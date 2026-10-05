@@ -5520,7 +5520,7 @@
       "instagram": "I dag: Giv slip på dagen og kom med ind i varmen.\n\n27. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 27. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten."
     },
-    "contentFingerprint": "da1f191ea5c8ec86ce92aa06e4d056fd8e3c9c1e9a65de0e66467a654df897d9",
+    "contentFingerprint": "b06302bdfe72535bb76ebac88708575b7a5720e733641ea4c0fd797a5bf18cb8",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -5528,16 +5528,16 @@
       "event.name",
       "profile:neutral"
     ],
-    "assetId": "soma-img-6688",
+    "assetId": "soma-sauna-01",
     "render": {
       "path": "renders/2026-10-27_18-30_saunagus_event-day-e821c6fa98.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "e534bbabdb9094498858f3f923508d7727fcf3c0b05f4b15dc26426da3b31956"
+      "sha256": "d40ae1dd8bef2d97a9bd88fd9699c25b5e3865072108946ca13290f9995c73eb"
     },
     "renderPath": "renders/2026-10-27_18-30_saunagus_event-day-e821c6fa98.jpg",
     "manualInstructor": "Søren",
-    "manualAssetId": "soma-img-6688",
+    "manualAssetId": "soma-sauna-01",
     "instructorOptions": {
       "soren": {
         "instructor": "Søren",
@@ -5546,12 +5546,12 @@
           "instagram": "I dag: Giv slip på dagen og kom med ind i varmen.\n\n27. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 27. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten."
         },
-        "assetId": "soma-img-6688",
+        "assetId": "soma-sauna-01",
         "render": {
           "path": "renders/2026-10-27_18-30_saunagus_event-day-e821c6fa98-soren.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "e534bbabdb9094498858f3f923508d7727fcf3c0b05f4b15dc26426da3b31956"
+          "sha256": "d40ae1dd8bef2d97a9bd88fd9699c25b5e3865072108946ca13290f9995c73eb"
         },
         "renderPath": "renders/2026-10-27_18-30_saunagus_event-day-e821c6fa98-soren.jpg"
       },
@@ -5562,12 +5562,12 @@
           "instagram": "I dag: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n27. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 27. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nGiv dig selv plads til bare at være."
         },
-        "assetId": "soma-img-6688",
+        "assetId": "soma-sauna-01",
         "render": {
           "path": "renders/2026-10-27_18-30_saunagus_event-day-e821c6fa98-millemaja.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "b57d6f87396b9332918464929ee709f140d875759b33c9adf9f38a9838b336ee"
+          "sha256": "9bc74687dc5c6f18784f8883f2a56324afd9e026d4fd6edc5447106cb9532952"
         },
         "renderPath": "renders/2026-10-27_18-30_saunagus_event-day-e821c6fa98-millemaja.jpg"
       }
@@ -5578,9 +5578,15 @@
         "type": "change_instructor",
         "from": "needs_review",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:26:35.524Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
       }
     ],
-    "contentRevision": "958c40d1e5ec48b3e140b34c8cdf538fc0da70c3853561d691e4f922d18a2090",
+    "contentRevision": "3aad5264db16a3fec7931bd16219ae775daf82985cea9e446421506c12dd8349",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
