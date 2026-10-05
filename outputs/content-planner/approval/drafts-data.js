@@ -1078,7 +1078,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:19:55.222Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "004457283152ad062eb27e529a99e41ef8f65847f36d0e9b51faec5d4a5f1a04"
+    "approvedRevision": "004457283152ad062eb27e529a99e41ef8f65847f36d0e9b51faec5d4a5f1a04",
+    "githubIssueNumber": 103
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r11",
@@ -1717,7 +1718,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:20:23.181Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "658edb703d3da2918f44e1c4e0b4183989a099a9bbb49b792a31461dd2407c22"
+    "approvedRevision": "658edb703d3da2918f44e1c4e0b4183989a099a9bbb49b792a31461dd2407c22",
+    "githubIssueNumber": 104
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_event-day_r11",
@@ -2356,7 +2358,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:20:51.858Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "0ba690fd51a8f6c282b5da531fde35dd695a899552ea8da0195da9019c782d4b"
+    "approvedRevision": "0ba690fd51a8f6c282b5da531fde35dd695a899552ea8da0195da9019c782d4b",
+    "githubIssueNumber": 105
   },
   {
     "draftId": "2026-10-15_18-30_saunagus_day-before_r11",
@@ -2772,7 +2775,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:21:44.190Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "5ff5dc754a3313221051cfb89d185da37fd70765bfa8d0afa6dc01425cae4624"
+    "approvedRevision": "5ff5dc754a3313221051cfb89d185da37fd70765bfa8d0afa6dc01425cae4624",
+    "githubIssueNumber": 106
   },
   {
     "draftId": "2026-10-15_18-30_saunagus_event-day_r11",
@@ -3189,7 +3193,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:21:59.841Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "32811a7bba4fbf92e07b01cb9f25add6a1f5117ebd7f35f203a7b50eec2b6f38"
+    "approvedRevision": "32811a7bba4fbf92e07b01cb9f25add6a1f5117ebd7f35f203a7b50eec2b6f38",
+    "githubIssueNumber": 107
   },
   {
     "draftId": "2026-10-18_16-00_saunagus_day-before_r12",
@@ -3599,7 +3604,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:23:02.715Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "fb2a5f89823c41486595783c2e90cedec9c5889ae4ce93bfba8ed2877039e29f"
+    "approvedRevision": "fb2a5f89823c41486595783c2e90cedec9c5889ae4ce93bfba8ed2877039e29f",
+    "githubIssueNumber": 108
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_day-before_r7",
@@ -3953,7 +3959,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:23:48.147Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "37d699d1d6f08ba08ed665d05ae95187ec92bf17370dd0dd0cf0d72cc75f9be8"
+    "approvedRevision": "37d699d1d6f08ba08ed665d05ae95187ec92bf17370dd0dd0cf0d72cc75f9be8",
+    "githubIssueNumber": 109
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_event-day_r7",
@@ -4294,7 +4301,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:24:07.369Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "a7681e712930942d09d08a9332649674c416a040db85b45d4f142ffbc1e7aa54"
+    "approvedRevision": "a7681e712930942d09d08a9332649674c416a040db85b45d4f142ffbc1e7aa54",
+    "githubIssueNumber": 110
   },
   {
     "draftId": "2026-10-18_16-00_saunagus_event-day_r12",
@@ -4704,7 +4712,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:24:32.394Z",
     "warningsAcknowledged": false,
     "approvedBy": "soma-local-approval",
-    "approvedRevision": "dabe89b2b56a9b79a773fbe44c4b2eddc84ab19b407a5cb1cab52bb4fdb585d0"
+    "approvedRevision": "dabe89b2b56a9b79a773fbe44c4b2eddc84ab19b407a5cb1cab52bb4fdb585d0",
+    "githubIssueNumber": 111
   },
   {
     "draftId": "2026-10-19_weekly-overview_r8",
@@ -4813,7 +4822,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:27:06.125Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "5b0a7fbac1ab12c6a2f58135253416bfc446636d0950aec9d020634c425a30ca",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 112,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -4922,7 +4931,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:25:17.738Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "d12e86248486f620eb81d5aed0f330bb6ba37d7542832d5ac9229f358114d155",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 113,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -5037,7 +5046,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:25:40.856Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "620b11fe9677e97bf08b7b78e1675cc9f8477073c68ed762d89f1bc119781851",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 114,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -5106,7 +5115,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:27:06.125Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "32f094f77f664f3271d200b817403a769fe948f37931a77c8f2049392c093396",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 115,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -5175,7 +5184,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:27:06.125Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "7899db3207e176778b6f0d8b59d816af184b3be4dcdb31a0b851c958960e6186",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 116,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -5244,7 +5253,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:27:06.125Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "2dfc48b4a4aba3bebb5236771eb84002753aca408d83ad3be89e1eedf5282a96",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 117,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -5313,7 +5322,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-10-05T08:27:06.125Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "d96da1872e4c84b8ca76a61754d4a388f5b27a3c9df717a31d748306355be1ff",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 118,
     "reminderState": null,
     "warningsAcknowledged": false
   },
