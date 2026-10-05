@@ -195,9 +195,15 @@ async function runOperationsSync({
   const ledgerPath = paths.ledgerPath || (outputDir ? path.join(outputDir, 'state', 'publish-ledger.json') : null);
 
   let plannerResult = null;
+  let plannerError = null;
   if (planner) {
     if (!outputDir) throw new Error('Operations-outputmappe mangler');
-    plannerResult = await planner({ live: true, outputDir, now });
+    // En fejlet kalenderlæsning må ikke stoppe alarmer: arbejd videre på de gemte kladder og fejl til sidst.
+    try {
+      plannerResult = await planner({ live: true, outputDir, now });
+    } catch (error) {
+      plannerError = error;
+    }
   }
   let drafts = suppliedDrafts || plannerResult?.drafts;
   if (!drafts && draftsPath) drafts = await readJson(draftsPath, 'Kladder');
@@ -242,6 +248,7 @@ async function runOperationsSync({
     ledger,
     issues: drafts.filter((draft) => draft.githubIssueNumber).length,
     reminders: drafts.filter((draft) => draft.reminderState?.revision === draft.contentRevision).length,
+    plannerError,
   };
 }
 

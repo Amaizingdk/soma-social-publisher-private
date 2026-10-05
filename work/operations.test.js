@@ -326,3 +326,18 @@ test('operations retires an obsolete draft issue instead of showing needs-correc
   assert.equal(client.state.issues[0].state, 'closed');
   assert.deepEqual(client.state.issues[0].labels, ['soma-managed', 'skipped']);
 });
+
+test('operations still sends the final alarm when the calendar read fails, and reports the planner error', async () => {
+  const client = fakeClient();
+  const result = await runOperationsSync({
+    drafts: [reviewDraft()],
+    ledger: { version: 1, entries: [] },
+    client,
+    approverLogin: 'Amaizingai',
+    now: new Date('2026-10-05T09:30:00Z'),
+    planner: async () => { throw new Error('Kunne ikke læse belægning: ""'); },
+    paths: { outputDir: await require('node:fs/promises').mkdtemp(require('node:path').join(require('node:os').tmpdir(), 'soma-ops-')) },
+  });
+  assert.match(result.plannerError.message, /belægning/);
+  assert.equal(client.commentsWith('soma-reminder:draft-1:' + REVISION + ':final').length, 1);
+});

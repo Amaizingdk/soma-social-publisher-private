@@ -129,18 +129,6 @@ test('availability-only generated copy keeps approval and refreshes volatile ava
   assert.equal(result[0].approvedRevision, revision);
 });
 
-test('fixed generated copy change resets approval through a new revision', () => {
-  const old = generated({
-    status: 'approved', contentRevision: 'a'.repeat(64), approvedRevision: 'a'.repeat(64),
-  });
-  const changed = generated({ contentFingerprint: 'content-2', contentRevision: 'b'.repeat(64) });
-  const result = reconcileDrafts([old], [changed], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
-  assert.equal(result.find((draft) => draft.draftId === old.draftId).status, 'obsolete');
-  const next = result.find((draft) => draft.contentRevision === 'b'.repeat(64));
-  assert.equal(next.revision, 2);
-  assert.equal(next.status, 'draft');
-});
-
 test('changed generated copy creates a new revision for an unapproved draft', () => {
   const old = generated({ status: 'draft' });
   const changed = generated({ contentFingerprint: 'content-2' });
@@ -333,3 +321,27 @@ test('approval page never revives an obsolete revision from browser storage', as
   }
 });
 
+
+test('approved draft survives a changed content fingerprint (code change) with same event and time', () => {
+  const old = generated({
+    status: 'approved', contentRevision: 'rev-a', approvedRevision: 'rev-a', approvedAt: '2026-10-03T11:37:00Z',
+  });
+  const regenerated = generated({ contentFingerprint: 'content-2', contentRevision: 'rev-b' });
+  const result = reconcileDrafts([old], [regenerated], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
+  const kept = result.filter((draft) => draft.status !== 'obsolete');
+
+  assert.equal(result.length, 1);
+  assert.equal(kept[0].draftId, old.draftId);
+  assert.equal(kept[0].status, 'approved');
+  assert.equal(kept[0].approvedRevision, 'rev-a');
+  assert.equal(kept[0].contentRevision, 'rev-a');
+  assert.equal(kept[0].platformCopies.instagram, 'Instagram original');
+});
+
+test('unapproved draft with a changed content fingerprint still gets a new revision', () => {
+  const old = generated({ status: 'draft', contentRevision: 'rev-a' });
+  const regenerated = generated({ contentFingerprint: 'content-2', contentRevision: 'rev-b' });
+  const result = reconcileDrafts([old], [regenerated], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
+  assert.equal(result.find((draft) => draft.draftId === old.draftId).status, 'obsolete');
+  assert.equal(result.find((draft) => draft.revision === 2).status, 'draft');
+});

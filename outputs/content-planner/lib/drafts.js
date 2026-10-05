@@ -101,6 +101,26 @@ function reconcileDrafts(previousDrafts, generatedDrafts, currentEvents) {
       continue;
     }
 
+    // Kodeændringer (skabeloner, render) må aldrig fjerne en godkendelse: et godkendt opslag med
+    // uændret event og tidspunkt beholdes, også når det genererede indhold har fået nyt fingeraftryk.
+    const approved = previous.find((draft) =>
+      draft.slotKey === candidate.slotKey
+      && draft.status === 'approved'
+      && draft.contentRevision
+      && draft.approvedRevision === draft.contentRevision
+      && draft.eventFingerprint === candidate.eventFingerprint
+      && draft.scheduledFor === candidate.scheduledFor);
+    if (approved) {
+      result.push({
+        ...approved,
+        availability: candidate.availability,
+        event: candidate.event,
+        events: candidate.events,
+      });
+      handledIds.add(approved.draftId);
+      continue;
+    }
+
     const published = previous.find((draft) =>
       draft.slotKey === candidate.slotKey
       && draft.status === 'published');

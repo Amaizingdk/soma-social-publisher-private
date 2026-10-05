@@ -38,11 +38,14 @@ async function main(argv = process.argv.slice(2), env = process.env) {
     },
   });
   process.stdout.write(JSON.stringify({
-    status: 'ok',
+    status: result.plannerError ? 'planner-failed' : 'ok',
     drafts: result.drafts.length,
     issues: result.issues,
     reminders: result.reminders,
   }) + '\n');
+  if (result.plannerError) {
+    throw new Error('Kalenderlæsning fejlede (alarmer er kørt på gemte kladder): ' + result.plannerError.message);
+  }
 }
 
 if (require.main === module) {
