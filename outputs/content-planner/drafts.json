@@ -4713,7 +4713,7 @@
     "eventFingerprint": "50a48735336b0cb6e27132395123d1b9601a6801127b77ca37d2a4f1959a08dd",
     "revision": 8,
     "kind": "weekly_overview",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-18T19:30:00+02:00",
     "season": "autumn",
     "event": null,
@@ -4801,12 +4801,18 @@
         "type": "change_instructor",
         "from": "approved",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "5b0a7fbac1ab12c6a2f58135253416bfc446636d0950aec9d020634c425a30ca",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "5b0a7fbac1ab12c6a2f58135253416bfc446636d0950aec9d020634c425a30ca",
     "githubIssueNumber": null,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5042,7 +5048,7 @@
     "eventFingerprint": "3757785719e5ecf4b352976e4c2c53ebf28b5abf4dd3820bdd2561d655cef2a3",
     "revision": 9,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-21T19:30:00+02:00",
     "season": "autumn",
     "event": {
@@ -5088,11 +5094,18 @@
     "renderPath": "renders/2026-10-22_18-30_saunagus_day-before-3757785719.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "32f094f77f664f3271d200b817403a769fe948f37931a77c8f2049392c093396",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "32f094f77f664f3271d200b817403a769fe948f37931a77c8f2049392c093396",
     "githubIssueNumber": null,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5104,7 +5117,7 @@
     "eventFingerprint": "3757785719e5ecf4b352976e4c2c53ebf28b5abf4dd3820bdd2561d655cef2a3",
     "revision": 9,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-22T12:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -5150,11 +5163,18 @@
     "renderPath": "renders/2026-10-22_18-30_saunagus_event-day-3757785719.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "7899db3207e176778b6f0d8b59d816af184b3be4dcdb31a0b851c958960e6186",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "7899db3207e176778b6f0d8b59d816af184b3be4dcdb31a0b851c958960e6186",
     "githubIssueNumber": null,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5166,7 +5186,7 @@
     "eventFingerprint": "a2b6065c135c9d7659dff18047ffb24c4ea0d55ef70ffcb7a47c25d64b17e15f",
     "revision": 9,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-24T10:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -5212,11 +5232,18 @@
     "renderPath": "renders/2026-10-25_16-00_saunagus_day-before-a2b6065c13.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "2dfc48b4a4aba3bebb5236771eb84002753aca408d83ad3be89e1eedf5282a96",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "2dfc48b4a4aba3bebb5236771eb84002753aca408d83ad3be89e1eedf5282a96",
     "githubIssueNumber": null,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5228,7 +5255,7 @@
     "eventFingerprint": "a2b6065c135c9d7659dff18047ffb24c4ea0d55ef70ffcb7a47c25d64b17e15f",
     "revision": 9,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-25T09:30:00+01:00",
     "season": "autumn",
     "event": {
@@ -5274,11 +5301,18 @@
     "renderPath": "renders/2026-10-25_16-00_saunagus_event-day-a2b6065c13.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "d96da1872e4c84b8ca76a61754d4a388f5b27a3c9df717a31d748306355be1ff",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "d96da1872e4c84b8ca76a61754d4a388f5b27a3c9df717a31d748306355be1ff",
     "githubIssueNumber": null,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5290,7 +5324,7 @@
     "eventFingerprint": "97b6142db63bb6594ae42e7c187014ea8612bc46bf97d7d245e8114dec73b545",
     "revision": 1,
     "kind": "weekly_overview",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-25T19:30:00+01:00",
     "season": "autumn",
     "event": null,
@@ -5372,12 +5406,18 @@
         "type": "change_instructor",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "4826ac37a2bcf012adf4a3868fc5edf2a6c5b9225fc436624a628cf8730f956c",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "4826ac37a2bcf012adf4a3868fc5edf2a6c5b9225fc436624a628cf8730f956c",
     "githubIssueNumber": 96,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5389,7 +5429,7 @@
     "eventFingerprint": "e821c6fa98e9564d65eb446facba74d7e83f0ef77d29330e2a7dc8923ca0d34a",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-26T19:30:00+01:00",
     "season": "autumn",
     "event": {
@@ -5475,12 +5515,18 @@
         "type": "change_instructor",
         "from": "needs_review",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "29828cd2851e8d93bda237e26dfaef0f169915d088fff15715c372f73fd93c34",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "29828cd2851e8d93bda237e26dfaef0f169915d088fff15715c372f73fd93c34",
     "githubIssueNumber": 97,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5492,7 +5538,7 @@
     "eventFingerprint": "e821c6fa98e9564d65eb446facba74d7e83f0ef77d29330e2a7dc8923ca0d34a",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-27T12:00:00+01:00",
     "season": "autumn",
     "event": {
@@ -5584,12 +5630,18 @@
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "3aad5264db16a3fec7931bd16219ae775daf82985cea9e446421506c12dd8349",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "3aad5264db16a3fec7931bd16219ae775daf82985cea9e446421506c12dd8349",
     "githubIssueNumber": 98,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5601,7 +5653,7 @@
     "eventFingerprint": "1eb683da4962b903cbd89c51883ec6a1d518f3b0ce39ccbf77f54ce794bbab86",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-28T19:30:00+01:00",
     "season": "autumn",
     "event": {
@@ -5647,11 +5699,18 @@
     "renderPath": "renders/2026-10-29_18-30_saunagus_day-before-1eb683da49.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "bc277c9850625fcf073348ee09287d139b5d3e39ed3eb912185e70a43c4cc039",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "bc277c9850625fcf073348ee09287d139b5d3e39ed3eb912185e70a43c4cc039",
     "githubIssueNumber": 99,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5663,7 +5722,7 @@
     "eventFingerprint": "1eb683da4962b903cbd89c51883ec6a1d518f3b0ce39ccbf77f54ce794bbab86",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-29T12:00:00+01:00",
     "season": "autumn",
     "event": {
@@ -5709,11 +5768,18 @@
     "renderPath": "renders/2026-10-29_18-30_saunagus_event-day-1eb683da49.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "a0399a503eb30fd5ada11b52d83d894fbb6669c396c2d6bec34e33a6865e9146",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "a0399a503eb30fd5ada11b52d83d894fbb6669c396c2d6bec34e33a6865e9146",
     "githubIssueNumber": 100,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5725,7 +5791,7 @@
     "eventFingerprint": "4e5fd279b205e81472017c33b886c0ad57fe5d14ac2063785393aa25db24c803",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-31T10:00:00+01:00",
     "season": "winter",
     "event": {
@@ -5771,11 +5837,18 @@
     "renderPath": "renders/2026-11-01_16-00_saunagus_day-before-4e5fd279b2.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "893df10f2e879178c3c29fa98032ff6a4efd2226decc327f1293731aff3678cd",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "893df10f2e879178c3c29fa98032ff6a4efd2226decc327f1293731aff3678cd",
     "githubIssueNumber": 101,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -5787,7 +5860,7 @@
     "eventFingerprint": "4e5fd279b205e81472017c33b886c0ad57fe5d14ac2063785393aa25db24c803",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-01T09:30:00+01:00",
     "season": "winter",
     "event": {
@@ -5833,11 +5906,18 @@
     "renderPath": "renders/2026-11-01_16-00_saunagus_event-day-4e5fd279b2.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:27:06.125Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "942156bf772a9727280b754da818031ae82dd216fa70b81b23969e39b1fd2fd2",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:27:06.125Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "942156bf772a9727280b754da818031ae82dd216fa70b81b23969e39b1fd2fd2",
     "githubIssueNumber": 102,
     "reminderState": null,
     "warningsAcknowledged": false
