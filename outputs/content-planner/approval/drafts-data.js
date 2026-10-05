@@ -737,7 +737,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "854baddbbf72361c31f39f12783a754535d410d9fefb6dd2d753ec845c1f8436",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 120
   },
   {
     "draftId": "2026-10-08_18-30_saunagus_event-day_r7",
@@ -940,7 +941,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "3e29f5af041fefa61a27825056f42cb0c46687b57402d00e1809a43876138e32",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 121
   },
   {
     "draftId": "2026-10-12_weekly-overview_r11",
