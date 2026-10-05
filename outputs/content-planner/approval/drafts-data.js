@@ -4713,7 +4713,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "50a48735336b0cb6e27132395123d1b9601a6801127b77ca37d2a4f1959a08dd",
     "revision": 8,
     "kind": "weekly_overview",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-18T19:30:00+02:00",
     "season": "autumn",
     "event": null,
@@ -4789,11 +4789,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-10-19_weekly-overview-50a4873533.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:24:47.664Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "6af507d2c73c04c8e74e44bbabddf389524997d0f5a9ec8ab2153d1ee96f1d12",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-10-05T08:24:47.664Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "6af507d2c73c04c8e74e44bbabddf389524997d0f5a9ec8ab2153d1ee96f1d12",
     "githubIssueNumber": null,
     "reminderState": null,
     "warningsAcknowledged": false
