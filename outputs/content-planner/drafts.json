@@ -332,7 +332,7 @@
     "eventFingerprint": "7b1f775b4131503098fbe67f0f45dea6deb7c1c5ccdfa094c6d18b5eb568d3f7",
     "revision": 7,
     "kind": "day_before",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-05T19:30:00+02:00",
     "season": "autumn",
     "event": {
@@ -430,7 +430,8 @@
       "revision": "8102f111b3b632b304a472b4c8c2c285504c1f0c65bf8e0936b872d2af56d2a2",
       "sent72At": "2026-10-03T05:42:19.050Z"
     },
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-05T17:32:57.068Z"
   },
   {
     "draftId": "2026-10-06_18-30_saunagus_event-day_r7",
