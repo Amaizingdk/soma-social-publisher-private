@@ -3541,7 +3541,7 @@
     "eventFingerprint": "2d439811fa4fe932379a1f919a5684d6ef4880b240b42a3fd78e00f810a0444e",
     "revision": 13,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-10-17T10:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -3587,10 +3587,19 @@
     "renderPath": "renders/2026-10-18_16-00_saunagus_day-before-2d439811fa.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-05T08:23:02.715Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "fb2a5f89823c41486595783c2e90cedec9c5889ae4ce93bfba8ed2877039e29f",
-    "approvedAt": null,
-    "warningsAcknowledged": false
+    "approvedAt": "2026-10-05T08:23:02.715Z",
+    "warningsAcknowledged": false,
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "fb2a5f89823c41486595783c2e90cedec9c5889ae4ce93bfba8ed2877039e29f"
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_day-before_r7",
