@@ -2736,7 +2736,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I morgen: Giv dig selv en stille stund i varmen.\n\n15. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 15. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nGiv dig selv en stille stund i varmen.\n\nVi starter med åndedrættet og lader derefter dufte, musik og varme føre dig længere ind i roen.\n\nDu skal ikke præstere noget – du skal bare være med."
     },
-    "contentFingerprint": "47f0a135e1884e9026bdc0b1852507f62fc3610bc87329d30646df5a7b20e00b",
+    "contentFingerprint": "688cd66a459467cf3ab97393ceec265a3d38ea81d2a3221df14013c3886cdbd4",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -2744,20 +2744,29 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-img-5592",
+    "assetId": "soma-img-5597",
     "render": {
       "path": "renders/2026-10-15_18-30_saunagus_day-before-7ce102d100.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "a33b5546c6e7c5a8180f7293428e6975959fd194225326dc1c35ccc25c11b56a"
+      "sha256": "2b9440bf7198af289fda87ae1ed8862209b62af218432fa007865ab9c03ffc55"
     },
     "renderPath": "renders/2026-10-15_18-30_saunagus_day-before-7ce102d100.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "c6979825607b99b7779d05af0dd489e58e853fc537abc9cbeae1772a86581c29",
+    "manualAssetId": "soma-img-5597",
+    "history": [
+      {
+        "at": "2026-10-05T08:21:10.621Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "5ff5dc754a3313221051cfb89d185da37fd70765bfa8d0afa6dc01425cae4624",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "approvedBy": null,
+    "approvedRevision": null
   },
   {
     "draftId": "2026-10-15_18-30_saunagus_event-day_r11",
