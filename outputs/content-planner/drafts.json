@@ -3917,7 +3917,7 @@
       "instagram": "I morgen: Et mellemrum fra hverdagen. Et rum, hvor du bare må være.\n\nMELLEMRUM GUS med MilleMaja fra Betterlife by Yndigegn\n\n18. oktober 2026 · 10.00–12.00\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 18. oktober 2026 · 10.00–12.00\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen inviteres du til MELLEMRUM GUS med MilleMaja fra Betterlife by Yndigegn.\n\nEt mellemrum fra hverdagen. Et rum, hvor du bare må være.\n\nMusik, dufte, varme og guidning understøtter nærvær.\n\nGiv dig selv et mellemrum i varmen."
     },
-    "contentFingerprint": "2f3ec572ae02b0456db9446e75767fe25b7676f8c914e20c129feaf8cab9b0e4",
+    "contentFingerprint": "125bc5c25b342ed2c7957d4797351391519700c576aec4e91ceade0b5bb56016",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -3925,20 +3925,29 @@
       "event.name",
       "override:2026-10-18-mellemrum-10-00"
     ],
-    "assetId": "soma-img-5592",
+    "assetId": "soma-outdoor-sunday",
     "render": {
       "path": "renders/2026-10-18_10-00_saunagus_day-before-8837b2d127.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "0bbf28447386b6f9438c8c224583c602151ce401387d72639650046868968aaa"
+      "sha256": "acd95b81807af1ff8a855b7a5f8e893a598b0395b020721a24e5b6637bda4685"
     },
     "renderPath": "renders/2026-10-18_10-00_saunagus_day-before-8837b2d127.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "3f55b11d6a52cfde618de2234dd4456439126e009bb8ff0066a9e99ef33191ce",
+    "manualAssetId": "soma-outdoor-sunday",
+    "history": [
+      {
+        "at": "2026-10-05T08:23:13.186Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "37d699d1d6f08ba08ed665d05ae95187ec92bf17370dd0dd0cf0d72cc75f9be8",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "approvedBy": null,
+    "approvedRevision": null
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_event-day_r7",
