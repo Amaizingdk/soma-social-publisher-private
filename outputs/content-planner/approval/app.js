@@ -270,8 +270,21 @@
     });
   }
 
+  // Afsluttede kladder (udgivet, sprunget over, afvist, forældet) hører ikke til i oversigten.
+  const HIDDEN_STATUSES = new Set(['obsolete', 'skipped', 'published', 'rejected']);
+
   function visibleDrafts() {
-    return drafts.filter((draft) => draft.status !== 'obsolete' && draftHasUpcomingEvent(draft));
+    return drafts.filter((draft) => !HIDDEN_STATUSES.has(draft.status) && draftHasUpcomingEvent(draft));
+  }
+
+  // Det gemte tekstantal kan være ældre end kalenderen; udgivelsen retter det til det aktuelle antal.
+  function availabilityNote(draft) {
+    const info = draft.availability;
+    const capacity = draft.event?.capacity;
+    if (!info || draft.kind === 'weekly_overview') return null;
+    if (info.soldOut) return 'Ledige pladser nu: udsolgt. Teksten rettes automatisk, når opslaget udgives.';
+    if (!Number.isInteger(info.free) || !Number.isInteger(capacity)) return null;
+    return `Ledige pladser nu: ${info.free} af ${capacity}. Antallet i teksten rettes automatisk til det aktuelle, når opslaget udgives.`;
   }
 
   function setPreviewSource(image, renderPath, version = '') {
@@ -363,6 +376,13 @@
       meta.className = 'meta';
       meta.textContent = dateLabel(draft.event) || draft.scheduledFor;
       editor.append(status, title, meta);
+      const availabilityText = availabilityNote(draft);
+      if (availabilityText) {
+        const availability = document.createElement('p');
+        availability.className = 'availability';
+        availability.textContent = availabilityText;
+        editor.append(availability);
+      }
       if (draft.instructorOptions && draft.eventKey) {
         const label = document.createElement('label');
         label.className = 'instructor-picker';

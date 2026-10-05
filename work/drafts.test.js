@@ -345,3 +345,24 @@ test('unapproved draft with a changed content fingerprint still gets a new revis
   assert.equal(result.find((draft) => draft.draftId === old.draftId).status, 'obsolete');
   assert.equal(result.find((draft) => draft.revision === 2).status, 'draft');
 });
+
+test('approval page hides skipped, published and rejected drafts and shows live availability', async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const event = { eventKey: 'event-1', date: '2026-10-15', start: '18:30', end: '20:30', name: 'Saunagus', instructor: 'Søren', capacity: 12 };
+    const live = generated({
+      draftId: 'live_r1', status: 'approved', event, availability: { free: 11, soldOut: false, label: '11 ledige pladser' },
+    });
+    const hidden = ['skipped', 'published', 'rejected', 'obsolete'].map((status) =>
+      generated({ draftId: `${status}_r1`, status, event }));
+    const page = await browser.newPage({ viewport: { width: 900, height: 900 } });
+    await page.addInitScript((value) => { window.__SOMA_DRAFTS__ = value; }, [live, ...hidden]);
+    const fileUrl = `file:///${path.join(__dirname, '..', 'outputs', 'content-planner', 'approval', 'index.html').replace(/\\/g, '/')}`;
+    await page.goto(fileUrl);
+    await page.waitForSelector('.draft');
+    assert.equal(await page.locator('.draft').count(), 1);
+    assert.match(await page.locator('.availability').innerText(), /Ledige pladser nu: 11 af 12/);
+  } finally {
+    await browser.close();
+  }
+});
