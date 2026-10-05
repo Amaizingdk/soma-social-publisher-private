@@ -41,13 +41,22 @@ async function extractRawEvents(root) {
   ));
 }
 
-async function readCalendar(page, now = new Date(), weeksAhead = 4) {
-  await page.goto(CALENDAR_URL, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-  const events = await readCalendarWeeks(page, { now, weeksAhead });
-  if (events.length === 0) {
-    throw new Error('Kalenderen indeholdt ingen kommende events');
+// Kalenderen svarer langsomt fra GitHubs servere; hele læsningen prøves derfor op til tre gange.
+async function readCalendar(page, now = new Date(), weeksAhead = 4, { attempts = 3 } = {}) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      await page.goto(CALENDAR_URL, { waitUntil: 'domcontentloaded', timeout: 90_000 });
+      const events = await readCalendarWeeks(page, { now, weeksAhead });
+      if (events.length === 0) {
+        throw new Error('Kalenderen indeholdt ingen kommende events');
+      }
+      return events;
+    } catch (error) {
+      lastError = error;
+    }
   }
-  return events;
+  throw lastError;
 }
 
 async function writeEventsAtomic(events, outputPath = OUTPUT_PATH) {

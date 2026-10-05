@@ -10,6 +10,7 @@ const { extractWeekEvents } = require('./lib/calendar-navigation');
 const { loadJsonValidated, writeJsonAtomic } = require('./lib/io');
 const { validateProfiles, validateOverrides, resolveContentSource } = require('./lib/profile-resolver');
 const { buildSchedule } = require('./lib/schedule');
+const { findVanishedWeeks } = require('./lib/calendar-sanity');
 const { buildCopyPackage } = require('./lib/copy');
 const { validateAssetRegistry, selectAsset } = require('./lib/assets');
 const { renderDraftImage } = require('./lib/render');
@@ -68,6 +69,16 @@ async function writeApprovalPayload(outputDir, drafts) {
   await writeTextAtomic(path.join(outputDir, 'approval', 'drafts-data.js'), `window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || ${json};\n`);
 }
 
+async function readPreviousEvents(outputDir) {
+  try {
+    const value = JSON.parse(await fs.readFile(path.join(outputDir, 'events.json'), 'utf8'));
+    return Array.isArray(value) ? value : [];
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+}
+
 async function readPreviousDrafts(outputDir) {
   try {
     const value = JSON.parse(await fs.readFile(path.join(outputDir, 'drafts.json'), 'utf8'));
@@ -123,7 +134,18 @@ async function runPipeline({
       await page.setContent(await fs.readFile(path.resolve(fixturePath), 'utf8'), { waitUntil: 'load' });
       events = await extractWeekEvents(page, now);
     } else {
+      const previousEvents = await readPreviousEvents(outputDir);
       events = await readCalendar(page, now, config.weeksAhead);
+      // En hel uge, der før havde events, og nu er tom, er næsten altid en ufuldstændig læsning.
+      // Læs igen; ellers stop, så ingen kladder (heller ikke godkendte) bliver forældede ved en fejl.
+      let vanished = findVanishedWeeks(previousEvents, events, now);
+      for (let retry = 0; retry < 2 && vanished.length; retry += 1) {
+        events = await readCalendar(page, now, config.weeksAhead);
+        vanished = findVanishedWeeks(previousEvents, events, now);
+      }
+      if (vanished.length) {
+        throw new Error(`Kalenderen mangler uger, der havde events før (uge fra ${vanished.join(', ')}). Læsningen anses for ufuldstændig, og kladderne er ikke ændret.`);
+      }
     }
     if (!events.length) throw new Error('Ingen kommende events blev fundet');
 
