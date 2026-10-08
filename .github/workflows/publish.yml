@@ -95,8 +95,31 @@ jobs:
           SOMA_META_ACCESS_TOKEN: ${{ secrets.SOMA_META_ACCESS_TOKEN }}
         run: node outputs/content-planner/validate-meta.js
 
+  check_due:
+    if: (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish')) && vars.PUBLISH_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      due: ${{ steps.due.outputs.due }}
+    steps:
+      - name: Checkout verified runtime
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Use Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check for due approved content
+        id: due
+        env:
+          SOMA_DRAFT_ID: ${{ inputs.draft_id }}
+        run: node outputs/content-planner/check-due.js
+
   publish:
-    if: (github.event_name == 'schedule' && vars.PUBLISH_ENABLED == 'true') || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish')
+    needs: check_due
+    if: needs.check_due.outputs.due == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write

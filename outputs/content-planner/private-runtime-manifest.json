@@ -10,6 +10,10 @@
       "destination": "outputs/content-planner/lib"
     },
     {
+      "source": "outputs/content-planner/check-due.js",
+      "destination": "outputs/content-planner/check-due.js"
+    },
+    {
       "source": "outputs/content-planner/publish-due-content.js",
       "destination": "outputs/content-planner/publish-due-content.js"
     },
