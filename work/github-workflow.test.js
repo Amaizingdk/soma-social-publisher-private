@@ -41,6 +41,25 @@ test('schedule is gated by PUBLISH_ENABLED and secrets exist only in the publish
   assert.doesNotMatch(yaml, /^env:/m);
 });
 
+test('external dispatch needs the PUBLISH_ENABLED switch and a cheap due check before the heavy publisher', async () => {
+  const yaml = await fs.readFile(publishPath, 'utf8');
+  const start = yaml.indexOf('  check_due:');
+  const end = yaml.indexOf('  publish:', start);
+  assert.ok(start > -1 && end > start);
+  const checkDue = yaml.slice(start, end);
+  assert.match(checkDue, /vars\.PUBLISH_ENABLED == 'true'/);
+  assert.match(checkDue, /github\.event_name == 'schedule'/);
+  assert.match(checkDue, /inputs\.mode == 'publish'/);
+  assert.match(checkDue, /contents:\s*read/);
+  assert.match(checkDue, /persist-credentials:\s*false/);
+  assert.match(checkDue, /node outputs\/content-planner\/check-due\.js/);
+  assert.doesNotMatch(checkDue, /secrets\./);
+  assert.doesNotMatch(checkDue, /playwright|npm ci/);
+  const publishJob = yaml.slice(end);
+  assert.match(publishJob, /needs:\s*check_due/);
+  assert.match(publishJob, /if:\s*needs\.check_due\.outputs\.due == 'true'/);
+});
+
 test('CI uses locked dependencies, Node 24, Chromium, read-only contents, and no secrets', async () => {
   const yaml = await fs.readFile(ciPath, 'utf8');
   assert.match(yaml, /actions\/checkout@v4/);
