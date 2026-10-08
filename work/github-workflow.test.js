@@ -60,6 +60,24 @@ test('external dispatch needs the PUBLISH_ENABLED switch and a cheap due check b
   assert.match(publishJob, /if:\s*needs\.check_due\.outputs\.due == 'true'/);
 });
 
+test('every job has a timeout and every Chromium install is cut off early, so a hang cannot block the queue', async () => {
+  const files = [publishPath, operationsPath, mobileLivePath, ciPath];
+  for (const file of files) {
+    const yaml = await fs.readFile(file, 'utf8');
+    const jobsSection = yaml.slice(yaml.indexOf('\njobs:\n'));
+    const jobs = jobsSection.split(/^  ([\w-]+):\n/m).slice(1);
+    assert.ok(jobs.length >= 2, path.basename(file));
+    for (let index = 0; index < jobs.length; index += 2) {
+      const match = jobs[index + 1].match(/^    timeout-minutes:\s*(\d+)$/m);
+      assert.ok(match, `${path.basename(file)}:${jobs[index]} mangler timeout-minutes`);
+      assert.ok(Number(match[1]) <= 20, `${path.basename(file)}:${jobs[index]} timeout er for høj`);
+    }
+    for (const step of yaml.split('      - name: ').filter((part) => part.startsWith('Install Chromium'))) {
+      assert.match(step, /timeout-minutes:\s*5\b/, `${path.basename(file)}: Install Chromium mangler timeout`);
+    }
+  }
+});
+
 test('CI uses locked dependencies, Node 24, Chromium, read-only contents, and no secrets', async () => {
   const yaml = await fs.readFile(ciPath, 'utf8');
   assert.match(yaml, /actions\/checkout@v4/);

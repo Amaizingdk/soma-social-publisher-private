@@ -139,6 +139,43 @@ test('changed generated copy creates a new revision for an unapproved draft', ()
   assert.equal(next.status, 'draft');
 });
 
+test('an approved draft replaced by a new revision marks the lost approval on the new revision', () => {
+  const old = generated({ status: 'approved', approvedAt: '2026-10-03T11:37:00Z', approvedRevision: 'rev-a', contentRevision: 'rev-a' });
+  const changed = generated({ scheduledFor: '2026-10-03T10:00:00+02:00', contentRevision: 'rev-b' });
+  const result = reconcileDrafts([old], [changed], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
+  const next = result.find((draft) => draft.revision === 2);
+
+  assert.equal(next.status, 'draft');
+  assert.equal(next.approvalLost.fromDraftId, old.draftId);
+  assert.equal(next.approvalLost.fromRevision, 1);
+  assert.equal(next.approvalLost.notifiedAt, null);
+});
+
+test('a never-approved draft replaced by a new revision carries no lost-approval mark', () => {
+  const old = generated({ status: 'draft' });
+  const result = reconcileDrafts([old], [generated({ eventFingerprint: 'fingerprint-2' })], [{ eventKey: 'event-1', fingerprint: 'fingerprint-2' }]);
+  assert.equal(result.find((draft) => draft.revision === 2).approvalLost, null);
+});
+
+test('later revisions inherit the lost-approval mark and its notification time', () => {
+  const approved = generated({ status: 'approved', approvedRevision: 'rev-a', contentRevision: 'rev-a' });
+  const events = [{ eventKey: 'event-1', fingerprint: 'fingerprint-2' }];
+  const second = reconcileDrafts([approved], [generated({ eventFingerprint: 'fingerprint-2' })], events);
+  const r2 = second.find((draft) => draft.revision === 2);
+  r2.approvalLost.notifiedAt = '2026-10-05T10:00:00.000Z';
+
+  const third = reconcileDrafts(second, [generated({ eventFingerprint: 'fingerprint-3' })], events);
+  const r3 = third.find((draft) => draft.revision === 3);
+  assert.equal(r3.approvalLost.fromRevision, 1);
+  assert.equal(r3.approvalLost.notifiedAt, '2026-10-05T10:00:00.000Z');
+});
+
+test('an unchanged draft keeps its lost-approval mark across reconciliation', () => {
+  const marked = generated({ status: 'draft', approvalLost: { fromDraftId: 'x_r1', fromRevision: 1, at: '2026-10-05T10:00:00.000Z', notifiedAt: null } });
+  const result = reconcileDrafts([marked], [generated()], [{ eventKey: 'event-1', fingerprint: 'fingerprint-1' }]);
+  assert.deepEqual(result[0].approvalLost, marked.approvalLost);
+});
+
 test('removed event marks old unposted draft obsolete', () => {
   const result = reconcileDrafts([generated()], [], []);
   assert.equal(result[0].status, 'obsolete');
