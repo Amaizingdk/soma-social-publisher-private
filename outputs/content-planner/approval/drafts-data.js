@@ -137,7 +137,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "ec39918aa30405302ab9f2873299a43819576c9795d0b4f7b166703fa0c37f7a",
     "revision": 11,
     "kind": "event_day",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-08T12:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -197,7 +197,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedRevision": "acd4c1e0314baffaefd6704895abb8688ca53331e21020b14ef9a3ab5017301e",
     "githubIssueNumber": 130,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-08T10:02:57.743Z"
   },
   {
     "draftId": "2026-10-12_weekly-overview_r11",
