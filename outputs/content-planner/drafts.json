@@ -6,7 +6,7 @@
     "eventFingerprint": "cc080add0670657aa338ea2dd63ee3b23f72edbae7978ab07d8349597a1a849b",
     "revision": 11,
     "kind": "weekly_overview",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-11T19:30:00+02:00",
     "season": "autumn",
     "event": null,
@@ -125,7 +125,8 @@
     "approvedRevision": "004457283152ad062eb27e529a99e41ef8f65847f36d0e9b51faec5d4a5f1a04",
     "githubIssueNumber": 103,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-11T17:33:11.904Z"
   },
   {
     "draftId": "2026-10-13_18-30_saunagus_day-before_r12",
@@ -1648,7 +1649,8 @@
     "history": [],
     "contentRevision": "a003abe77fc94fb878c9bcce1cf4ae4fe6e52f73b2d2b6de2e404e5386fd14a3",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 134
   },
   {
     "draftId": "2026-10-27_18-30_saunagus_day-before_r1",
@@ -1857,7 +1859,8 @@
     "history": [],
     "contentRevision": "8b7adc7e43d861beea6623494a524d39e9e636dead0e0a53d61516a13ba77edd",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 135
   },
   {
     "draftId": "2026-10-27_18-30_saunagus_event-day_r1",
@@ -2072,7 +2075,8 @@
     "history": [],
     "contentRevision": "ca7db73b9853f37179d8c5e1a70f4a0e4b430134f0874ceef82b7fa6d051d3bb",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 136
   },
   {
     "draftId": "2026-10-29_18-30_saunagus_day-before_r1",
@@ -2205,7 +2209,8 @@
     "history": [],
     "contentRevision": "bc277c9850625fcf073348ee09287d139b5d3e39ed3eb912185e70a43c4cc039",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 137
   },
   {
     "draftId": "2026-10-29_18-30_saunagus_event-day_r1",
@@ -2338,7 +2343,8 @@
     "history": [],
     "contentRevision": "a0399a503eb30fd5ada11b52d83d894fbb6669c396c2d6bec34e33a6865e9146",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 138
   },
   {
     "draftId": "2026-11-01_16-00_saunagus_day-before_r1",
