@@ -132,7 +132,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "draftId": "2026-10-13_18-30_saunagus_day-before_r12",
     "slotKey": "2026-10-13_18-30_saunagus_day-before",
     "eventKey": "2026-10-13_18-30_saunagus",
-    "eventFingerprint": "0577ece7ff8ebb86a869d746faf796434807f041316560c944af180bde0ccb05",
+    "eventFingerprint": "6275a9077080ce75d5834440fc7d805f0be2828df47b38e5067ae0467623098d",
     "revision": 12,
     "kind": "day_before",
     "status": "approved",
@@ -143,19 +143,19 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "start": "18:30",
       "end": "20:30",
       "name": "Saunagus",
-      "booked": 2,
+      "booked": 4,
       "capacity": 12,
       "instructor": "Søren",
       "description": null,
-      "sourceText": "18:30 - 20:30 SAUNAGUS 2/12 Tilmeld",
+      "sourceText": "18:30 - 20:30 SAUNAGUS 4/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-13_18-30_saunagus",
-      "fingerprint": "62b8baa17fec14f908fae5522c3ca9a1e175b7693274233d065bc281bbcce4c8"
+      "fingerprint": "d67147cf3457c5132dcaf2fca794aec903bbf512a091cc776d1527353cee1d33"
     },
     "availability": {
-      "free": 10,
-      "label": "10 ledige pladser",
+      "free": 8,
+      "label": "8 ledige pladser",
       "soldOut": false
     },
     "warnings": [],
@@ -163,7 +163,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I morgen: Kom ind i varmen, land i kroppen og vær lige her.\n\n13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære."
     },
-    "contentFingerprint": "360e1a6388b9a2a82d2b88a5eefb8bacb47f938603d59c2c1a56bf470ec574ac",
+    "contentFingerprint": "196af82d5ca005c256443a6c493beed930fd68ca759d44ab0bc976d63c50526d",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -241,7 +241,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "draftId": "2026-10-13_18-30_saunagus_event-day_r12",
     "slotKey": "2026-10-13_18-30_saunagus_event-day",
     "eventKey": "2026-10-13_18-30_saunagus",
-    "eventFingerprint": "0577ece7ff8ebb86a869d746faf796434807f041316560c944af180bde0ccb05",
+    "eventFingerprint": "6275a9077080ce75d5834440fc7d805f0be2828df47b38e5067ae0467623098d",
     "revision": 12,
     "kind": "event_day",
     "status": "approved",
@@ -252,19 +252,19 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "start": "18:30",
       "end": "20:30",
       "name": "Saunagus",
-      "booked": 2,
+      "booked": 4,
       "capacity": 12,
       "instructor": "Søren",
       "description": null,
-      "sourceText": "18:30 - 20:30 SAUNAGUS 2/12 Tilmeld",
+      "sourceText": "18:30 - 20:30 SAUNAGUS 4/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-13_18-30_saunagus",
-      "fingerprint": "62b8baa17fec14f908fae5522c3ca9a1e175b7693274233d065bc281bbcce4c8"
+      "fingerprint": "d67147cf3457c5132dcaf2fca794aec903bbf512a091cc776d1527353cee1d33"
     },
     "availability": {
-      "free": 10,
-      "label": "10 ledige pladser",
+      "free": 8,
+      "label": "8 ledige pladser",
       "soldOut": false
     },
     "warnings": [],
@@ -272,7 +272,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I dag: Lad skuldrene sænke sig, mens varmen tager over.\n\n13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 13. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLad skuldrene sænke sig, mens varmen tager over.\n\nDer er mere kraft i musikken, mens kroppen inviteres til at give slip og finde ro.\n\nVi starter blidt, mærker rytmen og slutter roligt."
     },
-    "contentFingerprint": "d1db7ea2699307040313e39e2cc73cb61eeef65e41a46a2ef27de97dac7386f5",
+    "contentFingerprint": "9c04705681708bfb0ed51e5eac12b0e555072510d2cc2efcebbd684406351e78",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -373,7 +373,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-15_18-30_saunagus",
       "fingerprint": "4f37246704f92306f578dc22cd7342b7e2e583b98439a383d8a50f87e1217657"
     },
@@ -448,7 +448,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-15_18-30_saunagus",
       "fingerprint": "4f37246704f92306f578dc22cd7342b7e2e583b98439a383d8a50f87e1217657"
     },
@@ -517,7 +517,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-18_16-00_saunagus",
       "fingerprint": "aae1fdce1e83c12fadd4901107bc5dbf1f0e1ad41406f5259ab09a6c3a59847f"
     },
@@ -586,7 +586,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "10:00 - 12:00 SAUNAGUS Millemaja 1/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-18_10-00_saunagus",
       "fingerprint": "343a766951c1fa79f6c5788635b2acfcf30e35d108626b5e1d0a00dd981dc4af"
     },
@@ -661,7 +661,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "10:00 - 12:00 SAUNAGUS Millemaja 1/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-18_10-00_saunagus",
       "fingerprint": "343a766951c1fa79f6c5788635b2acfcf30e35d108626b5e1d0a00dd981dc4af"
     },
@@ -730,7 +730,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-18_16-00_saunagus",
       "fingerprint": "aae1fdce1e83c12fadd4901107bc5dbf1f0e1ad41406f5259ab09a6c3a59847f"
     },
@@ -801,7 +801,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-11T13:18:31.875Z",
+        "readAt": "2026-10-11T18:19:57.923Z",
         "eventKey": "2026-10-20_18-30_saunagus",
         "fingerprint": "bb35ac99aac0aa349a476bc4a3b86ac46dded01c46843a8fa5a31daeab95f6f0"
       },
@@ -816,7 +816,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-11T13:18:31.875Z",
+        "readAt": "2026-10-11T18:19:57.923Z",
         "eventKey": "2026-10-22_18-30_saunagus",
         "fingerprint": "b1c20a2939572d041d1a26fa2243c16004ac5f37ac7b5267d86a91cb790d62cb"
       },
@@ -831,7 +831,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-11T13:18:31.875Z",
+        "readAt": "2026-10-11T18:19:57.923Z",
         "eventKey": "2026-10-25_16-00_saunagus",
         "fingerprint": "b19e9908a84b3b73e66bb5438c72d7451e3eb04f1f5d7a22d03a2cb9201cdcb8"
       }
@@ -910,7 +910,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-20_18-30_saunagus",
       "fingerprint": "bb35ac99aac0aa349a476bc4a3b86ac46dded01c46843a8fa5a31daeab95f6f0"
     },
@@ -1019,7 +1019,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-20_18-30_saunagus",
       "fingerprint": "bb35ac99aac0aa349a476bc4a3b86ac46dded01c46843a8fa5a31daeab95f6f0"
     },
@@ -1134,7 +1134,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-22_18-30_saunagus",
       "fingerprint": "b1c20a2939572d041d1a26fa2243c16004ac5f37ac7b5267d86a91cb790d62cb"
     },
@@ -1203,7 +1203,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-22_18-30_saunagus",
       "fingerprint": "b1c20a2939572d041d1a26fa2243c16004ac5f37ac7b5267d86a91cb790d62cb"
     },
@@ -1272,7 +1272,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-25_16-00_saunagus",
       "fingerprint": "b19e9908a84b3b73e66bb5438c72d7451e3eb04f1f5d7a22d03a2cb9201cdcb8"
     },
@@ -1341,7 +1341,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-11T13:18:31.875Z",
+      "readAt": "2026-10-11T18:19:57.923Z",
       "eventKey": "2026-10-25_16-00_saunagus",
       "fingerprint": "b19e9908a84b3b73e66bb5438c72d7451e3eb04f1f5d7a22d03a2cb9201cdcb8"
     },
@@ -1570,7 +1570,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "97b6142db63bb6594ae42e7c187014ea8612bc46bf97d7d245e8114dec73b545",
     "revision": 3,
     "kind": "weekly_overview",
-    "status": "draft",
+    "status": "obsolete",
     "scheduledFor": "2026-10-25T19:30:00+01:00",
     "season": "autumn",
     "event": null,
@@ -1646,11 +1646,20 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-10-26_weekly-overview-97b6142db6.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-11T18:20:25.802Z",
+        "type": "obsolete",
+        "from": "draft",
+        "to": "obsolete"
+      }
+    ],
     "contentRevision": "a003abe77fc94fb878c9bcce1cf4ae4fe6e52f73b2d2b6de2e404e5386fd14a3",
     "approvedAt": null,
     "warningsAcknowledged": false,
-    "githubIssueNumber": 134
+    "githubIssueNumber": 134,
+    "approvedBy": null,
+    "approvedRevision": null
   },
   {
     "draftId": "2026-10-27_18-30_saunagus_day-before_r1",
@@ -1774,7 +1783,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "e821c6fa98e9564d65eb446facba74d7e83f0ef77d29330e2a7dc8923ca0d34a",
     "revision": 2,
     "kind": "day_before",
-    "status": "needs_review",
+    "status": "obsolete",
     "scheduledFor": "2026-10-26T19:30:00+01:00",
     "season": "autumn",
     "event": {
@@ -1856,11 +1865,20 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "renderPath": "renders/2026-10-27_18-30_saunagus_day-before-e821c6fa98-millemaja.jpg"
       }
     },
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-11T18:20:25.803Z",
+        "type": "obsolete",
+        "from": "needs_review",
+        "to": "obsolete"
+      }
+    ],
     "contentRevision": "8b7adc7e43d861beea6623494a524d39e9e636dead0e0a53d61516a13ba77edd",
     "approvedAt": null,
     "warningsAcknowledged": false,
-    "githubIssueNumber": 135
+    "githubIssueNumber": 135,
+    "approvedBy": null,
+    "approvedRevision": null
   },
   {
     "draftId": "2026-10-27_18-30_saunagus_event-day_r1",
@@ -1990,7 +2008,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "e821c6fa98e9564d65eb446facba74d7e83f0ef77d29330e2a7dc8923ca0d34a",
     "revision": 2,
     "kind": "event_day",
-    "status": "needs_review",
+    "status": "obsolete",
     "scheduledFor": "2026-10-27T12:00:00+01:00",
     "season": "autumn",
     "event": {
@@ -2072,11 +2090,20 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "renderPath": "renders/2026-10-27_18-30_saunagus_event-day-e821c6fa98-millemaja.jpg"
       }
     },
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-11T18:20:25.803Z",
+        "type": "obsolete",
+        "from": "needs_review",
+        "to": "obsolete"
+      }
+    ],
     "contentRevision": "ca7db73b9853f37179d8c5e1a70f4a0e4b430134f0874ceef82b7fa6d051d3bb",
     "approvedAt": null,
     "warningsAcknowledged": false,
-    "githubIssueNumber": 136
+    "githubIssueNumber": 136,
+    "approvedBy": null,
+    "approvedRevision": null
   },
   {
     "draftId": "2026-10-29_18-30_saunagus_day-before_r1",
@@ -2160,7 +2187,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "1eb683da4962b903cbd89c51883ec6a1d518f3b0ce39ccbf77f54ce794bbab86",
     "revision": 2,
     "kind": "day_before",
-    "status": "draft",
+    "status": "obsolete",
     "scheduledFor": "2026-10-28T19:30:00+01:00",
     "season": "autumn",
     "event": {
@@ -2206,11 +2233,20 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-10-29_18-30_saunagus_day-before-1eb683da49.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-11T18:20:25.803Z",
+        "type": "obsolete",
+        "from": "draft",
+        "to": "obsolete"
+      }
+    ],
     "contentRevision": "bc277c9850625fcf073348ee09287d139b5d3e39ed3eb912185e70a43c4cc039",
     "approvedAt": null,
     "warningsAcknowledged": false,
-    "githubIssueNumber": 137
+    "githubIssueNumber": 137,
+    "approvedBy": null,
+    "approvedRevision": null
   },
   {
     "draftId": "2026-10-29_18-30_saunagus_event-day_r1",
@@ -2294,7 +2330,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "1eb683da4962b903cbd89c51883ec6a1d518f3b0ce39ccbf77f54ce794bbab86",
     "revision": 2,
     "kind": "event_day",
-    "status": "draft",
+    "status": "obsolete",
     "scheduledFor": "2026-10-29T12:00:00+01:00",
     "season": "autumn",
     "event": {
@@ -2340,11 +2376,20 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-10-29_18-30_saunagus_event-day-1eb683da49.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-10-11T18:20:25.803Z",
+        "type": "obsolete",
+        "from": "draft",
+        "to": "obsolete"
+      }
+    ],
     "contentRevision": "a0399a503eb30fd5ada11b52d83d894fbb6669c396c2d6bec34e33a6865e9146",
     "approvedAt": null,
     "warningsAcknowledged": false,
-    "githubIssueNumber": 138
+    "githubIssueNumber": 138,
+    "approvedBy": null,
+    "approvedRevision": null
   },
   {
     "draftId": "2026-11-01_16-00_saunagus_day-before_r1",
@@ -2353,7 +2398,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "4e5fd279b205e81472017c33b886c0ad57fe5d14ac2063785393aa25db24c803",
     "revision": 1,
     "kind": "day_before",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-10-31T10:00:00+01:00",
     "season": "winter",
     "event": {
@@ -2405,12 +2450,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-11T18:20:25.803Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "893df10f2e879178c3c29fa98032ff6a4efd2226decc327f1293731aff3678cd",
-    "approvedAt": "2026-10-05T08:27:06.125Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "893df10f2e879178c3c29fa98032ff6a4efd2226decc327f1293731aff3678cd",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 101,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -2422,7 +2473,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "4e5fd279b205e81472017c33b886c0ad57fe5d14ac2063785393aa25db24c803",
     "revision": 1,
     "kind": "event_day",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-01T09:30:00+01:00",
     "season": "winter",
     "event": {
@@ -2474,12 +2525,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-11T18:20:25.803Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "942156bf772a9727280b754da818031ae82dd216fa70b81b23969e39b1fd2fd2",
-    "approvedAt": "2026-10-05T08:27:06.125Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "942156bf772a9727280b754da818031ae82dd216fa70b81b23969e39b1fd2fd2",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 102,
     "reminderState": null,
     "warningsAcknowledged": false
