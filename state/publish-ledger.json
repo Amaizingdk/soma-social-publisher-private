@@ -156,6 +156,16 @@
       "reservedAt": "2026-10-11T17:33:11.904Z",
       "providerId": "18151411165551811",
       "publishedAt": "2026-10-11T17:33:11.904Z"
+    },
+    {
+      "idempotencyKey": "630993bf512c8bccf8a51b4081bd25b0d62dc31a642abdf8728128bc31054901",
+      "draftId": "2026-10-12_weekly-overview_r11",
+      "revision": 11,
+      "platform": "facebookPage",
+      "deliveryType": "facebook_page_feed",
+      "scheduledFor": "2026-10-11T19:30:00+02:00",
+      "status": "reserved",
+      "reservedAt": "2026-10-11T17:33:11.904Z"
     }
   ]
 }
