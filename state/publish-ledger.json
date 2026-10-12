@@ -168,6 +168,16 @@
       "reservedAt": "2026-10-11T17:33:11.904Z",
       "providerId": "122192151470921025",
       "publishedAt": "2026-10-11T17:33:11.904Z"
+    },
+    {
+      "idempotencyKey": "1e2b4c8565ff49843fc2e092460b4e94b252173e714469d763a16f5060843117",
+      "draftId": "2026-10-13_18-30_saunagus_day-before_r12",
+      "revision": 12,
+      "platform": "instagram",
+      "deliveryType": "instagram_story",
+      "scheduledFor": "2026-10-12T19:30:00+02:00",
+      "status": "reserved",
+      "reservedAt": "2026-10-12T17:33:10.615Z"
     }
   ]
 }
