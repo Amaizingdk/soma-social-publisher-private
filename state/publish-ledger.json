@@ -200,8 +200,10 @@
       "platform": "instagram",
       "deliveryType": "instagram_story",
       "scheduledFor": "2026-10-13T12:00:00+02:00",
-      "status": "reserved",
-      "reservedAt": "2026-10-13T10:02:59.020Z"
+      "status": "published",
+      "reservedAt": "2026-10-13T10:02:59.020Z",
+      "providerId": "17954009316037651",
+      "publishedAt": "2026-10-13T10:02:59.020Z"
     }
   ]
 }
