@@ -201,7 +201,11 @@
     "approvedRevision": "5ff5dc754a3313221051cfb89d185da37fd70765bfa8d0afa6dc01425cae4624",
     "githubIssueNumber": 106,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "overdueReminderState": {
+      "revision": "5ff5dc754a3313221051cfb89d185da37fd70765bfa8d0afa6dc01425cae4624",
+      "sentAt": "2026-10-14T20:03:45.204Z"
+    }
   },
   {
     "draftId": "2026-10-15_18-30_saunagus_event-day_r12",
