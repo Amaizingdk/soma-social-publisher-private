@@ -149,7 +149,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 3/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-15_18-30_saunagus",
       "fingerprint": "588e8e9faaf64422d65b51c8a85ee503b31ec8f2a50413819e9aee0f3968832f"
     },
@@ -228,7 +228,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 3/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-15_18-30_saunagus",
       "fingerprint": "588e8e9faaf64422d65b51c8a85ee503b31ec8f2a50413819e9aee0f3968832f"
     },
@@ -297,7 +297,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-18_16-00_saunagus",
       "fingerprint": "e4beac29b24278ed8d61ff016e0788308f6336bc203b09623fbcf4c928144b61"
     },
@@ -366,7 +366,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "10:00 - 12:00 SAUNAGUS Millemaja 1/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-18_10-00_saunagus",
       "fingerprint": "343a766951c1fa79f6c5788635b2acfcf30e35d108626b5e1d0a00dd981dc4af"
     },
@@ -441,7 +441,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "10:00 - 12:00 SAUNAGUS Millemaja 1/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-18_10-00_saunagus",
       "fingerprint": "343a766951c1fa79f6c5788635b2acfcf30e35d108626b5e1d0a00dd981dc4af"
     },
@@ -510,7 +510,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-18_16-00_saunagus",
       "fingerprint": "e4beac29b24278ed8d61ff016e0788308f6336bc203b09623fbcf4c928144b61"
     },
@@ -581,7 +581,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-10-20_18-30_saunagus",
         "fingerprint": "bb35ac99aac0aa349a476bc4a3b86ac46dded01c46843a8fa5a31daeab95f6f0"
       },
@@ -596,7 +596,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-10-22_18-30_saunagus",
         "fingerprint": "b1c20a2939572d041d1a26fa2243c16004ac5f37ac7b5267d86a91cb790d62cb"
       },
@@ -611,7 +611,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-10-25_16-00_saunagus",
         "fingerprint": "b19e9908a84b3b73e66bb5438c72d7451e3eb04f1f5d7a22d03a2cb9201cdcb8"
       }
@@ -690,7 +690,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-20_18-30_saunagus",
       "fingerprint": "bb35ac99aac0aa349a476bc4a3b86ac46dded01c46843a8fa5a31daeab95f6f0"
     },
@@ -799,7 +799,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-20_18-30_saunagus",
       "fingerprint": "bb35ac99aac0aa349a476bc4a3b86ac46dded01c46843a8fa5a31daeab95f6f0"
     },
@@ -914,7 +914,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-22_18-30_saunagus",
       "fingerprint": "b1c20a2939572d041d1a26fa2243c16004ac5f37ac7b5267d86a91cb790d62cb"
     },
@@ -983,7 +983,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-22_18-30_saunagus",
       "fingerprint": "b1c20a2939572d041d1a26fa2243c16004ac5f37ac7b5267d86a91cb790d62cb"
     },
@@ -1052,7 +1052,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-25_16-00_saunagus",
       "fingerprint": "b19e9908a84b3b73e66bb5438c72d7451e3eb04f1f5d7a22d03a2cb9201cdcb8"
     },
@@ -1121,7 +1121,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-25_16-00_saunagus",
       "fingerprint": "b19e9908a84b3b73e66bb5438c72d7451e3eb04f1f5d7a22d03a2cb9201cdcb8"
     },
@@ -1192,7 +1192,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-10-27_18-30_saunagus",
         "fingerprint": "3afc274e59fe1dc93d6df3371122e0d09a573453209ed5fae93fa51c7a4698a3"
       },
@@ -1207,7 +1207,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-10-29_18-30_saunagus",
         "fingerprint": "c63910aba09726b491d313a03774e58f78045eb6b7066ba1f82d9e27a7e95cdb"
       },
@@ -1222,7 +1222,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-11-01_16-00_saunagus",
         "fingerprint": "37bada3dd75f7708a671392e950ac290d108aa17c9fd4e5df1380c40053c8de7"
       }
@@ -1282,7 +1282,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-27_18-30_saunagus",
       "fingerprint": "3afc274e59fe1dc93d6df3371122e0d09a573453209ed5fae93fa51c7a4698a3"
     },
@@ -1380,7 +1380,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-27_18-30_saunagus",
       "fingerprint": "3afc274e59fe1dc93d6df3371122e0d09a573453209ed5fae93fa51c7a4698a3"
     },
@@ -1478,7 +1478,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-29_18-30_saunagus",
       "fingerprint": "c63910aba09726b491d313a03774e58f78045eb6b7066ba1f82d9e27a7e95cdb"
     },
@@ -1540,7 +1540,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-10-29_18-30_saunagus",
       "fingerprint": "c63910aba09726b491d313a03774e58f78045eb6b7066ba1f82d9e27a7e95cdb"
     },
@@ -1602,7 +1602,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-11-01_16-00_saunagus",
       "fingerprint": "37bada3dd75f7708a671392e950ac290d108aa17c9fd4e5df1380c40053c8de7"
     },
@@ -1664,7 +1664,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-11-01_16-00_saunagus",
       "fingerprint": "37bada3dd75f7708a671392e950ac290d108aa17c9fd4e5df1380c40053c8de7"
     },
@@ -1728,7 +1728,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-11-03_18-30_saunagus",
         "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
       },
@@ -1743,7 +1743,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-11-05_18-30_saunagus",
         "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
       },
@@ -1758,7 +1758,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-15T01:42:24.849Z",
+        "readAt": "2026-10-15T07:07:41.814Z",
         "eventKey": "2026-11-08_16-00_saunagus",
         "fingerprint": "94f121052d7a2083c0ff5ab278b92fee47daa4892918890647d6cfe52e5329c6"
       }
@@ -1818,7 +1818,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-11-03_18-30_saunagus",
       "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
     },
@@ -1916,7 +1916,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-11-03_18-30_saunagus",
       "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
     },
@@ -2014,7 +2014,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-11-05_18-30_saunagus",
       "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
     },
@@ -2076,7 +2076,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-11-05_18-30_saunagus",
       "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
     },
@@ -2138,7 +2138,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-11-08_16-00_saunagus",
       "fingerprint": "94f121052d7a2083c0ff5ab278b92fee47daa4892918890647d6cfe52e5329c6"
     },
@@ -2200,7 +2200,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-15T01:42:24.849Z",
+      "readAt": "2026-10-15T07:07:41.814Z",
       "eventKey": "2026-11-08_16-00_saunagus",
       "fingerprint": "94f121052d7a2083c0ff5ab278b92fee47daa4892918890647d6cfe52e5329c6"
     },
