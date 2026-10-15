@@ -135,7 +135,7 @@
     "eventFingerprint": "17c467c81b553e164ff2a971df694fe554a33cd028f4dcc21b2503b49c40a44f",
     "revision": 12,
     "kind": "day_before",
-    "status": "approved",
+    "status": "skipped",
     "scheduledFor": "2026-10-14T19:30:00+02:00",
     "season": "autumn",
     "event": {
@@ -193,19 +193,27 @@
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-15T10:32:00.000Z",
+        "type": "manual_cancel",
+        "from": "approved",
+        "to": "skipped"
       }
     ],
     "contentRevision": "5ff5dc754a3313221051cfb89d185da37fd70765bfa8d0afa6dc01425cae4624",
-    "approvedAt": "2026-10-05T08:21:44.190Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "5ff5dc754a3313221051cfb89d185da37fd70765bfa8d0afa6dc01425cae4624",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 106,
     "reminderState": null,
     "warningsAcknowledged": false,
     "overdueReminderState": {
       "revision": "5ff5dc754a3313221051cfb89d185da37fd70765bfa8d0afa6dc01425cae4624",
       "sentAt": "2026-10-14T20:03:45.204Z"
-    }
+    },
+    "skipReason": "manually_cancelled",
+    "skippedAt": "2026-10-15T10:32:00.000Z"
   },
   {
     "draftId": "2026-10-15_18-30_saunagus_event-day_r12",
@@ -214,7 +222,7 @@
     "eventFingerprint": "17c467c81b553e164ff2a971df694fe554a33cd028f4dcc21b2503b49c40a44f",
     "revision": 12,
     "kind": "event_day",
-    "status": "approved",
+    "status": "skipped",
     "scheduledFor": "2026-10-15T12:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -266,15 +274,23 @@
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-15T10:32:00.000Z",
+        "type": "manual_cancel",
+        "from": "approved",
+        "to": "skipped"
       }
     ],
     "contentRevision": "32811a7bba4fbf92e07b01cb9f25add6a1f5117ebd7f35f203a7b50eec2b6f38",
-    "approvedAt": "2026-10-05T08:21:59.841Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "32811a7bba4fbf92e07b01cb9f25add6a1f5117ebd7f35f203a7b50eec2b6f38",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 107,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "skipReason": "manually_cancelled",
+    "skippedAt": "2026-10-15T10:32:00.000Z"
   },
   {
     "draftId": "2026-10-18_16-00_saunagus_day-before_r13",
