@@ -135,7 +135,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "ad303bde4248273429cd11c2307f0cc63eb4ab94550296cd24a6ca9443a8fd85",
     "revision": 13,
     "kind": "day_before",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-17T10:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -195,7 +195,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedRevision": "fb2a5f89823c41486595783c2e90cedec9c5889ae4ce93bfba8ed2877039e29f",
     "githubIssueNumber": 108,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-17T08:03:02.947Z"
   },
   {
     "draftId": "2026-10-18_10-00_saunagus_day-before_r8",
@@ -1041,7 +1042,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 155,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1103,7 +1104,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 156,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1165,7 +1166,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 157,
     "reminderState": null,
     "warningsAcknowledged": false
   },
