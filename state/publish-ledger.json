@@ -236,8 +236,10 @@
       "platform": "facebookPage",
       "deliveryType": "facebook_page_feed",
       "scheduledFor": "2026-10-17T10:00:00+02:00",
-      "status": "reserved",
-      "reservedAt": "2026-10-17T08:03:02.947Z"
+      "status": "published",
+      "reservedAt": "2026-10-17T08:03:02.947Z",
+      "providerId": "122192980724921025",
+      "publishedAt": "2026-10-17T08:03:02.947Z"
     }
   ]
 }
