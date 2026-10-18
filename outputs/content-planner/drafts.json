@@ -525,7 +525,11 @@
     "approvedRevision": "5b0a7fbac1ab12c6a2f58135253416bfc446636d0950aec9d020634c425a30ca",
     "githubIssueNumber": 112,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "overdueReminderState": {
+      "revision": "5b0a7fbac1ab12c6a2f58135253416bfc446636d0950aec9d020634c425a30ca",
+      "sentAt": "2026-10-18T19:24:54.687Z"
+    }
   },
   {
     "draftId": "2026-10-20_18-30_saunagus_day-before_r10",
