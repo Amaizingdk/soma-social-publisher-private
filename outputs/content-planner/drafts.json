@@ -351,7 +351,7 @@
     "eventFingerprint": "1a1d6f9736e47401a9cfa43e6f84353eda0ae578b3f3a932c4032b07155a7a27",
     "revision": 13,
     "kind": "event_day",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-18T09:30:00+02:00",
     "season": "autumn",
     "event": {
@@ -411,7 +411,8 @@
     "approvedRevision": "dabe89b2b56a9b79a773fbe44c4b2eddc84ab19b407a5cb1cab52bb4fdb585d0",
     "githubIssueNumber": 111,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-18T07:33:06.564Z"
   },
   {
     "draftId": "2026-10-19_weekly-overview_r8",
