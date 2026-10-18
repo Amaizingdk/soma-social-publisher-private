@@ -423,7 +423,7 @@
     "eventFingerprint": "ea6fe1061b516e0fcce984e5d83b511606f67ee9a77662506f0606df32ecf483",
     "revision": 8,
     "kind": "weekly_overview",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-18T19:30:00+02:00",
     "season": "autumn",
     "event": null,
@@ -529,7 +529,8 @@
     "overdueReminderState": {
       "revision": "5b0a7fbac1ab12c6a2f58135253416bfc446636d0950aec9d020634c425a30ca",
       "sentAt": "2026-10-18T19:24:54.687Z"
-    }
+    },
+    "publishedAt": "2026-10-18T23:21:55.963Z"
   },
   {
     "draftId": "2026-10-20_18-30_saunagus_day-before_r10",
