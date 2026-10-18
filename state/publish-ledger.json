@@ -276,6 +276,16 @@
       "reservedAt": "2026-10-18T05:04:46.312Z",
       "reason": "En tidligere kørsel stoppede efter reservation; kontrollér Meta manuelt",
       "manualReviewRequiredAt": "2026-10-18T05:17:51.927Z"
+    },
+    {
+      "idempotencyKey": "ec8399964846e1742d89ba3afc9b8cc113f90da964fc0d090ef85334481868b8",
+      "draftId": "2026-10-18_10-00_saunagus_event-day_r8",
+      "revision": 8,
+      "platform": "facebookPage",
+      "deliveryType": "facebook_page_feed",
+      "scheduledFor": "2026-10-18T07:00:00+02:00",
+      "status": "reserved",
+      "reservedAt": "2026-10-18T05:17:51.927Z"
     }
   ]
 }
