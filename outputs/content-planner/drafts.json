@@ -281,7 +281,7 @@
     "eventFingerprint": "96c5d38e75e36d9f3371e989a515da1e3ee37d1eca22b315a67d8d75d172a51c",
     "revision": 8,
     "kind": "event_day",
-    "status": "approved",
+    "status": "needs_correction",
     "scheduledFor": "2026-10-18T07:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -336,12 +336,13 @@
       }
     ],
     "contentRevision": "a7681e712930942d09d08a9332649674c416a040db85b45d4f142ffbc1e7aa54",
-    "approvedAt": "2026-10-05T08:24:07.369Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "a7681e712930942d09d08a9332649674c416a040db85b45d4f142ffbc1e7aa54",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 110,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "correctionReason": "manual_review_required"
   },
   {
     "draftId": "2026-10-18_16-00_saunagus_event-day_r13",
