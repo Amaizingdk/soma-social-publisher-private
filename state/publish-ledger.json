@@ -272,8 +272,10 @@
       "platform": "instagram",
       "deliveryType": "instagram_story",
       "scheduledFor": "2026-10-18T07:00:00+02:00",
-      "status": "reserved",
-      "reservedAt": "2026-10-18T05:04:46.312Z"
+      "status": "manual_review_required",
+      "reservedAt": "2026-10-18T05:04:46.312Z",
+      "reason": "En tidligere kørsel stoppede efter reservation; kontrollér Meta manuelt",
+      "manualReviewRequiredAt": "2026-10-18T05:17:51.927Z"
     }
   ]
 }
