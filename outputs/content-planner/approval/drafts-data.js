@@ -108,7 +108,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedRevision": "5b0a7fbac1ab12c6a2f58135253416bfc446636d0950aec9d020634c425a30ca",
     "githubIssueNumber": 112,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-18T23:21:55.963Z"
   },
   {
     "draftId": "2026-10-20_18-30_saunagus_day-before_r10",
@@ -117,7 +118,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "0fb1ad7cddb7e9de7cafc71a4c5a70c1d40c5923b83300177409a8db96229fc9",
     "revision": 10,
     "kind": "day_before",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-19T19:30:00+02:00",
     "season": "autumn",
     "event": {
@@ -183,7 +184,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedRevision": "d12e86248486f620eb81d5aed0f330bb6ba37d7542832d5ac9229f358114d155",
     "githubIssueNumber": 113,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-19T17:33:04.980Z"
   },
   {
     "draftId": "2026-10-20_18-30_saunagus_event-day_r10",
