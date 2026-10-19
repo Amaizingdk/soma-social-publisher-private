@@ -344,8 +344,10 @@
       "platform": "instagram",
       "deliveryType": "instagram_story",
       "scheduledFor": "2026-10-19T19:30:00+02:00",
-      "status": "reserved",
-      "reservedAt": "2026-10-19T17:33:04.980Z"
+      "status": "published",
+      "reservedAt": "2026-10-19T17:33:04.980Z",
+      "providerId": "17996040225019314",
+      "publishedAt": "2026-10-19T17:33:04.980Z"
     }
   ]
 }
