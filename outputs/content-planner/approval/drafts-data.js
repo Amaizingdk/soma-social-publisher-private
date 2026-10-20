@@ -194,7 +194,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "cf2c420602fca11b061b6dc6cdc176dcf3ed2c596eeba50915e7d4ce0f02b865",
     "revision": 10,
     "kind": "event_day",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-20T12:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -266,7 +266,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedRevision": "620b11fe9677e97bf08b7b78e1675cc9f8477073c68ed762d89f1bc119781851",
     "githubIssueNumber": 114,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-20T10:03:00.736Z"
   },
   {
     "draftId": "2026-10-22_18-30_saunagus_day-before_r9",
