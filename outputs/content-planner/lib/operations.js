@@ -8,7 +8,9 @@ const { reconcileLifecycle } = require('./draft-lifecycle');
 const { commentOnce, syncDraftIssue } = require('./github-issues');
 const { writeJsonAtomic } = require('./io');
 const {
+  approvalLostDecision,
   liveTestReminderDecision,
+  markApprovalLostSent,
   markLiveTestReminderSent,
   markReminderSent,
   markOverdueSent,
@@ -24,6 +26,13 @@ function reminderBody(draft, decision, approverLogin) {
   const deadline = String(draft.scheduledFor || 'ukendt');
   return '@' + approverLogin + ' — opslaget er ikke godkendt, og der er under 3 timer til planlagt publicering. '
     + 'Godkend det på godkendelsessiden, eller skriv `GODKEND` her, hvis det er klar. Planlagt: ' + deadline + '.';
+}
+
+function approvalLostBody(draft, decision, approverLogin) {
+  return '@' + approverLogin + ' — godkendelsen af forrige version (r' + decision.fromRevision + ') er bortfaldet, '
+    + 'fordi opslagets tidspunkt, event, billede eller tekst er ændret. Den nye version er ikke godkendt. '
+    + 'Godkend den på godkendelsessiden, eller skriv `GODKEND` her, hvis den er klar. Planlagt: '
+    + String(draft.scheduledFor || 'ukendt') + '.';
 }
 
 function overdueBody(draft, decision, approverLogin) {
@@ -64,7 +73,7 @@ async function syncIssuesAndReminders({
       // Issues oprettes kun, når de skal bruges til en alarm; det holder antallet af GitHub-mails nede.
       createIfMissing: createTerminalIds.has(input.draftId)
         || (ACTIVE_ISSUE_STATUSES.has(input.status)
-          && Boolean(reminderDecision(input, now) || overdueDecision(input, ledger, now)
+          && Boolean(reminderDecision(input, now) || approvalLostDecision(input, now) || overdueDecision(input, ledger, now)
             || liveTestReminderDecision(input, ledger, { automationEnabled, now }))),
     });
 
@@ -91,6 +100,17 @@ async function syncIssuesAndReminders({
         body: reminderBody(draft, decision, approverLogin),
       });
       draft = markReminderSent(draft, decision, now);
+    }
+    const lost = approvalLostDecision(draft, now);
+    if (lost && draft.githubIssueNumber) {
+      const marker = ['soma-approval-lost', draft.draftId].join(':');
+      await commentOnce({
+        client,
+        issueNumber: draft.githubIssueNumber,
+        marker,
+        body: approvalLostBody(draft, lost, approverLogin),
+      });
+      draft = markApprovalLostSent(draft, lost, now);
     }
     const overdue = overdueDecision(draft, ledger, now);
     if (overdue && draft.githubIssueNumber) {
@@ -254,6 +274,7 @@ async function runOperationsSync({
 
 module.exports = {
   REQUIRED_DELIVERIES,
+  approvalLostBody,
   reconcilePublicationState,
   reminderBody,
   liveTestReminderBody,

@@ -18,6 +18,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: write
       issues: write
@@ -35,6 +36,7 @@ jobs:
         run: npm ci
       - name: Install Chromium
         if: github.event_name != 'issue_comment'
+        timeout-minutes: 5
         run: npx playwright install --with-deps chromium
       - name: Process approval comment
         if: github.event_name == 'issue_comment'

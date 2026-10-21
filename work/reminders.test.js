@@ -2,7 +2,9 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 
 const {
+  approvalLostDecision,
   liveTestReminderDecision,
+  markApprovalLostSent,
   markLiveTestReminderSent,
   markOverdueSent,
   overdueDecision,
@@ -163,4 +165,29 @@ test('an old revision reminder marker does not suppress the current revision', (
     automationEnabled: 'false',
     now: new Date('2026-10-03T16:30:00Z'),
   }).kind, 'live_test_30m');
+});
+
+const LOST = { fromDraftId: 'draft-0', fromRevision: 1, at: '2026-10-05T08:00:00.000Z', notifiedAt: null };
+
+test('lost approval gives one immediate decision, only for a future unapproved draft', () => {
+  const now = new Date('2026-10-04T12:00:00Z');
+  const draft = reviewDraft({ approvalLost: LOST });
+  const decision = approvalLostDecision(draft, now);
+  assert.deepEqual(decision, { kind: 'approval_lost', fromRevision: 1 });
+
+  const sent = markApprovalLostSent(draft, decision, now);
+  assert.equal(sent.approvalLost.notifiedAt, now.toISOString());
+  assert.equal(approvalLostDecision(sent, now), null);
+  assert.equal(approvalLostDecision(reviewDraft(), now), null);
+  assert.equal(approvalLostDecision(reviewDraft({ approvalLost: LOST, status: 'approved' }), now), null);
+  assert.equal(approvalLostDecision(reviewDraft({ approvalLost: LOST }), new Date('2026-10-05T12:00:01Z')), null);
+});
+
+test('lost approval stays silent after the event has ended', () => {
+  const draft = reviewDraft({
+    approvalLost: LOST,
+    scheduledFor: '2026-10-05T12:00:00Z',
+    event: { date: '2026-10-05', start: '10:00', end: '11:00' },
+  });
+  assert.equal(approvalLostDecision(draft, new Date('2026-10-05T10:00:00Z')), null);
 });
