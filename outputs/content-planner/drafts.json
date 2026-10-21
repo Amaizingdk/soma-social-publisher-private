@@ -118,7 +118,7 @@
     "eventFingerprint": "31f923bb713787bd9958906b5d5ec7c3c2283c8747f306d723b859797636b496",
     "revision": 9,
     "kind": "day_before",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-21T19:30:00+02:00",
     "season": "autumn",
     "event": {
@@ -178,7 +178,8 @@
     "approvedRevision": "32f094f77f664f3271d200b817403a769fe948f37931a77c8f2049392c093396",
     "githubIssueNumber": 115,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-21T17:33:04.587Z"
   },
   {
     "draftId": "2026-10-22_18-30_saunagus_event-day_r9",
@@ -492,7 +493,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 158,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -864,7 +865,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 159,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -988,7 +989,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 160,
     "reminderState": null,
     "warningsAcknowledged": false
   },
