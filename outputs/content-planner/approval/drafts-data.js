@@ -118,7 +118,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "4263fe02525d89cf06434344d1644c498494180c7549eba3f3085f6645bd7a1d",
     "revision": 9,
     "kind": "day_before",
-    "status": "approved",
+    "status": "skipped",
     "scheduledFor": "2026-10-24T10:00:00+02:00",
     "season": "autumn",
     "event": {
@@ -173,16 +173,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       }
     ],
     "contentRevision": "2dfc48b4a4aba3bebb5236771eb84002753aca408d83ad3be89e1eedf5282a96",
-    "approvedAt": "2026-10-05T08:27:06.125Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "2dfc48b4a4aba3bebb5236771eb84002753aca408d83ad3be89e1eedf5282a96",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 117,
     "reminderState": null,
     "warningsAcknowledged": false,
     "overdueReminderState": {
       "revision": "2dfc48b4a4aba3bebb5236771eb84002753aca408d83ad3be89e1eedf5282a96",
       "sentAt": "2026-10-24T08:44:52.701Z"
-    }
+    },
+    "skipReason": "expired_event",
+    "skippedAt": "2026-10-25T17:48:42.842Z"
   },
   {
     "draftId": "2026-10-25_16-00_saunagus_event-day_r9",
@@ -191,7 +193,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "4263fe02525d89cf06434344d1644c498494180c7549eba3f3085f6645bd7a1d",
     "revision": 9,
     "kind": "event_day",
-    "status": "approved",
+    "status": "skipped",
     "scheduledFor": "2026-10-25T09:30:00+01:00",
     "season": "autumn",
     "event": {
@@ -246,16 +248,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       }
     ],
     "contentRevision": "d96da1872e4c84b8ca76a61754d4a388f5b27a3c9df717a31d748306355be1ff",
-    "approvedAt": "2026-10-05T08:27:06.125Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "d96da1872e4c84b8ca76a61754d4a388f5b27a3c9df717a31d748306355be1ff",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 118,
     "reminderState": null,
     "warningsAcknowledged": false,
     "overdueReminderState": {
       "revision": "d96da1872e4c84b8ca76a61754d4a388f5b27a3c9df717a31d748306355be1ff",
       "sentAt": "2026-10-25T10:02:11.928Z"
-    }
+    },
+    "skipReason": "expired_event",
+    "skippedAt": "2026-10-25T17:48:42.842Z"
   },
   {
     "draftId": "2026-10-26_weekly-overview_r7",
@@ -363,7 +367,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 161,
-    "reminderState": null,
+    "reminderState": {
+      "revision": "5fd8fecdd091db76b998878edd4388773b8455e2337230695217c336efd56e57",
+      "sentFinalAt": "2026-10-25T17:48:42.842Z"
+    },
     "warningsAcknowledged": false
   },
   {
