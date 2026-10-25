@@ -378,7 +378,11 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "revision": "5fd8fecdd091db76b998878edd4388773b8455e2337230695217c336efd56e57",
       "sentFinalAt": "2026-10-25T17:48:42.842Z"
     },
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "overdueReminderState": {
+      "revision": "5fd8fecdd091db76b998878edd4388773b8455e2337230695217c336efd56e57",
+      "sentAt": "2026-10-25T20:32:36.525Z"
+    }
   },
   {
     "draftId": "2026-10-27_18-30_saunagus_day-before_r4",
