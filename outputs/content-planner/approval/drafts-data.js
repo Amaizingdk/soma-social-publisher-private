@@ -477,7 +477,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I dag: Giv slip på dagen og kom med ind i varmen.\n\n27. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 27. oktober 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten."
     },
-    "contentFingerprint": "2293c8df08bc0de294e7299309841e2db7bb601a0c57d68a6a38514dd83574e8",
+    "contentFingerprint": "65b3aecc3b8209969e12fc3ff5b90adfa6e730958af83520562705a621934d02",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -485,18 +485,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-img-6688",
+    "assetId": "soma-calm-sunlight",
     "render": {
       "path": "renders/2026-10-27_18-30_saunagus_event-day-21bfaeccbf.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "74c0067970dc9d131b4ea19c484ed9c6cd7c53f71b7a56987bb5bd532d9fec2f"
+      "sha256": "b0ca489546f99922e960668ca5d75f9e0c1378d4b8797c07c0986d302d5c357f"
     },
     "renderPath": "renders/2026-10-27_18-30_saunagus_event-day-21bfaeccbf.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "958c40d1e5ec48b3e140b34c8cdf538fc0da70c3853561d691e4f922d18a2090",
+    "manualAssetId": "soma-calm-sunlight",
+    "history": [
+      {
+        "at": "2026-10-25T19:10:04.753Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "f2be10962fe36f6f7ff194828b9c2051a029d85b4d67e558e4eac16f29111395",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
