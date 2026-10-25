@@ -251,7 +251,11 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedRevision": "d96da1872e4c84b8ca76a61754d4a388f5b27a3c9df717a31d748306355be1ff",
     "githubIssueNumber": 118,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "overdueReminderState": {
+      "revision": "d96da1872e4c84b8ca76a61754d4a388f5b27a3c9df717a31d748306355be1ff",
+      "sentAt": "2026-10-25T10:02:11.928Z"
+    }
   },
   {
     "draftId": "2026-10-26_weekly-overview_r7",
