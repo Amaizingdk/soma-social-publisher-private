@@ -101,6 +101,33 @@ test('operations creates no issue until an alert is needed, then one reminder wi
   assert.equal(second.drafts[0].reminderState.sentFinalAt !== undefined, true);
 });
 
+test('operations alerts at once when an approved draft was replaced by an unapproved revision, only one time', async () => {
+  const client = fakeClient();
+  const lost = { fromDraftId: 'draft-0', fromRevision: 1, at: '2026-10-02T12:00:00.000Z', notifiedAt: null };
+  const run = (drafts, now) => runOperationsSync({
+    drafts, ledger: { version: 1, entries: [] }, client, approverLogin: 'Amaizingai', now: new Date(now),
+  });
+  // langt før fristen: ingen reminder, men alarmen for den bortfaldne godkendelse kommer med det samme
+  const first = await run([reviewDraft({ approvalLost: lost })], '2026-10-02T12:05:00Z');
+  const second = await run(first.drafts, '2026-10-02T12:35:00Z');
+
+  assert.equal(client.state.issues.length, 1);
+  const alerts = client.commentsWith('soma-approval-lost:draft-1');
+  assert.equal(alerts.length, 1);
+  assert.match(alerts[0].body, /@Amaizingai/);
+  assert.match(alerts[0].body, /r1/);
+  assert.equal(second.drafts[0].approvalLost.notifiedAt !== null, true);
+  assert.equal(client.commentsWith('soma-reminder:draft-1:' + REVISION + ':final').length, 0);
+});
+
+test('operations sends no lost-approval alert for a draft that was never approved', async () => {
+  const client = fakeClient();
+  await runOperationsSync({
+    drafts: [reviewDraft()], ledger: { version: 1, entries: [] }, client, approverLogin: 'Amaizingai', now: new Date('2026-10-02T12:05:00Z'),
+  });
+  assert.equal(client.state.issues.length, 0);
+});
+
 test('operations sends one overdue alert for an approved draft that is not published, and none once published', async () => {
   const client = fakeClient();
   const run = (ledger, now) => runOperationsSync({

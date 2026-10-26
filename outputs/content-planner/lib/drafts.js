@@ -95,6 +95,7 @@ function reconcileDrafts(previousDrafts, generatedDrafts, currentEvents) {
         warningsAcknowledged: same.warningsAcknowledged || false,
         manualInstructor: same.manualInstructor || candidate.manualInstructor || null,
         history: same.history || [],
+        approvalLost: same.approvalLost || null,
       };
       result.push(preserved);
       handledIds.add(same.draftId);
@@ -157,6 +158,13 @@ function reconcileDrafts(previousDrafts, generatedDrafts, currentEvents) {
         handledIds.add(old.draftId);
       }
     }
+    // Et godkendt opslag, der erstattes af en ikke-godkendt version, skal give besked med det samme.
+    // Kæden af efterfølgende versioner arver mærket (og dets besked-tidspunkt), så der kun sendes én besked.
+    const lostApproval = older.filter((draft) => draft.status === 'approved').pop();
+    const inherited = older.map((draft) => draft.approvalLost).filter(Boolean).pop();
+    candidate.approvalLost = lostApproval
+      ? { fromDraftId: lostApproval.draftId, fromRevision: lostApproval.revision, at: new Date().toISOString(), notifiedAt: null }
+      : (inherited || null);
     candidate.revision = revision;
     candidate.draftId = `${candidate.slotKey}_r${revision}`;
     candidate.status = baseStatus(candidate);

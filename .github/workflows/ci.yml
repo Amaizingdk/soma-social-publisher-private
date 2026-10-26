@@ -13,6 +13,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout verified runtime
         uses: actions/checkout@v4
@@ -24,6 +25,7 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
       - name: Install Chromium
+        timeout-minutes: 5
         run: npx playwright install --with-deps chromium
       - name: Run tests
         run: npm test

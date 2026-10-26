@@ -61,6 +61,22 @@ function markReminderSent(draft, decision, now = new Date()) {
   return { ...draft, reminderState };
 }
 
+// Et godkendt opslag er erstattet af en ny, ikke-godkendt version: besked med det samme, én gang pr. kæde af versioner.
+function approvalLostDecision(draft, now = new Date()) {
+  const lost = draft?.approvalLost;
+  if (!lost || lost.notifiedAt || !REVIEW_STATUSES.has(draft.status)) return null;
+  const milliseconds = Date.parse(draft.scheduledFor) - now.getTime();
+  if (!Number.isFinite(milliseconds) || milliseconds <= 0) return null;
+  const end = eventEndsAt(draft);
+  if (Number.isFinite(end) && end <= now.getTime()) return null;
+  return { kind: 'approval_lost', fromRevision: lost.fromRevision };
+}
+
+function markApprovalLostSent(draft, decision, now = new Date()) {
+  if (decision?.kind !== 'approval_lost') return draft;
+  return { ...draft, approvalLost: { ...draft.approvalLost, notifiedAt: now.toISOString() } };
+}
+
 function liveTestReminderDecision(draft, ledger, { automationEnabled, now = new Date() } = {}) {
   if (automationEnabled !== 'false') return null;
   if (draft?.status !== 'approved' || draft.approvedRevision !== draft.contentRevision) return null;
@@ -95,7 +111,9 @@ function markLiveTestReminderSent(draft, decision, now = new Date()) {
 }
 
 module.exports = {
+  approvalLostDecision,
   liveTestReminderDecision,
+  markApprovalLostSent,
   markLiveTestReminderSent,
   markOverdueSent,
   markReminderSent,
