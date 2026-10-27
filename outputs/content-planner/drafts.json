@@ -200,7 +200,7 @@
     "eventFingerprint": "6c1f17f46791861cec15beb128531866f115d3a1e7a660a956c8c2b7e66b6d37",
     "revision": 4,
     "kind": "event_day",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-27T12:00:00+01:00",
     "season": "autumn",
     "event": {
@@ -266,7 +266,8 @@
     "approvedRevision": "f2be10962fe36f6f7ff194828b9c2051a029d85b4d67e558e4eac16f29111395",
     "githubIssueNumber": 157,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-27T11:18:02.824Z"
   },
   {
     "draftId": "2026-10-29_18-30_saunagus_day-before_r3",
