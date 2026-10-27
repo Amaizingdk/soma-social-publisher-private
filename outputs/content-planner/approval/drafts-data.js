@@ -689,7 +689,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "b9b05cbfc87e911ad82f385c063c79afca7590193832d59bad084a10935db051",
     "revision": 2,
     "kind": "weekly_overview",
-    "status": "approved",
+    "status": "draft",
     "scheduledFor": "2026-11-01T19:30:00+01:00",
     "season": "winter",
     "event": null,
@@ -701,7 +701,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "name": "Saunagus",
         "booked": 0,
         "capacity": 12,
-        "instructor": null,
+        "instructor": "Søren",
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
@@ -743,10 +743,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "availability": null,
     "warnings": [],
     "platformCopies": {
-      "instagram": "Næste uges gus 🔥\n\n• 3. november 2026 · 18.30–20.30 · Tirsdagsgus\n• 5. november 2026 · 18.30–20.30 · Torsdagsgus\n• 8. november 2026 · 16.00–18.00 · Søndagsgus\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
-      "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 3. november 2026 · 18.30–20.30 · Tirsdagsgus\n• 5. november 2026 · 18.30–20.30 · Torsdagsgus\n• 8. november 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/"
+      "instagram": "Næste uges gus 🔥\n\n• 3. november 2026 · 18.30–20.30 · Powergus\n• 5. november 2026 · 18.30–20.30 · Torsdagsgus\n• 8. november 2026 · 16.00–18.00 · Søndagsgus\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 3. november 2026 · 18.30–20.30 · Powergus\n• 5. november 2026 · 18.30–20.30 · Torsdagsgus\n• 8. november 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "37d5d0ae3a52c319802000049e3b3a0d13e1b3cc95c0598ec7eae632abc00a8f",
+    "contentFingerprint": "250e5ec9de9e4a5881a91ff9cb3f12c33344f97a7d4ed642b2979449392b64da",
     "factsUsed": [
       "event:2026-11-03_18-30_saunagus.date",
       "event:2026-11-03_18-30_saunagus.time",
@@ -763,7 +763,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "sha256": "1a6c8edad2ee168cdfa12b3d9c68c56362aa96b6400eeaf19efbadbeb1905e7e"
     },
     "renderPath": "renders/2026-11-02_weekly-overview-b9b05cbfc8.jpg",
-    "manualInstructor": null,
+    "manualInstructor": "Søren",
     "manualAssetId": null,
     "history": [
       {
@@ -771,12 +771,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-27T05:26:05.930Z",
+        "type": "change_instructor",
+        "from": "approved",
+        "to": "draft"
       }
     ],
-    "contentRevision": "6156003b5a445dead5fb250273346df91c25f2702f08c7a21d4ba2eafbd0fece",
-    "approvedAt": "2026-10-27T05:25:53.085Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "6156003b5a445dead5fb250273346df91c25f2702f08c7a21d4ba2eafbd0fece",
+    "contentRevision": "0f66499b5b7252f20de2a42c65085249fb3dda70fb897f0014033c9748b2bc2d",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 164,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -788,7 +794,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "bcaa69e696d37156b1b20c81c0a9ea28fdc7ac041a4f6e134d93a19a88e4f6c7",
     "revision": 2,
     "kind": "day_before",
-    "status": "needs_review",
+    "status": "draft",
     "scheduledFor": "2026-11-02T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -798,7 +804,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "name": "Saunagus",
       "booked": 0,
       "capacity": 12,
-      "instructor": null,
+      "instructor": "Søren",
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
@@ -811,14 +817,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "label": "12 ledige pladser",
       "soldOut": false
     },
-    "warnings": [
-      "instructor_missing"
-    ],
+    "warnings": [],
     "platformCopies": {
-      "instagram": "I morgen: Der er plads til ro, varme og nærvær.\n\nSaunagus\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
-      "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nDer er plads til ro, varme og nærvær.\n\nEt saunagus med varme, dufte, musik og nærvær.\n\nDu er velkommen præcis, som du er."
+      "instagram": "I morgen: Giv slip på dagen og kom med ind i varmen.\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten."
     },
-    "contentFingerprint": "aedcc155664bd8a56b30417a10cca26320e74432a6d89fe8fe096cd06ddc6258",
+    "contentFingerprint": "5cb7edfab13bb5c76e93ef0c640115dc2f158679b688c40bf3c7ace833aba504",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -831,11 +835,11 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "path": "renders/2026-11-03_18-30_saunagus_day-before-bcaa69e696.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "bca592c5cd12a872a9113c490b92a79f7f82c787e5c64228fceb4fd4243e67e6"
+      "sha256": "576be2cc3c1d787ecd76834925dcb74bf524f13573992e0d7b439e1ce8094687"
     },
     "renderPath": "renders/2026-11-03_18-30_saunagus_day-before-bcaa69e696.jpg",
-    "manualInstructor": null,
-    "manualAssetId": null,
+    "manualInstructor": "Søren",
+    "manualAssetId": "soma-img-6688",
     "instructorOptions": {
       "soren": {
         "instructor": "Søren",
@@ -849,7 +853,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "path": "renders/2026-11-03_18-30_saunagus_day-before-bcaa69e696-soren.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "cec329d4b4ba0b5a16f7d98efe47001c0492d88dba002ce5f689126e57fe9704"
+          "sha256": "576be2cc3c1d787ecd76834925dcb74bf524f13573992e0d7b439e1ce8094687"
         },
         "renderPath": "renders/2026-11-03_18-30_saunagus_day-before-bcaa69e696-soren.jpg"
       },
@@ -860,18 +864,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "instagram": "I morgen: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er."
         },
-        "assetId": "soma-img-5592",
+        "assetId": "soma-img-6688",
         "render": {
           "path": "renders/2026-11-03_18-30_saunagus_day-before-bcaa69e696-millemaja.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "faf3d9a467931d05ae78ef0c0a7b169fff0201887936f6eca6de94ff2c5eb6ae"
+          "sha256": "00a92cfb0e98254d388d6efbb7ffbd78056a8afe207b036e56860570cfa8344f"
         },
         "renderPath": "renders/2026-11-03_18-30_saunagus_day-before-bcaa69e696-millemaja.jpg"
       }
     },
-    "history": [],
-    "contentRevision": "ab1eb6f16bd32ea5bd013cae29adedcaeaeb7f4762b2bd3c2d03860ced6d6e01",
+    "history": [
+      {
+        "at": "2026-10-27T05:26:05.930Z",
+        "type": "change_instructor",
+        "from": "needs_review",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "d3794f9119d28cb8c56c47f04112f5e20b629b725b64763adebe6ee55aaece24",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
@@ -886,7 +897,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "bcaa69e696d37156b1b20c81c0a9ea28fdc7ac041a4f6e134d93a19a88e4f6c7",
     "revision": 2,
     "kind": "event_day",
-    "status": "needs_review",
+    "status": "draft",
     "scheduledFor": "2026-11-03T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -896,7 +907,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "name": "Saunagus",
       "booked": 0,
       "capacity": 12,
-      "instructor": null,
+      "instructor": "Søren",
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
@@ -909,14 +920,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "label": "12 ledige pladser",
       "soldOut": false
     },
-    "warnings": [
-      "instructor_missing"
-    ],
+    "warnings": [],
     "platformCopies": {
-      "instagram": "I dag: Giv dig selv et varmt pusterum.\n\nSaunagus\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
-      "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nGiv dig selv et varmt pusterum.\n\nEt saunagus med varme, dufte, musik og nærvær.\n\nDu er velkommen præcis, som du er."
+      "instagram": "I dag: Kom ind i varmen, land i kroppen og vær lige her.\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære."
     },
-    "contentFingerprint": "171922f6db45c6a91e37b4037e47d685a87267cb766e30ef2e989e5d255d6c81",
+    "contentFingerprint": "49b78cd4bac1140b48131d9cda537c154ad3677db77427be8ea001b424b3256c",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -929,11 +938,11 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "path": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "6df00a686dc01e40413920e159e36ca6a05561f2346fddd501bd70a5134dd687"
+      "sha256": "60b8df74805e5d06b9729f6a5240f2dbe92767a9afcb5a5f7f5ce910b1659b66"
     },
     "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696.jpg",
-    "manualInstructor": null,
-    "manualAssetId": null,
+    "manualInstructor": "Søren",
+    "manualAssetId": "soma-power-steam",
     "instructorOptions": {
       "soren": {
         "instructor": "Søren",
@@ -947,7 +956,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "path": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696-soren.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "49cea65f07639063b11d4d7a85fae8323f54c3454cd115b97a43e569a47a2594"
+          "sha256": "60b8df74805e5d06b9729f6a5240f2dbe92767a9afcb5a5f7f5ce910b1659b66"
         },
         "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696-soren.jpg"
       },
@@ -958,18 +967,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "instagram": "I dag: Et roligt rum midt i alt det, der skal nås.\n\nMilleMaja fra Betterlife by Yndigegn\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er."
         },
-        "assetId": "soma-img-6689",
+        "assetId": "soma-power-steam",
         "render": {
           "path": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696-millemaja.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "0c834dfd71c09f329b8e69485459c4aa828ee9724933d0f645b44c8478126961"
+          "sha256": "8a24ab2edb345be57da0a897cf7ac376a7ea7e43443c67e33581b8519084a57c"
         },
         "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696-millemaja.jpg"
       }
     },
-    "history": [],
-    "contentRevision": "e6c4c9842050cd7e0cfb35524be3c94909d2731ae33bab593b879d33c3aea4c8",
+    "history": [
+      {
+        "at": "2026-10-27T05:26:05.930Z",
+        "type": "change_instructor",
+        "from": "needs_review",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "bbf56e1abcec1b73ce26566c24462fb9e3b6132c18bfafb7f030ab3f1b2da8bf",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
