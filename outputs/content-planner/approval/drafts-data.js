@@ -925,7 +925,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I dag: Kom ind i varmen, land i kroppen og vær lige her.\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære."
     },
-    "contentFingerprint": "49b78cd4bac1140b48131d9cda537c154ad3677db77427be8ea001b424b3256c",
+    "contentFingerprint": "01e757957301b8c58993484d6a0b66876c7f4f772a60502614b17dc9f3aef31b",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -933,16 +933,16 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:neutral"
     ],
-    "assetId": "soma-power-steam",
+    "assetId": "soma-sauna-01",
     "render": {
       "path": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "60b8df74805e5d06b9729f6a5240f2dbe92767a9afcb5a5f7f5ce910b1659b66"
+      "sha256": "1f96fa7de0ce77c1d29de97a0f5d2f49e31a4135942b72f7e37d2f3fffef85b8"
     },
     "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696.jpg",
     "manualInstructor": "Søren",
-    "manualAssetId": "soma-power-steam",
+    "manualAssetId": "soma-sauna-01",
     "instructorOptions": {
       "soren": {
         "instructor": "Søren",
@@ -951,12 +951,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "instagram": "I dag: Kom ind i varmen, land i kroppen og vær lige her.\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære."
         },
-        "assetId": "soma-power-steam",
+        "assetId": "soma-sauna-01",
         "render": {
           "path": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696-soren.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "60b8df74805e5d06b9729f6a5240f2dbe92767a9afcb5a5f7f5ce910b1659b66"
+          "sha256": "1f96fa7de0ce77c1d29de97a0f5d2f49e31a4135942b72f7e37d2f3fffef85b8"
         },
         "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696-soren.jpg"
       },
@@ -967,12 +967,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "instagram": "I dag: Et roligt rum midt i alt det, der skal nås.\n\nMilleMaja fra Betterlife by Yndigegn\n\n3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er."
         },
-        "assetId": "soma-power-steam",
+        "assetId": "soma-sauna-01",
         "render": {
           "path": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696-millemaja.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "8a24ab2edb345be57da0a897cf7ac376a7ea7e43443c67e33581b8519084a57c"
+          "sha256": "16c8adea0baec0b06abf34c30a704d8bf338b12b696c483a83a4f3a4d1ee8b3f"
         },
         "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-bcaa69e696-millemaja.jpg"
       }
@@ -983,9 +983,15 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_instructor",
         "from": "needs_review",
         "to": "draft"
+      },
+      {
+        "at": "2026-10-27T05:26:43.327Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
       }
     ],
-    "contentRevision": "bbf56e1abcec1b73ce26566c24462fb9e3b6132c18bfafb7f030ab3f1b2da8bf",
+    "contentRevision": "ba7b17971618f4e9b7b86bc3f11c5e63f8f3be30f24590e81989d0b4200164f5",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
