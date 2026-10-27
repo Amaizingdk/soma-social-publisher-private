@@ -1040,7 +1040,7 @@
       "instagram": "I morgen: Sænk skuldrene og mærk roen brede sig.\n\n5. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 5. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nSænk skuldrene og mærk roen brede sig.\n\nEn kort breathwork hjælper dig med at lande, før de sanselige runder folder sig ud.\n\nFire blide runder med ro, varme og nærvær."
     },
-    "contentFingerprint": "4755e6342646b4e43ad1201b3d70e65bcebb9385c3a08460a96736978cc4f4d1",
+    "contentFingerprint": "d108847cc79d95555d11fb8e1e30ddc146c8f62a106b8c5eeaf04d29e83c8a42",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1048,18 +1048,25 @@
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-img-5422",
+    "assetId": "soma-img-5592",
     "render": {
       "path": "renders/2026-11-05_18-30_saunagus_day-before-d97f863534.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "1daf2686d65d7925897d9fa30f3aa13ae683fcefc3ade7d54f6f0966d585e24f"
+      "sha256": "577f7f6f1c105d3095cd773d7d69964671e16e4bdc47795c633f22552087ec1f"
     },
     "renderPath": "renders/2026-11-05_18-30_saunagus_day-before-d97f863534.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "33d39b2ce8313200cfe50946b1c58354f0a26c9e548b0c178fc382c70f761272",
+    "manualAssetId": "soma-img-5592",
+    "history": [
+      {
+        "at": "2026-10-27T05:27:37.981Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "1c61ac59bc3f71e5ed96a1772e7387548491eeaab253ff0f70c89c0f556d35fa",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
