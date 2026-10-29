@@ -284,7 +284,7 @@
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-01_16-00_saunagus",
       "fingerprint": "37bada3dd75f7708a671392e950ac290d108aa17c9fd4e5df1380c40053c8de7"
     },
@@ -353,7 +353,7 @@
       "description": null,
       "sourceText": "12:00 - 14:00 SAUNAGUS Millemaja 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-01_12-00_saunagus",
       "fingerprint": "00d6221e6246e8961a91409d9b7d0f697cb9724b6d0d7bde9a48a828eb144b0e"
     },
@@ -422,7 +422,7 @@
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-01_16-00_saunagus",
       "fingerprint": "37bada3dd75f7708a671392e950ac290d108aa17c9fd4e5df1380c40053c8de7"
     },
@@ -491,7 +491,7 @@
       "description": null,
       "sourceText": "12:00 - 14:00 SAUNAGUS Millemaja 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-01_12-00_saunagus",
       "fingerprint": "00d6221e6246e8961a91409d9b7d0f697cb9724b6d0d7bde9a48a828eb144b0e"
     },
@@ -543,7 +543,7 @@
     "draftId": "2026-11-02_weekly-overview_r2",
     "slotKey": "2026-11-02_weekly-overview",
     "eventKey": null,
-    "eventFingerprint": "b9b05cbfc87e911ad82f385c063c79afca7590193832d59bad084a10935db051",
+    "eventFingerprint": "f214fe0a78a4ab5b4762a1c739b9e7bee8c4c4dc399736b8f640851c1dc29455",
     "revision": 2,
     "kind": "weekly_overview",
     "status": "approved",
@@ -562,7 +562,7 @@
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-29T09:34:44.713Z",
+        "readAt": "2026-10-29T16:43:35.313Z",
         "eventKey": "2026-11-03_18-30_saunagus",
         "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
       },
@@ -577,7 +577,7 @@
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-29T09:34:44.713Z",
+        "readAt": "2026-10-29T16:43:35.313Z",
         "eventKey": "2026-11-05_18-30_saunagus",
         "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
       },
@@ -586,15 +586,15 @@
         "start": "16:00",
         "end": "18:00",
         "name": "Saunagus",
-        "booked": 0,
+        "booked": 2,
         "capacity": 12,
         "instructor": "Søren",
         "description": null,
-        "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-29T09:34:44.713Z",
+        "readAt": "2026-10-29T16:43:35.313Z",
         "eventKey": "2026-11-08_16-00_saunagus",
-        "fingerprint": "94f121052d7a2083c0ff5ab278b92fee47daa4892918890647d6cfe52e5329c6"
+        "fingerprint": "181ae1767dba47938b827e7c35cc6c9ae17f9cd80341cc0cfc6faa7f26572d58"
       }
     ],
     "availability": null,
@@ -671,7 +671,7 @@
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-03_18-30_saunagus",
       "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
     },
@@ -780,7 +780,7 @@
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-03_18-30_saunagus",
       "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
     },
@@ -895,7 +895,7 @@
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-05_18-30_saunagus",
       "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
     },
@@ -970,7 +970,7 @@
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-05_18-30_saunagus",
       "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
     },
@@ -1022,7 +1022,7 @@
     "draftId": "2026-11-08_16-00_saunagus_day-before_r2",
     "slotKey": "2026-11-08_16-00_saunagus_day-before",
     "eventKey": "2026-11-08_16-00_saunagus",
-    "eventFingerprint": "e3f65a559edd27c7a707ca5cff11f17dbe520f9ad20b37e601a5bff4ffd0eaec",
+    "eventFingerprint": "05b4cab103a8fcaf90407eef7bd264a0c317c1ed2573a63ddcacdb8a791cb0db",
     "revision": 2,
     "kind": "day_before",
     "status": "approved",
@@ -1033,19 +1033,19 @@
       "start": "16:00",
       "end": "18:00",
       "name": "Saunagus",
-      "booked": 0,
+      "booked": 2,
       "capacity": 12,
       "instructor": "Søren",
       "description": null,
-      "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
+      "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-08_16-00_saunagus",
-      "fingerprint": "94f121052d7a2083c0ff5ab278b92fee47daa4892918890647d6cfe52e5329c6"
+      "fingerprint": "181ae1767dba47938b827e7c35cc6c9ae17f9cd80341cc0cfc6faa7f26572d58"
     },
     "availability": {
-      "free": 12,
-      "label": "12 ledige pladser",
+      "free": 10,
+      "label": "10 ledige pladser",
       "soldOut": false
     },
     "warnings": [],
@@ -1053,7 +1053,7 @@
       "instagram": "I morgen: Kom ind i varmen og mærk kroppen finde ro.\n\n8. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 8. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen og mærk kroppen finde ro.\n\nSøndagens udtryk får lov at skifte, mens nærvær og velvære er fundamentet.\n\nGiv dig selv tid til at lande og bare være til stede."
     },
-    "contentFingerprint": "cbd3ea0bb2c05fe2a201629fab52248524a23b7cf95fea559b5708b09d3962ee",
+    "contentFingerprint": "28b7b3526a2b113c7d199fbe5221c93ea4e16a8bf207af68ecb035b3083e6c92",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1091,7 +1091,7 @@
     "draftId": "2026-11-08_16-00_saunagus_event-day_r2",
     "slotKey": "2026-11-08_16-00_saunagus_event-day",
     "eventKey": "2026-11-08_16-00_saunagus",
-    "eventFingerprint": "e3f65a559edd27c7a707ca5cff11f17dbe520f9ad20b37e601a5bff4ffd0eaec",
+    "eventFingerprint": "05b4cab103a8fcaf90407eef7bd264a0c317c1ed2573a63ddcacdb8a791cb0db",
     "revision": 2,
     "kind": "event_day",
     "status": "approved",
@@ -1102,19 +1102,19 @@
       "start": "16:00",
       "end": "18:00",
       "name": "Saunagus",
-      "booked": 0,
+      "booked": 2,
       "capacity": 12,
       "instructor": "Søren",
       "description": null,
-      "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
+      "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-29T09:34:44.713Z",
+      "readAt": "2026-10-29T16:43:35.313Z",
       "eventKey": "2026-11-08_16-00_saunagus",
-      "fingerprint": "94f121052d7a2083c0ff5ab278b92fee47daa4892918890647d6cfe52e5329c6"
+      "fingerprint": "181ae1767dba47938b827e7c35cc6c9ae17f9cd80341cc0cfc6faa7f26572d58"
     },
     "availability": {
-      "free": 12,
-      "label": "12 ledige pladser",
+      "free": 10,
+      "label": "10 ledige pladser",
       "soldOut": false
     },
     "warnings": [],
@@ -1122,7 +1122,7 @@
       "instagram": "I dag: Slut ugen med varme, dufte og nærvær.\n\n8. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 8. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nSlut ugen med varme, dufte og nærvær.\n\nMusikken kan overraske, men rejsen begynder blidt og slutter roligt.\n\nKom som du er, og gå derfra med mere ro i kroppen."
     },
-    "contentFingerprint": "b8d2007c7c93feee09820c78ad5957b647ea889c360d8cd90e25dd51e6846bc5",
+    "contentFingerprint": "74f4b952afd270aa187943875bfa4a01109fcaa9b142a02cbedf1e2db8fdb647",
     "factsUsed": [
       "event.date",
       "event.start",
