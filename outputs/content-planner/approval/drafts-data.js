@@ -144,7 +144,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 1/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-30T23:38:26.917Z",
+      "readAt": "2026-10-31T04:39:26.805Z",
       "eventKey": "2026-11-01_16-00_saunagus",
       "fingerprint": "f55f74beb0e12267ddfe8c7a742d037b5340367d08d60d7dcb6c9367d68699f1"
     },
@@ -213,7 +213,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "12:00 - 14:00 SAUNAGUS Millemaja 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-30T23:38:26.917Z",
+      "readAt": "2026-10-31T04:39:26.805Z",
       "eventKey": "2026-11-01_12-00_saunagus",
       "fingerprint": "00d6221e6246e8961a91409d9b7d0f697cb9724b6d0d7bde9a48a828eb144b0e"
     },
@@ -282,7 +282,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 1/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-30T23:38:26.917Z",
+      "readAt": "2026-10-31T04:39:26.805Z",
       "eventKey": "2026-11-01_16-00_saunagus",
       "fingerprint": "f55f74beb0e12267ddfe8c7a742d037b5340367d08d60d7dcb6c9367d68699f1"
     },
@@ -351,7 +351,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "12:00 - 14:00 SAUNAGUS Millemaja 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-30T23:38:26.917Z",
+      "readAt": "2026-10-31T04:39:26.805Z",
       "eventKey": "2026-11-01_12-00_saunagus",
       "fingerprint": "00d6221e6246e8961a91409d9b7d0f697cb9724b6d0d7bde9a48a828eb144b0e"
     },
@@ -406,7 +406,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "f214fe0a78a4ab5b4762a1c739b9e7bee8c4c4dc399736b8f640851c1dc29455",
     "revision": 2,
     "kind": "weekly_overview",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-01T19:30:00+01:00",
     "season": "winter",
     "event": null,
@@ -500,12 +500,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-31T04:39:40.685Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "0f66499b5b7252f20de2a42c65085249fb3dda70fb897f0014033c9748b2bc2d",
-    "approvedAt": "2026-10-27T05:27:51.950Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "0f66499b5b7252f20de2a42c65085249fb3dda70fb897f0014033c9748b2bc2d",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 164,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -517,7 +523,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "bcaa69e696d37156b1b20c81c0a9ea28fdc7ac041a4f6e134d93a19a88e4f6c7",
     "revision": 2,
     "kind": "day_before",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-02T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -609,12 +615,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-31T04:39:40.685Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "d3794f9119d28cb8c56c47f04112f5e20b629b725b64763adebe6ee55aaece24",
-    "approvedAt": "2026-10-27T05:27:51.950Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "d3794f9119d28cb8c56c47f04112f5e20b629b725b64763adebe6ee55aaece24",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 165,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -626,7 +638,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "bcaa69e696d37156b1b20c81c0a9ea28fdc7ac041a4f6e134d93a19a88e4f6c7",
     "revision": 2,
     "kind": "event_day",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-03T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -724,12 +736,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-31T04:39:40.686Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "ba7b17971618f4e9b7b86bc3f11c5e63f8f3be30f24590e81989d0b4200164f5",
-    "approvedAt": "2026-10-27T05:27:08.433Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "ba7b17971618f4e9b7b86bc3f11c5e63f8f3be30f24590e81989d0b4200164f5",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 166,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -741,7 +759,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "d97f8635343bc236eb34cea8fcb3a144676ff48f012fea744aa57fd33aaecc90",
     "revision": 2,
     "kind": "day_before",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-04T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -799,12 +817,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-31T04:39:40.686Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "1c61ac59bc3f71e5ed96a1772e7387548491eeaab253ff0f70c89c0f556d35fa",
-    "approvedAt": "2026-10-27T05:27:51.950Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "1c61ac59bc3f71e5ed96a1772e7387548491eeaab253ff0f70c89c0f556d35fa",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 167,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -816,7 +840,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "d97f8635343bc236eb34cea8fcb3a144676ff48f012fea744aa57fd33aaecc90",
     "revision": 2,
     "kind": "event_day",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-05T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -868,12 +892,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-31T04:39:40.686Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "1e21c6bbb7f771a92edab86a40aec885a7ec9a9a6af5ea2bd090c5e4c457fb26",
-    "approvedAt": "2026-10-27T05:27:51.951Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "1e21c6bbb7f771a92edab86a40aec885a7ec9a9a6af5ea2bd090c5e4c457fb26",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 168,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -885,7 +915,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "05b4cab103a8fcaf90407eef7bd264a0c317c1ed2573a63ddcacdb8a791cb0db",
     "revision": 2,
     "kind": "day_before",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-07T10:00:00+01:00",
     "season": "winter",
     "event": {
@@ -937,12 +967,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-31T04:39:40.686Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "7311a1b2c09b185793f7ddbe870a491c8af74c177c5b68b32184d81b7f5c4e0f",
-    "approvedAt": "2026-10-27T05:27:51.951Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "7311a1b2c09b185793f7ddbe870a491c8af74c177c5b68b32184d81b7f5c4e0f",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 169,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -954,7 +990,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "05b4cab103a8fcaf90407eef7bd264a0c317c1ed2573a63ddcacdb8a791cb0db",
     "revision": 2,
     "kind": "event_day",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-08T09:30:00+01:00",
     "season": "winter",
     "event": {
@@ -1006,12 +1042,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-31T04:39:40.686Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "4844a5ac20137a71652b7298a98be9bbd01178c52b5afb629c1c1339dea1e27b",
-    "approvedAt": "2026-10-27T05:27:51.951Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "4844a5ac20137a71652b7298a98be9bbd01178c52b5afb629c1c1339dea1e27b",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 170,
     "reminderState": null,
     "warningsAcknowledged": false
