@@ -130,7 +130,7 @@
     "eventFingerprint": "0cf3b034f51207338a066bade4839b638e9478716296cf23c558618f76b884fa",
     "revision": 2,
     "kind": "day_before",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-10-31T10:00:00+01:00",
     "season": "winter",
     "event": {
@@ -190,7 +190,8 @@
     "approvedRevision": "893df10f2e879178c3c29fa98032ff6a4efd2226decc327f1293731aff3678cd",
     "githubIssueNumber": 144,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-10-31T09:02:46.239Z"
   },
   {
     "draftId": "2026-11-01_12-00_saunagus_day-before_r2",
