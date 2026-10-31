@@ -588,6 +588,16 @@
       "reservedAt": "2026-10-31T18:02:54.319Z",
       "reason": "Meta-kaldet gav et tvetydigt resultat; kontrollér kanalen manuelt",
       "manualReviewRequiredAt": "2026-10-31T18:02:54.319Z"
+    },
+    {
+      "idempotencyKey": "055f394d08cc465c6944fa5383a923c26383eda8514e0e5920ef8155780a1638",
+      "draftId": "2026-11-01_12-00_saunagus_day-before_r2",
+      "revision": 2,
+      "platform": "facebookPage",
+      "deliveryType": "facebook_page_feed",
+      "scheduledFor": "2026-10-31T19:00:00+01:00",
+      "status": "reserved",
+      "reservedAt": "2026-10-31T18:02:54.319Z"
     }
   ]
 }
