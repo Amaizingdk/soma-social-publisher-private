@@ -200,7 +200,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "2153a77eafb80185ad0072ea9f053282b0f02a08726ed6776dedb7ba993337ad",
     "revision": 2,
     "kind": "day_before",
-    "status": "needs_correction",
+    "status": "obsolete",
     "scheduledFor": "2026-10-31T19:00:00+01:00",
     "season": "winter",
     "event": {
@@ -252,6 +252,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-10-31T19:53:20.318Z",
+        "type": "obsolete",
+        "from": "needs_correction",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "34f2f125b8280d34814fa956fddfb08f61e203bf66a64ef51f7659c4ab4519ae",
@@ -262,6 +268,136 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "reminderState": null,
     "warningsAcknowledged": false,
     "correctionReason": "manual_review_required"
+  },
+  {
+    "draftId": "2026-11-01_12-00_saunagus_day-before_r1",
+    "slotKey": "2026-11-01_12-00_saunagus_day-before",
+    "eventKey": "2026-11-01_12-00_saunagus",
+    "eventFingerprint": "b2b7ee9b14c20730939265d0bda197b10f209d0761660735bad2819b53191856",
+    "revision": 1,
+    "kind": "day_before",
+    "status": "obsolete",
+    "scheduledFor": "2026-10-31T19:00:00+01:00",
+    "season": "winter",
+    "event": {
+      "date": "2026-11-01",
+      "start": "12:00",
+      "end": "14:00",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Millemaja",
+      "description": null,
+      "sourceText": "12:00 - 14:00 SAUNAGUS Millemaja 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-21T17:41:05.468Z",
+      "eventKey": "2026-11-01_12-00_saunagus",
+      "fingerprint": "bd35f796a0a68ee3e9adb8b6e67f30e646118480da4f99e468ec9b1238ccec42"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n1. november 2026 · 12.00–14.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Dato og tid: 1. november 2026 · 12.00–14.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er."
+    },
+    "contentFingerprint": "4a861f68a6cddeabb0a793ed40019898d76554314aa0ece1c91df23a4b3dfe4d",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:millemaja"
+    ],
+    "assetId": "soma-img-6689",
+    "render": {
+      "path": "renders/2026-11-01_12-00_saunagus_day-before-b2b7ee9b14.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "5594606bb0f96ac5f76e99622bee20a556063c60fe238bb9ef6f019715f40a49"
+    },
+    "renderPath": "renders/2026-11-01_12-00_saunagus_day-before-b2b7ee9b14.jpg",
+    "manualInstructor": null,
+    "manualAssetId": null,
+    "history": [
+      {
+        "at": "2026-10-22T12:19:27.297Z",
+        "type": "obsolete",
+        "from": "draft",
+        "to": "obsolete"
+      }
+    ],
+    "contentRevision": "34f2f125b8280d34814fa956fddfb08f61e203bf66a64ef51f7659c4ab4519ae",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 159,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-11-01_12-00_saunagus_day-before_r3",
+    "slotKey": "2026-11-01_12-00_saunagus_day-before",
+    "eventKey": "2026-11-01_12-00_saunagus",
+    "eventFingerprint": "2153a77eafb80185ad0072ea9f053282b0f02a08726ed6776dedb7ba993337ad",
+    "revision": 3,
+    "kind": "day_before",
+    "status": "skipped",
+    "scheduledFor": "2026-10-31T19:00:00+01:00",
+    "season": "winter",
+    "event": {
+      "date": "2026-11-01",
+      "start": "12:00",
+      "end": "14:00",
+      "name": "Saunagus",
+      "booked": 4,
+      "capacity": 12,
+      "instructor": "Millemaja",
+      "description": null,
+      "sourceText": "12:00 - 14:00 SAUNAGUS Millemaja 4/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-10-31T19:53:04.241Z",
+      "eventKey": "2026-11-01_12-00_saunagus",
+      "fingerprint": "73787f40c45f8f29ce26f416cc4da28434a3f51e602367855c0ef2b6bf1f81b3"
+    },
+    "availability": {
+      "free": 8,
+      "label": "8 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n1. november 2026 · 12.00–14.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Dato og tid: 1. november 2026 · 12.00–14.00\n\n8 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er."
+    },
+    "contentFingerprint": "121b1ecdb203fa34649dc9f56eb9ec87aaca7fe2ce85469f6dce594d0315bab5",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:millemaja"
+    ],
+    "assetId": "soma-img-5422",
+    "render": {
+      "path": "renders/2026-11-01_12-00_saunagus_day-before-2153a77eaf.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "86e6686bc4b2dafb05ddd9fea069c695af0358f7f6d97155f7769491587876e4"
+    },
+    "renderPath": "renders/2026-11-01_12-00_saunagus_day-before-2153a77eaf.jpg",
+    "manualInstructor": null,
+    "manualAssetId": null,
+    "history": [],
+    "contentRevision": "63db1cf0858664989d275896c4015fb0219b39883b1f8abbdac795cf1bbb0cf8",
+    "approvedAt": null,
+    "warningsAcknowledged": false,
+    "skipReason": "missing_approval_at_publish_time",
+    "skippedAt": "2026-10-31T19:53:04.241Z",
+    "githubIssueNumber": 178
   },
   {
     "draftId": "2026-11-01_16-00_saunagus_event-day_r2",
@@ -284,7 +420,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-31T15:58:29.724Z",
+      "readAt": "2026-10-31T19:53:04.241Z",
       "eventKey": "2026-11-01_16-00_saunagus",
       "fingerprint": "284180580e5598934fa44f35f468536e54ad3aa2d4bbea3a94b12783fccac2c5"
     },
@@ -353,7 +489,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "12:00 - 14:00 SAUNAGUS Millemaja 4/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-31T15:58:29.724Z",
+      "readAt": "2026-10-31T19:53:04.241Z",
       "eventKey": "2026-11-01_12-00_saunagus",
       "fingerprint": "73787f40c45f8f29ce26f416cc4da28434a3f51e602367855c0ef2b6bf1f81b3"
     },
@@ -424,7 +560,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-31T15:58:29.724Z",
+        "readAt": "2026-10-31T19:53:04.241Z",
         "eventKey": "2026-11-03_18-30_saunagus",
         "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
       },
@@ -439,7 +575,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-31T15:58:29.724Z",
+        "readAt": "2026-10-31T19:53:04.241Z",
         "eventKey": "2026-11-05_18-30_saunagus",
         "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
       },
@@ -454,7 +590,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-10-31T15:58:29.724Z",
+        "readAt": "2026-10-31T19:53:04.241Z",
         "eventKey": "2026-11-08_16-00_saunagus",
         "fingerprint": "181ae1767dba47938b827e7c35cc6c9ae17f9cd80341cc0cfc6faa7f26572d58"
       }
@@ -514,7 +650,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-31T15:58:29.724Z",
+      "readAt": "2026-10-31T19:53:04.241Z",
       "eventKey": "2026-11-03_18-30_saunagus",
       "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
     },
@@ -612,7 +748,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-31T15:58:29.724Z",
+      "readAt": "2026-10-31T19:53:04.241Z",
       "eventKey": "2026-11-03_18-30_saunagus",
       "fingerprint": "ded65fb45d06eaed61d4455c10cfa0ce8657bd4a4314b1bc0175146ae4f78969"
     },
@@ -710,7 +846,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-31T15:58:29.724Z",
+      "readAt": "2026-10-31T19:53:04.241Z",
       "eventKey": "2026-11-05_18-30_saunagus",
       "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
     },
@@ -772,7 +908,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-31T15:58:29.724Z",
+      "readAt": "2026-10-31T19:53:04.241Z",
       "eventKey": "2026-11-05_18-30_saunagus",
       "fingerprint": "d744df9ed9ca5039ade46e9f6b061edb7a622501500eb778113db6fea9b4f415"
     },
@@ -834,7 +970,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-31T15:58:29.724Z",
+      "readAt": "2026-10-31T19:53:04.241Z",
       "eventKey": "2026-11-08_16-00_saunagus",
       "fingerprint": "181ae1767dba47938b827e7c35cc6c9ae17f9cd80341cc0cfc6faa7f26572d58"
     },
@@ -896,7 +1032,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 2/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-31T15:58:29.724Z",
+      "readAt": "2026-10-31T19:53:04.241Z",
       "eventKey": "2026-11-08_16-00_saunagus",
       "fingerprint": "181ae1767dba47938b827e7c35cc6c9ae17f9cd80341cc0cfc6faa7f26572d58"
     },
@@ -3458,75 +3594,6 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "githubIssueNumber": 134,
     "approvedBy": null,
     "approvedRevision": null
-  },
-  {
-    "draftId": "2026-11-01_12-00_saunagus_day-before_r1",
-    "slotKey": "2026-11-01_12-00_saunagus_day-before",
-    "eventKey": "2026-11-01_12-00_saunagus",
-    "eventFingerprint": "b2b7ee9b14c20730939265d0bda197b10f209d0761660735bad2819b53191856",
-    "revision": 1,
-    "kind": "day_before",
-    "status": "obsolete",
-    "scheduledFor": "2026-10-31T19:00:00+01:00",
-    "season": "winter",
-    "event": {
-      "date": "2026-11-01",
-      "start": "12:00",
-      "end": "14:00",
-      "name": "Saunagus",
-      "booked": 0,
-      "capacity": 12,
-      "instructor": "Millemaja",
-      "description": null,
-      "sourceText": "12:00 - 14:00 SAUNAGUS Millemaja 0/12 Tilmeld",
-      "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-10-21T17:41:05.468Z",
-      "eventKey": "2026-11-01_12-00_saunagus",
-      "fingerprint": "bd35f796a0a68ee3e9adb8b6e67f30e646118480da4f99e468ec9b1238ccec42"
-    },
-    "availability": {
-      "free": 12,
-      "label": "12 ledige pladser",
-      "soldOut": false
-    },
-    "warnings": [],
-    "platformCopies": {
-      "instagram": "I morgen: Sænk tempoet og kom hjem i kroppen.\n\nMilleMaja fra Betterlife by Yndigegn\n\n1. november 2026 · 12.00–14.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
-      "facebookPage": "Dato og tid: 1. november 2026 · 12.00–14.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus med MilleMaja.\n\nSænk tempoet og kom hjem i kroppen.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er."
-    },
-    "contentFingerprint": "4a861f68a6cddeabb0a793ed40019898d76554314aa0ece1c91df23a4b3dfe4d",
-    "factsUsed": [
-      "event.date",
-      "event.start",
-      "event.end",
-      "event.name",
-      "profile:millemaja"
-    ],
-    "assetId": "soma-img-6689",
-    "render": {
-      "path": "renders/2026-11-01_12-00_saunagus_day-before-b2b7ee9b14.jpg",
-      "width": 1080,
-      "height": 1350,
-      "sha256": "5594606bb0f96ac5f76e99622bee20a556063c60fe238bb9ef6f019715f40a49"
-    },
-    "renderPath": "renders/2026-11-01_12-00_saunagus_day-before-b2b7ee9b14.jpg",
-    "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [
-      {
-        "at": "2026-10-22T12:19:27.297Z",
-        "type": "obsolete",
-        "from": "draft",
-        "to": "obsolete"
-      }
-    ],
-    "contentRevision": "34f2f125b8280d34814fa956fddfb08f61e203bf66a64ef51f7659c4ab4519ae",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
-    "githubIssueNumber": 159,
-    "reminderState": null,
-    "warningsAcknowledged": false
   },
   {
     "draftId": "2026-11-01_12-00_saunagus_event-day_r1",
