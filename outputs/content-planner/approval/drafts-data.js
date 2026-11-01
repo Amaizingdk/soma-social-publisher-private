@@ -476,7 +476,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "2153a77eafb80185ad0072ea9f053282b0f02a08726ed6776dedb7ba993337ad",
     "revision": 2,
     "kind": "event_day",
-    "status": "approved",
+    "status": "skipped",
     "scheduledFor": "2026-11-01T11:30:00+01:00",
     "season": "winter",
     "event": {
@@ -531,12 +531,14 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       }
     ],
     "contentRevision": "986cb0673d22c10b59dc90a4c957b85de9599ad6d50d9aa24e6830f0f62923cb",
-    "approvedAt": "2026-10-25T19:10:38.439Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "986cb0673d22c10b59dc90a4c957b85de9599ad6d50d9aa24e6830f0f62923cb",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 163,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "skipReason": "expired_event",
+    "skippedAt": "2026-11-01T16:38:03.719Z"
   },
   {
     "draftId": "2026-11-02_weekly-overview_r3",
@@ -627,7 +629,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 171,
-    "reminderState": null,
+    "reminderState": {
+      "revision": "6156003b5a445dead5fb250273346df91c25f2702f08c7a21d4ba2eafbd0fece",
+      "sentFinalAt": "2026-11-01T16:38:03.719Z"
+    },
     "warningsAcknowledged": false
   },
   {
