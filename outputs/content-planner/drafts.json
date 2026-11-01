@@ -547,7 +547,7 @@
     "eventFingerprint": "f214fe0a78a4ab5b4762a1c739b9e7bee8c4c4dc399736b8f640851c1dc29455",
     "revision": 3,
     "kind": "weekly_overview",
-    "status": "draft",
+    "status": "skipped",
     "scheduledFor": "2026-11-01T19:30:00+01:00",
     "season": "winter",
     "event": null,
@@ -633,7 +633,9 @@
       "revision": "6156003b5a445dead5fb250273346df91c25f2702f08c7a21d4ba2eafbd0fece",
       "sentFinalAt": "2026-11-01T16:38:03.719Z"
     },
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "skipReason": "missing_approval_at_publish_time",
+    "skippedAt": "2026-11-01T20:59:24.170Z"
   },
   {
     "draftId": "2026-11-03_18-30_saunagus_day-before_r3",
