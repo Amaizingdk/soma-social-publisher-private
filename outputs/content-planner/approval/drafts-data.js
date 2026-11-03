@@ -1510,7 +1510,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "cf2855f08eb768d2c5eac3d606f13bdeb04290ae0d37e1a86700d08c598e2768",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 184
   },
   {
     "draftId": "2026-11-10_18-30_saunagus_day-before_r1",
@@ -1568,7 +1569,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "26ce2b709e1dc2d980d368cea219e18703720692d00c07a367e82decfc906212",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 185
   },
   {
     "draftId": "2026-11-10_18-30_saunagus_event-day_r1",
@@ -1626,7 +1628,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "39fb904fabe7ff18f8770625902f19f7da859570d85b6178489a25ef38cd1d49",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 186
   },
   {
     "draftId": "2026-11-12_18-30_saunagus_day-before_r1",
@@ -1684,7 +1687,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "1a484ac77b2cc6a157e20191df0a2e83f652beaf21b0b9b26348027854f20f5c",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 187
   },
   {
     "draftId": "2026-11-12_18-30_saunagus_event-day_r1",
@@ -1742,7 +1746,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "ec06cdb8803f63e0b0aef878b4ae731cb2c111f8515b1c3cb1be3b404d9af2a1",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 188
   },
   {
     "draftId": "2026-11-15_16-00_saunagus_day-before_r1",
@@ -1800,7 +1805,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "8222e6c67782c4ed02f020093806add77ff28c6cba6e4cfb35170cf7d0b7c066",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 189
   },
   {
     "draftId": "2026-11-15_16-00_saunagus_event-day_r1",
@@ -1858,7 +1864,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "e1cb8f38d724f80c11818d0fdffaa6ec7976c469d3fc53bdefe961a24cf6f5f2",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 190
   },
   {
     "draftId": "2026-11-16_weekly-overview_r1",
@@ -1946,7 +1953,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "685257a9a126d8968b598998b3a2a803de3ad436b98d9042a05e8de3058f5798",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 191
   },
   {
     "draftId": "2026-11-17_18-30_saunagus_day-before_r1",
@@ -2004,7 +2012,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "0e1ff7bfc35bfb33df8b36745e7107e584e600e40ce1e5a3fc781f183018d52e",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 192
   },
   {
     "draftId": "2026-11-17_18-30_saunagus_event-day_r1",
@@ -2062,7 +2071,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "99f939e6c60109545af7b587bb7999ad307456003ceb5a385b31e8632d69f570",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 193
   },
   {
     "draftId": "2026-11-19_18-30_saunagus_day-before_r1",
@@ -2120,7 +2130,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "699d5a1d42f12efe55bfd280d696292c9efc031e068c8730cd50d0bdc15b54e9",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 194
   },
   {
     "draftId": "2026-11-19_18-30_saunagus_event-day_r1",
@@ -2178,7 +2189,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "86a14fc8339cec03aa13bde8c5155cd733872664ebebe8a76c8f4c4980e3ee7e",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 195
   },
   {
     "draftId": "2026-11-22_16-00_saunagus_day-before_r1",
@@ -2236,7 +2248,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "ee7d8b4e6d415f4f9b9a373a8d6e5864fa42617b5ae002a9ed18267bb25b37e5",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 196
   },
   {
     "draftId": "2026-11-22_16-00_saunagus_event-day_r1",
@@ -2294,7 +2307,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "c8de7ae2f408e6157450c8a0d7f8898f26396d2c754752b3cb2d39b254f88a15",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 197
   },
   {
     "draftId": "2026-11-23_weekly-overview_r1",
@@ -2382,7 +2396,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "d959dfc79ce183016b11f17cf9725af898dd5dc39b26a552b9f84fea1375de7c",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 198
   },
   {
     "draftId": "2026-11-24_18-30_saunagus_day-before_r1",
@@ -2440,7 +2455,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "f3ba40adb6d1bb45b78ed370a64962319f25ecf46b39a01d8b302653b1d497ca",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 199
   },
   {
     "draftId": "2026-11-24_18-30_saunagus_event-day_r1",
@@ -2498,7 +2514,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "e7d3224ca04e9a3497961ea856e40936e307448d6740b1e7ad35304496eae49f",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 200
   },
   {
     "draftId": "2026-11-26_18-30_saunagus_day-before_r1",
@@ -2556,7 +2573,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "afb10a960bc583061f096192db87902e89ba1eca4a573522b6ade57eff7f587b",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 201
   },
   {
     "draftId": "2026-11-26_18-30_saunagus_event-day_r1",
@@ -2614,7 +2632,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "aeebc50170079a3a17500ab629b81954bb71444e156e05ab9b865dc110679f0d",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 202
   },
   {
     "draftId": "2026-11-29_16-00_saunagus_day-before_r1",
@@ -2672,7 +2691,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "2ddf59ed64882417d7fc694cd5fb8cec0e51a718ad2b4c9affdebc2cd99a6dae",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 203
   },
   {
     "draftId": "2026-11-29_16-00_saunagus_event-day_r1",
@@ -2730,7 +2750,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "539965f5396e2e09ce077abf70ce926f3ad146cf02cfd1c4a0a4b838b25fa5ad",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 204
   },
   {
     "draftId": "2026-11-03_18-30_saunagus_event-day_r3",
