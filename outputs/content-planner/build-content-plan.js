@@ -138,10 +138,10 @@ async function runPipeline({
       events = await readCalendar(page, now, config.weeksAhead);
       // En hel uge, der før havde events, og nu er tom, er næsten altid en ufuldstændig læsning.
       // Læs igen; ellers stop, så ingen kladder (heller ikke godkendte) bliver forældede ved en fejl.
-      let vanished = findVanishedWeeks(previousEvents, events, now);
+      let vanished = findVanishedWeeks(previousEvents, events, now, { weeksAhead: config.weeksAhead });
       for (let retry = 0; retry < 2 && vanished.length; retry += 1) {
         events = await readCalendar(page, now, config.weeksAhead);
-        vanished = findVanishedWeeks(previousEvents, events, now);
+        vanished = findVanishedWeeks(previousEvents, events, now, { weeksAhead: config.weeksAhead });
       }
       if (vanished.length) {
         throw new Error(`Kalenderen mangler uger, der havde events før (uge fra ${vanished.join(', ')}). Læsningen anses for ufuldstændig, og kladderne er ikke ændret.`);

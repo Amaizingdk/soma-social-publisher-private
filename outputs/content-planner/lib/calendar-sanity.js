@@ -9,7 +9,16 @@ function mondayOf(dateText) {
   return date.toISOString().slice(0, 10);
 }
 
-function findVanishedWeeks(previousEvents, newEvents, now = new Date()) {
+function addDays(dateText, days) {
+  const date = new Date(`${dateText}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+// weeksAhead (valgfri): hvor mange uger læsningen dækker, regnet fra indeværende uge. Uger inden for den
+// horisont, der før havde events, men nu er tomme, flagges også når de ligger EFTER den sidste uge i læsningen.
+// Det fanger en afkortet læsning (fx siden midt i en genstart), hvor kun de første uger kom med.
+function findVanishedWeeks(previousEvents, newEvents, now = new Date(), { weeksAhead = null } = {}) {
   const today = now.toISOString().slice(0, 10);
   const weeksOf = (events) => new Set((events || [])
     .filter((event) => typeof event?.date === 'string' && event.date >= today)
@@ -18,7 +27,12 @@ function findVanishedWeeks(previousEvents, newEvents, now = new Date()) {
   const after = weeksOf(newEvents);
   const lastWeekAfter = [...after].sort().pop();
   if (!lastWeekAfter) return [];
-  return [...before].filter((week) => !after.has(week) && week < lastWeekAfter).sort();
+  const horizon = Number.isInteger(weeksAhead) && weeksAhead > 0
+    ? addDays(mondayOf(today), (weeksAhead - 1) * 7)
+    : null;
+  return [...before]
+    .filter((week) => !after.has(week) && (week < lastWeekAfter || (horizon !== null && week <= horizon)))
+    .sort();
 }
 
 module.exports = { findVanishedWeeks, mondayOf };

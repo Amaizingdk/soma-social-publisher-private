@@ -31,3 +31,18 @@ test('weeks past the last week read, past events and an empty history are ignore
   assert.deepEqual(findVanishedWeeks([ev('2026-09-29')], [ev('2026-10-20')], NOW), []);
   assert.deepEqual(findVanishedWeeks([], [ev('2026-10-20')], NOW), []);
 });
+
+test('a truncated read that only kept the first weeks is flagged when weeksAhead covers the lost weeks', () => {
+  // 31. okt. 2026: kun 1. nov. kom med, 3., 5. og 8. nov. forsvandt (uge 2. og 9. nov. ligger efter sidste læste uge).
+  const now = new Date('2026-10-31T04:39:00Z');
+  const previous = [ev('2026-11-01'), ev('2026-11-03'), ev('2026-11-05'), ev('2026-11-08')];
+  const read = [ev('2026-11-01')];
+  assert.deepEqual(findVanishedWeeks(previous, read, now), []);
+  assert.deepEqual(findVanishedWeeks(previous, read, now, { weeksAhead: 4 }), ['2026-11-02']);
+});
+
+test('weeks beyond the weeksAhead horizon are still ignored', () => {
+  const now = new Date('2026-10-05T07:00:00Z');
+  const previous = [ev('2026-10-06'), ev('2026-11-10')];
+  assert.deepEqual(findVanishedWeeks(previous, [ev('2026-10-06')], now, { weeksAhead: 4 }), []);
+});
