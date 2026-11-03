@@ -1042,7 +1042,7 @@
     "eventFingerprint": "6b39a8b682ad75040e2cc04f298871dc28cd501ac2e425043976dcfb2a29499a",
     "revision": 4,
     "kind": "event_day",
-    "status": "approved",
+    "status": "skipped",
     "scheduledFor": "2026-11-03T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -1137,16 +1137,18 @@
       }
     ],
     "contentRevision": "bbf56e1abcec1b73ce26566c24462fb9e3b6132c18bfafb7f030ab3f1b2da8bf",
-    "approvedAt": "2026-11-03T06:38:07.282Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "bbf56e1abcec1b73ce26566c24462fb9e3b6132c18bfafb7f030ab3f1b2da8bf",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 181,
     "reminderState": null,
     "warningsAcknowledged": false,
     "overdueReminderState": {
       "revision": "bbf56e1abcec1b73ce26566c24462fb9e3b6132c18bfafb7f030ab3f1b2da8bf",
       "sentAt": "2026-11-03T14:54:01.744Z"
-    }
+    },
+    "skipReason": "expired_event",
+    "skippedAt": "2026-11-03T20:58:20.230Z"
   },
   {
     "draftId": "2026-11-05_18-30_saunagus_day-before_r3",
