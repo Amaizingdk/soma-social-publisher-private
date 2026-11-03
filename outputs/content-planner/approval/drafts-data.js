@@ -297,7 +297,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": "2026-11-03T06:38:07.282Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "bbf56e1abcec1b73ce26566c24462fb9e3b6132c18bfafb7f030ab3f1b2da8bf",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 181,
     "reminderState": null,
     "warningsAcknowledged": false
   },
