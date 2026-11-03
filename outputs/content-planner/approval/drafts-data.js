@@ -201,7 +201,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "1f3440e091326031851d88523e89c2dc848c101f1bcc5783b4d6fdf88ed8468d",
     "revision": 4,
     "kind": "event_day",
-    "status": "needs_review",
+    "status": "draft",
     "scheduledFor": "2026-11-03T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -211,7 +211,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "name": "Saunagus",
       "booked": 1,
       "capacity": 12,
-      "instructor": null,
+      "instructor": "Søren",
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS 1/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
@@ -224,14 +224,12 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "label": "11 ledige pladser",
       "soldOut": false
     },
-    "warnings": [
-      "instructor_missing"
-    ],
+    "warnings": [],
     "platformCopies": {
-      "instagram": "I dag: Giv dig selv et varmt pusterum.\n\nSaunagus\n\n3. november 2026 · 18.30–20.30\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
-      "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nGiv dig selv et varmt pusterum.\n\nEt saunagus med varme, dufte, musik og nærvær.\n\nDu er velkommen præcis, som du er."
+      "instagram": "I dag: Kom ind i varmen, land i kroppen og vær lige her.\n\n3. november 2026 · 18.30–20.30\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen, land i kroppen og vær lige her.\n\nMusikken får mere fylde og rytme uden at skubbe roen til side.\n\nEn sanselig stund med plads til både styrke og velvære."
     },
-    "contentFingerprint": "56576e2d07625688bb529bb590dc7f2a62efe7e64244b17bde6b1dcf08f3e1fc",
+    "contentFingerprint": "557406da9ce4ec27dde2ea8c12f318a18f50ebdebdddcf1db92d3ff197ab03b9",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -244,11 +242,11 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "path": "renders/2026-11-03_18-30_saunagus_event-day-1f3440e091.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "6df00a686dc01e40413920e159e36ca6a05561f2346fddd501bd70a5134dd687"
+      "sha256": "60b8df74805e5d06b9729f6a5240f2dbe92767a9afcb5a5f7f5ce910b1659b66"
     },
     "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-1f3440e091.jpg",
-    "manualInstructor": null,
-    "manualAssetId": null,
+    "manualInstructor": "Søren",
+    "manualAssetId": "soma-power-steam",
     "instructorOptions": {
       "soren": {
         "instructor": "Søren",
@@ -262,7 +260,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "path": "renders/2026-11-03_18-30_saunagus_event-day-1f3440e091-soren.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "49cea65f07639063b11d4d7a85fae8323f54c3454cd115b97a43e569a47a2594"
+          "sha256": "60b8df74805e5d06b9729f6a5240f2dbe92767a9afcb5a5f7f5ce910b1659b66"
         },
         "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-1f3440e091-soren.jpg"
       },
@@ -273,18 +271,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
           "instagram": "I dag: Et roligt rum midt i alt det, der skal nås.\n\nMilleMaja fra Betterlife by Yndigegn\n\n3. november 2026 · 18.30–20.30\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
           "facebookPage": "Dato og tid: 3. november 2026 · 18.30–20.30\n\n11 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus med MilleMaja.\n\nEt roligt rum midt i alt det, der skal nås.\n\nMilleMaja guider en sanselig og meditativ oplevelse med roligt tempo og plads til at være.\n\nDu må komme præcis, som du er."
         },
-        "assetId": "soma-img-6689",
+        "assetId": "soma-power-steam",
         "render": {
           "path": "renders/2026-11-03_18-30_saunagus_event-day-1f3440e091-millemaja.jpg",
           "width": 1080,
           "height": 1350,
-          "sha256": "0c834dfd71c09f329b8e69485459c4aa828ee9724933d0f645b44c8478126961"
+          "sha256": "8a24ab2edb345be57da0a897cf7ac376a7ea7e43443c67e33581b8519084a57c"
         },
         "renderPath": "renders/2026-11-03_18-30_saunagus_event-day-1f3440e091-millemaja.jpg"
       }
     },
-    "history": [],
-    "contentRevision": "e6c4c9842050cd7e0cfb35524be3c94909d2731ae33bab593b879d33c3aea4c8",
+    "history": [
+      {
+        "at": "2026-11-03T06:37:38.178Z",
+        "type": "change_instructor",
+        "from": "needs_review",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "bbf56e1abcec1b73ce26566c24462fb9e3b6132c18bfafb7f030ab3f1b2da8bf",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
