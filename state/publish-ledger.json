@@ -660,6 +660,16 @@
       "reservedAt": "2026-11-05T11:03:09.291Z",
       "providerId": "17962914969258491",
       "publishedAt": "2026-11-05T11:03:09.291Z"
+    },
+    {
+      "idempotencyKey": "a698e4acd548839eba46caf9e1f31c707a104072b4d5cb2ddcb987cc445a2ba8",
+      "draftId": "2026-11-05_18-30_saunagus_event-day_r3",
+      "revision": 3,
+      "platform": "facebookPage",
+      "deliveryType": "facebook_page_feed",
+      "scheduledFor": "2026-11-05T12:00:00+01:00",
+      "status": "reserved",
+      "reservedAt": "2026-11-05T11:03:09.291Z"
     }
   ]
 }
