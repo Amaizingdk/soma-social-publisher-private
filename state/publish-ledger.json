@@ -680,8 +680,10 @@
       "platform": "instagram",
       "deliveryType": "instagram_story",
       "scheduledFor": "2026-11-07T10:00:00+01:00",
-      "status": "reserved",
-      "reservedAt": "2026-11-07T09:03:00.993Z"
+      "status": "published",
+      "reservedAt": "2026-11-07T09:03:00.993Z",
+      "providerId": "18159998704508302",
+      "publishedAt": "2026-11-07T09:03:00.993Z"
     }
   ]
 }
