@@ -134,7 +134,7 @@
     "eventFingerprint": "f3b080bb66edb0841508806bb7df1cd23a446ff21dd6752a8abdd70669219822",
     "revision": 4,
     "kind": "event_day",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-11-08T09:30:00+01:00",
     "season": "winter",
     "event": {
@@ -192,9 +192,10 @@
     "approvedAt": "2026-11-08T06:50:09.029Z",
     "approvedBy": "soma-local-approval",
     "approvedRevision": "1e28288e427b63022d4be126978082646add6ac51b75b8afa80a2d229c76ed83",
-    "githubIssueNumber": null,
+    "githubIssueNumber": 211,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-11-08T08:32:51.865Z"
   },
   {
     "draftId": "2026-11-09_weekly-overview_r1",
@@ -381,7 +382,8 @@
     "history": [],
     "contentRevision": "15cc45e413527f2d46f85278cf9462e5d2923c3aacf77cebaa216ae2ffbc2b22",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 212
   },
   {
     "draftId": "2026-11-10_18-30_saunagus_day-before_r1",
@@ -954,7 +956,8 @@
     "history": [],
     "contentRevision": "3ca7658827db6b6a1090eb4f6fb8bebc5a6a916657f5982ffbe5df69595ba7f0",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 213
   },
   {
     "draftId": "2026-11-17_18-30_saunagus_day-before_r1",
@@ -1513,7 +1516,8 @@
     "history": [],
     "contentRevision": "1d3bff36cd215e2448b6e8caf0b03c2bebcea6dc681eb29eb681fdf6293b775b",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 214
   },
   {
     "draftId": "2026-11-24_18-30_saunagus_day-before_r1",
