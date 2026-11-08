@@ -298,6 +298,46 @@
       "libraryFile": "IMG_5422.jpeg",
       "sourcePath": "assets/soma-img-5422.jpg",
       "normalizedPath": "assets/soma-img-5422.jpg"
+    },
+    {
+      "assetId": "soma-img-7321",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "varme",
+        "autumn"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.0313,
+        "width": 1,
+        "height": 0.9375
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren 2026-11-08. Original i billedbiblioteket: IMG_7321.JPG.",
+      "libraryFile": "IMG_7321.JPG",
+      "sourcePath": "assets/soma-img-7321.jpg",
+      "normalizedPath": "assets/soma-img-7321.jpg"
+    },
+    {
+      "assetId": "soma-img-7323",
+      "status": "approved",
+      "tags": [
+        "sauna",
+        "varme",
+        "autumn"
+      ],
+      "crop45": {
+        "x": 0,
+        "y": 0.0313,
+        "width": 1,
+        "height": 0.9375
+      },
+      "orientationVerified": true,
+      "approvalNote": "Orientering og beskæring visuelt godkendt: Søren 2026-11-08. Original i billedbiblioteket: IMG_7323.JPG.",
+      "libraryFile": "IMG_7323.JPG",
+      "sourcePath": "assets/soma-img-7323.jpg",
+      "normalizedPath": "assets/soma-img-7323.jpg"
     }
   ]
 }
