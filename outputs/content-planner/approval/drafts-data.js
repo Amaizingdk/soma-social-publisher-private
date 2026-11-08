@@ -1245,7 +1245,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "Næste uges gus 🔥\n\n• 24. november 2026 · 18.30–20.30 · Tirsdagsgus\n• 26. november 2026 · 18.30–20.30 · Torsdagsgus\n• 29. november 2026 · 16.00–18.00 · Søndagsgus\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
       "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 24. november 2026 · 18.30–20.30 · Tirsdagsgus\n• 26. november 2026 · 18.30–20.30 · Torsdagsgus\n• 29. november 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "602c33859b282cc250e26ed633605ab8ecd8e19f95ec0ea4868ce45e7591bd6e",
+    "contentFingerprint": "65f6a259dcec4817514d0a10c515a693d9d6a4e93cffb2585cffdc2c08039b5a",
     "factsUsed": [
       "event:2026-11-24_18-30_saunagus.date",
       "event:2026-11-24_18-30_saunagus.time",
@@ -1254,18 +1254,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event:2026-11-29_16-00_saunagus.date",
       "event:2026-11-29_16-00_saunagus.time"
     ],
-    "assetId": "soma-img-6706",
+    "assetId": "soma-img-5597",
     "render": {
       "path": "renders/2026-11-23_weekly-overview-53d4d26db9.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "1af7177983dd1105915f6f7d46ee281d19193577537710671164100bfce6ff0a"
+      "sha256": "a9b8ceaeb1af16475b606c2df981b4025258f32815d11be93ca99f7185672c18"
     },
     "renderPath": "renders/2026-11-23_weekly-overview-53d4d26db9.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "1d3bff36cd215e2448b6e8caf0b03c2bebcea6dc681eb29eb681fdf6293b775b",
+    "manualAssetId": "soma-img-5597",
+    "history": [
+      {
+        "at": "2026-11-08T08:57:33.618Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "1535c4cb1fbc5c2b0c5d596d712c889e4a8dbbcd978e7676cd3d8b878894acc9",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
