@@ -521,7 +521,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "121ff86205444b8f189139cb9ecd1d467290eae73c42481c279d8eb0c56eb509",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-11T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -567,11 +567,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-12_18-30_saunagus_day-before-121ff86205.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:42:03.075Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "1a484ac77b2cc6a157e20191df0a2e83f652beaf21b0b9b26348027854f20f5c",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:42:03.075Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "1a484ac77b2cc6a157e20191df0a2e83f652beaf21b0b9b26348027854f20f5c",
     "githubIssueNumber": 187,
     "reminderState": null,
     "warningsAcknowledged": false
