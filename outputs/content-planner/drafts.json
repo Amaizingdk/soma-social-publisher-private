@@ -480,7 +480,7 @@
       "instagram": "I dag: Lad skuldrene sænke sig, mens varmen tager over.\n\n10. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 10. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLad skuldrene sænke sig, mens varmen tager over.\n\nDer er mere kraft i musikken, mens kroppen inviteres til at give slip og finde ro.\n\nVi starter blidt, mærker rytmen og slutter roligt."
     },
-    "contentFingerprint": "1d10588a30395564b0d0583c2e2e16c535e7e97118e7ccf253653155cc6501da",
+    "contentFingerprint": "e090aaafbecba114633a253b89c1d28710b855787e324c926fa7cdbddac468c7",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -488,18 +488,25 @@
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-power-steam",
+    "assetId": "soma-img-7323",
     "render": {
       "path": "renders/2026-11-10_18-30_saunagus_event-day-f85d1d3cdd.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "7053aae7c6a4156814050c74256c2acc39e22d9c69b18396196aa6e888e7b27c"
+      "sha256": "9ccf1b7fce0f9a5a9f3899946ea426355c0d85c0ab141d4931e1a3606477f9f7"
     },
     "renderPath": "renders/2026-11-10_18-30_saunagus_event-day-f85d1d3cdd.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "39fb904fabe7ff18f8770625902f19f7da859570d85b6178489a25ef38cd1d49",
+    "manualAssetId": "soma-img-7323",
+    "history": [
+      {
+        "at": "2026-11-08T08:40:13.839Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "b82d896703c0b2bc0e64553843bdefd0924a43a1789b7457c46dca3b95aa4bd9",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
