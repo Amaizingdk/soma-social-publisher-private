@@ -1078,7 +1078,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I morgen: Rund ugen af med varme og ro i kroppen.\n\n22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nRund ugen af med varme og ro i kroppen.\n\nSøndagens musik og tema kan variere, men den rolige grundrejse er altid med.\n\nKom med og giv dig selv en blid afslutning på ugen."
     },
-    "contentFingerprint": "0db432975c98b4b359ae00c8f3b561fecef8abfb88da5d01b9d23309d4c90039",
+    "contentFingerprint": "64f9c4d99b31db564b4bd8293a03b0bd9631e17b69335cdae87be087fcc07c09",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1086,18 +1086,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-img-6706",
+    "assetId": "soma-img-7323",
     "render": {
       "path": "renders/2026-11-22_16-00_saunagus_day-before-d2f2ba619d.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "e40065c917d30d0ff3229d0df63b899b5d9786b1fd2aa68716c7fb1d0c42a818"
+      "sha256": "fc7b315b78ec99cb0d6ea1d1c03ee6d6fb1264d0a521dfe8908d095aefb13175"
     },
     "renderPath": "renders/2026-11-22_16-00_saunagus_day-before-d2f2ba619d.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "ee7d8b4e6d415f4f9b9a373a8d6e5864fa42617b5ae002a9ed18267bb25b37e5",
+    "manualAssetId": "soma-img-7323",
+    "history": [
+      {
+        "at": "2026-11-08T08:57:00.936Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "ebee92ffa72b15ececc17bc4b773de2529a41977f4e55bc7652a382281203b7b",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
