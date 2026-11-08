@@ -204,7 +204,7 @@
     "eventFingerprint": "0ab7611d1973897cca2a28ca9544a50edee3b6d9975beccb3712662dde39cc37",
     "revision": 2,
     "kind": "weekly_overview",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-08T19:30:00+01:00",
     "season": "winter",
     "event": null,
@@ -280,11 +280,18 @@
     "renderPath": "renders/2026-11-09_weekly-overview-0ab7611d19.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:53:21.474Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "15cc45e413527f2d46f85278cf9462e5d2923c3aacf77cebaa216ae2ffbc2b22",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:53:21.474Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "15cc45e413527f2d46f85278cf9462e5d2923c3aacf77cebaa216ae2ffbc2b22",
     "githubIssueNumber": 212,
     "reminderState": null,
     "warningsAcknowledged": false
