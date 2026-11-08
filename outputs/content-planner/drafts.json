@@ -1377,7 +1377,7 @@
       "instagram": "I dag: Giv slip på dagen og kom med ind i varmen.\n\n24. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 24. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nGiv slip på dagen og kom med ind i varmen.\n\nRytmerne fylder lidt mere i musikken, men roen er stadig med hele vejen.\n\nKom som du er, og lad varmen gøre resten."
     },
-    "contentFingerprint": "b0595475d8651e23c14ad98e89099f7391127aa28f78f5e51bccb519da2d4df1",
+    "contentFingerprint": "50394fbad31e39050436f8fa90c18fe0d2bed325539c9dfbf8433ef1c01b8618",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1385,18 +1385,25 @@
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-img-6688",
+    "assetId": "soma-sauna-01",
     "render": {
       "path": "renders/2026-11-24_18-30_saunagus_event-day-d0fe7497ce.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "84e0a361062ea7ea00d80b7e4ccb7b0beacba94f874f99f22bc06612aedf2bb2"
+      "sha256": "5a8fc24cc871f4e7f6c356b1848ebf6d7c01973b068e0b8276156787555edb50"
     },
     "renderPath": "renders/2026-11-24_18-30_saunagus_event-day-d0fe7497ce.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "e7d3224ca04e9a3497961ea856e40936e307448d6740b1e7ad35304496eae49f",
+    "manualAssetId": "soma-sauna-01",
+    "history": [
+      {
+        "at": "2026-11-08T08:57:45.091Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "a6146df1bfe84afcb1d3616faccd6fee4baaca8f17b9d2bb35015635eb6356ea",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
