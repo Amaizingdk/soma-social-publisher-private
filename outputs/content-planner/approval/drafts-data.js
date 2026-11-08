@@ -303,7 +303,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "f85d1d3cdda38678a4d61566e5ac63ba0694f4bd4d3ca708f5cf34b694ffc449",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-09T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -349,11 +349,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-10_18-30_saunagus_day-before-f85d1d3cdd.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "26ce2b709e1dc2d980d368cea219e18703720692d00c07a367e82decfc906212",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "26ce2b709e1dc2d980d368cea219e18703720692d00c07a367e82decfc906212",
     "githubIssueNumber": 185,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -365,7 +372,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "f85d1d3cdda38678a4d61566e5ac63ba0694f4bd4d3ca708f5cf34b694ffc449",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-10T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -417,12 +424,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "b82d896703c0b2bc0e64553843bdefd0924a43a1789b7457c46dca3b95aa4bd9",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "b82d896703c0b2bc0e64553843bdefd0924a43a1789b7457c46dca3b95aa4bd9",
     "githubIssueNumber": 186,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -503,7 +516,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "121ff86205444b8f189139cb9ecd1d467290eae73c42481c279d8eb0c56eb509",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-12T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -549,11 +562,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-12_18-30_saunagus_event-day-121ff86205.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "ec06cdb8803f63e0b0aef878b4ae731cb2c111f8515b1c3cb1be3b404d9af2a1",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "ec06cdb8803f63e0b0aef878b4ae731cb2c111f8515b1c3cb1be3b404d9af2a1",
     "githubIssueNumber": 188,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -565,7 +585,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "3dd8f931bf3f6830fb39964cfe725ef7440432e24893eee7eeacdbb82c034e82",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-14T10:00:00+01:00",
     "season": "winter",
     "event": {
@@ -611,11 +631,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-15_16-00_saunagus_day-before-3dd8f931bf.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "8222e6c67782c4ed02f020093806add77ff28c6cba6e4cfb35170cf7d0b7c066",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "8222e6c67782c4ed02f020093806add77ff28c6cba6e4cfb35170cf7d0b7c066",
     "githubIssueNumber": 189,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -627,7 +654,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "3dd8f931bf3f6830fb39964cfe725ef7440432e24893eee7eeacdbb82c034e82",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-15T09:30:00+01:00",
     "season": "winter",
     "event": {
@@ -679,12 +706,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "8b223f3a89b6715953ab6043c7a0f8ac59e42a3ab589083fe8b6d32275084cb6",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "8b223f3a89b6715953ab6043c7a0f8ac59e42a3ab589083fe8b6d32275084cb6",
     "githubIssueNumber": 190,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -696,7 +729,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "3c606a07eef7a2569e8e811067411bc65cc26cefea0eb96c3e806a645d4bacbf",
     "revision": 2,
     "kind": "weekly_overview",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-15T19:30:00+01:00",
     "season": "winter",
     "event": null,
@@ -778,12 +811,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "8697a49fc292272fd639435337d5120161be422648ff8ed4e101ef6d4bc27ad8",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "8697a49fc292272fd639435337d5120161be422648ff8ed4e101ef6d4bc27ad8",
     "githubIssueNumber": 213,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -795,7 +834,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "aa640cf83022b3fa44e8fdf2e517fcaf03337ee1d4af5348f70579735462a152",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-16T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -841,11 +880,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-17_18-30_saunagus_day-before-aa640cf830.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "0e1ff7bfc35bfb33df8b36745e7107e584e600e40ce1e5a3fc781f183018d52e",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "0e1ff7bfc35bfb33df8b36745e7107e584e600e40ce1e5a3fc781f183018d52e",
     "githubIssueNumber": 192,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -857,7 +903,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "aa640cf83022b3fa44e8fdf2e517fcaf03337ee1d4af5348f70579735462a152",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-17T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -909,12 +955,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "366adba1fd59ff4688fa1b6cce08e54997b0834929e2aec1f3ff6f20c2e65b32",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "366adba1fd59ff4688fa1b6cce08e54997b0834929e2aec1f3ff6f20c2e65b32",
     "githubIssueNumber": 193,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -926,7 +978,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "51953760d0b3ac816d87a22e7a896fa68d92f5b184e27bda33fb3276cf08626b",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-18T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -972,11 +1024,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-19_18-30_saunagus_day-before-51953760d0.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "699d5a1d42f12efe55bfd280d696292c9efc031e068c8730cd50d0bdc15b54e9",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "699d5a1d42f12efe55bfd280d696292c9efc031e068c8730cd50d0bdc15b54e9",
     "githubIssueNumber": 194,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -988,7 +1047,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "51953760d0b3ac816d87a22e7a896fa68d92f5b184e27bda33fb3276cf08626b",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-19T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -1034,11 +1093,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-19_18-30_saunagus_event-day-51953760d0.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "86a14fc8339cec03aa13bde8c5155cd733872664ebebe8a76c8f4c4980e3ee7e",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "86a14fc8339cec03aa13bde8c5155cd733872664ebebe8a76c8f4c4980e3ee7e",
     "githubIssueNumber": 195,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1050,7 +1116,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "d2f2ba619de522b5ad114b9b03c4f458dc6a995ad5a33da98cf4167e8451137f",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-21T10:00:00+01:00",
     "season": "winter",
     "event": {
@@ -1102,12 +1168,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "ebee92ffa72b15ececc17bc4b773de2529a41977f4e55bc7652a382281203b7b",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.416Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "ebee92ffa72b15ececc17bc4b773de2529a41977f4e55bc7652a382281203b7b",
     "githubIssueNumber": 196,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1119,7 +1191,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "d2f2ba619de522b5ad114b9b03c4f458dc6a995ad5a33da98cf4167e8451137f",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-22T09:30:00+01:00",
     "season": "winter",
     "event": {
@@ -1171,12 +1243,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "3e04517ca9ac3c726e5e000e9a54b9c20ae58f1ba0ca673047334779666d2fd7",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.417Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "3e04517ca9ac3c726e5e000e9a54b9c20ae58f1ba0ca673047334779666d2fd7",
     "githubIssueNumber": 197,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1188,7 +1266,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "53d4d26db9731c1f60aac29fd89b9b57e0819107f400119f24fd3339b896c59a",
     "revision": 2,
     "kind": "weekly_overview",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-22T19:30:00+01:00",
     "season": "winter",
     "event": null,
@@ -1270,12 +1348,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "1535c4cb1fbc5c2b0c5d596d712c889e4a8dbbcd978e7676cd3d8b878894acc9",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.417Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "1535c4cb1fbc5c2b0c5d596d712c889e4a8dbbcd978e7676cd3d8b878894acc9",
     "githubIssueNumber": 214,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1287,7 +1371,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "d0fe7497ce0932969e6845c66e62315fa57d4355a20b815e591230ea32420e77",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-23T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -1333,11 +1417,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-24_18-30_saunagus_day-before-d0fe7497ce.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "f3ba40adb6d1bb45b78ed370a64962319f25ecf46b39a01d8b302653b1d497ca",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.417Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "f3ba40adb6d1bb45b78ed370a64962319f25ecf46b39a01d8b302653b1d497ca",
     "githubIssueNumber": 199,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1349,7 +1440,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "d0fe7497ce0932969e6845c66e62315fa57d4355a20b815e591230ea32420e77",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-24T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -1401,12 +1492,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "a6146df1bfe84afcb1d3616faccd6fee4baaca8f17b9d2bb35015635eb6356ea",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.417Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "a6146df1bfe84afcb1d3616faccd6fee4baaca8f17b9d2bb35015635eb6356ea",
     "githubIssueNumber": 200,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1418,7 +1515,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "25756ebb6e8265bff49a5c1d9781a6098630708ca47b0cb91549e0f27525d820",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-25T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -1464,11 +1561,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-26_18-30_saunagus_day-before-25756ebb6e.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "afb10a960bc583061f096192db87902e89ba1eca4a573522b6ade57eff7f587b",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.417Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "afb10a960bc583061f096192db87902e89ba1eca4a573522b6ade57eff7f587b",
     "githubIssueNumber": 201,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1480,7 +1584,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "25756ebb6e8265bff49a5c1d9781a6098630708ca47b0cb91549e0f27525d820",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-26T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -1526,11 +1630,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-26_18-30_saunagus_event-day-25756ebb6e.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "aeebc50170079a3a17500ab629b81954bb71444e156e05ab9b865dc110679f0d",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.417Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "aeebc50170079a3a17500ab629b81954bb71444e156e05ab9b865dc110679f0d",
     "githubIssueNumber": 202,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1542,7 +1653,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "fd9a05d472368cc078fa14874fa1357136a8bdd18911f5c7d8140584b307ad8a",
     "revision": 1,
     "kind": "day_before",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-28T10:00:00+01:00",
     "season": "winter",
     "event": {
@@ -1588,11 +1699,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "renderPath": "renders/2026-11-29_16-00_saunagus_day-before-fd9a05d472.jpg",
     "manualInstructor": null,
     "manualAssetId": null,
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      }
+    ],
     "contentRevision": "2ddf59ed64882417d7fc694cd5fb8cec0e51a718ad2b4c9affdebc2cd99a6dae",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.417Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "2ddf59ed64882417d7fc694cd5fb8cec0e51a718ad2b4c9affdebc2cd99a6dae",
     "githubIssueNumber": 203,
     "reminderState": null,
     "warningsAcknowledged": false
@@ -1604,7 +1722,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "fd9a05d472368cc078fa14874fa1357136a8bdd18911f5c7d8140584b307ad8a",
     "revision": 1,
     "kind": "event_day",
-    "status": "draft",
+    "status": "approved",
     "scheduledFor": "2026-11-29T09:30:00+01:00",
     "season": "winter",
     "event": {
@@ -1656,12 +1774,18 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "change_image",
         "from": "draft",
         "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
       }
     ],
     "contentRevision": "4bde6ec37c62eb3546517bf76944081459b9c9ebcdb90dbc712cacd0fc564e33",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
+    "approvedAt": "2026-11-08T08:58:40.417Z",
+    "approvedBy": "soma-local-approval",
+    "approvedRevision": "4bde6ec37c62eb3546517bf76944081459b9c9ebcdb90dbc712cacd0fc564e33",
     "githubIssueNumber": 204,
     "reminderState": null,
     "warningsAcknowledged": false
