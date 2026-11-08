@@ -1147,7 +1147,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I dag: Lad søndagen lande blødt i varmen.\n\n22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nFire sanselige runder med musik, dufte og plads til at give slip.\n\nEn rolig stund, før en ny uge begynder."
     },
-    "contentFingerprint": "78fb24aa0a2e21fba2a93b137aeba98869ed730511ba7360af998507ab9a1ca9",
+    "contentFingerprint": "b0e8914face2121847257390862b474fe7c12ad45aba117a9ebadff789160cc6",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1155,18 +1155,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-winter-night",
+    "assetId": "soma-img-7321",
     "render": {
       "path": "renders/2026-11-22_16-00_saunagus_event-day-d2f2ba619d.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "38e12263aa110ef84ff12a8fe38a0764ca69126f94a74f7d91b68af9e0e70359"
+      "sha256": "718513421dd79a58500b9ea1d49a79b21ae00dca59e80db80ea35bcc32aebbd2"
     },
     "renderPath": "renders/2026-11-22_16-00_saunagus_event-day-d2f2ba619d.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "c8de7ae2f408e6157450c8a0d7f8898f26396d2c754752b3cb2d39b254f88a15",
+    "manualAssetId": "soma-img-7321",
+    "history": [
+      {
+        "at": "2026-11-08T08:57:15.825Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "3e04517ca9ac3c726e5e000e9a54b9c20ae58f1ba0ca673047334779666d2fd7",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
