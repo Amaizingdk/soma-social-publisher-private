@@ -885,7 +885,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I dag: Land i varmen og lad kroppen falde til ro.\n\n17. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 17. november 2026 · 18.30–20.30\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLand i varmen og lad kroppen falde til ro.\n\nMusikken har lidt mere rytme og kraft, mens du stadig får plads til at lande.\n\nFire runder, der begynder blidt og slutter med ro i kroppen."
     },
-    "contentFingerprint": "d7a1b4f7b087fba25472a9b42ba9719b74541410b1eeff049115536a06e38fc5",
+    "contentFingerprint": "f00af34306e0001bbfa58c5a5dd520ebae76c331b062300dce6a3572f87276d5",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -893,18 +893,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-img-6688",
+    "assetId": "soma-img-6689",
     "render": {
       "path": "renders/2026-11-17_18-30_saunagus_event-day-aa640cf830.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "12caa0edf0700cf7a9ca9a682d2330e86f0e4cc9dfdcafe706ce8d5f3b432a93"
+      "sha256": "8d13d12890581e1344c7e99dc6232124cfc8d0ad0e883044a095e68cdd16c392"
     },
     "renderPath": "renders/2026-11-17_18-30_saunagus_event-day-aa640cf830.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "99f939e6c60109545af7b587bb7999ad307456003ceb5a385b31e8632d69f570",
+    "manualAssetId": "soma-img-6689",
+    "history": [
+      {
+        "at": "2026-11-08T08:56:45.920Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "366adba1fd59ff4688fa1b6cce08e54997b0834929e2aec1f3ff6f20c2e65b32",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
