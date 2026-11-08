@@ -294,7 +294,11 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedRevision": "15cc45e413527f2d46f85278cf9462e5d2923c3aacf77cebaa216ae2ffbc2b22",
     "githubIssueNumber": 212,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "overdueReminderState": {
+      "revision": "15cc45e413527f2d46f85278cf9462e5d2923c3aacf77cebaa216ae2ffbc2b22",
+      "sentAt": "2026-11-08T20:16:50.769Z"
+    }
   },
   {
     "draftId": "2026-11-10_18-30_saunagus_day-before_r1",
