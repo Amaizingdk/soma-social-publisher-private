@@ -247,7 +247,7 @@
     const weekday = new Date(`${event.date}T12:00:00Z`).getUTCDay();
     const isSoren = /søren/i.test(event.instructor || '');
     if (/mille\s*maja/i.test(event.instructor || '')) return 'Gus med MilleMaja';
-    if (weekday === 2 && isSoren) return 'Powergus';
+    if (weekday === 2 && isSoren) return 'Tirsdagsgus';
     if (weekday === 2) return 'Tirsdagsgus';
     if (weekday === 4) return `Torsdagsgus${event.instructor && !isSoren ? ` med ${event.instructor}` : ''}`;
     if (weekday === 0) return `Søndagsgus${event.instructor && !isSoren ? ` med ${event.instructor}` : ''}`;

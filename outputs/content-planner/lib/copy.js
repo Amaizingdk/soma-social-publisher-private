@@ -34,7 +34,7 @@ function eventLine(event) {
 function presentationFor(event, source = {}) {
   if (source.title) return { headline: source.title, tagline: 'ET MELLEMRUM · BARE TIL DIG' };
   const weekday = new Date(`${event.date}T12:00:00Z`).getUTCDay();
-  if (source.profileId === 'soren' && weekday === 2) return { headline: 'POWERGUS', tagline: 'RYTME · VIKINGEKRAFT · VARME BEATS' };
+  if (source.profileId === 'soren' && weekday === 2) return { headline: 'TIRSDAGSGUS', tagline: 'RYTME · VIKINGEKRAFT · VARME BEATS' };
   if (source.profileId === 'soren' && weekday === 4) return { headline: 'TORSDAGSGUS', tagline: 'BREATHWORK · SANSER · BLID VARME' };
   if (source.profileId === 'soren' && weekday === 0) return { headline: 'SØNDAGSGUS', tagline: 'ALT KAN SKE' };
   if (source.profileId === 'millemaja') return { headline: 'GUS MED MILLEMAJA', tagline: 'SANSER · RO · NÆRVÆR' };
@@ -47,7 +47,7 @@ function presentationFor(event, source = {}) {
 function eventDisplayName(event) {
   const weekday = new Date(`${event.date}T12:00:00Z`).getUTCDay();
   if (/mille\s*maja/iu.test(event.instructor || '')) return 'Gus med MilleMaja';
-  if (weekday === 2 && /søren/iu.test(event.instructor || '')) return 'Powergus';
+  if (weekday === 2 && /søren/iu.test(event.instructor || '')) return 'Tirsdagsgus';
   if (weekday === 2) return 'Tirsdagsgus';
   if (weekday === 4) return 'Torsdagsgus';
   if (weekday === 0) return 'Søndagsgus';

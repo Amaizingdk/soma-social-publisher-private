@@ -196,7 +196,7 @@ test('weekly overview lists both events on a double-event date', () => {
 
 test('image headlines describe the gus instead of repeating Saunagus', () => {
   const cases = [
-    [event({ date: '2026-10-13', instructor: 'Søren' }), 'POWERGUS', /VIKINGEKRAFT/],
+    [event({ date: '2026-10-13', instructor: 'Søren' }), 'TIRSDAGSGUS', /VIKINGEKRAFT/],
     [event({ date: '2026-10-15', instructor: 'Søren' }), 'TORSDAGSGUS', /BREATHWORK/],
     [event({ date: '2026-10-18', instructor: 'Søren' }), 'SØNDAGSGUS', /ALT KAN SKE/],
     [event({ date: '2026-10-20', instructor: 'MilleMaja' }), 'GUS MED MILLEMAJA', /SANSER/],
