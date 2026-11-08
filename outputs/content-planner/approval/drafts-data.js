@@ -1632,7 +1632,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "I dag: Kom ind i varmen og mærk kroppen finde ro.\n\n29. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
       "facebookPage": "Dato og tid: 29. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nKom ind i varmen og mærk kroppen finde ro.\n\nSøndagens udtryk får lov at skifte, mens nærvær og velvære er fundamentet.\n\nGiv dig selv tid til at lande og bare være til stede."
     },
-    "contentFingerprint": "1185796d532599b2297fc65c354a4cc014266b6b620a64bce749da521d97aa5f",
+    "contentFingerprint": "ebcbe47d8b207e150283d2bc4a011856eae9dbd022868aea44bbaea8e88fe373",
     "factsUsed": [
       "event.date",
       "event.start",
@@ -1640,18 +1640,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event.name",
       "profile:soren"
     ],
-    "assetId": "soma-winter-night",
+    "assetId": "soma-img-7321",
     "render": {
       "path": "renders/2026-11-29_16-00_saunagus_event-day-fd9a05d472.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "6939c688bf5800f629699051fc2100a8c8dc9d0245afc82b519b5955d75cd69e"
+      "sha256": "c98423939fe1a23833b57c304df57c4cb48793be6fc4b23a57a40d1fd79e3f9c"
     },
     "renderPath": "renders/2026-11-29_16-00_saunagus_event-day-fd9a05d472.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "539965f5396e2e09ce077abf70ce926f3ad146cf02cfd1c4a0a4b838b25fa5ad",
+    "manualAssetId": "soma-img-7321",
+    "history": [
+      {
+        "at": "2026-11-08T08:58:01.722Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "4bde6ec37c62eb3546517bf76944081459b9c9ebcdb90dbc712cacd0fc564e33",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
