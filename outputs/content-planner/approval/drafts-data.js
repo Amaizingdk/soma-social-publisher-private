@@ -753,7 +753,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "instagram": "Næste uges gus 🔥\n\n• 17. november 2026 · 18.30–20.30 · Tirsdagsgus\n• 19. november 2026 · 18.30–20.30 · Torsdagsgus\n• 22. november 2026 · 16.00–18.00 · Søndagsgus\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
       "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 17. november 2026 · 18.30–20.30 · Tirsdagsgus\n• 19. november 2026 · 18.30–20.30 · Torsdagsgus\n• 22. november 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/"
     },
-    "contentFingerprint": "7603a0c08293a280175efa0027f95d69cfd113d43f5d8bf134c07a664c10a94f",
+    "contentFingerprint": "3d8bb9aff7e389b60dd19b3597813f7c4f9571fdc2547e58b420bea13ff45cfa",
     "factsUsed": [
       "event:2026-11-17_18-30_saunagus.date",
       "event:2026-11-17_18-30_saunagus.time",
@@ -762,18 +762,25 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "event:2026-11-22_16-00_saunagus.date",
       "event:2026-11-22_16-00_saunagus.time"
     ],
-    "assetId": "soma-sauna-01",
+    "assetId": "soma-img-7323",
     "render": {
       "path": "renders/2026-11-16_weekly-overview-3c606a07ee.jpg",
       "width": 1080,
       "height": 1350,
-      "sha256": "1a6c8edad2ee168cdfa12b3d9c68c56362aa96b6400eeaf19efbadbeb1905e7e"
+      "sha256": "872e9b8a1feb2fd6ef6f9ca55a82451c20fd3b03eb4a1ebe567f968799ebfe60"
     },
     "renderPath": "renders/2026-11-16_weekly-overview-3c606a07ee.jpg",
     "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [],
-    "contentRevision": "3ca7658827db6b6a1090eb4f6fb8bebc5a6a916657f5982ffbe5df69595ba7f0",
+    "manualAssetId": "soma-img-7323",
+    "history": [
+      {
+        "at": "2026-11-08T08:56:29.155Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      }
+    ],
+    "contentRevision": "8697a49fc292272fd639435337d5120161be422648ff8ed4e101ef6d4bc27ad8",
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
