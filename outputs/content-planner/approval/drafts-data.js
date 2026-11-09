@@ -22,7 +22,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-11-10_18-30_saunagus",
         "fingerprint": "6c0d29f920da763c8bb793429031f0754b6cab1af074e44c9c88e9a33a3961c1"
       },
@@ -37,7 +37,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-11-12_18-30_saunagus",
         "fingerprint": "426649a2633909cffa2baaeeb05895008563007f964c37a14c5215e9ea92c1f2"
       },
@@ -52,7 +52,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-11-15_16-00_saunagus",
         "fingerprint": "d92a31974bb8295589d62cf44e5448eda029e1dc0c9f25647b5412e56957b5ed"
       }
@@ -120,7 +120,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-10_18-30_saunagus",
       "fingerprint": "6c0d29f920da763c8bb793429031f0754b6cab1af074e44c9c88e9a33a3961c1"
     },
@@ -189,7 +189,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-10_18-30_saunagus",
       "fingerprint": "6c0d29f920da763c8bb793429031f0754b6cab1af074e44c9c88e9a33a3961c1"
     },
@@ -264,7 +264,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-12_18-30_saunagus",
       "fingerprint": "426649a2633909cffa2baaeeb05895008563007f964c37a14c5215e9ea92c1f2"
     },
@@ -333,7 +333,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-12_18-30_saunagus",
       "fingerprint": "426649a2633909cffa2baaeeb05895008563007f964c37a14c5215e9ea92c1f2"
     },
@@ -402,7 +402,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-15_16-00_saunagus",
       "fingerprint": "d92a31974bb8295589d62cf44e5448eda029e1dc0c9f25647b5412e56957b5ed"
     },
@@ -471,7 +471,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-15_16-00_saunagus",
       "fingerprint": "d92a31974bb8295589d62cf44e5448eda029e1dc0c9f25647b5412e56957b5ed"
     },
@@ -532,7 +532,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "3c606a07eef7a2569e8e811067411bc65cc26cefea0eb96c3e806a645d4bacbf",
     "revision": 2,
     "kind": "weekly_overview",
-    "status": "approved",
+    "status": "obsolete",
     "scheduledFor": "2026-11-15T19:30:00+01:00",
     "season": "winter",
     "event": null,
@@ -620,14 +620,190 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "type": "approve",
         "from": "draft",
         "to": "approved"
+      },
+      {
+        "at": "2026-11-09T14:13:48.556Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
       }
     ],
     "contentRevision": "8697a49fc292272fd639435337d5120161be422648ff8ed4e101ef6d4bc27ad8",
-    "approvedAt": "2026-11-08T08:58:40.416Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "8697a49fc292272fd639435337d5120161be422648ff8ed4e101ef6d4bc27ad8",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
     "githubIssueNumber": 213,
     "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-11-16_weekly-overview_r1",
+    "slotKey": "2026-11-16_weekly-overview",
+    "eventKey": null,
+    "eventFingerprint": "3c606a07eef7a2569e8e811067411bc65cc26cefea0eb96c3e806a645d4bacbf",
+    "revision": 1,
+    "kind": "weekly_overview",
+    "status": "obsolete",
+    "scheduledFor": "2026-11-15T19:30:00+01:00",
+    "season": "winter",
+    "event": null,
+    "events": [
+      {
+        "date": "2026-11-17",
+        "start": "18:30",
+        "end": "20:30",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-11-08T01:43:27.902Z",
+        "eventKey": "2026-11-17_18-30_saunagus",
+        "fingerprint": "b9b086683a6a86c6716382bff0099bee0205f6977883ac0389a8541089cbf2e5"
+      },
+      {
+        "date": "2026-11-19",
+        "start": "18:30",
+        "end": "20:30",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-11-08T01:43:27.902Z",
+        "eventKey": "2026-11-19_18-30_saunagus",
+        "fingerprint": "2ab80387f7d1e417b313037885f577d8f62e8ed12043a56dd8b4416dfaf01068"
+      },
+      {
+        "date": "2026-11-22",
+        "start": "16:00",
+        "end": "18:00",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-11-08T01:43:27.902Z",
+        "eventKey": "2026-11-22_16-00_saunagus",
+        "fingerprint": "48ccaaac3846f2c2a49474bbaa6222381c57d85d96eb06dd52cc45e8781b2450"
+      }
+    ],
+    "availability": null,
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "Næste uges gus 🔥\n\n• 17. november 2026 · 18.30–20.30 · Powergus\n• 19. november 2026 · 18.30–20.30 · Torsdagsgus\n• 22. november 2026 · 16.00–18.00 · Søndagsgus\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 17. november 2026 · 18.30–20.30 · Powergus\n• 19. november 2026 · 18.30–20.30 · Torsdagsgus\n• 22. november 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "c6c85c82fe6bde94092c14986ba22643d2922d14da0a641f0f7df44bad4d07f0",
+    "factsUsed": [
+      "event:2026-11-17_18-30_saunagus.date",
+      "event:2026-11-17_18-30_saunagus.time",
+      "event:2026-11-19_18-30_saunagus.date",
+      "event:2026-11-19_18-30_saunagus.time",
+      "event:2026-11-22_16-00_saunagus.date",
+      "event:2026-11-22_16-00_saunagus.time"
+    ],
+    "assetId": "soma-sauna-01",
+    "render": {
+      "path": "renders/2026-11-16_weekly-overview-3c606a07ee.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "1a6c8edad2ee168cdfa12b3d9c68c56362aa96b6400eeaf19efbadbeb1905e7e"
+    },
+    "renderPath": "renders/2026-11-16_weekly-overview-3c606a07ee.jpg",
+    "manualInstructor": null,
+    "manualAssetId": null,
+    "history": [
+      {
+        "at": "2026-11-08T07:07:04.784Z",
+        "type": "obsolete",
+        "from": "draft",
+        "to": "obsolete"
+      }
+    ],
+    "contentRevision": "685257a9a126d8968b598998b3a2a803de3ad436b98d9042a05e8de3058f5798",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 191,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-11-16_weekly-overview_r3",
+    "slotKey": "2026-11-16_weekly-overview",
+    "eventKey": null,
+    "eventFingerprint": "ce293c94fd8680f5a935bfb2aaee8840977a25d10084bfbad8ee8698d047b09f",
+    "revision": 3,
+    "kind": "weekly_overview",
+    "status": "draft",
+    "scheduledFor": "2026-11-15T19:30:00+01:00",
+    "season": "winter",
+    "event": null,
+    "events": [
+      {
+        "date": "2026-11-17",
+        "start": "18:30",
+        "end": "20:30",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-11-09T14:13:27.260Z",
+        "eventKey": "2026-11-17_18-30_saunagus",
+        "fingerprint": "b9b086683a6a86c6716382bff0099bee0205f6977883ac0389a8541089cbf2e5"
+      },
+      {
+        "date": "2026-11-19",
+        "start": "18:30",
+        "end": "20:30",
+        "name": "Saunagus",
+        "booked": 0,
+        "capacity": 12,
+        "instructor": "Søren",
+        "description": null,
+        "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
+        "sourceUrl": "https://somasaunagus.dk/kalender/",
+        "readAt": "2026-11-09T14:13:27.260Z",
+        "eventKey": "2026-11-19_18-30_saunagus",
+        "fingerprint": "2ab80387f7d1e417b313037885f577d8f62e8ed12043a56dd8b4416dfaf01068"
+      }
+    ],
+    "availability": null,
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "Næste uges gus 🔥\n\n• 17. november 2026 · 18.30–20.30 · Tirsdagsgus\n• 19. november 2026 · 18.30–20.30 · Torsdagsgus\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 17. november 2026 · 18.30–20.30 · Tirsdagsgus\n• 19. november 2026 · 18.30–20.30 · Torsdagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/"
+    },
+    "contentFingerprint": "5dd614d40ec7dc97ce77fb8196e0ceb6c8b1e581b0edc910e7f63e0fb541d4c4",
+    "factsUsed": [
+      "event:2026-11-17_18-30_saunagus.date",
+      "event:2026-11-17_18-30_saunagus.time",
+      "event:2026-11-19_18-30_saunagus.date",
+      "event:2026-11-19_18-30_saunagus.time"
+    ],
+    "assetId": "soma-img-7323",
+    "render": {
+      "path": "renders/2026-11-16_weekly-overview-ce293c94fd.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "c8d9474f74e13c59922591030bcb8d2bdb5d2ed677fe365db2cba7088436d89b"
+    },
+    "renderPath": "renders/2026-11-16_weekly-overview-ce293c94fd.jpg",
+    "manualInstructor": null,
+    "manualAssetId": "soma-img-7323",
+    "history": [],
+    "contentRevision": "e41407fc1c87d423f1849e1fb82fd523d2aa2fb13a5c24c1220844a86087aeef",
+    "approvedAt": null,
     "warningsAcknowledged": false
   },
   {
@@ -651,7 +827,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-17_18-30_saunagus",
       "fingerprint": "b9b086683a6a86c6716382bff0099bee0205f6977883ac0389a8541089cbf2e5"
     },
@@ -720,7 +896,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-17_18-30_saunagus",
       "fingerprint": "b9b086683a6a86c6716382bff0099bee0205f6977883ac0389a8541089cbf2e5"
     },
@@ -795,7 +971,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-19_18-30_saunagus",
       "fingerprint": "2ab80387f7d1e417b313037885f577d8f62e8ed12043a56dd8b4416dfaf01068"
     },
@@ -864,7 +1040,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-19_18-30_saunagus",
       "fingerprint": "2ab80387f7d1e417b313037885f577d8f62e8ed12043a56dd8b4416dfaf01068"
     },
@@ -913,156 +1089,6 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "warningsAcknowledged": false
   },
   {
-    "draftId": "2026-11-22_16-00_saunagus_day-before_r1",
-    "slotKey": "2026-11-22_16-00_saunagus_day-before",
-    "eventKey": "2026-11-22_16-00_saunagus",
-    "eventFingerprint": "d2f2ba619de522b5ad114b9b03c4f458dc6a995ad5a33da98cf4167e8451137f",
-    "revision": 1,
-    "kind": "day_before",
-    "status": "approved",
-    "scheduledFor": "2026-11-21T10:00:00+01:00",
-    "season": "winter",
-    "event": {
-      "date": "2026-11-22",
-      "start": "16:00",
-      "end": "18:00",
-      "name": "Saunagus",
-      "booked": 0,
-      "capacity": 12,
-      "instructor": "Søren",
-      "description": null,
-      "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
-      "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
-      "eventKey": "2026-11-22_16-00_saunagus",
-      "fingerprint": "48ccaaac3846f2c2a49474bbaa6222381c57d85d96eb06dd52cc45e8781b2450"
-    },
-    "availability": {
-      "free": 12,
-      "label": "12 ledige pladser",
-      "soldOut": false
-    },
-    "warnings": [],
-    "platformCopies": {
-      "instagram": "I morgen: Rund ugen af med varme og ro i kroppen.\n\n22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
-      "facebookPage": "Dato og tid: 22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nRund ugen af med varme og ro i kroppen.\n\nSøndagens musik og tema kan variere, men den rolige grundrejse er altid med.\n\nKom med og giv dig selv en blid afslutning på ugen."
-    },
-    "contentFingerprint": "64f9c4d99b31db564b4bd8293a03b0bd9631e17b69335cdae87be087fcc07c09",
-    "factsUsed": [
-      "event.date",
-      "event.start",
-      "event.end",
-      "event.name",
-      "profile:soren"
-    ],
-    "assetId": "soma-img-7323",
-    "render": {
-      "path": "renders/2026-11-22_16-00_saunagus_day-before-d2f2ba619d.jpg",
-      "width": 1080,
-      "height": 1350,
-      "sha256": "52676ad8a4ca492d8af4c1429419bf50707161b3b4d18569d8692f30b20203e7"
-    },
-    "renderPath": "renders/2026-11-22_16-00_saunagus_day-before-d2f2ba619d.jpg",
-    "manualInstructor": null,
-    "manualAssetId": "soma-img-7323",
-    "history": [
-      {
-        "at": "2026-11-08T08:57:00.936Z",
-        "type": "change_image",
-        "from": "draft",
-        "to": "draft"
-      },
-      {
-        "at": "2026-11-08T08:58:40.416Z",
-        "type": "approve",
-        "from": "draft",
-        "to": "approved"
-      }
-    ],
-    "contentRevision": "ebee92ffa72b15ececc17bc4b773de2529a41977f4e55bc7652a382281203b7b",
-    "approvedAt": "2026-11-08T08:58:40.416Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "ebee92ffa72b15ececc17bc4b773de2529a41977f4e55bc7652a382281203b7b",
-    "githubIssueNumber": 196,
-    "reminderState": null,
-    "warningsAcknowledged": false
-  },
-  {
-    "draftId": "2026-11-22_16-00_saunagus_event-day_r1",
-    "slotKey": "2026-11-22_16-00_saunagus_event-day",
-    "eventKey": "2026-11-22_16-00_saunagus",
-    "eventFingerprint": "d2f2ba619de522b5ad114b9b03c4f458dc6a995ad5a33da98cf4167e8451137f",
-    "revision": 1,
-    "kind": "event_day",
-    "status": "approved",
-    "scheduledFor": "2026-11-22T09:30:00+01:00",
-    "season": "winter",
-    "event": {
-      "date": "2026-11-22",
-      "start": "16:00",
-      "end": "18:00",
-      "name": "Saunagus",
-      "booked": 0,
-      "capacity": 12,
-      "instructor": "Søren",
-      "description": null,
-      "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
-      "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
-      "eventKey": "2026-11-22_16-00_saunagus",
-      "fingerprint": "48ccaaac3846f2c2a49474bbaa6222381c57d85d96eb06dd52cc45e8781b2450"
-    },
-    "availability": {
-      "free": 12,
-      "label": "12 ledige pladser",
-      "soldOut": false
-    },
-    "warnings": [],
-    "platformCopies": {
-      "instagram": "I dag: Lad søndagen lande blødt i varmen.\n\n22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
-      "facebookPage": "Dato og tid: 22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nFire sanselige runder med musik, dufte og plads til at give slip.\n\nEn rolig stund, før en ny uge begynder."
-    },
-    "contentFingerprint": "b0e8914face2121847257390862b474fe7c12ad45aba117a9ebadff789160cc6",
-    "factsUsed": [
-      "event.date",
-      "event.start",
-      "event.end",
-      "event.name",
-      "profile:soren"
-    ],
-    "assetId": "soma-img-7321",
-    "render": {
-      "path": "renders/2026-11-22_16-00_saunagus_event-day-d2f2ba619d.jpg",
-      "width": 1080,
-      "height": 1350,
-      "sha256": "be3eb4544cf41a8d9971b23c39ea8307ff476a816e4148cc258dd8644f7693e0"
-    },
-    "renderPath": "renders/2026-11-22_16-00_saunagus_event-day-d2f2ba619d.jpg",
-    "manualInstructor": null,
-    "manualAssetId": "soma-img-7321",
-    "history": [
-      {
-        "at": "2026-11-08T08:57:15.825Z",
-        "type": "change_image",
-        "from": "draft",
-        "to": "draft"
-      },
-      {
-        "at": "2026-11-08T08:58:40.417Z",
-        "type": "approve",
-        "from": "draft",
-        "to": "approved"
-      }
-    ],
-    "contentRevision": "3e04517ca9ac3c726e5e000e9a54b9c20ae58f1ba0ca673047334779666d2fd7",
-    "approvedAt": "2026-11-08T08:58:40.417Z",
-    "approvedBy": "soma-local-approval",
-    "approvedRevision": "3e04517ca9ac3c726e5e000e9a54b9c20ae58f1ba0ca673047334779666d2fd7",
-    "githubIssueNumber": 197,
-    "reminderState": null,
-    "warningsAcknowledged": false
-  },
-  {
     "draftId": "2026-11-23_weekly-overview_r2",
     "slotKey": "2026-11-23_weekly-overview",
     "eventKey": null,
@@ -1085,7 +1111,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-11-24_18-30_saunagus",
         "fingerprint": "007ea483b2f331bcfa4de1d2ed9558ec3712dda5dba555dccf568d5b8afefe1d"
       },
@@ -1100,7 +1126,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-11-26_18-30_saunagus",
         "fingerprint": "a4a627e736d5e2366d0fdc2a3d63b4f1ce6cb0e580096250b970c577a792582f"
       },
@@ -1115,7 +1141,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-11-29_16-00_saunagus",
         "fingerprint": "85682a8725ee48a65c2395f9cd94178335f8492ff15fff132555db4cacbf8225"
       }
@@ -1188,7 +1214,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-24_18-30_saunagus",
       "fingerprint": "007ea483b2f331bcfa4de1d2ed9558ec3712dda5dba555dccf568d5b8afefe1d"
     },
@@ -1257,7 +1283,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-24_18-30_saunagus",
       "fingerprint": "007ea483b2f331bcfa4de1d2ed9558ec3712dda5dba555dccf568d5b8afefe1d"
     },
@@ -1332,7 +1358,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-26_18-30_saunagus",
       "fingerprint": "a4a627e736d5e2366d0fdc2a3d63b4f1ce6cb0e580096250b970c577a792582f"
     },
@@ -1401,7 +1427,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-26_18-30_saunagus",
       "fingerprint": "a4a627e736d5e2366d0fdc2a3d63b4f1ce6cb0e580096250b970c577a792582f"
     },
@@ -1470,7 +1496,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-29_16-00_saunagus",
       "fingerprint": "85682a8725ee48a65c2395f9cd94178335f8492ff15fff132555db4cacbf8225"
     },
@@ -1539,7 +1565,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-11-29_16-00_saunagus",
       "fingerprint": "85682a8725ee48a65c2395f9cd94178335f8492ff15fff132555db4cacbf8225"
     },
@@ -1616,7 +1642,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-12-01_18-30_saunagus",
         "fingerprint": "4f088a912612a8dc9f0455cbebea37867bc0ef60ec0c909dd5d8d1bca08fe4dc"
       },
@@ -1631,7 +1657,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-12-03_18-30_saunagus",
         "fingerprint": "3fd4d98c5d3dee5a284f8c561423e66d3abc9c2c7b17da522eb3f44e411575df"
       },
@@ -1646,7 +1672,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
         "description": null,
         "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
         "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-09T05:14:30.890Z",
+        "readAt": "2026-11-09T14:13:27.260Z",
         "eventKey": "2026-12-06_16-00_saunagus",
         "fingerprint": "23ebf778c7dd3bb3e39d99308607d8449dab69aa68b99ab70a5fa67c6a176f0f"
       }
@@ -1679,6 +1705,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "5fa354f0387bf66084baa010d7c63875f93b68c6d05fd2d0a4f85ce867029be0",
     "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": null,
+    "reminderState": null,
     "warningsAcknowledged": false
   },
   {
@@ -1702,7 +1732,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-12-01_18-30_saunagus",
       "fingerprint": "4f088a912612a8dc9f0455cbebea37867bc0ef60ec0c909dd5d8d1bca08fe4dc"
     },
@@ -1737,6 +1767,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "837b9d54e813189aaa9f54cecf8305d0886f2428135b1162303e402d620c7524",
     "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": null,
+    "reminderState": null,
     "warningsAcknowledged": false
   },
   {
@@ -1760,7 +1794,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-12-01_18-30_saunagus",
       "fingerprint": "4f088a912612a8dc9f0455cbebea37867bc0ef60ec0c909dd5d8d1bca08fe4dc"
     },
@@ -1795,6 +1829,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "9f107eb98bfc0038037e9fadb13458b6abbf180093ffb6c5ff7c03e4fa0e2f2c",
     "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": null,
+    "reminderState": null,
     "warningsAcknowledged": false
   },
   {
@@ -1818,7 +1856,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-12-03_18-30_saunagus",
       "fingerprint": "3fd4d98c5d3dee5a284f8c561423e66d3abc9c2c7b17da522eb3f44e411575df"
     },
@@ -1853,6 +1891,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "55692bd83ede74b66611d40d1e930d4c591353dc99274c9f2661287d635535a0",
     "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": null,
+    "reminderState": null,
     "warningsAcknowledged": false
   },
   {
@@ -1876,7 +1918,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-12-03_18-30_saunagus",
       "fingerprint": "3fd4d98c5d3dee5a284f8c561423e66d3abc9c2c7b17da522eb3f44e411575df"
     },
@@ -1911,6 +1953,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "a0b422013fe04c10f80b2d0ecc20fcf9dc931b6ae3eff0de472699605f962e90",
     "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": null,
+    "reminderState": null,
     "warningsAcknowledged": false
   },
   {
@@ -1934,7 +1980,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-12-06_16-00_saunagus",
       "fingerprint": "23ebf778c7dd3bb3e39d99308607d8449dab69aa68b99ab70a5fa67c6a176f0f"
     },
@@ -1969,6 +2015,10 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "1bc9076a423c4302273531713238b38a706bc4ed68c1ce68b2bca27a133dd586",
     "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": null,
+    "reminderState": null,
     "warningsAcknowledged": false
   },
   {
@@ -1992,7 +2042,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
       "description": null,
       "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
       "sourceUrl": "https://somasaunagus.dk/kalender/",
-      "readAt": "2026-11-09T05:14:30.890Z",
+      "readAt": "2026-11-09T14:13:27.260Z",
       "eventKey": "2026-12-06_16-00_saunagus",
       "fingerprint": "23ebf778c7dd3bb3e39d99308607d8449dab69aa68b99ab70a5fa67c6a176f0f"
     },
@@ -2027,6 +2077,172 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "f795d1a694f09e509063c9e3598734e90b19e579290b32a6515830a434c2d616",
     "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": null,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-11-22_16-00_saunagus_day-before_r1",
+    "slotKey": "2026-11-22_16-00_saunagus_day-before",
+    "eventKey": "2026-11-22_16-00_saunagus",
+    "eventFingerprint": "d2f2ba619de522b5ad114b9b03c4f458dc6a995ad5a33da98cf4167e8451137f",
+    "revision": 1,
+    "kind": "day_before",
+    "status": "obsolete",
+    "scheduledFor": "2026-11-21T10:00:00+01:00",
+    "season": "winter",
+    "event": {
+      "date": "2026-11-22",
+      "start": "16:00",
+      "end": "18:00",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-11-09T05:14:30.890Z",
+      "eventKey": "2026-11-22_16-00_saunagus",
+      "fingerprint": "48ccaaac3846f2c2a49474bbaa6222381c57d85d96eb06dd52cc45e8781b2450"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I morgen: Rund ugen af med varme og ro i kroppen.\n\n22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Dato og tid: 22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI morgen kan du træde ind i varmen til et saunagus.\n\nRund ugen af med varme og ro i kroppen.\n\nSøndagens musik og tema kan variere, men den rolige grundrejse er altid med.\n\nKom med og giv dig selv en blid afslutning på ugen."
+    },
+    "contentFingerprint": "64f9c4d99b31db564b4bd8293a03b0bd9631e17b69335cdae87be087fcc07c09",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-img-7323",
+    "render": {
+      "path": "renders/2026-11-22_16-00_saunagus_day-before-d2f2ba619d.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "52676ad8a4ca492d8af4c1429419bf50707161b3b4d18569d8692f30b20203e7"
+    },
+    "renderPath": "renders/2026-11-22_16-00_saunagus_day-before-d2f2ba619d.jpg",
+    "manualInstructor": null,
+    "manualAssetId": "soma-img-7323",
+    "history": [
+      {
+        "at": "2026-11-08T08:57:00.936Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.416Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      },
+      {
+        "at": "2026-11-09T14:13:48.556Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
+      }
+    ],
+    "contentRevision": "ebee92ffa72b15ececc17bc4b773de2529a41977f4e55bc7652a382281203b7b",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 196,
+    "reminderState": null,
+    "warningsAcknowledged": false
+  },
+  {
+    "draftId": "2026-11-22_16-00_saunagus_event-day_r1",
+    "slotKey": "2026-11-22_16-00_saunagus_event-day",
+    "eventKey": "2026-11-22_16-00_saunagus",
+    "eventFingerprint": "d2f2ba619de522b5ad114b9b03c4f458dc6a995ad5a33da98cf4167e8451137f",
+    "revision": 1,
+    "kind": "event_day",
+    "status": "obsolete",
+    "scheduledFor": "2026-11-22T09:30:00+01:00",
+    "season": "winter",
+    "event": {
+      "date": "2026-11-22",
+      "start": "16:00",
+      "end": "18:00",
+      "name": "Saunagus",
+      "booked": 0,
+      "capacity": 12,
+      "instructor": "Søren",
+      "description": null,
+      "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
+      "sourceUrl": "https://somasaunagus.dk/kalender/",
+      "readAt": "2026-11-09T05:14:30.890Z",
+      "eventKey": "2026-11-22_16-00_saunagus",
+      "fingerprint": "48ccaaac3846f2c2a49474bbaa6222381c57d85d96eb06dd52cc45e8781b2450"
+    },
+    "availability": {
+      "free": 12,
+      "label": "12 ledige pladser",
+      "soldOut": false
+    },
+    "warnings": [],
+    "platformCopies": {
+      "instagram": "I dag: Lad søndagen lande blødt i varmen.\n\n22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/",
+      "facebookPage": "Dato og tid: 22. november 2026 · 16.00–18.00\n\n12 ledige pladser.\n\nBook din plads: https://somasaunagus.dk/kalender/\n\nI dag kan du træde ind i varmen til et saunagus.\n\nLad søndagen lande blødt i varmen.\n\nFire sanselige runder med musik, dufte og plads til at give slip.\n\nEn rolig stund, før en ny uge begynder."
+    },
+    "contentFingerprint": "b0e8914face2121847257390862b474fe7c12ad45aba117a9ebadff789160cc6",
+    "factsUsed": [
+      "event.date",
+      "event.start",
+      "event.end",
+      "event.name",
+      "profile:soren"
+    ],
+    "assetId": "soma-img-7321",
+    "render": {
+      "path": "renders/2026-11-22_16-00_saunagus_event-day-d2f2ba619d.jpg",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "be3eb4544cf41a8d9971b23c39ea8307ff476a816e4148cc258dd8644f7693e0"
+    },
+    "renderPath": "renders/2026-11-22_16-00_saunagus_event-day-d2f2ba619d.jpg",
+    "manualInstructor": null,
+    "manualAssetId": "soma-img-7321",
+    "history": [
+      {
+        "at": "2026-11-08T08:57:15.825Z",
+        "type": "change_image",
+        "from": "draft",
+        "to": "draft"
+      },
+      {
+        "at": "2026-11-08T08:58:40.417Z",
+        "type": "approve",
+        "from": "draft",
+        "to": "approved"
+      },
+      {
+        "at": "2026-11-09T14:13:48.556Z",
+        "type": "obsolete",
+        "from": "approved",
+        "to": "obsolete"
+      }
+    ],
+    "contentRevision": "3e04517ca9ac3c726e5e000e9a54b9c20ae58f1ba0ca673047334779666d2fd7",
+    "approvedAt": null,
+    "approvedBy": null,
+    "approvedRevision": null,
+    "githubIssueNumber": 197,
+    "reminderState": null,
     "warningsAcknowledged": false
   },
   {
@@ -2323,105 +2539,6 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 184,
-    "reminderState": null,
-    "warningsAcknowledged": false
-  },
-  {
-    "draftId": "2026-11-16_weekly-overview_r1",
-    "slotKey": "2026-11-16_weekly-overview",
-    "eventKey": null,
-    "eventFingerprint": "3c606a07eef7a2569e8e811067411bc65cc26cefea0eb96c3e806a645d4bacbf",
-    "revision": 1,
-    "kind": "weekly_overview",
-    "status": "obsolete",
-    "scheduledFor": "2026-11-15T19:30:00+01:00",
-    "season": "winter",
-    "event": null,
-    "events": [
-      {
-        "date": "2026-11-17",
-        "start": "18:30",
-        "end": "20:30",
-        "name": "Saunagus",
-        "booked": 0,
-        "capacity": 12,
-        "instructor": "Søren",
-        "description": null,
-        "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
-        "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-08T01:43:27.902Z",
-        "eventKey": "2026-11-17_18-30_saunagus",
-        "fingerprint": "b9b086683a6a86c6716382bff0099bee0205f6977883ac0389a8541089cbf2e5"
-      },
-      {
-        "date": "2026-11-19",
-        "start": "18:30",
-        "end": "20:30",
-        "name": "Saunagus",
-        "booked": 0,
-        "capacity": 12,
-        "instructor": "Søren",
-        "description": null,
-        "sourceText": "18:30 - 20:30 SAUNAGUS Søren 0/12 Tilmeld",
-        "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-08T01:43:27.902Z",
-        "eventKey": "2026-11-19_18-30_saunagus",
-        "fingerprint": "2ab80387f7d1e417b313037885f577d8f62e8ed12043a56dd8b4416dfaf01068"
-      },
-      {
-        "date": "2026-11-22",
-        "start": "16:00",
-        "end": "18:00",
-        "name": "Saunagus",
-        "booked": 0,
-        "capacity": 12,
-        "instructor": "Søren",
-        "description": null,
-        "sourceText": "16:00 - 18:00 SAUNAGUS Søren 0/12 Tilmeld",
-        "sourceUrl": "https://somasaunagus.dk/kalender/",
-        "readAt": "2026-11-08T01:43:27.902Z",
-        "eventKey": "2026-11-22_16-00_saunagus",
-        "fingerprint": "48ccaaac3846f2c2a49474bbaa6222381c57d85d96eb06dd52cc45e8781b2450"
-      }
-    ],
-    "availability": null,
-    "warnings": [],
-    "platformCopies": {
-      "instagram": "Næste uges gus 🔥\n\n• 17. november 2026 · 18.30–20.30 · Powergus\n• 19. november 2026 · 18.30–20.30 · Torsdagsgus\n• 22. november 2026 · 16.00–18.00 · Søndagsgus\n\nSe tider og book via kalenderen: https://somasaunagus.dk/kalender/",
-      "facebookPage": "Her er næste uges gus. Hver session har sit eget udtryk, men altid med plads til ro, varme, dufte, musik og nærvær.\n\n• 17. november 2026 · 18.30–20.30 · Powergus\n• 19. november 2026 · 18.30–20.30 · Torsdagsgus\n• 22. november 2026 · 16.00–18.00 · Søndagsgus\n\nFind den oplevelse, der passer dig, og book din plads her: https://somasaunagus.dk/kalender/"
-    },
-    "contentFingerprint": "c6c85c82fe6bde94092c14986ba22643d2922d14da0a641f0f7df44bad4d07f0",
-    "factsUsed": [
-      "event:2026-11-17_18-30_saunagus.date",
-      "event:2026-11-17_18-30_saunagus.time",
-      "event:2026-11-19_18-30_saunagus.date",
-      "event:2026-11-19_18-30_saunagus.time",
-      "event:2026-11-22_16-00_saunagus.date",
-      "event:2026-11-22_16-00_saunagus.time"
-    ],
-    "assetId": "soma-sauna-01",
-    "render": {
-      "path": "renders/2026-11-16_weekly-overview-3c606a07ee.jpg",
-      "width": 1080,
-      "height": 1350,
-      "sha256": "1a6c8edad2ee168cdfa12b3d9c68c56362aa96b6400eeaf19efbadbeb1905e7e"
-    },
-    "renderPath": "renders/2026-11-16_weekly-overview-3c606a07ee.jpg",
-    "manualInstructor": null,
-    "manualAssetId": null,
-    "history": [
-      {
-        "at": "2026-11-08T07:07:04.784Z",
-        "type": "obsolete",
-        "from": "draft",
-        "to": "obsolete"
-      }
-    ],
-    "contentRevision": "685257a9a126d8968b598998b3a2a803de3ad436b98d9042a05e8de3058f5798",
-    "approvedAt": null,
-    "approvedBy": null,
-    "approvedRevision": null,
-    "githubIssueNumber": 191,
     "reminderState": null,
     "warningsAcknowledged": false
   },
