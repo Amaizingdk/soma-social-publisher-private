@@ -204,7 +204,7 @@
     "eventFingerprint": "0ab7611d1973897cca2a28ca9544a50edee3b6d9975beccb3712662dde39cc37",
     "revision": 2,
     "kind": "weekly_overview",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-11-08T19:30:00+01:00",
     "season": "winter",
     "event": null,
@@ -298,7 +298,8 @@
     "overdueReminderState": {
       "revision": "15cc45e413527f2d46f85278cf9462e5d2923c3aacf77cebaa216ae2ffbc2b22",
       "sentAt": "2026-11-08T20:16:50.769Z"
-    }
+    },
+    "publishedAt": "2026-11-09T00:04:25.915Z"
   },
   {
     "draftId": "2026-11-10_18-30_saunagus_day-before_r1",
