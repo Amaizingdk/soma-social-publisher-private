@@ -720,6 +720,16 @@
       "reservedAt": "2026-11-08T08:32:51.865Z",
       "providerId": "122196453866921025",
       "publishedAt": "2026-11-08T08:32:51.865Z"
+    },
+    {
+      "idempotencyKey": "aab687d04785779b360823980ee95e16ab7f211c2a0e31a652681e18612bb890",
+      "draftId": "2026-11-09_weekly-overview_r2",
+      "revision": 2,
+      "platform": "instagram",
+      "deliveryType": "instagram_story",
+      "scheduledFor": "2026-11-08T19:30:00+01:00",
+      "status": "reserved",
+      "reservedAt": "2026-11-09T00:04:25.915Z"
     }
   ]
 }
