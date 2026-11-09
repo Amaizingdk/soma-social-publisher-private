@@ -106,7 +106,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "eventFingerprint": "f85d1d3cdda38678a4d61566e5ac63ba0694f4bd4d3ca708f5cf34b694ffc449",
     "revision": 1,
     "kind": "day_before",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-11-09T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -166,7 +166,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedRevision": "26ce2b709e1dc2d980d368cea219e18703720692d00c07a367e82decfc906212",
     "githubIssueNumber": 185,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-11-09T18:33:04.055Z"
   },
   {
     "draftId": "2026-11-10_18-30_saunagus_event-day_r1",
@@ -804,7 +805,8 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "history": [],
     "contentRevision": "e41407fc1c87d423f1849e1fb82fd523d2aa2fb13a5c24c1220844a86087aeef",
     "approvedAt": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "githubIssueNumber": 215
   },
   {
     "draftId": "2026-11-17_18-30_saunagus_day-before_r1",
@@ -1707,7 +1709,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 216,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1769,7 +1771,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 217,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1831,7 +1833,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 218,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1893,7 +1895,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 219,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1955,7 +1957,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 220,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -2017,7 +2019,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 221,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -2079,7 +2081,7 @@ window.__SOMA_DRAFTS__ = window.__SOMA_DRAFTS__ || [
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 222,
     "reminderState": null,
     "warningsAcknowledged": false
   },
