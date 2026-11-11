@@ -106,7 +106,7 @@
     "eventFingerprint": "121ff86205444b8f189139cb9ecd1d467290eae73c42481c279d8eb0c56eb509",
     "revision": 1,
     "kind": "day_before",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-11-11T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -166,7 +166,8 @@
     "approvedRevision": "1a484ac77b2cc6a157e20191df0a2e83f652beaf21b0b9b26348027854f20f5c",
     "githubIssueNumber": 187,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-11-11T18:32:50.267Z"
   },
   {
     "draftId": "2026-11-12_18-30_saunagus_event-day_r1",
