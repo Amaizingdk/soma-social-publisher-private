@@ -800,8 +800,10 @@
       "platform": "instagram",
       "deliveryType": "instagram_story",
       "scheduledFor": "2026-11-11T19:30:00+01:00",
-      "status": "reserved",
-      "reservedAt": "2026-11-11T18:32:50.267Z"
+      "status": "published",
+      "reservedAt": "2026-11-11T18:32:50.267Z",
+      "providerId": "18117333572034741",
+      "publishedAt": "2026-11-11T18:32:50.267Z"
     }
   ]
 }
