@@ -848,8 +848,10 @@
       "platform": "instagram",
       "deliveryType": "instagram_story",
       "scheduledFor": "2026-11-14T10:00:00+01:00",
-      "status": "reserved",
-      "reservedAt": "2026-11-14T09:02:49.556Z"
+      "status": "published",
+      "reservedAt": "2026-11-14T09:02:49.556Z",
+      "providerId": "18081428843554717",
+      "publishedAt": "2026-11-14T09:02:49.556Z"
     }
   ]
 }
