@@ -176,7 +176,7 @@
     "eventFingerprint": "45e00082fd82d720ffc3ea1bc0250ba5966a76a1e775a62d23c92b51f48e9e1b",
     "revision": 2,
     "kind": "event_day",
-    "status": "draft",
+    "status": "skipped",
     "scheduledFor": "2026-11-15T09:30:00+01:00",
     "season": "winter",
     "event": {
@@ -232,7 +232,9 @@
       "revision": "0490617afdf347c60052c8efac72c7cf41630e478c60506b736869126101a666",
       "sentFinalAt": "2026-11-15T08:15:57.078Z"
     },
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "skipReason": "missing_approval_at_publish_time",
+    "skippedAt": "2026-11-15T15:47:32.138Z"
   },
   {
     "draftId": "2026-11-16_weekly-overview_r4",
@@ -306,7 +308,10 @@
     "approvedBy": null,
     "approvedRevision": null,
     "githubIssueNumber": 223,
-    "reminderState": null,
+    "reminderState": {
+      "revision": "e41407fc1c87d423f1849e1fb82fd523d2aa2fb13a5c24c1220844a86087aeef",
+      "sentFinalAt": "2026-11-15T15:47:32.138Z"
+    },
     "warningsAcknowledged": false
   },
   {
