@@ -84,7 +84,7 @@
     "eventFingerprint": "97bef2286782a568df8faa3fba9c7066456952aeb583722b51f6a87febcabb12",
     "revision": 1,
     "kind": "day_before",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-11-16T19:30:00+01:00",
     "season": "winter",
     "event": {
@@ -144,7 +144,8 @@
     "approvedRevision": "0e1ff7bfc35bfb33df8b36745e7107e584e600e40ce1e5a3fc781f183018d52e",
     "githubIssueNumber": 192,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-11-16T18:32:49.908Z"
   },
   {
     "draftId": "2026-11-17_18-30_saunagus_event-day_r1",
@@ -1429,7 +1430,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 226,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1491,7 +1492,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 227,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1553,7 +1554,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 228,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1615,7 +1616,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 229,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1677,7 +1678,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 230,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1739,7 +1740,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 231,
     "reminderState": null,
     "warningsAcknowledged": false
   },
@@ -1801,7 +1802,7 @@
     "approvedAt": null,
     "approvedBy": null,
     "approvedRevision": null,
-    "githubIssueNumber": null,
+    "githubIssueNumber": 232,
     "reminderState": null,
     "warningsAcknowledged": false
   },
