@@ -884,8 +884,10 @@
       "platform": "facebookPage",
       "deliveryType": "facebook_page_feed",
       "scheduledFor": "2026-11-16T19:30:00+01:00",
-      "status": "reserved",
-      "reservedAt": "2026-11-16T18:32:49.908Z"
+      "status": "published",
+      "reservedAt": "2026-11-16T18:32:49.908Z",
+      "providerId": "122197613042921025",
+      "publishedAt": "2026-11-16T18:32:49.908Z"
     }
   ]
 }
