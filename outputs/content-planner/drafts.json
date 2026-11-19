@@ -134,7 +134,7 @@
     "eventFingerprint": "c9fab07eedf4dc62dbcdd82d6c805cee2f37444ebff0b8a3520e26c6801793cf",
     "revision": 1,
     "kind": "event_day",
-    "status": "approved",
+    "status": "published",
     "scheduledFor": "2026-11-19T12:00:00+01:00",
     "season": "winter",
     "event": {
@@ -194,7 +194,8 @@
     "approvedRevision": "86a14fc8339cec03aa13bde8c5155cd733872664ebebe8a76c8f4c4980e3ee7e",
     "githubIssueNumber": 195,
     "reminderState": null,
-    "warningsAcknowledged": false
+    "warningsAcknowledged": false,
+    "publishedAt": "2026-11-19T11:03:05.620Z"
   },
   {
     "draftId": "2026-11-23_weekly-overview_r4",
